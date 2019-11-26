@@ -12,7 +12,10 @@ Imports System.IO
 Public Class F0_Socio
 
 #Region "Variables Globales"
+    Dim mstream As MemoryStream
 
+    Private inDuracion As Byte = 5
+    Private stRutaRaiz As String = gs_CarpetaRaiz + "\Imagenes\Socio\Vehiculo"
     Dim Duracion As Integer = 5 'Duracion es segundo de los mensajes tipo (Toast)
     Dim GrDatos As GridEXRow() 'Arreglo que tiene las filas actuales de la grilla de datos
     Dim DsGeneral As DataSet 'Dataset que contendra a todos los datatable
@@ -289,7 +292,7 @@ Public Class F0_Socio
                 'Detalles
                 Dt1 = CType(Dgv1Telefonos.DataSource, DataTable).DefaultView.ToTable(True, "cgnumi", "cgttip", "cgdesc", "cglin", "estado")
                 Dt2 = CType(Dgd1Hijos.PrimaryGrid.DataSource, DataTable).DefaultView.ToTable(True, "chnumi", "chdesc", "chci", "chfnac", "chimg", "chlin", "estado")
-                Dt3 = CType(Dgd2Vehiculos.PrimaryGrid.DataSource, DataTable).DefaultView.ToTable(True, "cinumi", "cimar", "cimod", "ciplac", "ciros", "ciimg", "cilin", "estado")
+                Dt3 = CType(Dgd2Vehiculos.DataSource, DataTable)
 
                 'Grabar
                 Dim res As Boolean = L_fnSocioGrabar(numi, tsoc, nsoc, fing, fnac, lnac, nom, apat, amat, prof, dir1, dir2, sdir,
@@ -361,7 +364,7 @@ Public Class F0_Socio
                 'Detalles
                 Dt1 = CType(Dgv1Telefonos.DataSource, DataTable).DefaultView.ToTable(True, "cgnumi", "cgttip", "cgdesc", "cglin", "estado")
                 Dt2 = CType(Dgd1Hijos.PrimaryGrid.DataSource, DataTable).DefaultView.ToTable(True, "chnumi", "chdesc", "chci", "chfnac", "chimg", "chlin", "estado")
-                Dt3 = CType(Dgd2Vehiculos.PrimaryGrid.DataSource, DataTable).DefaultView.ToTable(True, "cinumi", "cimar", "cimod", "ciplac", "ciros", "ciimg", "cilin", "estado")
+                Dt3 = CType(Dgd2Vehiculos.DataSource, DataTable)
 
                 'Modificar
                 Dim res As Boolean = L_fnSocioModificar(numi, tsoc, nsoc, fing, fnac, lnac, nom, apat, amat, prof, dir1, dir2, sdir,
@@ -492,7 +495,6 @@ Public Class F0_Socio
         'Grid
         Dgv1Telefonos.ReadOnly = False
         Dgd1Hijos.PrimaryGrid.ReadOnly = False
-        Dgd2Vehiculos.PrimaryGrid.ReadOnly = False
         'Panel
         Pn1AddFotoSocio.Enabled = True
         Pn2AddFotoHijo.Enabled = True
@@ -549,7 +551,7 @@ Public Class F0_Socio
         'Grid
         Dgv1Telefonos.ReadOnly = True
         Dgd1Hijos.PrimaryGrid.ReadOnly = True
-        Dgd2Vehiculos.PrimaryGrid.ReadOnly = True
+
         'Panel
         Pn1AddFotoSocio.Enabled = False
         Pn2AddFotoHijo.Enabled = False
@@ -1424,144 +1426,136 @@ Public Class F0_Socio
 
     End Sub
 
+
+    Private Sub _prPonerImagenDataSource(ByRef dt As DataTable)
+        Dim msView As System.Byte()
+        Dim rutaImagenVehiculo As String = ""
+        msView = _fnBytesArchivo(My.Resources.I512x512_image_view, 40, 40) '130=Ancho, 80=Alto
+
+        For Each f As DataRow In dt.Rows
+            rutaImagenVehiculo = stRutaRaiz + "\Socio_" + f.Item("cinumi").ToString + "\Vehiculo_" + f.Item("cilin").ToString
+
+            If (Directory.Exists(rutaImagenVehiculo)) Then
+                Dim files As String() = Directory.GetFiles(rutaImagenVehiculo)
+                Dim Bin As New MemoryStream
+                Dim im As New Bitmap(New Bitmap(files(0)))
+                '' im.Save(Bin, System.Drawing.Imaging.ImageFormat.Jpeg)
+                f.Item("imgVehiculo") = _fnBytesArchivo(im, 50, 40)
+            Else
+
+                Dim Bin As New MemoryStream
+                Dim im As New Bitmap(My.Resources.imageDefault)
+                ''im.Save(Bin, System.Drawing.Imaging.ImageFormat.Jpeg)
+                f.Item("imgVehiculo") = _fnBytesArchivo(im, 50, 40)
+            End If
+        Next
+
+        mstream.Dispose()
+    End Sub
+
+    Private Function _fnBytesArchivo(img As Bitmap, ancho As Integer, alto As Integer) As Object
+        mstream = New MemoryStream()
+        Dim img2 As New Bitmap(img, ancho, alto)
+        img2.Save(mstream, System.Drawing.Imaging.ImageFormat.Png)
+        Return mstream.ToArray()
+    End Function
     Private Sub P_GridVehiculos(numi As String)
         DtDetalle3 = New DataTable
-        DtDetalle3 = L_fnSocioDetalle3(numi)
+        DtDetalle3 = L_fnSocioDetalleVehiculoSocio(numi)
 
-        Dgd2Vehiculos.PrimaryGrid.Columns.Clear()
-        Dgd2Vehiculos.PrimaryGrid.DataSource = DtDetalle3
+
+        Dgd2Vehiculos.DataSource = DtDetalle3
+        _prPonerImagenDataSource(DtDetalle3)
 
         Dim col As GridColumn
 
-        With Dgd2Vehiculos.PrimaryGrid.Columns
-            col = New GridColumn("cinumi")
-            col.HeaderText = ""
-            col.HeaderStyles.Default.Font = New Font("Arial", 8)
-            col.Width = 0
-            col.CellStyles.Default.Font = New Font("Arial", 8)
-            col.HeaderStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.CellStyles.Default.Alignment = Style.Alignment.MiddleRight
-            col.Visible = False
-            col.ReadOnly = True
-            .Add(col)
-        End With
-        With Dgd2Vehiculos.PrimaryGrid.Columns
-            col = New GridColumn("cimar")
-            col.HeaderText = ""
-            col.HeaderStyles.Default.Font = New Font("Arial", 8)
-            col.Width = 0
-            col.CellStyles.Default.Font = New Font("Arial", 8)
-            col.HeaderStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.CellStyles.Default.Alignment = Style.Alignment.MiddleLeft
-            col.Visible = False
-            col.ReadOnly = True
-            .Add(col)
-        End With
-        With Dgd2Vehiculos.PrimaryGrid.Columns
-            col = New GridColumn("marca")
-            col.HeaderText = "Marca"
-            col.HeaderStyles.Default.Font = New Font("Arial", 8)
-            col.Width = 120
-            col.CellStyles.Default.Font = New Font("Arial", 8)
-            col.HeaderStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.CellStyles.Default.Alignment = Style.Alignment.MiddleLeft
-            col.Visible = True
-            col.ReadOnly = True
-            .Add(col)
-        End With
-        With Dgd2Vehiculos.PrimaryGrid.Columns
-            col = New GridColumn("cimod")
-            col.HeaderText = ""
-            col.HeaderStyles.Default.Font = New Font("Arial", 8)
-            col.Width = 0
-            col.CellStyles.Default.Font = New Font("Arial", 8)
-            col.HeaderStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.CellStyles.Default.Alignment = Style.Alignment.MiddleLeft
-            col.Visible = False
-            col.ReadOnly = True
-            .Add(col)
-        End With
-        With Dgd2Vehiculos.PrimaryGrid.Columns
-            col = New GridColumn("modelo")
-            col.HeaderText = "Modelo"
-            col.HeaderStyles.Default.Font = New Font("Arial", 8)
-            col.Width = 120
-            col.CellStyles.Default.Font = New Font("Arial", 8)
-            col.HeaderStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.CellStyles.Default.Alignment = Style.Alignment.MiddleLeft
-            col.Visible = True
-            col.ReadOnly = True
-            .Add(col)
-        End With
-        With Dgd2Vehiculos.PrimaryGrid.Columns
-            col = New GridColumn("ciplac")
-            col.HeaderText = "Placa"
-            col.HeaderStyles.Default.Font = New Font("Arial", 8)
-            col.Width = 80
-            col.CellStyles.Default.Font = New Font("Arial", 8)
-            col.HeaderStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.CellStyles.Default.Alignment = Style.Alignment.MiddleRight
-            col.Visible = True
-            col.ReadOnly = True
-            .Add(col)
-        End With
-        With Dgd2Vehiculos.PrimaryGrid.Columns
-            col = New GridColumn("ciros")
-            col.HeaderText = "Roseta"
-            col.HeaderStyles.Default.Font = New Font("Arial", 8)
-            col.Width = 80
-            col.CellStyles.Default.Font = New Font("Arial", 8)
-            col.HeaderStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.CellStyles.Default.Alignment = Style.Alignment.MiddleRight
-            col.Visible = True
-            col.ReadOnly = True
-            .Add(col)
-        End With
-        With Dgd2Vehiculos.PrimaryGrid.Columns
-            col = New GridColumn("ciimg")
-            col.HeaderText = "Foto"
-            col.HeaderStyles.Default.Font = New Font("Arial", 8)
-            col.Width = 40
-            col.CellStyles.Default.Font = New Font("Arial", 8)
-            col.HeaderStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.CellStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.Visible = False
-            col.ReadOnly = True
-            .Add(col)
-        End With
-        With Dgd2Vehiculos.PrimaryGrid.Columns
-            col = New GridColumn("cilin")
-            col.HeaderText = ""
-            col.HeaderStyles.Default.Font = New Font("Arial", 8)
-            col.Width = 0
-            col.CellStyles.Default.Font = New Font("Arial", 8)
-            col.HeaderStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.CellStyles.Default.Alignment = Style.Alignment.MiddleRight
-            col.Visible = False
-            col.ReadOnly = True
-            .Add(col)
-        End With
-        With Dgd2Vehiculos.PrimaryGrid.Columns
-            col = New GridColumn("estado")
-            col.HeaderText = ""
-            col.HeaderStyles.Default.Font = New Font("Arial", 8)
-            col.Width = 0
-            col.CellStyles.Default.Font = New Font("Arial", 8)
-            col.HeaderStyles.Default.Alignment = Style.Alignment.MiddleCenter
-            col.CellStyles.Default.Alignment = Style.Alignment.MiddleRight
-            col.Visible = False
-            col.ReadOnly = True
-            .Add(col)
+        Dgd2Vehiculos.BoundMode = Janus.Data.BoundMode.Bound
+        Dgd2Vehiculos.DataSource = DtDetalle3
+        Dgd2Vehiculos.RetrieveStructure()
+
+        'dar formato a las columnas
+        With Dgd2Vehiculos.RootTable.Columns("cinumi") '0
+            .Visible = False
         End With
 
-        With Dgd2Vehiculos.PrimaryGrid
-            .ColumnHeader.RowHeight = 25
-            .ShowRowHeaders = False
-            .UseAlternateRowStyle = True
-            .AllowRowHeaderResize = False
-            .AllowRowResize = False
-            .DefaultRowHeight = 40
-            .SelectionGranularity = SelectionGranularity.Row
+        With Dgd2Vehiculos.RootTable.Columns("cimar") '1
+            .Visible = False
+        End With
+
+        With Dgd2Vehiculos.RootTable.Columns("marca") '2
+            .Caption = "Marca"
+            .Width = 80
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = True
+        End With
+
+        With Dgd2Vehiculos.RootTable.Columns("cimod") '3
+            .Visible = False
+        End With
+
+        With Dgd2Vehiculos.RootTable.Columns("modelo") '4
+            .Caption = "Modelo"
+            .Width = 110
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = True
+        End With
+
+        With Dgd2Vehiculos.RootTable.Columns("ciplac") '5
+            .Caption = "Placa"
+            .Width = 80
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = True
+        End With
+
+        With Dgd2Vehiculos.RootTable.Columns("ciros") '6
+            .Caption = "Roseta"
+            .Width = 80
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+        End With
+
+        With Dgd2Vehiculos.RootTable.Columns("ciimg") '7
+            .Caption = "rutaImagen"
+            .Width = 60
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = False
+        End With
+
+
+        With Dgd2Vehiculos.RootTable.Columns("cilin") '12
+            .Caption = "Lin"
+            .Width = 40
+            .Visible = False
+        End With
+        With Dgd2Vehiculos.RootTable.Columns("imgVehiculo") '7
+            .Caption = "Imagen"
+            .Width = 70
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+        End With
+
+        With Dgd2Vehiculos.RootTable.Columns("estado") '12
+            .Caption = "Lin"
+            .Width = 40
+            .Visible = False
+        End With
+        'Habilitar Filtradores
+        With Dgd2Vehiculos
+            .GroupByBoxVisible = False
+            '.FilterRowFormatStyle.BackColor = Color.Blue
+            '.FilterMode = FilterMode.Automatic
+            .FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges
+            'Diseño de la tabla
+            .SelectionMode = SelectionMode.MultipleSelection
+            .AlternatingColors = True
+            .RecordNavigator = True
+            .AllowEdit = InheritableBoolean.False
         End With
     End Sub
 
@@ -1773,7 +1767,7 @@ Public Class F0_Socio
             MEP.SetError(Tb21Placa, "")
         End If
 
-        If (Dgd2Vehiculos.PrimaryGrid.Rows.Count >= 4) Then 'Extraer de una tabla de politicas de negocio
+        If (CType(Dgd2Vehiculos.DataSource, DataTable).Rows.Count >= 4) Then 'Extraer de una tabla de politicas de negocio
             ToastNotification.Show(Me,
                                    "solo se permite ingresar 4 vehiculos por socio.".ToUpper,
                                    My.Resources.WARNING, Duracion * 1000,
@@ -1862,19 +1856,7 @@ Public Class F0_Socio
         'End If
     End Sub
 
-    Private Sub ELIMINARVEHICULOToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ELIMINARVEHICULOToolStripMenuItem.Click
-        Dim pos As Integer = Dgd2Vehiculos.PrimaryGrid.ActiveRow.Index
-        If (pos >= 0 And pos <= Dgd2Vehiculos.PrimaryGrid.Rows.Count - 1) Then
-            Dim estado As Integer
-            estado = Dgd2Vehiculos.PrimaryGrid.GetCell(pos, Dgd2Vehiculos.PrimaryGrid.Columns("estado").ColumnIndex).Value
-            If (estado = 1 Or estado = 2) Then ' si estoy eliminando una fila ya guardada le cambio el estado y lo oculto de la grilla
-                Dgd2Vehiculos.PrimaryGrid.GetCell(pos, Dgd2Vehiculos.PrimaryGrid.Columns("estado").ColumnIndex).Value = -1
-                Dgd2Vehiculos.PrimaryGrid.Rows(pos).Visible = False
-            Else 'si estoy eliminando una fila nueva, simplemente la elimino del grid
-                Dgd2Vehiculos.PrimaryGrid.Rows.RemoveAt(pos)
-            End If
-        End If
-    End Sub
+
 
     Private Sub Cb3TipoTelefono_ValueChanged(sender As Object, e As EventArgs) Handles Cb3TipoTelefono.ValueChanged
         Dim array As DataRow() = CType(Cb3TipoTelefono.DataSource, DataTable).Select("cedesc1='" + Cb3TipoTelefono.Text + "'")
@@ -2188,7 +2170,7 @@ Public Class F0_Socio
     End Function
 
     Private Sub btAddImgVehiculo_Click(sender As Object, e As EventArgs) Handles btAddImgVehiculo.Click
-        If (Dgd2Vehiculos.PrimaryGrid.Rows.Count > 0) Then
+        If (Dgd2Vehiculos.RowCount > 0) Then
             If (Tb1Codigo.Text = String.Empty) Then
                 ToastNotification.Show(Me,
                                    "Para ingresar las fotos de los vehiculos del socio".ToUpper + vbCrLf _
@@ -2212,6 +2194,78 @@ Public Class F0_Socio
                                    eToastGlowColor.Red,
                                    eToastPosition.TopCenter)
 
+        End If
+    End Sub
+    Public Sub _prObtenerPosicionDetalle(ByRef pos As Integer, ByVal Lin As String)
+        Dim length As Integer = CType(Dgd2Vehiculos.DataSource, DataTable).Rows.Count
+        pos = -1
+        For i As Integer = 0 To length Step 1
+            Dim numi As String = CType(Dgd2Vehiculos.DataSource, DataTable).Rows(i).Item("ciplac")
+            If (numi.Trim.Equals(Lin)) Then
+                pos = i
+                Return
+
+            End If
+        Next
+
+    End Sub
+
+    Private Sub Eliminarms_Click(sender As Object, e As EventArgs) Handles Eliminarms.Click
+        Dim pos As Integer = Dgd2Vehiculos.Row
+
+
+        If Dgd2Vehiculos.RowCount > 1 And pos >= 0 And pos <= Dgd2Vehiculos.RowCount - 1 Then
+            Dim estado As Integer
+            Dim dt As DataTable = CType(Dgd2Vehiculos.DataSource, DataTable)
+
+            Dim lin As String = Dgd2Vehiculos.GetValue("ciplac")
+            Dim PosicionData As Integer = -1
+            _prObtenerPosicionDetalle(PosicionData, lin)
+
+            estado = CType(Dgd2Vehiculos.DataSource, DataTable).Rows(PosicionData).Item("estado")
+
+            If estado = 1 Or estado = 2 Then ' si estoy eliminando una fila ya guardada le cambio el estado y lo oculto de la grilla
+                CType(Dgd2Vehiculos.DataSource, DataTable).Rows(PosicionData).Item("estado") = -1
+
+
+                Dgd2Vehiculos.RootTable.ApplyFilter(New Janus.Windows.GridEX.GridEXFilterCondition(Dgd2Vehiculos.RootTable.Columns("estado"), Janus.Windows.GridEX.ConditionOperator.GreaterThanOrEqualTo, 0))
+
+            Else 'si estoy eliminando una fila nueva, simplemente la elimino del grid
+
+                ' CType(grDetalleEquipo.DataSource, DataTable).Rows(pos).Delete()
+                If (estado = 0) Then
+
+
+
+                    ''CType(Dgd2Vehiculos.DataSource, DataTable).Rows(PosicionData).Item("estado") = -2
+                    CType(Dgd2Vehiculos.DataSource, DataTable).Rows(PosicionData).Delete()
+
+
+                    ''  Dgd2Vehiculos.RootTable.ApplyFilter(New Janus.Windows.GridEX.GridEXFilterCondition(Dgd2Vehiculos.RootTable.Columns("estado"), Janus.Windows.GridEX.ConditionOperator.GreaterThanOrEqualTo, 0))
+
+
+                End If
+
+
+            End If
+        End If
+    End Sub
+    Private Sub _prValidarRuta(ruta As String)
+        If (Not Directory.Exists(ruta)) Then
+            Directory.CreateDirectory(ruta)
+        End If
+    End Sub
+    Private Sub Dgd2Vehiculos_Click(sender As Object, e As EventArgs) Handles Dgd2Vehiculos.Click
+
+        Dim rutaImagenVehiculo As String = stRutaRaiz + "\Socio_" + Dgd2Vehiculos.GetValue("cinumi").ToString + "\Vehiculo_" + Dgd2Vehiculos.GetValue("cilin").ToString
+        If (Dgd2Vehiculos.CurrentColumn.Key.Equals("imgVehiculo")) Then
+            _prValidarRuta(rutaImagenVehiculo)
+            Dim files As String() = Directory.GetFiles(rutaImagenVehiculo)
+            If (files.Count > 0) Then
+
+                Shell("rundll32.exe C:\WINDOWS\system32\shimgvw.dll,ImageView_Fullscreen " + files(0))
+
+            End If
         End If
     End Sub
 End Class
