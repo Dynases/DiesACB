@@ -17,6 +17,9 @@ Public Class F_ClienteNuevoServicio
         _prCargarComboLibreria(cbmarca, gi_LibVEHICULO, gi_LibVEHIMarca)
         _prCargarComboLibreria(cbmodelo, gi_LibVEHICULO, gi_LibVEHIModelo)
         _prCargarComboLibreria(cbtipo, gi_LibVEHICULO, 4)
+        _prCargarComboLibreriaTipoCliente(cbTipoCliente, 14, 4)
+
+        cbTipoCliente.Value = 1
         tbNombre.CharacterCasing = CharacterCasing.Upper
         tbplaca.CharacterCasing = CharacterCasing.Upper
         cbmarca.CharacterCasing = CharacterCasing.Upper
@@ -75,6 +78,15 @@ Public Class F_ClienteNuevoServicio
             cbmarca.BackColor = Color.White
             MEP.SetError(cbmarca, "")
         End If
+        If cbTipoCliente.SelectedIndex < 0 Then
+            cbTipoCliente.BackColor = Color.Red
+            MEP.SetError(cbTipoCliente, "Seleccione Tipo de Cliente!".ToUpper)
+            _ok = False
+        Else
+            cbTipoCliente.BackColor = Color.White
+            MEP.SetError(cbTipoCliente, "")
+        End If
+
         If cbmodelo.SelectedIndex < 0 Then
             cbmodelo.BackColor = Color.Red
             MEP.SetError(cbmodelo, "Seleccione modelo del vehiculo!".ToUpper)
@@ -132,7 +144,7 @@ Public Class F_ClienteNuevoServicio
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
         If (_prValidar()) Then
             _prCargarDatosVehiculo()
-            Dim res As Boolean = L_prClienteLVentaGrabar("", 0, "0", Now.Date.ToString, "", tbNombre.Text, "", "", "", "", "", "", "", 1, "", "", TableVehiculo)
+            Dim res As Boolean = L_prClienteLVentaGrabar("", cbTipoCliente.Value, "0", Now.Date.ToString, "", tbNombre.Text, "", "", "", "", "", "", "", 1, "", "", TableVehiculo)
             If res Then
 
               
@@ -183,7 +195,7 @@ Public Class F_ClienteNuevoServicio
 
     Private Sub cbtipo_KeyDown(sender As Object, e As KeyEventArgs) Handles cbtipo.KeyDown
         If (e.KeyData = Keys.Enter) Then
-            tbplaca.Focus()
+            cbTipoCliente.Focus()
 
         End If
     End Sub
@@ -262,5 +274,16 @@ Public Class F_ClienteNuevoServicio
         End If
         cbtipo.Focus()
 
+    End Sub
+
+    Private Sub LabelX20_Click(sender As Object, e As EventArgs) Handles LabelX20.Click
+
+    End Sub
+
+    Private Sub cbTipoCliente_KeyDown(sender As Object, e As KeyEventArgs) Handles cbTipoCliente.KeyDown
+        If (e.KeyData = Keys.Enter) Then
+            tbplaca.Focus()
+
+        End If
     End Sub
 End Class

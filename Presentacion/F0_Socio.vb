@@ -2262,7 +2262,6 @@ Public Class F0_Socio
             _prValidarRuta(rutaImagenVehiculo)
             Dim files As String() = Directory.GetFiles(rutaImagenVehiculo)
             If (files.Count > 0) Then
-
                 Shell("rundll32.exe C:\WINDOWS\system32\shimgvw.dll,ImageView_Fullscreen " + files(0))
 
             End If

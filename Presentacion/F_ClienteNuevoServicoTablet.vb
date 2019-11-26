@@ -17,6 +17,8 @@ Public Class F_ClienteNuevoServicoTablet
         _prCargarComboLibreria(cbmarca, gi_LibVEHICULO, gi_LibVEHIMarca)
         _prCargarComboLibreria(cbmodelo, gi_LibVEHICULO, gi_LibVEHIModelo)
         _prCargarComboLibreria(cbtipo, gi_LibVEHICULO, 4)
+        _prCargarComboLibreriaTipoCliente(cbTipoCliente, 14, 4)
+        cbTipoCliente.Value = 1
         tbNombre.CharacterCasing = CharacterCasing.Upper
         tbplaca.CharacterCasing = CharacterCasing.Upper
         cbmarca.CharacterCasing = CharacterCasing.Upper
@@ -81,6 +83,15 @@ Public Class F_ClienteNuevoServicoTablet
             cbmarca.BackColor = Color.White
             MEP.SetError(cbmarca, "")
         End If
+
+        If cbTipoCliente.SelectedIndex < 0 Then
+            cbTipoCliente.BackColor = Color.Red
+            MEP.SetError(cbTipoCliente, "Seleccione Tipo de Cliente!".ToUpper)
+            _ok = False
+        Else
+            cbTipoCliente.BackColor = Color.White
+            MEP.SetError(cbTipoCliente, "")
+        End If
         If cbmodelo.SelectedIndex < 0 Then
             cbmodelo.BackColor = Color.Red
             MEP.SetError(cbmodelo, "Seleccione modelo del vehiculo!".ToUpper)
@@ -138,7 +149,7 @@ Public Class F_ClienteNuevoServicoTablet
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
         If (_prValidar()) Then
             _prCargarDatosVehiculo()
-            Dim res As Boolean = L_prClienteLVentaGrabar("", 0, "0", Now.Date.ToString("yyyy/MM/dd"), "", tbNombre.Text, "", "", "", "", "", "", "", 1, tbtelefono1.Text, tbtelefono2.Text, TableVehiculo)
+            Dim res As Boolean = L_prClienteLVentaGrabar("", cbTipoCliente.Value, "0", Now.Date.ToString("yyyy/MM/dd"), "", tbNombre.Text, "", "", "", "", "", "", "", 1, tbtelefono1.Text, tbtelefono2.Text, TableVehiculo)
             If res Then
 
 
@@ -189,7 +200,7 @@ Public Class F_ClienteNuevoServicoTablet
 
     Private Sub cbtipo_KeyDown(sender As Object, e As KeyEventArgs) Handles cbtipo.KeyDown
         If (e.KeyData = Keys.Enter) Then
-            tbplaca.Focus()
+            cbtipo.Focus()
 
         End If
     End Sub
@@ -280,6 +291,13 @@ Public Class F_ClienteNuevoServicoTablet
     Private Sub tbtelefono2_KeyDown(sender As Object, e As KeyEventArgs) Handles tbtelefono2.KeyDown
         If (e.KeyData = Keys.Enter) Then
             btnguardar.Focus()
+
+        End If
+    End Sub
+
+    Private Sub cbTipoCliente_KeyDown(sender As Object, e As KeyEventArgs) Handles cbTipoCliente.KeyDown
+        If (e.KeyData = Keys.Enter) Then
+            tbplaca.Focus()
 
         End If
     End Sub

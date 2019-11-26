@@ -193,6 +193,26 @@ Module P_Global
         End With
     End Sub
 
+    Public Sub _prCargarComboLibreriaTipoCliente(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo, cod1 As String, cod2 As String)
+        Dim dt As New DataTable
+        dt = L_prLibreriaTipoCliente(cod1, cod2)
+
+        With mCombo
+            .DropDownList.Columns.Clear()
+
+            .DropDownList.Columns.Add("cenum").Width = 70
+            .DropDownList.Columns("cenum").Caption = "COD"
+
+            .DropDownList.Columns.Add("cedesc1").Width = 200
+            .DropDownList.Columns("cedesc1").Caption = "DESCRIPCION"
+
+            .ValueMember = "cenum"
+            .DisplayMember = "cedesc1"
+            .DataSource = dt
+            .Refresh()
+        End With
+    End Sub
+
     Public Sub g_prArmarCombo(cbj As MultiColumnCombo, dtCombo As DataTable,
                               Optional anchoCodigo As Integer = 60, Optional anchoDesc As Integer = 200,
                               Optional nombreCodigo As String = "Código", Optional nombreDescripción As String = "Nombre")

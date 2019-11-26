@@ -25,6 +25,7 @@ Public Class F1_Cliente_L
         '_prCargarComboLibreria(cbTipo, gi_LibLAVADERO, gi_LibLAVADEROClie)
         _prCargarComboLibreria(cbmarca, gi_LibVEHICULO, gi_LibVEHIMarca)
         _prCargarComboLibreria(cbmodelo, gi_LibVEHICULO, gi_LibVEHIModelo)
+        _prCargarComboLibreria(cbTipoCliente, 14, 4)
         _PMIniciarTodo()
         _prAsignarPermisos()
         _prCargarLengthTextBox()
@@ -460,6 +461,8 @@ Public Class F1_Cliente_L
         grVehiculo.ContextMenuStrip.ResumeLayout()
         ButtonX1.Visible = False
 
+        cbTipoCliente.Visible = False
+        lbTipoCliente.Visible = False
     End Sub
     Public Overrides Sub _PMOInhabilitar()
         tbNumi.ReadOnly = True
@@ -483,7 +486,9 @@ Public Class F1_Cliente_L
         grVehiculo.AllowEdit = InheritableBoolean.False
         grVehiculo.ContextMenuStrip.Enabled = False
         ButtonX1.Visible = True
-
+        cbTipoCliente.Visible = True
+        lbTipoCliente.Visible = True
+        cbTipoCliente.ReadOnly = True
     End Sub
     Public Overrides Sub _PMOHabilitarFocus()
         With MHighlighterFocus
@@ -613,7 +618,7 @@ Public Class F1_Cliente_L
         Dim listEstCeldas As New List(Of Modelos.Celda)
         listEstCeldas.Add(New Modelos.Celda("lanumi", False, "ID", 50))
         listEstCeldas.Add(New Modelos.Celda("latipo", False))
-        listEstCeldas.Add(New Modelos.Celda("cedesc1", False, "TIPO", 120))
+        listEstCeldas.Add(New Modelos.Celda("cedesc1", True, "TIPO CLIENTE", 130))
         listEstCeldas.Add(New Modelos.Celda("lansoc", True, "NRO SOCIO", 90))
         listEstCeldas.Add(New Modelos.Celda("lafing", False, "FECHA DE INGRESO", 200))
         listEstCeldas.Add(New Modelos.Celda("lafnac", True, "F. NACIMIENTO", 120))
@@ -667,7 +672,16 @@ Public Class F1_Cliente_L
             lbFecha.Text = CType(.GetValue("lafact"), Date).ToString("dd/MM/yyyy")
             lbHora.Text = .GetValue("lahact").ToString
             lbUsuario.Text = .GetValue("lauact").ToString
-            tbFnac.Text = .GetValue("lafnac")
+            cbTipoCliente.Value = .GetValue("latipo")
+            If (IsDBNull(.GetValue("lafnac"))) Then
+
+                tbFnac.Text = "2000-01-01"
+
+            Else
+                tbFnac.Text = .GetValue("lafnac")
+
+            End If
+
             'cbTipo.Value = .GetValue("latipo")
 
             tbFIngr.Text = .GetValue("lafing")
@@ -719,7 +733,7 @@ Public Class F1_Cliente_L
         Dim nsoc As Integer = 1
 
 
-        Dim res As Boolean = L_prClienteLGrabar(tbNumi.Text, 0, tbNSoc.Text, tbFIngr.Value.ToString("yyyy/MM/dd"), tbFnac.Value.ToString("yyyy/MM/dd"), tbNombre.Text, "", "", tbDir.Text, tbEmail.Text, tbCi.Text, nameImg, tbObs.Text, IIf(tbEstado.Value = True, 1, 0), tbTel1.Text, tbTel2.Text, CType(grVehiculo.DataSource, DataTable))
+        Dim res As Boolean = L_prClienteLGrabar(tbNumi.Text, 1, tbNSoc.Text, tbFIngr.Value.ToString("yyyy/MM/dd"), tbFnac.Value.ToString("yyyy/MM/dd"), tbNombre.Text, "", "", tbDir.Text, tbEmail.Text, tbCi.Text, nameImg, tbObs.Text, IIf(tbEstado.Value = True, 1, 0), tbTel1.Text, tbTel2.Text, CType(grVehiculo.DataSource, DataTable))
         If res Then
             Modificado = False
 

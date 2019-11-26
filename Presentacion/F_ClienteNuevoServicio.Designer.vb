@@ -28,6 +28,7 @@ Partial Class F_ClienteNuevoServicio
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_ClienteNuevoServicio))
         Dim cbmodelo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbtipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim cbTipoCliente_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.tbNombre = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.LabelX6 = New DevComponents.DotNetBar.LabelX()
         Me.cbmarca = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
@@ -39,6 +40,7 @@ Partial Class F_ClienteNuevoServicio
         Me.tbplaca = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.LabelX19 = New DevComponents.DotNetBar.LabelX()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ReflectionLabel1 = New DevComponents.DotNetBar.Controls.ReflectionLabel()
         Me.cbtipo = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
@@ -49,13 +51,15 @@ Partial Class F_ClienteNuevoServicio
         Me.MFlyoutUsuario = New DevComponents.DotNetBar.Controls.Flyout(Me.components)
         Me.BtnModelo = New DevComponents.DotNetBar.ButtonX()
         Me.BtnMarca = New DevComponents.DotNetBar.ButtonX()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.cbTipoCliente = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         CType(Me.cbmarca, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbmodelo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbtipo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbTipoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tbNombre
@@ -67,10 +71,10 @@ Partial Class F_ClienteNuevoServicio
         Me.tbNombre.Border.Class = "TextBoxBorder"
         Me.tbNombre.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNombre.Location = New System.Drawing.Point(187, 96)
+        Me.tbNombre.Location = New System.Drawing.Point(215, 96)
         Me.tbNombre.Name = "tbNombre"
         Me.tbNombre.PreventEnterBeep = True
-        Me.tbNombre.Size = New System.Drawing.Size(296, 22)
+        Me.tbNombre.Size = New System.Drawing.Size(296, 26)
         Me.tbNombre.TabIndex = 0
         '
         'LabelX6
@@ -81,9 +85,9 @@ Partial Class F_ClienteNuevoServicio
         '
         Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX6.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX6.Location = New System.Drawing.Point(105, 95)
+        Me.LabelX6.Location = New System.Drawing.Point(96, 95)
         Me.LabelX6.Name = "LabelX6"
-        Me.LabelX6.Size = New System.Drawing.Size(76, 23)
+        Me.LabelX6.Size = New System.Drawing.Size(85, 23)
         Me.LabelX6.TabIndex = 145
         Me.LabelX6.Text = "NOMBRES:"
         '
@@ -92,13 +96,13 @@ Partial Class F_ClienteNuevoServicio
         cbmarca_DesignTimeLayout.LayoutString = resources.GetString("cbmarca_DesignTimeLayout.LayoutString")
         Me.cbmarca.DesignTimeLayout = cbmarca_DesignTimeLayout
         Me.cbmarca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbmarca.Location = New System.Drawing.Point(187, 124)
+        Me.cbmarca.Location = New System.Drawing.Point(215, 124)
         Me.cbmarca.Name = "cbmarca"
         Me.cbmarca.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.cbmarca.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.cbmarca.SelectedIndex = -1
         Me.cbmarca.SelectedItem = Nothing
-        Me.cbmarca.Size = New System.Drawing.Size(156, 22)
+        Me.cbmarca.Size = New System.Drawing.Size(156, 26)
         Me.cbmarca.TabIndex = 1
         Me.cbmarca.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -110,7 +114,7 @@ Partial Class F_ClienteNuevoServicio
         '
         Me.LabelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX17.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX17.Location = New System.Drawing.Point(105, 123)
+        Me.LabelX17.Location = New System.Drawing.Point(96, 124)
         Me.LabelX17.Name = "LabelX17"
         Me.LabelX17.Size = New System.Drawing.Size(69, 23)
         Me.LabelX17.TabIndex = 147
@@ -121,13 +125,13 @@ Partial Class F_ClienteNuevoServicio
         cbmodelo_DesignTimeLayout.LayoutString = resources.GetString("cbmodelo_DesignTimeLayout.LayoutString")
         Me.cbmodelo.DesignTimeLayout = cbmodelo_DesignTimeLayout
         Me.cbmodelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbmodelo.Location = New System.Drawing.Point(187, 152)
+        Me.cbmodelo.Location = New System.Drawing.Point(215, 152)
         Me.cbmodelo.Name = "cbmodelo"
         Me.cbmodelo.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.cbmodelo.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.cbmodelo.SelectedIndex = -1
         Me.cbmodelo.SelectedItem = Nothing
-        Me.cbmodelo.Size = New System.Drawing.Size(156, 22)
+        Me.cbmodelo.Size = New System.Drawing.Size(156, 26)
         Me.cbmodelo.TabIndex = 2
         Me.cbmodelo.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -139,9 +143,9 @@ Partial Class F_ClienteNuevoServicio
         '
         Me.LabelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX18.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX18.Location = New System.Drawing.Point(106, 153)
+        Me.LabelX18.Location = New System.Drawing.Point(96, 153)
         Me.LabelX18.Name = "LabelX18"
-        Me.LabelX18.Size = New System.Drawing.Size(69, 23)
+        Me.LabelX18.Size = New System.Drawing.Size(79, 23)
         Me.LabelX18.TabIndex = 149
         Me.LabelX18.Text = "MODELO:"
         '
@@ -153,10 +157,10 @@ Partial Class F_ClienteNuevoServicio
         Me.tbroseta.Border.Class = "TextBoxBorder"
         Me.tbroseta.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbroseta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbroseta.Location = New System.Drawing.Point(187, 232)
+        Me.tbroseta.Location = New System.Drawing.Point(215, 259)
         Me.tbroseta.Name = "tbroseta"
         Me.tbroseta.PreventEnterBeep = True
-        Me.tbroseta.Size = New System.Drawing.Size(176, 22)
+        Me.tbroseta.Size = New System.Drawing.Size(176, 26)
         Me.tbroseta.TabIndex = 5
         '
         'LabelX20
@@ -167,9 +171,9 @@ Partial Class F_ClienteNuevoServicio
         '
         Me.LabelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX20.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX20.Location = New System.Drawing.Point(105, 231)
+        Me.LabelX20.Location = New System.Drawing.Point(96, 258)
         Me.LabelX20.Name = "LabelX20"
-        Me.LabelX20.Size = New System.Drawing.Size(58, 23)
+        Me.LabelX20.Size = New System.Drawing.Size(69, 23)
         Me.LabelX20.TabIndex = 153
         Me.LabelX20.Text = "ROSETA:"
         '
@@ -181,10 +185,10 @@ Partial Class F_ClienteNuevoServicio
         Me.tbplaca.Border.Class = "TextBoxBorder"
         Me.tbplaca.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbplaca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbplaca.Location = New System.Drawing.Point(187, 205)
+        Me.tbplaca.Location = New System.Drawing.Point(215, 232)
         Me.tbplaca.Name = "tbplaca"
         Me.tbplaca.PreventEnterBeep = True
-        Me.tbplaca.Size = New System.Drawing.Size(176, 22)
+        Me.tbplaca.Size = New System.Drawing.Size(176, 26)
         Me.tbplaca.TabIndex = 4
         '
         'LabelX19
@@ -195,7 +199,7 @@ Partial Class F_ClienteNuevoServicio
         '
         Me.LabelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX19.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX19.Location = New System.Drawing.Point(105, 204)
+        Me.LabelX19.Location = New System.Drawing.Point(96, 229)
         Me.LabelX19.Name = "LabelX19"
         Me.LabelX19.Size = New System.Drawing.Size(58, 23)
         Me.LabelX19.TabIndex = 152
@@ -212,6 +216,17 @@ Partial Class F_ClienteNuevoServicio
         Me.Panel1.Padding = New System.Windows.Forms.Padding(20, 5, 0, 5)
         Me.Panel1.Size = New System.Drawing.Size(555, 63)
         Me.Panel1.TabIndex = 157
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PictureBox1.Image = Global.Presentacion.My.Resources.Resources.man
+        Me.PictureBox1.Location = New System.Drawing.Point(491, 5)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Padding = New System.Windows.Forms.Padding(0, 8, 0, 0)
+        Me.PictureBox1.Size = New System.Drawing.Size(64, 53)
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
         'ReflectionLabel1
         '
@@ -232,13 +247,13 @@ Partial Class F_ClienteNuevoServicio
         cbtipo_DesignTimeLayout.LayoutString = resources.GetString("cbtipo_DesignTimeLayout.LayoutString")
         Me.cbtipo.DesignTimeLayout = cbtipo_DesignTimeLayout
         Me.cbtipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbtipo.Location = New System.Drawing.Point(187, 179)
+        Me.cbtipo.Location = New System.Drawing.Point(215, 179)
         Me.cbtipo.Name = "cbtipo"
         Me.cbtipo.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.cbtipo.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.cbtipo.SelectedIndex = -1
         Me.cbtipo.SelectedItem = Nothing
-        Me.cbtipo.Size = New System.Drawing.Size(156, 22)
+        Me.cbtipo.Size = New System.Drawing.Size(156, 26)
         Me.cbtipo.TabIndex = 3
         Me.cbtipo.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -250,7 +265,7 @@ Partial Class F_ClienteNuevoServicio
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX1.Location = New System.Drawing.Point(106, 180)
+        Me.LabelX1.Location = New System.Drawing.Point(96, 179)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.Size = New System.Drawing.Size(69, 23)
         Me.LabelX1.TabIndex = 159
@@ -267,7 +282,7 @@ Partial Class F_ClienteNuevoServicio
         Me.btnguardar.Image = Global.Presentacion.My.Resources.Resources.save
         Me.btnguardar.ImageFixedSize = New System.Drawing.Size(20, 20)
         Me.btnguardar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnguardar.Location = New System.Drawing.Point(150, 263)
+        Me.btnguardar.Location = New System.Drawing.Point(150, 290)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.btnguardar.Shape = New DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2)
@@ -288,7 +303,7 @@ Partial Class F_ClienteNuevoServicio
         Me.btnsalir.Image = Global.Presentacion.My.Resources.Resources.atras
         Me.btnsalir.ImageFixedSize = New System.Drawing.Size(20, 20)
         Me.btnsalir.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnsalir.Location = New System.Drawing.Point(272, 263)
+        Me.btnsalir.Location = New System.Drawing.Point(272, 290)
         Me.btnsalir.Name = "btnsalir"
         Me.btnsalir.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.btnsalir.Size = New System.Drawing.Size(101, 42)
@@ -314,9 +329,9 @@ Partial Class F_ClienteNuevoServicio
         '
         Me.BtnModelo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.BtnModelo.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
-        Me.BtnModelo.Image = Global.Presentacion.My.Resources.Resources.nuevo
+        Me.BtnModelo.Image = Global.Presentacion.My.Resources.Resources.NUEVO
         Me.BtnModelo.ImageFixedSize = New System.Drawing.Size(28, 28)
-        Me.BtnModelo.Location = New System.Drawing.Point(346, 149)
+        Me.BtnModelo.Location = New System.Drawing.Point(374, 149)
         Me.BtnModelo.Name = "BtnModelo"
         Me.BtnModelo.Size = New System.Drawing.Size(34, 29)
         Me.BtnModelo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -327,30 +342,50 @@ Partial Class F_ClienteNuevoServicio
         '
         Me.BtnMarca.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.BtnMarca.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
-        Me.BtnMarca.Image = Global.Presentacion.My.Resources.Resources.nuevo
+        Me.BtnMarca.Image = Global.Presentacion.My.Resources.Resources.NUEVO
         Me.BtnMarca.ImageFixedSize = New System.Drawing.Size(28, 28)
-        Me.BtnMarca.Location = New System.Drawing.Point(346, 120)
+        Me.BtnMarca.Location = New System.Drawing.Point(374, 120)
         Me.BtnMarca.Name = "BtnMarca"
         Me.BtnMarca.Size = New System.Drawing.Size(34, 29)
         Me.BtnMarca.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.BtnMarca.TabIndex = 206
         Me.BtnMarca.Visible = False
         '
-        'PictureBox1
+        'cbTipoCliente
         '
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PictureBox1.Image = Global.Presentacion.My.Resources.Resources.man
-        Me.PictureBox1.Location = New System.Drawing.Point(491, 5)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Padding = New System.Windows.Forms.Padding(0, 8, 0, 0)
-        Me.PictureBox1.Size = New System.Drawing.Size(64, 53)
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
+        cbTipoCliente_DesignTimeLayout.LayoutString = resources.GetString("cbTipoCliente_DesignTimeLayout.LayoutString")
+        Me.cbTipoCliente.DesignTimeLayout = cbTipoCliente_DesignTimeLayout
+        Me.cbTipoCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbTipoCliente.Location = New System.Drawing.Point(215, 205)
+        Me.cbTipoCliente.Name = "cbTipoCliente"
+        Me.cbTipoCliente.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbTipoCliente.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbTipoCliente.SelectedIndex = -1
+        Me.cbTipoCliente.SelectedItem = Nothing
+        Me.cbTipoCliente.Size = New System.Drawing.Size(156, 26)
+        Me.cbTipoCliente.TabIndex = 207
+        Me.cbTipoCliente.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'LabelX2
+        '
+        Me.LabelX2.BackColor = System.Drawing.SystemColors.Control
+        '
+        '
+        '
+        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX2.Location = New System.Drawing.Point(96, 205)
+        Me.LabelX2.Name = "LabelX2"
+        Me.LabelX2.Size = New System.Drawing.Size(113, 23)
+        Me.LabelX2.TabIndex = 208
+        Me.LabelX2.Text = "TIPO CLIENTE:"
         '
         'F_ClienteNuevoServicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.ClientSize = New System.Drawing.Size(555, 314)
+        Me.ClientSize = New System.Drawing.Size(555, 358)
+        Me.Controls.Add(Me.cbTipoCliente)
+        Me.Controls.Add(Me.LabelX2)
         Me.Controls.Add(Me.BtnModelo)
         Me.Controls.Add(Me.BtnMarca)
         Me.Controls.Add(Me.btnsalir)
@@ -375,9 +410,10 @@ Partial Class F_ClienteNuevoServicio
         CType(Me.cbmarca, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbmodelo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbtipo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbTipoCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -404,4 +440,6 @@ Partial Class F_ClienteNuevoServicio
     Friend WithEvents BtnModelo As DevComponents.DotNetBar.ButtonX
     Friend WithEvents BtnMarca As DevComponents.DotNetBar.ButtonX
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents cbTipoCliente As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
 End Class

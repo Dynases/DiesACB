@@ -36,6 +36,7 @@ Public Class F1_ServicioVenta
         _prCargarComboLibreria(cbTamanoR, 1, 4) ''Libreria Vehiculo=1  TamVehiculo=4
         _prCargarComboLibreria(cbTipoVehiculoR, 14, 2) ''Libreria Vehiculo=1  TamVehiculo=4
         _prCargarComboLibreria(cbventa, 14, 3) ''Libreria Contado, Credito,ATC
+        _prCargarComboLibreria(cbTipoCliente, 14, 4)
         _PMIniciarTodo()
         _prAsignarPermisos()
         TablaGeneralServicios = L_prObtenerHistorialdeServiciosPolitica(-1, 0)
@@ -188,7 +189,7 @@ Public Class F1_ServicioVenta
 
     Private Sub _prCargarAyudaServicios()
         Dim dt As New DataTable
-        dt = L_prServicioVentaAyudaServicio(gi_LibServLav, cbTipo.Value, CType(grDetalle.DataSource, DataTable))
+        dt = L_prServicioVentaAyudaServicio(gi_LibServLav, cbTipo.Value, CType(grDetalle.DataSource, DataTable), cbTipoCliente.Value)
 
         ''''janosssssssss''''''
         grProducto.DataSource = dt
@@ -346,6 +347,12 @@ Public Class F1_ServicioVenta
             .Width = 100
             .Caption = "CI"
             .Visible = True
+        End With
+
+        With grVentasPendientes.RootTable.Columns("latipo")
+            .Width = 100
+            .Caption = "Tipo"
+            .Visible = False
         End With
         With grVentasPendientes.RootTable.Columns("nombre")
             .Width = 250
@@ -685,6 +692,11 @@ Public Class F1_ServicioVenta
             .Visible = False
         End With
         With grVentasPendientes.RootTable.Columns("lbtip1_4")
+            .Width = 250
+            .Visible = False
+        End With
+
+        With grVentasPendientes.RootTable.Columns("latipo")
             .Width = 250
             .Visible = False
         End With
@@ -1045,7 +1057,7 @@ Public Class F1_ServicioVenta
         tbNumeroOrden.Enabled = True
         FechaVenta.Enabled = False
 
-        tbClienteSocio.IsReadOnly = True
+        cbTipoCliente.ReadOnly = True
         tbNumeroOrden.ReadOnly = True
         tbCliente.ReadOnly = True
         tbVehiculo.ReadOnly = True
@@ -1122,7 +1134,7 @@ Public Class F1_ServicioVenta
         tbFechaPago.Text = ""
         lbFechaPago.Visible = False
         tbFechaPago.Visible = False
-        tbClienteSocio.Value = True
+        cbTipoCliente.Value = 1
         SuperTabControl1.SelectedTabIndex = 0
         SuperTabItem2.Visible = False
         If (grPolitica.RowCount > 0) Then
@@ -1238,6 +1250,7 @@ Public Class F1_ServicioVenta
         listEstCeldas.Add(New Modelos.Celda("lansoc", False))
         listEstCeldas.Add(New Modelos.Celda("ldtablet", False))
         listEstCeldas.Add(New Modelos.Celda("acb", False))
+        listEstCeldas.Add(New Modelos.Celda("latipo", False))
         Return listEstCeldas
 
 
@@ -1506,13 +1519,9 @@ Public Class F1_ServicioVenta
         _prCargarImagen()
     End Sub
     Public Sub _prVerificarSocio()
-        Dim nsoc As Integer = JGrM_Buscador.GetValue("lansoc")
-        If (nsoc > 0) Then
-            tbClienteSocio.Value = False
-        Else
-            tbClienteSocio.Value = True
+        Dim nsoc As Integer = JGrM_Buscador.GetValue("latipo")
+        cbTipoCliente.Value = nsoc
 
-        End If
     End Sub
 
     Public Function _fnValidarDatosDetalle()
@@ -1865,7 +1874,7 @@ Public Class F1_ServicioVenta
         Return False
     End Function
     Public Sub _VerificarPagoAlDia(_nsoc As Integer)
-        If (PagoAlDia = False And _nsoc > 0 And Automovil = False) Then
+        If (PagoAlDia = False And _nsoc = 2 And Automovil = False) Then
             MsgBox("El Socio Esta Sin Pagos Al Dia Por Lo Tanto El Sistema No Aplicara Ningun Tipo De Descuento y Solo Hara Su Servicios Como Cliente!", MsgBoxStyle.Exclamation, "Error")
         End If
     End Sub
@@ -2204,10 +2213,10 @@ Public Class F1_ServicioVenta
                             End If
                         End If
                         TableCliente = False
-                        Dim nsoc As Integer = grVentasPendientes.GetValue("lansoc")
+                        Dim nsoc As Integer = grVentasPendientes.GetValue("latipo")
                         Dim HonorarioMeritorio As Integer = grVentasPendientes.GetValue("tipo")
-                        If (nsoc > 0) Then
-                            tbClienteSocio.Value = False
+                        cbTipoCliente.Value = nsoc
+                        If (nsoc = 2) Then
                             Dim FechaPago As DataTable = L_prObtenerUltimoPagoSocio(nsoc)
                             lbFechaPago.Visible = True
                             tbFechaPago.Visible = True
@@ -2281,7 +2290,6 @@ Public Class F1_ServicioVenta
 
                             End If
                         Else
-                            tbClienteSocio.Value = True
                             tbFechaPago.Text = ""
                             lbFechaPago.Visible = False
                             tbFechaPago.Visible = False
@@ -2518,6 +2526,7 @@ Public Class F1_ServicioVenta
                 tbCliente.Text = dt.Rows(0).Item("nombre")
                 tbnumiCliente.Text = dt.Rows(0).Item("lanumi")
                 tbnumiVehiculo.Text = dt.Rows(0).Item("lblin")
+                cbTipoCliente.Value = dt.Rows(0).Item("latipo")
                 tbVehiculo.Text = placa
                 TableCliente = True
                 cbTipo.Value = dt.Rows(0).Item("lbtip1_4")
@@ -2525,7 +2534,6 @@ Public Class F1_ServicioVenta
                 Cliente = False
                 grDetalle.Focus()
                 placa = ""
-                tbClienteSocio.Value = True
                 lbFechaPago.Visible = False
                 tbFechaPago.Text = ""
                 tbFechaPago.Visible = False
@@ -2564,7 +2572,7 @@ Public Class F1_ServicioVenta
                 UsImg.pbImage.Image = My.Resources.imageDefault
 
                 cbTipo.SelectedIndex = -1
-                tbClienteSocio.Value = True
+                cbTipoCliente.Value = 1
                 lbFechaPago.Visible = False
                 tbFechaPago.Text = ""
                 tbFechaPago.Visible = False
@@ -2686,9 +2694,10 @@ Public Class F1_ServicioVenta
                         UsImg.pbImage.Image = im
 
                     End If
-                    Dim nsoc As Integer = grVentasPendientes.GetValue("lansoc")
-                    If (nsoc > 0) Then
-                        tbClienteSocio.Value = False
+                    Dim nsoc As Integer = grVentasPendientes.GetValue("latipo")
+                    cbTipoCliente.Value = nsoc
+                    If (nsoc = 2) Then
+
                         Dim FechaPago As DataTable = L_prObtenerUltimoPagoSocio(nsoc)
                         lbFechaPago.Visible = True
                         tbFechaPago.Visible = True
@@ -2786,7 +2795,7 @@ Public Class F1_ServicioVenta
 
                         End If
                     Else
-                        tbClienteSocio.Value = True
+
                         tbFechaPago.Text = ""
                         lbFechaPago.Visible = False
                         tbFechaPago.Visible = False
@@ -3194,7 +3203,7 @@ Public Class F1_ServicioVenta
         tbFechaPago.Text = ""
         lbFechaPago.Visible = False
         tbFechaPago.Visible = False
-        tbClienteSocio.Value = True
+        cbTipoCliente.Value = 1
         SuperTabControl1.SelectedTabIndex = 0
         SuperTabItem2.Visible = False
         If (grPolitica.RowCount > 0) Then
@@ -3223,6 +3232,7 @@ Public Class F1_ServicioVenta
                 Dim listEstCeldas As New List(Of Modelos.Celda)
 
                 listEstCeldas.Add(New Modelos.Celda("lfnumi", True, "ID", 50))
+                listEstCeldas.Add(New Modelos.Celda("tipoCliente,", False, "TIPO CLIENTE", 50))
                 listEstCeldas.Add(New Modelos.Celda("lftcl1soc,", False, "ID", 50))
                 listEstCeldas.Add(New Modelos.Celda("nombre", True, "NOMBRE DEL CLIENTE", 280))
                 listEstCeldas.Add(New Modelos.Celda("lffecha,", True, "FECHA", 100, "yyyy/MM/dd"))
@@ -3284,10 +3294,10 @@ Public Class F1_ServicioVenta
                     'vehiculo.lbplac as placa,vehiculo .lbtip1_4 ,MarcaCliente .cedesc1 ,a.lfcomb ,a.lfobs ,
                     'a.lftipo ,a.lftam ,a.lffact ,a.lfhact ,a.lfuact ,cliente.lansoc 
                     TableCliente = False
-                    Dim nsoc As Integer = Row.Cells("lansoc").Value
+                    Dim nsoc As Integer = Row.Cells("tipoCliente").Value
                     Dim HonorarioMeritorio As Integer = Row.Cells("tipo").Value
-                    If (nsoc > 0) Then
-                        tbClienteSocio.Value = False
+                    If (nsoc = 2) Then
+                        cbTipoCliente.Value = nsoc
                         Dim FechaPago As DataTable = L_prObtenerUltimoPagoSocio(nsoc)
                         lbFechaPago.Visible = True
                         tbFechaPago.Visible = True
@@ -3382,7 +3392,7 @@ Public Class F1_ServicioVenta
 
                         End If
                     Else
-                        tbClienteSocio.Value = True
+                        cbTipoCliente.Value = nsoc
                         tbFechaPago.Text = ""
                         lbFechaPago.Visible = False
                         tbFechaPago.Visible = False
@@ -3519,7 +3529,5 @@ Public Class F1_ServicioVenta
         End If
     End Sub
 
-    Private Sub SuperTabPrincipal_SelectedTabChanged(sender As Object, e As SuperTabStripSelectedTabChangedEventArgs) Handles SuperTabPrincipal.SelectedTabChanged
 
-    End Sub
 End Class

@@ -26,6 +26,7 @@ Partial Class F1_Servicio
         Dim tbTipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbTipoPrecio_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbsucursal_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim cbTipoCliente_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_Servicio))
         Me.tbTipo = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX16 = New DevComponents.DotNetBar.LabelX()
@@ -51,6 +52,8 @@ Partial Class F1_Servicio
         Me.btnEliminar2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LabelX5 = New DevComponents.DotNetBar.LabelX()
         Me.cbsucursal = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.cbTipoCliente = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.lbTipoCliente = New DevComponents.DotNetBar.LabelX()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -76,6 +79,7 @@ Partial Class F1_Servicio
         CType(Me.tbTipoPrecio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmOpciones2.SuspendLayout()
         CType(Me.cbsucursal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbTipoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SuperTabPrincipal
@@ -180,6 +184,8 @@ Partial Class F1_Servicio
         '
         'MPanelSup
         '
+        Me.MPanelSup.Controls.Add(Me.cbTipoCliente)
+        Me.MPanelSup.Controls.Add(Me.lbTipoCliente)
         Me.MPanelSup.Controls.Add(Me.cbsucursal)
         Me.MPanelSup.Controls.Add(Me.LabelX5)
         Me.MPanelSup.Controls.Add(Me.tbTipoPrecio)
@@ -219,6 +225,8 @@ Partial Class F1_Servicio
         Me.MPanelSup.Controls.SetChildIndex(Me.tbTipoPrecio, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.LabelX5, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.cbsucursal, 0)
+        Me.MPanelSup.Controls.SetChildIndex(Me.lbTipoCliente, 0)
+        Me.MPanelSup.Controls.SetChildIndex(Me.cbTipoCliente, 0)
         '
         'PanelPrincipal
         '
@@ -302,7 +310,7 @@ Partial Class F1_Servicio
         Me.LabelX16.Name = "LabelX16"
         Me.LabelX16.Size = New System.Drawing.Size(116, 28)
         Me.LabelX16.TabIndex = 101
-        Me.LabelX16.Text = "TIPO:"
+        Me.LabelX16.Text = "MODULO:"
         '
         'tbEstado
         '
@@ -633,6 +641,34 @@ Partial Class F1_Servicio
         Me.cbsucursal.Size = New System.Drawing.Size(274, 26)
         Me.cbsucursal.TabIndex = 108
         '
+        'cbTipoCliente
+        '
+        cbTipoCliente_DesignTimeLayout.LayoutString = resources.GetString("cbTipoCliente_DesignTimeLayout.LayoutString")
+        Me.cbTipoCliente.DesignTimeLayout = cbTipoCliente_DesignTimeLayout
+        Me.cbTipoCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbTipoCliente.Location = New System.Drawing.Point(539, 128)
+        Me.cbTipoCliente.Margin = New System.Windows.Forms.Padding(4)
+        Me.cbTipoCliente.Name = "cbTipoCliente"
+        Me.cbTipoCliente.SelectedIndex = -1
+        Me.cbTipoCliente.SelectedItem = Nothing
+        Me.cbTipoCliente.Size = New System.Drawing.Size(208, 26)
+        Me.cbTipoCliente.TabIndex = 109
+        '
+        'lbTipoCliente
+        '
+        Me.lbTipoCliente.AutoSize = True
+        '
+        '
+        '
+        Me.lbTipoCliente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbTipoCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbTipoCliente.Location = New System.Drawing.Point(444, 129)
+        Me.lbTipoCliente.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbTipoCliente.Name = "lbTipoCliente"
+        Me.lbTipoCliente.Size = New System.Drawing.Size(45, 21)
+        Me.lbTipoCliente.TabIndex = 110
+        Me.lbTipoCliente.Text = "TIPO:"
+        '
         'F1_Servicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -670,6 +706,7 @@ Partial Class F1_Servicio
         CType(Me.tbTipoPrecio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmOpciones2.ResumeLayout(False)
         CType(Me.cbsucursal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbTipoCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -697,4 +734,6 @@ Partial Class F1_Servicio
     Friend WithEvents grDetalle As Janus.Windows.GridEX.GridEX
     Friend WithEvents cbsucursal As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents LabelX5 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents cbTipoCliente As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents lbTipoCliente As DevComponents.DotNetBar.LabelX
 End Class

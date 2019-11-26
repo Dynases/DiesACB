@@ -1555,7 +1555,8 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
-    Public Shared Function L_prServicioGrabar(ByRef _numi As String, _codigo As String, _desc As String, _precio As String, _tipo As String, _estado As String, _TCE0041 As DataTable, _TCE0042 As DataTable, _suc As Integer) As Boolean
+    Public Shared Function L_prServicioGrabar(ByRef _numi As String, _codigo As String, _desc As String, _precio As String, _tipo As String, _estado As String, _TCE0041 As DataTable, _TCE0042 As DataTable, _suc As Integer,
+                                              _TipoCliente As Integer) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -1572,6 +1573,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@TCE0041", "", _TCE0041))
         _listParam.Add(New Datos.DParametro("@TCE0042", "", _TCE0042))
         _listParam.Add(New Datos.DParametro("@edsuc", _suc))
+        _listParam.Add(New Datos.DParametro("@tipoCliente", _TipoCliente))
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE004", _listParam)
 
         If _Tabla.Rows.Count > 0 Then
@@ -1583,7 +1585,8 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
-    Public Shared Function L_prServicioModificar(ByRef _numi As String, _codigo As String, _desc As String, _precio As String, _tipo As String, _estado As String, _TCE0041 As DataTable, _TCE0042 As DataTable, ByRef _mensaje As String, _suc As Integer) As Boolean
+    Public Shared Function L_prServicioModificar(ByRef _numi As String, _codigo As String, _desc As String, _precio As String, _tipo As String, _estado As String, _TCE0041 As DataTable, _TCE0042 As DataTable, ByRef _mensaje As String, _suc As Integer,
+                                                   _TipoCliente As Integer) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -1600,6 +1603,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@TCE0041", "", _TCE0041))
         _listParam.Add(New Datos.DParametro("@TCE0042", "", _TCE0042))
         _listParam.Add(New Datos.DParametro("@edsuc", _suc))
+        _listParam.Add(New Datos.DParametro("@tipoCliente", _TipoCliente))
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE004", _listParam)
 
         If _Tabla.Rows.Count > 0 Then
@@ -6483,7 +6487,7 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
-    Public Shared Function L_prServicioVentaAyudaServicio(_libTipoLavado As Integer, _Lib1_4 As Integer, _detalle As DataTable) As DataTable
+    Public Shared Function L_prServicioVentaAyudaServicio(_libTipoLavado As Integer, _Lib1_4 As Integer, _detalle As DataTable, _tipoCliente As Integer) As DataTable
         Dim _Tabla As DataTable
 
         Dim _listParam As New List(Of Datos.DParametro)
@@ -6492,6 +6496,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@lduact", L_Usuario))
         _listParam.Add(New Datos.DParametro("@edtipo", _libTipoLavado))
         _listParam.Add(New Datos.DParametro("@lbtip1_4", _Lib1_4))
+        _listParam.Add(New Datos.DParametro("@tipoCliente", _tipoCliente))
         _listParam.Add(New Datos.DParametro("@TCL0021", "", _detalle))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TCL002", _listParam)
 
@@ -7213,7 +7218,19 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_prLibreriaTipoCliente(_cod1 As Integer, _cod2 As Integer) As DataTable
+        Dim _Tabla As DataTable
 
+        Dim _listPalam As New List(Of Datos.DParametro)
+
+        _listPalam.Add(New Datos.DParametro("@tipo", 7))
+        _listPalam.Add(New Datos.DParametro("@gcuact", L_Usuario))
+        _listPalam.Add(New Datos.DParametro("@cdcod1", _cod1))
+        _listPalam.Add(New Datos.DParametro("@cdcod2", _cod2))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TCG002", _listPalam)
+
+        Return _Tabla
+    End Function
 
 
     Public Shared Function L_prVehiculoSucursalAyuda(Optional _Cadena As String = "", Optional _order As String = "") As DataTable
