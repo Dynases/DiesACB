@@ -6289,7 +6289,7 @@ Public Class AccesoLogica
 
 
 
-    Public Shared Function L_prCompraLavaderoGrabar(ByRef _lfnumi As String, _lffecha As Date, _lfprov As Integer, _lfobs As String, _TCL0051 As DataTable) As Boolean
+    Public Shared Function L_prCompraLavaderoGrabar(ByRef _lfnumi As String, _lffecha As Date, _lfprov As Integer, _lfobs As String, _TCL0051 As DataTable, fechRecepcion As String) As Boolean
 
         ' @lfnumi ,@lffecha ,@lfprov ,@lfobs ,@newFecha,@newHora,@lfuact
         Dim _resultado As Boolean
@@ -6299,6 +6299,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@tipo", 1))
         _listParam.Add(New Datos.DParametro("@lfnumi", _lfnumi))
         _listParam.Add(New Datos.DParametro("@lffecha", _lffecha))
+        _listParam.Add(New Datos.DParametro("@lffechaRecepcion", fechRecepcion))
         _listParam.Add(New Datos.DParametro("@lfprov", _lfprov))
         _listParam.Add(New Datos.DParametro("@lfobs", _lfobs))
         _listParam.Add(New Datos.DParametro("@lfuact", L_Usuario))
@@ -6314,7 +6315,7 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
-    Public Shared Function L_prCompraLavaderoModificar(ByRef _lfnumi As String, _lffecha As Date, _lfprov As Integer, _lfobs As String, _TCL0051 As DataTable) As Boolean
+    Public Shared Function L_prCompraLavaderoModificar(ByRef _lfnumi As String, _lffecha As Date, _lfprov As Integer, _lfobs As String, _TCL0051 As DataTable, fechRecepcion As String) As Boolean
 
         '@hbnumi ,@hbnom  ,@hbdor ,@hbper   
         '	,@hbtipo   ,@hbsuc ,@hbobs,@newFecha,@newHora,@hbuact
@@ -6327,6 +6328,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@lffecha", _lffecha))
         _listParam.Add(New Datos.DParametro("@lfprov", _lfprov))
         _listParam.Add(New Datos.DParametro("@lfobs", _lfobs))
+        _listParam.Add(New Datos.DParametro("@lffechaRecepcion", fechRecepcion))
         _listParam.Add(New Datos.DParametro("@lfuact", L_Usuario))
         _listParam.Add(New Datos.DParametro("@TCL0051", "", _TCL0051))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TCL005", _listParam)
@@ -6517,13 +6519,14 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
-    Public Shared Function L_prProductoGeneralLavadero(_dt As DataTable) As DataTable
+    Public Shared Function L_prProductoGeneralLavadero(_dt As DataTable, TipoCliente As Integer) As DataTable
         Dim _Tabla As DataTable
 
         Dim _listParam As New List(Of Datos.DParametro)
 
         _listParam.Add(New Datos.DParametro("@tipo", 25))
         _listParam.Add(New Datos.DParametro("@lduact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@tipoCliente", TipoCliente))
         _listParam.Add(New Datos.DParametro("@TCL0021", "", _dt))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TCL002", _listParam)
 

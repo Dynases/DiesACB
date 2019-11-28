@@ -61,7 +61,7 @@ Public Class F1_ServicioVenta
 
     Private Sub _prCargarAyudaProductos()
         Dim dt As New DataTable
-        dt = L_prProductoGeneralLavadero(CType(grDetalle.DataSource, DataTable))
+        dt = L_prProductoGeneralLavadero(CType(grDetalle.DataSource, DataTable), cbTipoCliente.Value)
         ''''janosssssssss''''''
         grProducto.DataSource = dt
         grProducto.RetrieveStructure()
@@ -3529,5 +3529,10 @@ Public Class F1_ServicioVenta
         End If
     End Sub
 
+    Private Sub cbTipoCliente_ValueChanged(sender As Object, e As EventArgs) Handles cbTipoCliente.ValueChanged
+        If (Not _fnVisualizarRegistros() And Estado.IsReadOnly = False) Then
+            CType(grDetalle.DataSource, DataTable).Rows.Clear()
 
+        End If
+    End Sub
 End Class

@@ -76,10 +76,25 @@ Public Class F1_CompraLavadero
         End With
         With grDetalle.RootTable.Columns("lgpv")
             .Width = 150
-            .Caption = "PRECIO DE VENTA"
+            .Caption = "PVENTA Cliente"
             .Visible = True
             .FormatString = "0.00"
         End With
+
+        With grDetalle.RootTable.Columns("lgpvSocio")
+            .Width = 150
+            .Caption = "PVENTA Socios"
+            .Visible = True
+            .FormatString = "0.00"
+        End With
+
+        With grDetalle.RootTable.Columns("lgpvInterno")
+            .Width = 150
+            .Caption = "PVENTA Internos"
+            .Visible = True
+            .FormatString = "0.00"
+        End With
+
         With grDetalle.RootTable.Columns("lglin")
             .Caption = "CODIGO"
             .Width = 150
@@ -196,7 +211,7 @@ Public Class F1_CompraLavadero
         '1 as estado
         Dim lin As Integer = _fnObtenerLinDetalle() + 1
         _prCalcularPrecioTotal()
-        CType(grDetalle.DataSource, DataTable).Rows.Add({lin, 0, 0, "", 0, 0, 0, 0, 0, 0, 0})
+        CType(grDetalle.DataSource, DataTable).Rows.Add({lin, 0, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0})
     End Sub
 
     Public Function _fnValidarColumn(pos As Integer, row As Integer, _MostrarMensaje As Boolean) As Boolean
@@ -322,15 +337,14 @@ Public Class F1_CompraLavadero
 
     End Sub
     Public Overrides Sub _PMOInhabilitar()
-
         tbProveedor.ReadOnly = True
-       
+        tbFechaRecepcion.ReadOnly = True
         tbFechaCompra.Enabled = False
         tbCodigo.Enabled = False
         tbObs.ReadOnly = True
-       
+
         ButtonX1.Visible = True
-       
+
         Eliminarms.Visible = False
         If (JGrM_Buscador.RowCount = 0) Then
             _PMOLimpiar()
@@ -358,6 +372,7 @@ Public Class F1_CompraLavadero
         tbTotal.Text = 0
         ButtonX1.Visible = False
         ButtonX2.Visible = False
+        tbFechaRecepcion.Text = DateTime.Now.ToString("dd/MM/yyyy")
     End Sub
     Public Overrides Sub _PMOLimpiarErrores()
 
@@ -390,6 +405,7 @@ Public Class F1_CompraLavadero
         ' a.lfnumi ,a.lffecha ,a.lfprov ,a.lfobs ,a.lffact ,a.lfhact ,a.lfuact 
         listEstCeldas.Add(New Modelos.Celda("lfnumi", True, "CODIGO COMPRA", 150))
         listEstCeldas.Add(New Modelos.Celda("lffecha", True, "FECHA DE COMPRA", 150))
+        listEstCeldas.Add(New Modelos.Celda("lffechaRecepcion", True, "FECHA DE RECEPCION", 150))
         listEstCeldas.Add(New Modelos.Celda("lfprov", False))
         listEstCeldas.Add(New Modelos.Celda("proveedor", False, "PROVEEDOR", 150))
         listEstCeldas.Add(New Modelos.Celda("lfobs", True, "OBSERVACION", 400))
@@ -414,6 +430,7 @@ Public Class F1_CompraLavadero
             tbnumiProveedor.Text = .GetValue("lfprov")
             tbCodigo.Text = .GetValue("lfnumi")
             tbFechaCompra.Value = .GetValue("lffecha")
+            tbFechaRecepcion.Value = .GetValue("lffechaRecepcion")
             lbFecha.Text = CType(.GetValue("lffact"), Date).ToString("dd/MM/yyyy")
             lbHora.Text = .GetValue("lfhact").ToString
             lbUsuario.Text = .GetValue("lfuact").ToString
@@ -433,7 +450,7 @@ Public Class F1_CompraLavadero
     Public Overrides Function _PMOGrabarRegistro() As Boolean
         Dim res As Boolean
         'ByRef _lfnumi As String, _lffecha As Date, _lfprov As Integer, _lfobs As String, _TCL0051 As DataTable
-        res = L_prCompraLavaderoGrabar(tbCodigo.Text, tbFechaCompra.Value.ToString("yyyy/MM/dd"), 1, tbObs.Text, CType(grDetalle.DataSource, DataTable))
+        res = L_prCompraLavaderoGrabar(tbCodigo.Text, tbFechaCompra.Value.ToString("yyyy/MM/dd"), 1, tbObs.Text, CType(grDetalle.DataSource, DataTable), tbFechaRecepcion.Value.ToString("yyyy/MM/dd"))
         If res Then
             ToastNotification.Show(Me, "Codigo de Compra ".ToUpper + tbCodigo.Text + " Grabado con Exito.".ToUpper, My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
         End If
@@ -443,7 +460,7 @@ Public Class F1_CompraLavadero
         Dim res As Boolean
 
 
-        res = L_prCompraLavaderoModificar(tbCodigo.Text, tbFechaCompra.Value.ToString("yyyy/MM/dd"), 1, tbObs.Text, CType(grDetalle.DataSource, DataTable))
+        res = L_prCompraLavaderoModificar(tbCodigo.Text, tbFechaCompra.Value.ToString("yyyy/MM/dd"), 1, tbObs.Text, CType(grDetalle.DataSource, DataTable), tbFechaRecepcion.Value.ToString("yyyy/MM/dd"))
         If res Then
 
 
@@ -598,7 +615,8 @@ Public Class F1_CompraLavadero
             'Habilitar solo las columnas de Precio, %, Monto y Observación
             If (e.Column.Index = grDetalle.RootTable.Columns("lgcant").Index Or
                 e.Column.Index = grDetalle.RootTable.Columns("lgpc").Index Or
-                e.Column.Index = grDetalle.RootTable.Columns("lgpv").Index) Then
+                e.Column.Index = grDetalle.RootTable.Columns("lgpv").Index Or
+                e.Column.Index = grDetalle.RootTable.Columns("lgpvSocio").Index Or e.Column.Index = grDetalle.RootTable.Columns("lgpvInterno").Index) Then
                 e.Cancel = False
             Else
                 e.Cancel = True
@@ -665,6 +683,8 @@ salirIf:
                 listEstCeldas.Add(New Modelos.Celda("GrupoProducto", True, "GRUPO DE PRODUCTOS", 180))
                 listEstCeldas.Add(New Modelos.Celda("ldprec", True, "PRECIO DE COMPRA", 150, "0.00"))
                 listEstCeldas.Add(New Modelos.Celda("ldprev", True, "PRECIO DE VENTA", 150, "0.00"))
+                listEstCeldas.Add(New Modelos.Celda("ldprevSocio", True, "PVENTA SOCIO", 150, "0.00"))
+                listEstCeldas.Add(New Modelos.Celda("ldprevInterno", True, "PVENTA INTERNO", 150, "0.00"))
                 listEstCeldas.Add(New Modelos.Celda("ldsmin", True, "STOCK MINIMO", 150, "0.00"))
                 listEstCeldas.Add(New Modelos.Celda("stock", True, "STOCK ACTUAL", 150, "0.00"))
                 frmAyuda = New Modelos.ModeloAyuda(50, 250, dt, "SELECCIONE UN PRODUCTO".ToUpper, listEstCeldas)
@@ -677,6 +697,8 @@ salirIf:
                     Dim descr As String = frmAyuda.filaSelect.Cells("ldcdprod1").Value
                     Dim precioc As Double = frmAyuda.filaSelect.Cells("ldprec").Value
                     Dim preciov As Double = frmAyuda.filaSelect.Cells("ldprev").Value
+                    Dim PrecioVSocio As Double = frmAyuda.filaSelect.Cells("ldprevSocio").Value
+                    Dim PrecioVInterno As Double = frmAyuda.filaSelect.Cells("ldprevInterno").Value
                     Dim stock As Double = frmAyuda.filaSelect.Cells("stock").Value
                     Dim lin As Integer = grDetalle.GetValue("lglin")
                     Dim pos As Integer = -1
@@ -688,6 +710,9 @@ salirIf:
                             CType(grDetalle.DataSource, DataTable).Rows(pos).Item("descripcion") = descr
                             CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lgpc") = precioc
                             CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lgpv") = preciov
+                            CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lgpvSocio") = PrecioVSocio
+                            CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lgpvInterno") = PrecioVInterno
+
                             CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lgcant") = 1
                             CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lgstocka") = stock
                             CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lgstockf") = stock + 1
