@@ -427,6 +427,8 @@ Public Class F1_Cliente_L
         ButtonX1.Visible = True
     End Sub
 
+
+
 #End Region
 
 #Region "METODOS SOBREESCRITOS"
@@ -460,9 +462,9 @@ Public Class F1_Cliente_L
         grVehiculo.ContextMenuStrip.Enabled = True
         grVehiculo.ContextMenuStrip.ResumeLayout()
         ButtonX1.Visible = False
+        cbTipoCliente.ReadOnly = False
 
-        cbTipoCliente.Visible = False
-        lbTipoCliente.Visible = False
+
     End Sub
     Public Overrides Sub _PMOInhabilitar()
         tbNumi.ReadOnly = True
@@ -575,7 +577,7 @@ Public Class F1_Cliente_L
         '    tbFnac.BackColor = Color.White
         '    MEP.SetError(tbFnac, "")
         'End If
-      
+
         If tbNombre.Text = String.Empty Then
             tbNombre.BackColor = Color.Red
             MEP.SetError(tbNombre, "ingrese su Nombre Completo!".ToUpper)
@@ -583,6 +585,14 @@ Public Class F1_Cliente_L
         Else
             tbNombre.BackColor = Color.White
             MEP.SetError(tbNombre, "")
+        End If
+        If (tbNSoc.Text.Equals("0") And cbTipoCliente.Value = 2) Then
+            cbTipoCliente.BackColor = Color.Red
+            MEP.SetError(cbTipoCliente, "No se puede ingresar tipo de Cliente sin nro de Socio".ToUpper)
+            _ok = False
+        Else
+            cbTipoCliente.BackColor = Color.White
+            MEP.SetError(cbTipoCliente, "")
         End If
 
         'If tbDir.Text = String.Empty Then
@@ -647,13 +657,14 @@ Public Class F1_Cliente_L
 
     End Function
     Public Overrides Function _PMOGetTablaBuscador() As DataTable
+
         Dim dtBuscador As DataTable = L_prClienteLGeneral(gi_LibLAVADERO, gi_LibLAVADEROClie)
 
 
         Return dtBuscador
     End Function
 
-  
+
 
     Public Overrides Sub _PMOMostrarRegistro(_N As Integer)
         JGrM_Buscador.Row = _MPos
@@ -733,8 +744,9 @@ Public Class F1_Cliente_L
         Dim nsoc As Integer = 1
 
 
-        Dim res As Boolean = L_prClienteLGrabar(tbNumi.Text, 1, tbNSoc.Text, tbFIngr.Value.ToString("yyyy/MM/dd"), tbFnac.Value.ToString("yyyy/MM/dd"), tbNombre.Text, "", "", tbDir.Text, tbEmail.Text, tbCi.Text, nameImg, tbObs.Text, IIf(tbEstado.Value = True, 1, 0), tbTel1.Text, tbTel2.Text, CType(grVehiculo.DataSource, DataTable))
+        Dim res As Boolean = L_prClienteLGrabar(tbNumi.Text, cbTipoCliente.Value, tbNSoc.Text, tbFIngr.Value.ToString("yyyy/MM/dd"), tbFnac.Value.ToString("yyyy/MM/dd"), tbNombre.Text, "", "", tbDir.Text, tbEmail.Text, tbCi.Text, nameImg, tbObs.Text, IIf(tbEstado.Value = True, 1, 0), tbTel1.Text, tbTel2.Text, CType(grVehiculo.DataSource, DataTable))
         If res Then
+
             Modificado = False
 
             _fnMoverImagenRuta(RutaGlobal + "\Imagenes\Imagenes ClienteL", nameImg)
@@ -750,7 +762,8 @@ Public Class F1_Cliente_L
         Dim b As Boolean = Modificado
         Dim nameImage As String = JGrM_Buscador.GetValue("lafot")
         If (Modificado = False) Then
-            res = L_prClienteLModificar(tbNumi.Text, 0, tbNSoc.Text, tbFIngr.Value.ToString("yyyy/MM/dd"), tbFnac.Value.ToString("yyyy/MM/dd"), tbNombre.Text, "", "", tbDir.Text, tbEmail.Text, tbCi.Text, nameImage, tbObs.Text, IIf(tbEstado.Value = True, 1, 0), tbTel1.Text, tbTel2.Text, CType(grVehiculo.DataSource, DataTable))
+
+            res = L_prClienteLModificar(tbNumi.Text, cbTipoCliente.Value, tbNSoc.Text, tbFIngr.Value.ToString("yyyy/MM/dd"), tbFnac.Value.ToString("yyyy/MM/dd"), tbNombre.Text, "", "", tbDir.Text, tbEmail.Text, tbCi.Text, nameImage, tbObs.Text, IIf(tbEstado.Value = True, 1, 0), tbTel1.Text, tbTel2.Text, CType(grVehiculo.DataSource, DataTable))
         Else
             res = L_prClienteLModificar(tbNumi.Text, tipo, tbNSoc.Text, tbFIngr.Value.ToString("yyyy/MM/dd"), tbFnac.Value.ToString("yyyy/MM/dd"), tbNombre.Text, "", "", tbDir.Text, tbEmail.Text, tbCi.Text, nameImg, tbObs.Text, IIf(tbEstado.Value = True, 1, 0), tbTel1.Text, tbTel2.Text,
                                         CType(grVehiculo.DataSource, DataTable))

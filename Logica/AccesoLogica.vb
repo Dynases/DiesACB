@@ -6504,7 +6504,7 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
-    Public Shared Function L_prServicioCargarRecepcion(_libTipoLavado As Integer, _Lib1_4 As Integer, _lfnumi As Integer) As DataTable
+    Public Shared Function L_prServicioCargarRecepcion(_libTipoLavado As Integer, _Lib1_4 As Integer, _lfnumi As Integer, _latipo As Integer) As DataTable
         Dim _Tabla As DataTable
 
         Dim _listParam As New List(Of Datos.DParametro)
@@ -6514,6 +6514,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@edtipo", _libTipoLavado))
         _listParam.Add(New Datos.DParametro("@lbtip1_4", _Lib1_4))
         _listParam.Add(New Datos.DParametro("@lfnumi", _lfnumi))
+        _listParam.Add(New Datos.DParametro("@tipoCliente", _latipo))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TCL002", _listParam)
 
         Return _Tabla
@@ -6533,6 +6534,57 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
+    Public Shared Function L_prServiciostodosModulostodosClientes() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 29))
+        _listParam.Add(New Datos.DParametro("@lduact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TCL002", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_prServiciosUnModulostodosClientes(Modulo As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 30))
+        _listParam.Add(New Datos.DParametro("@lduact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@modulo", Modulo))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TCL002", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_prServiciosTodosModuloUnClientes(cliente As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 31))
+        _listParam.Add(New Datos.DParametro("@lduact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@tipoCliente", cliente))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TCL002", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_prServiciosUnModuloUnClientes(modulo As Integer, cliente As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 32))
+        _listParam.Add(New Datos.DParametro("@lduact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@tipoCliente", cliente))
+        _listParam.Add(New Datos.DParametro("@modulo", modulo))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TCL002", _listParam)
+
+        Return _Tabla
+    End Function
     Public Shared Function L_prServicioVentaAyudaVehiculo(_Placa As String) As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)

@@ -771,4 +771,9 @@ Public Class P_Principal
         Dim frm As New F1_Bancos
         frm.Show()
     End Sub
+
+    Private Sub btconfReportServicios_Click(sender As Object, e As EventArgs) Handles btconfReportServicios.Click
+        Dim frm As New Pr_ServiciosLavadero
+        frm.Show()
+    End Sub
 End Class

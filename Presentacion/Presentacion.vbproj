@@ -726,6 +726,12 @@
     <Compile Include="PR_ReservaHotel.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Pr_ServiciosLavadero.Designer.vb">
+      <DependentUpon>Pr_ServiciosLavadero.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pr_ServiciosLavadero.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PR_ServiciosVenta.Designer.vb">
       <DependentUpon>PR_ServiciosVenta.vb</DependentUpon>
     </Compile>
@@ -1085,6 +1091,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>R_ReservaHotel.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_Servicios.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_Servicios.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_ServiciosRemolqueGeneral.vb">
@@ -1520,6 +1532,9 @@
     <EmbeddedResource Include="PR_ReservaHotel.resx">
       <DependentUpon>PR_ReservaHotel.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pr_ServiciosLavadero.resx">
+      <DependentUpon>Pr_ServiciosLavadero.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PR_ServiciosVenta.resx">
       <DependentUpon>PR_ServiciosVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -1743,6 +1758,10 @@
     <EmbeddedResource Include="Reportes\R_ReservaHotel.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_ReservaHotel.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_Servicios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_Servicios.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_ServiciosRemolqueGeneral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -61,7 +61,15 @@ Public Class F1_ServicioVenta
 
     Private Sub _prCargarAyudaProductos()
         Dim dt As New DataTable
-        dt = L_prProductoGeneralLavadero(CType(grDetalle.DataSource, DataTable), cbTipoCliente.Value)
+
+        If (cbTipoCliente.Value = 2 And PagoAlDia = False) Then '''Si es socio y tiene deudas se debe listar precios de clientes normales
+            dt = L_prProductoGeneralLavadero(CType(grDetalle.DataSource, DataTable), 1)
+        Else
+            dt = L_prProductoGeneralLavadero(CType(grDetalle.DataSource, DataTable), cbTipoCliente.Value)
+
+        End If
+
+
         ''''janosssssssss''''''
         grProducto.DataSource = dt
         grProducto.RetrieveStructure()
@@ -189,7 +197,14 @@ Public Class F1_ServicioVenta
 
     Private Sub _prCargarAyudaServicios()
         Dim dt As New DataTable
-        dt = L_prServicioVentaAyudaServicio(gi_LibServLav, cbTipo.Value, CType(grDetalle.DataSource, DataTable), cbTipoCliente.Value)
+        If (cbTipoCliente.Value = 2 And PagoAlDia = False) Then
+            dt = L_prServicioVentaAyudaServicio(gi_LibServLav, cbTipo.Value, CType(grDetalle.DataSource, DataTable), 1)
+
+        Else
+            dt = L_prServicioVentaAyudaServicio(gi_LibServLav, cbTipo.Value, CType(grDetalle.DataSource, DataTable), cbTipoCliente.Value)
+
+
+        End If
 
         ''''janosssssssss''''''
         grProducto.DataSource = dt
@@ -3421,9 +3436,15 @@ Public Class F1_ServicioVenta
                     tbVehiculo.ReadOnly = True
 
 
+                    If (nsoc = 2 And PagoAlDia = False) Then
 
+                        _prCargarServicioRecepcion(L_prServicioCargarRecepcion(gi_LibServLav, cbTipo.Value, tbNumeroOrden.Text, 1))
 
-                    _prCargarServicioRecepcion(L_prServicioCargarRecepcion(gi_LibServLav, cbTipo.Value, tbNumeroOrden.Text))
+                    Else
+                        _prCargarServicioRecepcion(L_prServicioCargarRecepcion(gi_LibServLav, cbTipo.Value, tbNumeroOrden.Text, nsoc))
+
+                    End If
+
                     grDetalle.Focus()
 
                     grDetalle.Select()
