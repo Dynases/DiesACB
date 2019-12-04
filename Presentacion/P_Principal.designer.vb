@@ -25,6 +25,17 @@ Partial Class P_Principal
         Dim MetroTileFrame1 As DevComponents.DotNetBar.Metro.MetroTileFrame
         Dim MetroTileFrame2 As DevComponents.DotNetBar.Metro.MetroTileFrame
         Me.SideNav1 = New DevComponents.DotNetBar.Controls.SideNav()
+        Me.SideNav_Conf = New DevComponents.DotNetBar.Controls.SideNavPanel()
+        Me.MetroTilePanel1 = New DevComponents.DotNetBar.Metro.MetroTilePanel()
+        Me.btConfServicios = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.btConfRoles = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.btConfUsuarios = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.btConfSucursales = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.btConfHorarios = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.btConfPolitica = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.btconfbanco = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.btconfReportServicios = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.SideNavPanel4 = New DevComponents.DotNetBar.Controls.SideNavPanel()
         Me.MetroTilePanel6 = New DevComponents.DotNetBar.Metro.MetroTilePanel()
         Me.btLavCliente = New DevComponents.DotNetBar.Metro.MetroTileItem()
@@ -41,16 +52,6 @@ Partial Class P_Principal
         Me.btRecepcionLavadero = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btsalidaProductoAcb = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.SideNav_Conf = New DevComponents.DotNetBar.Controls.SideNavPanel()
-        Me.MetroTilePanel1 = New DevComponents.DotNetBar.Metro.MetroTilePanel()
-        Me.btConfServicios = New DevComponents.DotNetBar.Metro.MetroTileItem()
-        Me.btConfRoles = New DevComponents.DotNetBar.Metro.MetroTileItem()
-        Me.btConfUsuarios = New DevComponents.DotNetBar.Metro.MetroTileItem()
-        Me.btConfSucursales = New DevComponents.DotNetBar.Metro.MetroTileItem()
-        Me.btConfHorarios = New DevComponents.DotNetBar.Metro.MetroTileItem()
-        Me.btConfPolitica = New DevComponents.DotNetBar.Metro.MetroTileItem()
-        Me.btconfbanco = New DevComponents.DotNetBar.Metro.MetroTileItem()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.SideNavPanel1 = New DevComponents.DotNetBar.Controls.SideNavPanel()
         Me.MetroTilePanel4 = New DevComponents.DotNetBar.Metro.MetroTilePanel()
         Me.btSocSocio = New DevComponents.DotNetBar.Metro.MetroTileItem()
@@ -169,14 +170,13 @@ Partial Class P_Principal
         Me.MetroTileItem2 = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.MetroTileItem3 = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.tbDecimal = New DevComponents.Editors.DoubleInput()
-        Me.btconfReportServicios = New DevComponents.DotNetBar.Metro.MetroTileItem()
         MetroTileFrame1 = New DevComponents.DotNetBar.Metro.MetroTileFrame()
         MetroTileFrame2 = New DevComponents.DotNetBar.Metro.MetroTileFrame()
         Me.SideNav1.SuspendLayout()
-        Me.SideNavPanel4.SuspendLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SideNav_Conf.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SideNavPanel4.SuspendLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SideNavPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SideNavPanel6.SuspendLayout()
@@ -230,22 +230,177 @@ Partial Class P_Principal
         Me.SideNav1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SideNav1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SideNavItem1, Me.Separator1, Me.FP_Configuracion, Me.FP_RecHumanos, Me.FP_Escuela, Me.FP_Socios, Me.FP_Certificacion, Me.Separator2, Me.FP_Lavadero, Me.Separator3, Me.FP_Hotel, Me.Separator4, Me.FP_Remolque})
         Me.SideNav1.Location = New System.Drawing.Point(0, 0)
-        Me.SideNav1.Margin = New System.Windows.Forms.Padding(4)
         Me.SideNav1.Name = "SideNav1"
         Me.SideNav1.Padding = New System.Windows.Forms.Padding(1)
-        Me.SideNav1.Size = New System.Drawing.Size(1356, 690)
+        Me.SideNav1.Size = New System.Drawing.Size(1017, 561)
         Me.SideNav1.TabIndex = 1
         Me.SideNav1.Text = "SideNav1"
+        '
+        'SideNav_Conf
+        '
+        Me.SideNav_Conf.Controls.Add(Me.MetroTilePanel1)
+        Me.SideNav_Conf.Controls.Add(Me.PictureBox4)
+        Me.SideNav_Conf.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SideNav_Conf.Location = New System.Drawing.Point(170, 36)
+        Me.SideNav_Conf.Name = "SideNav_Conf"
+        Me.SideNav_Conf.Size = New System.Drawing.Size(843, 524)
+        Me.SideNav_Conf.TabIndex = 2
+        '
+        'MetroTilePanel1
+        '
+        Me.MetroTilePanel1.BackColor = System.Drawing.Color.Transparent
+        Me.MetroTilePanel1.BackgroundImage = Global.Presentacion.My.Resources.Resources.PORTADA
+        Me.MetroTilePanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        '
+        '
+        '
+        Me.MetroTilePanel1.BackgroundStyle.BackColor = System.Drawing.Color.Transparent
+        Me.MetroTilePanel1.BackgroundStyle.Class = "MetroTilePanel"
+        Me.MetroTilePanel1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.MetroTilePanel1.ContainerControlProcessDialogKey = True
+        Me.MetroTilePanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MetroTilePanel1.DragDropSupport = True
+        Me.MetroTilePanel1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btConfServicios, Me.btConfRoles, Me.btConfUsuarios, Me.btConfSucursales, Me.btConfHorarios, Me.btConfPolitica, Me.btconfbanco, Me.btconfReportServicios})
+        Me.MetroTilePanel1.ItemSpacing = 10
+        Me.MetroTilePanel1.Location = New System.Drawing.Point(0, 0)
+        Me.MetroTilePanel1.MultiLine = True
+        Me.MetroTilePanel1.Name = "MetroTilePanel1"
+        Me.MetroTilePanel1.Size = New System.Drawing.Size(843, 410)
+        Me.MetroTilePanel1.TabIndex = 0
+        Me.MetroTilePanel1.Text = "mtp1Configuracion"
+        '
+        'btConfServicios
+        '
+        Me.btConfServicios.Image = Global.Presentacion.My.Resources.Resources.SERVICIOS
+        Me.btConfServicios.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btConfServicios.Name = "btConfServicios"
+        Me.btConfServicios.SymbolColor = System.Drawing.Color.Empty
+        Me.btConfServicios.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Plum
+        Me.btConfServicios.TileSize = New System.Drawing.Size(250, 135)
+        '
+        '
+        '
+        Me.btConfServicios.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btConfServicios.TitleText = "SERVICIOS"
+        '
+        'btConfRoles
+        '
+        Me.btConfRoles.Image = Global.Presentacion.My.Resources.Resources.ROLES
+        Me.btConfRoles.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btConfRoles.Name = "btConfRoles"
+        Me.btConfRoles.SymbolColor = System.Drawing.Color.Empty
+        Me.btConfRoles.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Maroon
+        Me.btConfRoles.TileSize = New System.Drawing.Size(250, 135)
+        '
+        '
+        '
+        Me.btConfRoles.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btConfRoles.TitleText = "ROLES"
+        '
+        'btConfUsuarios
+        '
+        Me.btConfUsuarios.Image = Global.Presentacion.My.Resources.Resources.USUARIO
+        Me.btConfUsuarios.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btConfUsuarios.Name = "btConfUsuarios"
+        Me.btConfUsuarios.SymbolColor = System.Drawing.Color.Empty
+        Me.btConfUsuarios.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.RedOrange
+        Me.btConfUsuarios.TileSize = New System.Drawing.Size(250, 135)
+        '
+        '
+        '
+        Me.btConfUsuarios.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btConfUsuarios.TitleText = "USUARIOS"
+        '
+        'btConfSucursales
+        '
+        Me.btConfSucursales.Image = Global.Presentacion.My.Resources.Resources.SUCURSAL
+        Me.btConfSucursales.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btConfSucursales.Name = "btConfSucursales"
+        Me.btConfSucursales.SymbolColor = System.Drawing.Color.Empty
+        Me.btConfSucursales.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Gray
+        Me.btConfSucursales.TileSize = New System.Drawing.Size(250, 135)
+        '
+        '
+        '
+        Me.btConfSucursales.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btConfSucursales.TitleText = "SUCURSALES"
+        '
+        'btConfHorarios
+        '
+        Me.btConfHorarios.Image = Global.Presentacion.My.Resources.Resources.HORARIOS
+        Me.btConfHorarios.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btConfHorarios.Name = "btConfHorarios"
+        Me.btConfHorarios.SymbolColor = System.Drawing.Color.Empty
+        Me.btConfHorarios.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Azure
+        Me.btConfHorarios.TileSize = New System.Drawing.Size(250, 135)
+        '
+        '
+        '
+        Me.btConfHorarios.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btConfHorarios.TitleText = "SUCURSALES"
+        '
+        'btConfPolitica
+        '
+        Me.btConfPolitica.Image = Global.Presentacion.My.Resources.Resources.HORARIOS
+        Me.btConfPolitica.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btConfPolitica.Name = "btConfPolitica"
+        Me.btConfPolitica.SymbolColor = System.Drawing.Color.Empty
+        Me.btConfPolitica.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Green
+        Me.btConfPolitica.TileSize = New System.Drawing.Size(250, 135)
+        '
+        '
+        '
+        Me.btConfPolitica.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btConfPolitica.TitleText = "SUCURSALES"
+        '
+        'btconfbanco
+        '
+        Me.btconfbanco.Image = Global.Presentacion.My.Resources.Resources.HOT_CABANA
+        Me.btconfbanco.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btconfbanco.Name = "btconfbanco"
+        Me.btconfbanco.SymbolColor = System.Drawing.Color.Empty
+        Me.btconfbanco.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.DarkBlue
+        Me.btconfbanco.TileSize = New System.Drawing.Size(250, 135)
+        '
+        '
+        '
+        Me.btconfbanco.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btconfbanco.TitleText = "BANCOS"
+        '
+        'btconfReportServicios
+        '
+        Me.btconfReportServicios.Frames.Add(MetroTileFrame2)
+        Me.btconfReportServicios.Image = Global.Presentacion.My.Resources.Resources.PRE_EXAMEN
+        Me.btconfReportServicios.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btconfReportServicios.Name = "btconfReportServicios"
+        Me.btconfReportServicios.SymbolColor = System.Drawing.Color.Empty
+        Me.btconfReportServicios.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.MaroonWashed
+        Me.btconfReportServicios.TileSize = New System.Drawing.Size(250, 135)
+        '
+        '
+        '
+        Me.btconfReportServicios.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btconfReportServicios.TitleText = "REPORTE SERVICIOS"
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox4.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PictureBox4.Location = New System.Drawing.Point(0, 410)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(843, 114)
+        Me.PictureBox4.TabIndex = 2
+        Me.PictureBox4.TabStop = False
+        Me.PictureBox4.Visible = False
         '
         'SideNavPanel4
         '
         Me.SideNavPanel4.Controls.Add(Me.MetroTilePanel6)
         Me.SideNavPanel4.Controls.Add(Me.PictureBox6)
         Me.SideNavPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideNavPanel4.Location = New System.Drawing.Point(198, 40)
-        Me.SideNavPanel4.Margin = New System.Windows.Forms.Padding(4)
+        Me.SideNavPanel4.Location = New System.Drawing.Point(170, 36)
         Me.SideNavPanel4.Name = "SideNavPanel4"
-        Me.SideNavPanel4.Size = New System.Drawing.Size(1153, 649)
+        Me.SideNavPanel4.Size = New System.Drawing.Size(843, 524)
         Me.SideNavPanel4.TabIndex = 86
         Me.SideNavPanel4.Visible = False
         '
@@ -266,10 +421,9 @@ Partial Class P_Principal
         Me.MetroTilePanel6.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btLavCliente, Me.btLavServVenta, Me.btLavProducto, Me.btLavRHistorialLav, Me.btLavRGeneralServi, Me.btLavRServLav, Me.btLavMovimiento, Me.btLavKardexInventarioProducto, Me.btLavRSaldoInventarioProducto, Me.btLavCompraProductos, Me.btReportePolitica, Me.btRecepcionLavadero, Me.btsalidaProductoAcb})
         Me.MetroTilePanel6.ItemSpacing = 10
         Me.MetroTilePanel6.Location = New System.Drawing.Point(0, 0)
-        Me.MetroTilePanel6.Margin = New System.Windows.Forms.Padding(4)
         Me.MetroTilePanel6.MultiLine = True
         Me.MetroTilePanel6.Name = "MetroTilePanel6"
-        Me.MetroTilePanel6.Size = New System.Drawing.Size(1153, 509)
+        Me.MetroTilePanel6.Size = New System.Drawing.Size(843, 410)
         Me.MetroTilePanel6.TabIndex = 4
         Me.MetroTilePanel6.Text = "mtp3Pedidos"
         '
@@ -472,168 +626,21 @@ Partial Class P_Principal
         '
         Me.PictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox6.Location = New System.Drawing.Point(0, 509)
-        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox6.Location = New System.Drawing.Point(0, 410)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(1153, 140)
+        Me.PictureBox6.Size = New System.Drawing.Size(843, 114)
         Me.PictureBox6.TabIndex = 5
         Me.PictureBox6.TabStop = False
         Me.PictureBox6.Visible = False
-        '
-        'SideNav_Conf
-        '
-        Me.SideNav_Conf.Controls.Add(Me.MetroTilePanel1)
-        Me.SideNav_Conf.Controls.Add(Me.PictureBox4)
-        Me.SideNav_Conf.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideNav_Conf.Location = New System.Drawing.Point(198, 40)
-        Me.SideNav_Conf.Margin = New System.Windows.Forms.Padding(4)
-        Me.SideNav_Conf.Name = "SideNav_Conf"
-        Me.SideNav_Conf.Size = New System.Drawing.Size(1153, 649)
-        Me.SideNav_Conf.TabIndex = 2
-        '
-        'MetroTilePanel1
-        '
-        Me.MetroTilePanel1.BackColor = System.Drawing.Color.Transparent
-        Me.MetroTilePanel1.BackgroundImage = Global.Presentacion.My.Resources.Resources.PORTADA
-        Me.MetroTilePanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        '
-        '
-        '
-        Me.MetroTilePanel1.BackgroundStyle.BackColor = System.Drawing.Color.Transparent
-        Me.MetroTilePanel1.BackgroundStyle.Class = "MetroTilePanel"
-        Me.MetroTilePanel1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.MetroTilePanel1.ContainerControlProcessDialogKey = True
-        Me.MetroTilePanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MetroTilePanel1.DragDropSupport = True
-        Me.MetroTilePanel1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btConfServicios, Me.btConfRoles, Me.btConfUsuarios, Me.btConfSucursales, Me.btConfHorarios, Me.btConfPolitica, Me.btconfbanco, Me.btconfReportServicios})
-        Me.MetroTilePanel1.ItemSpacing = 10
-        Me.MetroTilePanel1.Location = New System.Drawing.Point(0, 0)
-        Me.MetroTilePanel1.Margin = New System.Windows.Forms.Padding(4)
-        Me.MetroTilePanel1.MultiLine = True
-        Me.MetroTilePanel1.Name = "MetroTilePanel1"
-        Me.MetroTilePanel1.Size = New System.Drawing.Size(1153, 509)
-        Me.MetroTilePanel1.TabIndex = 0
-        Me.MetroTilePanel1.Text = "mtp1Configuracion"
-        '
-        'btConfServicios
-        '
-        Me.btConfServicios.Image = Global.Presentacion.My.Resources.Resources.SERVICIOS
-        Me.btConfServicios.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.btConfServicios.Name = "btConfServicios"
-        Me.btConfServicios.SymbolColor = System.Drawing.Color.Empty
-        Me.btConfServicios.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Plum
-        Me.btConfServicios.TileSize = New System.Drawing.Size(250, 135)
-        '
-        '
-        '
-        Me.btConfServicios.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btConfServicios.TitleText = "SERVICIOS"
-        '
-        'btConfRoles
-        '
-        Me.btConfRoles.Image = Global.Presentacion.My.Resources.Resources.ROLES
-        Me.btConfRoles.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.btConfRoles.Name = "btConfRoles"
-        Me.btConfRoles.SymbolColor = System.Drawing.Color.Empty
-        Me.btConfRoles.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Maroon
-        Me.btConfRoles.TileSize = New System.Drawing.Size(250, 135)
-        '
-        '
-        '
-        Me.btConfRoles.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btConfRoles.TitleText = "ROLES"
-        '
-        'btConfUsuarios
-        '
-        Me.btConfUsuarios.Image = Global.Presentacion.My.Resources.Resources.USUARIO
-        Me.btConfUsuarios.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.btConfUsuarios.Name = "btConfUsuarios"
-        Me.btConfUsuarios.SymbolColor = System.Drawing.Color.Empty
-        Me.btConfUsuarios.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.RedOrange
-        Me.btConfUsuarios.TileSize = New System.Drawing.Size(250, 135)
-        '
-        '
-        '
-        Me.btConfUsuarios.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btConfUsuarios.TitleText = "USUARIOS"
-        '
-        'btConfSucursales
-        '
-        Me.btConfSucursales.Image = Global.Presentacion.My.Resources.Resources.SUCURSAL
-        Me.btConfSucursales.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.btConfSucursales.Name = "btConfSucursales"
-        Me.btConfSucursales.SymbolColor = System.Drawing.Color.Empty
-        Me.btConfSucursales.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Gray
-        Me.btConfSucursales.TileSize = New System.Drawing.Size(250, 135)
-        '
-        '
-        '
-        Me.btConfSucursales.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btConfSucursales.TitleText = "SUCURSALES"
-        '
-        'btConfHorarios
-        '
-        Me.btConfHorarios.Image = Global.Presentacion.My.Resources.Resources.HORARIOS
-        Me.btConfHorarios.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.btConfHorarios.Name = "btConfHorarios"
-        Me.btConfHorarios.SymbolColor = System.Drawing.Color.Empty
-        Me.btConfHorarios.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Azure
-        Me.btConfHorarios.TileSize = New System.Drawing.Size(250, 135)
-        '
-        '
-        '
-        Me.btConfHorarios.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btConfHorarios.TitleText = "SUCURSALES"
-        '
-        'btConfPolitica
-        '
-        Me.btConfPolitica.Image = Global.Presentacion.My.Resources.Resources.HORARIOS
-        Me.btConfPolitica.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.btConfPolitica.Name = "btConfPolitica"
-        Me.btConfPolitica.SymbolColor = System.Drawing.Color.Empty
-        Me.btConfPolitica.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Green
-        Me.btConfPolitica.TileSize = New System.Drawing.Size(250, 135)
-        '
-        '
-        '
-        Me.btConfPolitica.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btConfPolitica.TitleText = "SUCURSALES"
-        '
-        'btconfbanco
-        '
-        Me.btconfbanco.Image = Global.Presentacion.My.Resources.Resources.HOT_CABANA
-        Me.btconfbanco.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.btconfbanco.Name = "btconfbanco"
-        Me.btconfbanco.SymbolColor = System.Drawing.Color.Empty
-        Me.btconfbanco.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.DarkBlue
-        Me.btconfbanco.TileSize = New System.Drawing.Size(250, 135)
-        '
-        '
-        '
-        Me.btconfbanco.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btconfbanco.TitleText = "BANCOS"
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox4.Location = New System.Drawing.Point(0, 509)
-        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(1153, 140)
-        Me.PictureBox4.TabIndex = 2
-        Me.PictureBox4.TabStop = False
-        Me.PictureBox4.Visible = False
         '
         'SideNavPanel1
         '
         Me.SideNavPanel1.Controls.Add(Me.MetroTilePanel4)
         Me.SideNavPanel1.Controls.Add(Me.PictureBox1)
         Me.SideNavPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideNavPanel1.Location = New System.Drawing.Point(198, 40)
-        Me.SideNavPanel1.Margin = New System.Windows.Forms.Padding(4)
+        Me.SideNavPanel1.Location = New System.Drawing.Point(148, 32)
         Me.SideNavPanel1.Name = "SideNavPanel1"
-        Me.SideNavPanel1.Size = New System.Drawing.Size(1153, 649)
+        Me.SideNavPanel1.Size = New System.Drawing.Size(865, 527)
         Me.SideNavPanel1.TabIndex = 66
         Me.SideNavPanel1.Visible = False
         '
@@ -654,10 +661,9 @@ Partial Class P_Principal
         Me.MetroTilePanel4.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btSocSocio, Me.btSocPagos, Me.ItemContainer2})
         Me.MetroTilePanel4.ItemSpacing = 10
         Me.MetroTilePanel4.Location = New System.Drawing.Point(0, 0)
-        Me.MetroTilePanel4.Margin = New System.Windows.Forms.Padding(4)
         Me.MetroTilePanel4.MultiLine = True
         Me.MetroTilePanel4.Name = "MetroTilePanel4"
-        Me.MetroTilePanel4.Size = New System.Drawing.Size(1153, 509)
+        Me.MetroTilePanel4.Size = New System.Drawing.Size(865, 413)
         Me.MetroTilePanel4.TabIndex = 2
         Me.MetroTilePanel4.Text = "mtp2Logistica"
         '
@@ -827,10 +833,9 @@ Partial Class P_Principal
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 509)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 413)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1153, 140)
+        Me.PictureBox1.Size = New System.Drawing.Size(865, 114)
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.Visible = False
@@ -840,10 +845,9 @@ Partial Class P_Principal
         Me.SideNavPanel6.Controls.Add(Me.MetroTilePanel8)
         Me.SideNavPanel6.Controls.Add(Me.PictureBox8)
         Me.SideNavPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideNavPanel6.Location = New System.Drawing.Point(227, 44)
-        Me.SideNavPanel6.Margin = New System.Windows.Forms.Padding(4)
+        Me.SideNavPanel6.Location = New System.Drawing.Point(170, 36)
         Me.SideNavPanel6.Name = "SideNavPanel6"
-        Me.SideNavPanel6.Size = New System.Drawing.Size(1123, 645)
+        Me.SideNavPanel6.Size = New System.Drawing.Size(842, 524)
         Me.SideNavPanel6.TabIndex = 94
         Me.SideNavPanel6.Visible = False
         '
@@ -864,10 +868,9 @@ Partial Class P_Principal
         Me.MetroTilePanel8.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btRemCliente, Me.btRemServVenta, Me.btRemVehiRemolque, Me.btRemRpHistorialCliente, Me.MetroTileItem28, Me.btRemRpServDetalle, Me.ItemContainer6, Me.btRemRpServGeneral})
         Me.MetroTilePanel8.ItemSpacing = 10
         Me.MetroTilePanel8.Location = New System.Drawing.Point(0, 0)
-        Me.MetroTilePanel8.Margin = New System.Windows.Forms.Padding(4)
         Me.MetroTilePanel8.MultiLine = True
         Me.MetroTilePanel8.Name = "MetroTilePanel8"
-        Me.MetroTilePanel8.Size = New System.Drawing.Size(1123, 505)
+        Me.MetroTilePanel8.Size = New System.Drawing.Size(842, 410)
         Me.MetroTilePanel8.TabIndex = 8
         Me.MetroTilePanel8.Text = "mtp3Pedidos"
         '
@@ -1044,10 +1047,9 @@ Partial Class P_Principal
         '
         Me.PictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox8.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox8.Location = New System.Drawing.Point(0, 505)
-        Me.PictureBox8.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox8.Location = New System.Drawing.Point(0, 410)
         Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(1123, 140)
+        Me.PictureBox8.Size = New System.Drawing.Size(842, 114)
         Me.PictureBox8.TabIndex = 7
         Me.PictureBox8.TabStop = False
         Me.PictureBox8.Visible = False
@@ -1057,10 +1059,9 @@ Partial Class P_Principal
         Me.SideNav_Logistica.Controls.Add(Me.MetroTilePanel2)
         Me.SideNav_Logistica.Controls.Add(Me.PictureBox3)
         Me.SideNav_Logistica.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideNav_Logistica.Location = New System.Drawing.Point(227, 44)
-        Me.SideNav_Logistica.Margin = New System.Windows.Forms.Padding(4)
+        Me.SideNav_Logistica.Location = New System.Drawing.Point(170, 36)
         Me.SideNav_Logistica.Name = "SideNav_Logistica"
-        Me.SideNav_Logistica.Size = New System.Drawing.Size(1123, 645)
+        Me.SideNav_Logistica.Size = New System.Drawing.Size(842, 524)
         Me.SideNav_Logistica.TabIndex = 6
         Me.SideNav_Logistica.Visible = False
         '
@@ -1081,10 +1082,9 @@ Partial Class P_Principal
         Me.MetroTilePanel2.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btRHPersonal, Me.btRHFeriados, Me.btRHDescFijos, Me.btRHAntigueVacaciones, Me.btRHBonosDesc, Me.btRHRepPlanillaSueldos, Me.btRHPedidoVacacion, Me.btRHMarcaciones, Me.btRHMarcacionCorr, Me.btRHTurnos, Me.btRHPlanillaTurnos, Me.btRHRepAsistencia, Me.btRHRepPlanillaMensual})
         Me.MetroTilePanel2.ItemSpacing = 10
         Me.MetroTilePanel2.Location = New System.Drawing.Point(0, 0)
-        Me.MetroTilePanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.MetroTilePanel2.MultiLine = True
         Me.MetroTilePanel2.Name = "MetroTilePanel2"
-        Me.MetroTilePanel2.Size = New System.Drawing.Size(1123, 505)
+        Me.MetroTilePanel2.Size = New System.Drawing.Size(842, 410)
         Me.MetroTilePanel2.TabIndex = 1
         Me.MetroTilePanel2.Text = "mtp2Logistica"
         '
@@ -1326,10 +1326,9 @@ Partial Class P_Principal
         '
         Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox3.Location = New System.Drawing.Point(0, 505)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox3.Location = New System.Drawing.Point(0, 410)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(1123, 140)
+        Me.PictureBox3.Size = New System.Drawing.Size(842, 114)
         Me.PictureBox3.TabIndex = 2
         Me.PictureBox3.TabStop = False
         Me.PictureBox3.Visible = False
@@ -1339,10 +1338,9 @@ Partial Class P_Principal
         Me.SideNavPanel2.Controls.Add(Me.MetroTilePanel3)
         Me.SideNavPanel2.Controls.Add(Me.PictureBox2)
         Me.SideNavPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideNavPanel2.Location = New System.Drawing.Point(227, 44)
-        Me.SideNavPanel2.Margin = New System.Windows.Forms.Padding(4)
+        Me.SideNavPanel2.Location = New System.Drawing.Point(170, 36)
         Me.SideNavPanel2.Name = "SideNavPanel2"
-        Me.SideNavPanel2.Size = New System.Drawing.Size(1124, 645)
+        Me.SideNavPanel2.Size = New System.Drawing.Size(843, 524)
         Me.SideNavPanel2.TabIndex = 56
         Me.SideNavPanel2.Visible = False
         '
@@ -1363,10 +1361,9 @@ Partial Class P_Principal
         Me.MetroTilePanel3.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btEscVehiculo, Me.btEscAlumnos, Me.btEscEquipos, Me.btEscClaPracticas, Me.btEscInscripciones, Me.btEscPreExamen, Me.btEscClasesTeoricas, Me.btEscIntercambio, Me.ItemContainer1})
         Me.MetroTilePanel3.ItemSpacing = 10
         Me.MetroTilePanel3.Location = New System.Drawing.Point(0, 0)
-        Me.MetroTilePanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.MetroTilePanel3.MultiLine = True
         Me.MetroTilePanel3.Name = "MetroTilePanel3"
-        Me.MetroTilePanel3.Size = New System.Drawing.Size(1124, 505)
+        Me.MetroTilePanel3.Size = New System.Drawing.Size(843, 410)
         Me.MetroTilePanel3.TabIndex = 2
         Me.MetroTilePanel3.Text = "mtp3Pedidos"
         '
@@ -1605,10 +1602,9 @@ Partial Class P_Principal
         '
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 505)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 410)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1124, 140)
+        Me.PictureBox2.Size = New System.Drawing.Size(843, 114)
         Me.PictureBox2.TabIndex = 3
         Me.PictureBox2.TabStop = False
         Me.PictureBox2.Visible = False
@@ -1618,10 +1614,9 @@ Partial Class P_Principal
         Me.SideNavPanel5.Controls.Add(Me.MetroTilePanel7)
         Me.SideNavPanel5.Controls.Add(Me.PictureBox7)
         Me.SideNavPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideNavPanel5.Location = New System.Drawing.Point(197, 39)
-        Me.SideNavPanel5.Margin = New System.Windows.Forms.Padding(4)
+        Me.SideNavPanel5.Location = New System.Drawing.Point(148, 32)
         Me.SideNavPanel5.Name = "SideNavPanel5"
-        Me.SideNavPanel5.Size = New System.Drawing.Size(1152, 649)
+        Me.SideNavPanel5.Size = New System.Drawing.Size(864, 527)
         Me.SideNavPanel5.TabIndex = 90
         Me.SideNavPanel5.Visible = False
         '
@@ -1642,10 +1637,9 @@ Partial Class P_Principal
         Me.MetroTilePanel7.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btHotCliente, Me.btHotCabana, Me.btHotReserva, Me.MetroTileItem18, Me.MetroTileItem19, Me.MetroTileItem20, Me.ItemContainer5})
         Me.MetroTilePanel7.ItemSpacing = 10
         Me.MetroTilePanel7.Location = New System.Drawing.Point(0, 0)
-        Me.MetroTilePanel7.Margin = New System.Windows.Forms.Padding(4)
         Me.MetroTilePanel7.MultiLine = True
         Me.MetroTilePanel7.Name = "MetroTilePanel7"
-        Me.MetroTilePanel7.Size = New System.Drawing.Size(1152, 509)
+        Me.MetroTilePanel7.Size = New System.Drawing.Size(864, 413)
         Me.MetroTilePanel7.TabIndex = 7
         Me.MetroTilePanel7.Text = "mtp3Pedidos"
         '
@@ -1807,10 +1801,9 @@ Partial Class P_Principal
         '
         Me.PictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox7.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox7.Location = New System.Drawing.Point(0, 509)
-        Me.PictureBox7.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox7.Location = New System.Drawing.Point(0, 413)
         Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(1152, 140)
+        Me.PictureBox7.Size = New System.Drawing.Size(864, 114)
         Me.PictureBox7.TabIndex = 6
         Me.PictureBox7.TabStop = False
         Me.PictureBox7.Visible = False
@@ -1820,10 +1813,9 @@ Partial Class P_Principal
         Me.SideNavPanel3.Controls.Add(Me.MetroTilePanel5)
         Me.SideNavPanel3.Controls.Add(Me.PictureBox5)
         Me.SideNavPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideNavPanel3.Location = New System.Drawing.Point(197, 39)
-        Me.SideNavPanel3.Margin = New System.Windows.Forms.Padding(4)
+        Me.SideNavPanel3.Location = New System.Drawing.Point(148, 32)
         Me.SideNavPanel3.Name = "SideNavPanel3"
-        Me.SideNavPanel3.Size = New System.Drawing.Size(1152, 649)
+        Me.SideNavPanel3.Size = New System.Drawing.Size(864, 527)
         Me.SideNavPanel3.TabIndex = 73
         Me.SideNavPanel3.Visible = False
         '
@@ -1844,10 +1836,9 @@ Partial Class P_Principal
         Me.MetroTilePanel5.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btCertiAlumnos, Me.btCertiAlumTeorico, Me.btCertiAlumNotasTeorico, Me.btCertiAlumPractico, Me.btCertiPreguntas, Me.btCertiCertificacionAlumnos, Me.btCertiCertificacionPerfecc, Me.ItemContainer3})
         Me.MetroTilePanel5.ItemSpacing = 10
         Me.MetroTilePanel5.Location = New System.Drawing.Point(0, 0)
-        Me.MetroTilePanel5.Margin = New System.Windows.Forms.Padding(4)
         Me.MetroTilePanel5.MultiLine = True
         Me.MetroTilePanel5.Name = "MetroTilePanel5"
-        Me.MetroTilePanel5.Size = New System.Drawing.Size(1152, 509)
+        Me.MetroTilePanel5.Size = New System.Drawing.Size(864, 413)
         Me.MetroTilePanel5.TabIndex = 3
         Me.MetroTilePanel5.Text = "mtp3Pedidos"
         '
@@ -2069,10 +2060,9 @@ Partial Class P_Principal
         '
         Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox5.Location = New System.Drawing.Point(0, 509)
-        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox5.Location = New System.Drawing.Point(0, 413)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(1152, 140)
+        Me.PictureBox5.Size = New System.Drawing.Size(864, 114)
         Me.PictureBox5.TabIndex = 4
         Me.PictureBox5.TabStop = False
         Me.PictureBox5.Visible = False
@@ -2287,10 +2277,9 @@ Partial Class P_Principal
         Me.rmSesion.BackColor = System.Drawing.Color.Transparent
         Me.rmSesion.Diameter = 200
         Me.rmSesion.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btCerrarSesion, Me.btSalir, Me.btAbout})
-        Me.rmSesion.Location = New System.Drawing.Point(84, 549)
-        Me.rmSesion.Margin = New System.Windows.Forms.Padding(4)
+        Me.rmSesion.Location = New System.Drawing.Point(63, 446)
         Me.rmSesion.Name = "rmSesion"
-        Me.rmSesion.Size = New System.Drawing.Size(67, 62)
+        Me.rmSesion.Size = New System.Drawing.Size(50, 50)
         Me.rmSesion.Symbol = ""
         Me.rmSesion.SymbolSize = 20.0!
         Me.rmSesion.TabIndex = 2
@@ -2322,12 +2311,11 @@ Partial Class P_Principal
         '
         Me.lbUsuario.Border.Class = "TextBoxBorder"
         Me.lbUsuario.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lbUsuario.Location = New System.Drawing.Point(16, 623)
-        Me.lbUsuario.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbUsuario.Location = New System.Drawing.Point(12, 506)
         Me.lbUsuario.Name = "lbUsuario"
         Me.lbUsuario.PreventEnterBeep = True
         Me.lbUsuario.ReadOnly = True
-        Me.lbUsuario.Size = New System.Drawing.Size(203, 22)
+        Me.lbUsuario.Size = New System.Drawing.Size(152, 20)
         Me.lbUsuario.TabIndex = 4
         Me.lbUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -2370,48 +2358,31 @@ Partial Class P_Principal
         Me.tbDecimal.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbDecimal.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
         Me.tbDecimal.Increment = 1.0R
-        Me.tbDecimal.Location = New System.Drawing.Point(32, 433)
-        Me.tbDecimal.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbDecimal.Location = New System.Drawing.Point(24, 352)
         Me.tbDecimal.Name = "tbDecimal"
         Me.tbDecimal.ShowUpDown = True
-        Me.tbDecimal.Size = New System.Drawing.Size(107, 22)
+        Me.tbDecimal.Size = New System.Drawing.Size(80, 20)
         Me.tbDecimal.TabIndex = 5
         Me.tbDecimal.Visible = False
         '
-        'btconfReportServicios
-        '
-        Me.btconfReportServicios.Frames.Add(MetroTileFrame2)
-        Me.btconfReportServicios.Image = Global.Presentacion.My.Resources.Resources.PRE_EXAMEN
-        Me.btconfReportServicios.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.btconfReportServicios.Name = "btconfReportServicios"
-        Me.btconfReportServicios.SymbolColor = System.Drawing.Color.Empty
-        Me.btconfReportServicios.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.MaroonWashed
-        Me.btconfReportServicios.TileSize = New System.Drawing.Size(250, 135)
-        '
-        '
-        '
-        Me.btconfReportServicios.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btconfReportServicios.TitleText = "REPORTE SERVICIOS"
-        '
         'P_Principal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1356, 690)
+        Me.ClientSize = New System.Drawing.Size(1017, 561)
         Me.Controls.Add(Me.tbDecimal)
         Me.Controls.Add(Me.lbUsuario)
         Me.Controls.Add(Me.rmSesion)
         Me.Controls.Add(Me.SideNav1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "P_Principal"
         Me.Text = "DIES"
         Me.SideNav1.ResumeLayout(False)
         Me.SideNav1.PerformLayout()
-        Me.SideNavPanel4.ResumeLayout(False)
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SideNav_Conf.ResumeLayout(False)
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SideNavPanel4.ResumeLayout(False)
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SideNavPanel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SideNavPanel6.ResumeLayout(False)

@@ -626,7 +626,7 @@ Public Class F1_Cliente_L
     End Function
     Public Overrides Function _PMOGetListEstructuraBuscador() As List(Of Modelos.Celda)
         Dim listEstCeldas As New List(Of Modelos.Celda)
-        listEstCeldas.Add(New Modelos.Celda("lanumi", False, "ID", 50))
+        listEstCeldas.Add(New Modelos.Celda("lanumi", True, "ID", 50))
         listEstCeldas.Add(New Modelos.Celda("latipo", False))
         listEstCeldas.Add(New Modelos.Celda("cedesc1", True, "TIPO CLIENTE", 130))
         listEstCeldas.Add(New Modelos.Celda("lansoc", True, "NRO SOCIO", 90))
