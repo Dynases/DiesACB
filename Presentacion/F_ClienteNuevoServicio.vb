@@ -103,8 +103,7 @@ Public Class F_ClienteNuevoServicio
             cbtipo.BackColor = Color.White
             MEP.SetError(cbtipo, "")
         End If
-        MHighlighterFocus.UpdateHighlights()
-        Return _ok
+
 
         If (tbplaca.Text.Length < 6) Then
             tbplaca.BackColor = Color.Red
@@ -134,7 +133,8 @@ Public Class F_ClienteNuevoServicio
             End If
 
         End If
-
+        MHighlighterFocus.UpdateHighlights()
+        Return _ok
 
     End Function
     Private Sub F_ClienteNuevoServicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load

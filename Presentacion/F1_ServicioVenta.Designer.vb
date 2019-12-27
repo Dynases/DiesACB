@@ -25,11 +25,11 @@ Partial Class F1_ServicioVenta
         Me.components = New System.ComponentModel.Container()
         Dim cbTipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbTipoCliente_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_ServicioVenta))
         Dim cbventa_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim SuperTabColorTable2 As DevComponents.DotNetBar.Rendering.SuperTabColorTable = New DevComponents.DotNetBar.Rendering.SuperTabColorTable()
-        Dim SuperTabLinearGradientColorTable2 As DevComponents.DotNetBar.Rendering.SuperTabLinearGradientColorTable = New DevComponents.DotNetBar.Rendering.SuperTabLinearGradientColorTable()
+        Dim SuperTabColorTable1 As DevComponents.DotNetBar.Rendering.SuperTabColorTable = New DevComponents.DotNetBar.Rendering.SuperTabColorTable()
+        Dim SuperTabLinearGradientColorTable1 As DevComponents.DotNetBar.Rendering.SuperTabLinearGradientColorTable = New DevComponents.DotNetBar.Rendering.SuperTabLinearGradientColorTable()
         Dim cbTipoVehiculoR_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_ServicioVenta))
         Dim cbTamanoR_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.GpDetalle = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.grDetalle = New Janus.Windows.GridEX.GridEX()
@@ -65,6 +65,7 @@ Partial Class F1_ServicioVenta
         Me.lbFechaPago = New DevComponents.DotNetBar.LabelX()
         Me.tbFechaPago = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.PanelDatos = New System.Windows.Forms.Panel()
+        Me.swServicios = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.LabelX16 = New DevComponents.DotNetBar.LabelX()
         Me.cbTipoCliente = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.tbObservacion = New DevComponents.DotNetBar.Controls.TextBoxX()
@@ -196,7 +197,6 @@ Partial Class F1_ServicioVenta
         Me.tbNroOrdenR = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.LabelX12 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX13 = New DevComponents.DotNetBar.LabelX()
-        Me.swServicios = New DevComponents.DotNetBar.Controls.SwitchButton()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelBuscador.SuspendLayout()
@@ -1091,6 +1091,28 @@ Partial Class F1_ServicioVenta
         Me.PanelDatos.Name = "PanelDatos"
         Me.PanelDatos.Size = New System.Drawing.Size(1156, 357)
         Me.PanelDatos.TabIndex = 34
+        '
+        'swServicios
+        '
+        '
+        '
+        '
+        Me.swServicios.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swServicios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swServicios.Location = New System.Drawing.Point(765, 292)
+        Me.swServicios.Margin = New System.Windows.Forms.Padding(4)
+        Me.swServicios.Name = "swServicios"
+        Me.swServicios.OffBackColor = System.Drawing.Color.DodgerBlue
+        Me.swServicios.OffText = "PRODUCTO"
+        Me.swServicios.OffTextColor = System.Drawing.Color.White
+        Me.swServicios.OnBackColor = System.Drawing.Color.Gold
+        Me.swServicios.OnText = "SERVICIOS"
+        Me.swServicios.OnTextColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.swServicios.Size = New System.Drawing.Size(189, 27)
+        Me.swServicios.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swServicios.TabIndex = 48
+        Me.swServicios.Value = True
+        Me.swServicios.ValueObject = "Y"
         '
         'LabelX16
         '
@@ -2877,9 +2899,9 @@ Partial Class F1_ServicioVenta
         Me.SuperTabControl2.TabFont = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuperTabControl2.TabIndex = 1
         Me.SuperTabControl2.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem3, Me.SuperTabItem4})
-        SuperTabLinearGradientColorTable2.Colors = New System.Drawing.Color() {System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))}
-        SuperTabColorTable2.Background = SuperTabLinearGradientColorTable2
-        Me.SuperTabControl2.TabStripColor = SuperTabColorTable2
+        SuperTabLinearGradientColorTable1.Colors = New System.Drawing.Color() {System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))}
+        SuperTabColorTable1.Background = SuperTabLinearGradientColorTable1
+        Me.SuperTabControl2.TabStripColor = SuperTabColorTable1
         Me.SuperTabControl2.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.Office2010BackstageBlue
         Me.SuperTabControl2.Text = "Descuento"
         '
@@ -3386,28 +3408,6 @@ Partial Class F1_ServicioVenta
         Me.LabelX13.Size = New System.Drawing.Size(63, 20)
         Me.LabelX13.TabIndex = 50
         Me.LabelX13.Text = "Cliente:"
-        '
-        'swServicios
-        '
-        '
-        '
-        '
-        Me.swServicios.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.swServicios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.swServicios.Location = New System.Drawing.Point(765, 292)
-        Me.swServicios.Margin = New System.Windows.Forms.Padding(4)
-        Me.swServicios.Name = "swServicios"
-        Me.swServicios.OffBackColor = System.Drawing.Color.DodgerBlue
-        Me.swServicios.OffText = "PRODUCTO"
-        Me.swServicios.OffTextColor = System.Drawing.Color.White
-        Me.swServicios.OnBackColor = System.Drawing.Color.Gold
-        Me.swServicios.OnText = "SERVICIOS"
-        Me.swServicios.OnTextColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.swServicios.Size = New System.Drawing.Size(189, 27)
-        Me.swServicios.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.swServicios.TabIndex = 48
-        Me.swServicios.Value = True
-        Me.swServicios.ValueObject = "Y"
         '
         'F1_ServicioVenta
         '
