@@ -1767,6 +1767,35 @@ Public Class F0_Socio
             MEP.SetError(Tb21Placa, "")
         End If
 
+
+        If (Tb21Placa.Text.Length < 6) Then
+            Tb21Placa.BackColor = Color.Red
+            MEP.SetError(Tb21Placa, "Ingrese Formato de Placa Correcto".ToUpper)
+            res = False
+        Else
+            Tb21Placa.BackColor = Color.White
+            MEP.SetError(Tb21Placa, "")
+        End If
+
+        Dim cadenas As String = Tb21Placa.Text
+        Dim cont As Integer = cadenas.Length - 1
+        If (Tb21Placa.Text.Length >= 6) Then
+            Dim char07 = cadenas(cont)
+            Dim char06 = cadenas(cont - 1)
+            Dim char05 = cadenas(cont - 2)
+            Dim char04 = cadenas(cont - 3)
+
+            If (char07 Like "*[a-zA-Z]*" And char06 Like "*[a-zA-Z]*" And char05 Like "*[a-zA-Z]*" And IsNumeric(char04)) Then
+                Tb21Placa.BackColor = Color.White
+                MEP.SetError(Tb21Placa, "")
+
+            Else
+                Tb21Placa.BackColor = Color.Red
+                MEP.SetError(Tb21Placa, "Ingrese Formato de Placa Correcto".ToUpper)
+                res = False
+            End If
+
+        End If
         If (CType(Dgd2Vehiculos.DataSource, DataTable).Rows.Count >= 4) Then 'Extraer de una tabla de politicas de negocio
             ToastNotification.Show(Me,
                                    "solo se permite ingresar 4 vehiculos por socio.".ToUpper,

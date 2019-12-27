@@ -108,6 +108,35 @@ Public Class F_ClienteNuevoServicoTablet
             cbtipo.BackColor = Color.White
             MEP.SetError(cbtipo, "")
         End If
+
+        If (tbplaca.Text.Length < 6) Then
+            tbplaca.BackColor = Color.Red
+            MEP.SetError(tbplaca, "Ingrese Formato de Placa Correcto".ToUpper)
+            _ok = False
+        Else
+            tbplaca.BackColor = Color.White
+            MEP.SetError(tbplaca, "")
+        End If
+
+        Dim cadenas As String = tbplaca.Text
+        Dim cont As Integer = cadenas.Length - 1
+        If (tbplaca.Text.Length >= 6) Then
+            Dim char07 = cadenas(cont)
+            Dim char06 = cadenas(cont - 1)
+            Dim char05 = cadenas(cont - 2)
+            Dim char04 = cadenas(cont - 3)
+
+            If (char07 Like "*[a-zA-Z]*" And char06 Like "*[a-zA-Z]*" And char05 Like "*[a-zA-Z]*" And IsNumeric(char04)) Then
+                tbplaca.BackColor = Color.White
+                MEP.SetError(tbplaca, "")
+
+            Else
+                tbplaca.BackColor = Color.Red
+                MEP.SetError(tbplaca, "Ingrese Formato de Placa Correcto".ToUpper)
+                _ok = False
+            End If
+
+        End If
         MHighlighterFocus.UpdateHighlights()
         Return _ok
 
