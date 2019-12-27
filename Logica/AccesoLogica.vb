@@ -6639,7 +6639,7 @@ Public Class AccesoLogica
 
     Public Shared Function L_prServicioVentaGrabar(ByRef _ldnumi As String, _ldtcl1cli As Integer, _ldnord As String,
                                                    _ldtcl11veh As Integer,
-    _ldfdoc As String, _estado As Integer, _ldmefec As String, _lbtipo As Integer, _TCL0021 As DataTable, _TCL004 As DataTable, _ldtablet As Integer, _ldTipoPago As Integer, _ldMoneda As Integer, _ldFechaCredito As String, _ldbanco As Integer, _ldobs As String) As Boolean
+    _ldfdoc As String, _estado As Integer, _ldmefec As String, _lbtipo As Integer, _TCL0021 As DataTable, _TCL004 As DataTable, _ldtablet As Integer, _ldTipoPago As Integer, _ldMoneda As Integer, _ldFechaCredito As String, _ldbanco As Integer, _ldobs As String, _ldtipo As Integer) As Boolean
 
         Dim _resultado As Boolean
         Dim _Tabla As DataTable
@@ -6665,6 +6665,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@TCL004", "", _TCL004)) ''@ldfvcr
         _listParam.Add(New Datos.DParametro("@ldbanco", _ldbanco))
         _listParam.Add(New Datos.DParametro("@ldobs", _ldobs))
+        _listParam.Add(New Datos.DParametro("@ldtipo", _ldtipo))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TCL002", _listParam)
 
         If _Tabla.Rows.Count > 0 Then
@@ -6677,7 +6678,7 @@ Public Class AccesoLogica
         Return _resultado
     End Function
     Public Shared Function L_prServicioVentaModificar(ByRef _ldnumi As String, _ldtcl1cli As Integer, _ldtcl11veh As Integer, _ldnord As String,
-    _ldfdoc As String, _estado As Integer, _ldmefec As String, _lbtipo As Integer, _TCL0021 As DataTable, _tcl004 As DataTable, _ldtablet As Integer, _ldTipoPago As Integer, _ldMoneda As Integer, _ldFechaCredito As String, _ldbanco As Integer, _ldobs As String) As Boolean
+    _ldfdoc As String, _estado As Integer, _ldmefec As String, _lbtipo As Integer, _TCL0021 As DataTable, _tcl004 As DataTable, _ldtablet As Integer, _ldTipoPago As Integer, _ldMoneda As Integer, _ldFechaCredito As String, _ldbanco As Integer, _ldobs As String, _ldtipo As Integer) As Boolean
 
         '@hbnumi ,@hbnom  ,@hbdor ,@hbper   
         '	,@hbtipo   ,@hbsuc ,@hbobs,@newFecha,@newHora,@hbuact
@@ -6705,6 +6706,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@TCL004", "", _tcl004))
         _listParam.Add(New Datos.DParametro("@ldbanco", _ldbanco))
         _listParam.Add(New Datos.DParametro("@ldobs", _ldobs))
+        _listParam.Add(New Datos.DParametro("@ldtipo", _ldtipo))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TCL002", _listParam)
 
         If _Tabla.Rows.Count > 0 Then

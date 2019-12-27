@@ -1061,7 +1061,7 @@ Public Class F1_ServicioVenta
         cbmoneda.IsReadOnly = False
         'tbbanco.ReadOnly = False
         tbObservacion.ReadOnly = False
-
+        swServicios.IsReadOnly = False
         tbcredito.IsInputReadOnly = False
     End Sub
     Public Overrides Sub _PMOInhabilitar()
@@ -1071,7 +1071,7 @@ Public Class F1_ServicioVenta
         tbTablet.IsReadOnly = True
         tbNumeroOrden.Enabled = True
         FechaVenta.Enabled = False
-
+        swServicios.IsReadOnly = True
         cbTipoCliente.ReadOnly = True
         tbNumeroOrden.ReadOnly = True
         tbCliente.ReadOnly = True
@@ -1142,7 +1142,7 @@ Public Class F1_ServicioVenta
 
         _prCargarGridDetalle(-1)
         _prAddFilaDetalle()
-
+        swServicios.Value = True
         ButtonX1.Visible = False
         ButtonX2.Visible = False
         _prCargarGridAyudaPlacaCLiente()
@@ -1266,6 +1266,7 @@ Public Class F1_ServicioVenta
         listEstCeldas.Add(New Modelos.Celda("ldtablet", False))
         listEstCeldas.Add(New Modelos.Celda("acb", False))
         listEstCeldas.Add(New Modelos.Celda("latipo", False))
+        listEstCeldas.Add(New Modelos.Celda("ldtipo", False))
         Return listEstCeldas
 
 
@@ -1455,6 +1456,7 @@ Public Class F1_ServicioVenta
             tbObservacion.Text = .GetValue("ldobs")
             cbventa.Value = .GetValue("ldtven")
             cbmoneda.Value = .GetValue("ldtmon")
+            swServicios.Value = .GetValue("ldtipo")
             tbcredito.Value = .GetValue("ldfvcr")
             Dim est = .GetValue("ldest")
             If (est = 1) Then
@@ -1575,7 +1577,7 @@ Public Class F1_ServicioVenta
 
         Dim res As Boolean
 
-        res = L_prServicioVentaGrabar(tbCodigo.Text, tbnumiCliente.Text, tbNumeroOrden.Text, tbnumiVehiculo.Text, FechaVenta.Value.ToString("yyyy/MM/dd"), IIf(Estado.Value = True, 1, 0), grDetalle.GetTotal(grDetalle.RootTable.Columns("lcptot"), AggregateFunction.Sum), cbTipo.Value, CType(grDetalle.DataSource, DataTable), TablaGeneralServicios, IIf(tbTablet.Value = True, 1, 0), cbventa.Value, IIf(cbmoneda.Value = True, 1, 0), tbcredito.Value.ToString("yyyy/MM/dd"), IDbanco, tbObservacion.Text)
+        res = L_prServicioVentaGrabar(tbCodigo.Text, tbnumiCliente.Text, tbNumeroOrden.Text, tbnumiVehiculo.Text, FechaVenta.Value.ToString("yyyy/MM/dd"), IIf(Estado.Value = True, 1, 0), grDetalle.GetTotal(grDetalle.RootTable.Columns("lcptot"), AggregateFunction.Sum), cbTipo.Value, CType(grDetalle.DataSource, DataTable), TablaGeneralServicios, IIf(tbTablet.Value = True, 1, 0), cbventa.Value, IIf(cbmoneda.Value = True, 1, 0), tbcredito.Value.ToString("yyyy/MM/dd"), IDbanco, tbObservacion.Text, IIf(swServicios.Value = True, 1, 0))
         If res Then
 
             TipoTamano = -1
@@ -1593,7 +1595,7 @@ Public Class F1_ServicioVenta
 
         res = L_prServicioVentaModificar(tbCodigo.Text, tbnumiCliente.Text, tbnumiVehiculo.Text,
                                          tbNumeroOrden.Text, FechaVenta.Value.ToString("yyyy/MM/dd"), IIf(Estado.Value = True, 1, 0), grDetalle.GetTotal(grDetalle.RootTable.Columns("lcptot"), AggregateFunction.Sum), cbTipo.Value, CType(grDetalle.DataSource, DataTable),
-                                         TablaGeneralServicios, IIf(tbTablet.Value = True, 1, 0), cbventa.Value, IIf(cbmoneda.Value = True, 1, 0), tbcredito.Value.ToString("yyyy/MM/dd"), IDbanco, tbObservacion.Text)
+                                         TablaGeneralServicios, IIf(tbTablet.Value = True, 1, 0), cbventa.Value, IIf(cbmoneda.Value = True, 1, 0), tbcredito.Value.ToString("yyyy/MM/dd"), IDbanco, tbObservacion.Text, IIf(swServicios.Value = True, 1, 0))
         If res Then
             _prCargarGridVentaSinPagar()
             TipoTamano = -1
@@ -1963,26 +1965,31 @@ Public Class F1_ServicioVenta
                 If (grDetalle.Row > 0 And (Not IsDBNull(grDetalle.GetValue("lctce4pro")) Or Not IsDBNull(grDetalle.GetValue("lctcl3pro")))) Then
                     '_prAddDetalleVenta()
                 End If
-                HabilitarServicio = True
-                _HabilitarServicios()
-            End If
-        End If
-
-        If (e.KeyData = Keys.Control + Keys.A And grDetalle.Row >= 0 And (Not _fnVisualizarRegistros())) Then
-            Dim indexfil As Integer = grDetalle.Row
-            Dim indexcol As Integer = grDetalle.Col
-            If (e.KeyData = Keys.Control + Keys.A And grDetalle.Row >= 0 And grDetalle.Col = grDetalle.RootTable.Columns("eddesc").Index) Then 'Esta en la celda de Personal
-                Dim indexfila As Integer = grDetalle.Row
-                Dim indexcolu As Integer = grDetalle.Col
-                grDetalle.Row = grDetalle.RowCount - 1
-                If (grDetalle.Row > 0 And (Not IsDBNull(grDetalle.GetValue("lctce4pro")) Or Not IsDBNull(grDetalle.GetValue("lctcl3pro")))) Then
-                    ''   _prAddDetalleVenta()
+                If (swServicios.Value = True) Then
+                    HabilitarServicio = True
+                Else
+                    HabilitarServicio = False
                 End If
-                HabilitarServicio = False
+
                 _HabilitarServicios()
             End If
-
         End If
+
+        'If (e.KeyData = Keys.Control + Keys.A And grDetalle.Row >= 0 And (Not _fnVisualizarRegistros())) Then
+        '    Dim indexfil As Integer = grDetalle.Row
+        '    Dim indexcol As Integer = grDetalle.Col
+        '    If (e.KeyData = Keys.Control + Keys.A And grDetalle.Row >= 0 And grDetalle.Col = grDetalle.RootTable.Columns("eddesc").Index) Then 'Esta en la celda de Personal
+        '        Dim indexfila As Integer = grDetalle.Row
+        '        Dim indexcolu As Integer = grDetalle.Col
+        '        grDetalle.Row = grDetalle.RowCount - 1
+        '        If (grDetalle.Row > 0 And (Not IsDBNull(grDetalle.GetValue("lctce4pro")) Or Not IsDBNull(grDetalle.GetValue("lctcl3pro")))) Then
+        '            ''   _prAddDetalleVenta()
+        '        End If
+        '        HabilitarServicio = False
+        '        _HabilitarServicios()
+        '    End If
+
+        'End If
     End Sub
     Public Function _prVerificarPoliticarServicio() As Double
 
@@ -3554,6 +3561,15 @@ Public Class F1_ServicioVenta
         If (Not _fnVisualizarRegistros() And Estado.IsReadOnly = False) Then
             CType(grDetalle.DataSource, DataTable).Rows.Clear()
 
+        End If
+    End Sub
+
+    Private Sub swServicios_ValueChanged(sender As Object, e As EventArgs) Handles swServicios.ValueChanged
+        If (tbObservacion.ReadOnly = False) Then
+            If (Not IsNothing(grDetalle.DataSource)) Then
+                CType(grDetalle.DataSource, DataTable).Rows.Clear()
+                _prAddFilaDetalle()
+            End If
         End If
     End Sub
 End Class
