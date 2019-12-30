@@ -2036,7 +2036,7 @@ Public Class F1_ServicioVenta
     Private Sub grDetalle_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grDetalle.EditingCell
         If (Not _fnVisualizarRegistros()) Then
             'Habilitar solo las columnas de Precio, %, Monto y Observación
-            If (e.Column.Index = grDetalle.RootTable.Columns("lccant").Index) Then
+            If (e.Column.Index = grDetalle.RootTable.Columns("lccant").Index Or e.Column.Index = grDetalle.RootTable.Columns("lcpdes").Index Or e.Column.Index = grDetalle.RootTable.Columns("lcmdes").Index) Then
                 e.Cancel = False
             Else
                 e.Cancel = True
@@ -2091,45 +2091,45 @@ Public Class F1_ServicioVenta
             End If
         End If
 
-        If (e.Column.Index = grDetalle.RootTable.Columns("lcpdes").Index) Then
-            If (Not IsNumeric(grDetalle.GetValue("lcpdes")) Or grDetalle.GetValue("lcpdes").ToString = String.Empty) Then
+        'If (e.Column.Index = grDetalle.RootTable.Columns("lcpdes").Index) Then
+        '    If (Not IsNumeric(grDetalle.GetValue("lcpdes")) Or grDetalle.GetValue("lcpdes").ToString = String.Empty) Then
 
-                Dim lin As Integer = grDetalle.GetValue("lclin")
-                Dim pos As Integer = -1
-                _prObtenerPosicionDetalle(pos, lin)
-                Dim cantidad As Integer = grDetalle.GetValue("lccant")
-                CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lcpdes") = 0
-                CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lcmdes") = 0
-                CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lcptot") = CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lcpuni") * cantidad
-            Else
-                Dim lin As Integer = grDetalle.GetValue("lclin")
-                Dim pos As Integer = -1
-                _prObtenerPosicionDetalle(pos, lin)
-                If (grDetalle.GetValue("lcpdes") > 0) Then
-                    Dim porcdesc As Double = grDetalle.GetValue("lcpdes")
+        '        Dim lin As Integer = grDetalle.GetValue("lclin")
+        '        Dim pos As Integer = -1
+        '        _prObtenerPosicionDetalle(pos, lin)
+        '        Dim cantidad As Integer = grDetalle.GetValue("lccant")
+        '        CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lcpdes") = 0
+        '        CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lcmdes") = 0
+        '        CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lcptot") = CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lcpuni") * cantidad
+        '    Else
+        '        Dim lin As Integer = grDetalle.GetValue("lclin")
+        '        Dim pos As Integer = -1
+        '        _prObtenerPosicionDetalle(pos, lin)
+        '        If (grDetalle.GetValue("lcpdes") > 0) Then
+        '            Dim porcdesc As Double = grDetalle.GetValue("lcpdes")
 
-                    If (porcdesc = 0 Or porcdesc > 100) Then
-                        grDetalle.SetValue("lcpdes", 0)
-                        grDetalle.SetValue("lcmdes", 0)
-                        _prCalcularPrecioTotal()
+        '            If (porcdesc = 0 Or porcdesc > 100) Then
+        '                grDetalle.SetValue("lcpdes", 0)
+        '                grDetalle.SetValue("lcmdes", 0)
+        '                _prCalcularPrecioTotal()
 
-                    Else
+        '            Else
 
-                        Dim TotalUnitario As Integer = CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lcpuni")
-                        Dim montodesc As Double = (TotalUnitario * (porcdesc / 100))
-                        grDetalle.SetValue("lcmdes", montodesc)
-                        _prCalcularPrecioTotal()
-                    End If
+        '                Dim TotalUnitario As Integer = CType(grDetalle.DataSource, DataTable).Rows(pos).Item("lcpuni")
+        '                Dim montodesc As Double = (TotalUnitario * (porcdesc / 100))
+        '                grDetalle.SetValue("lcmdes", montodesc)
+        '                _prCalcularPrecioTotal()
+        '            End If
 
 
-                    P_PonerTotal(rowIndex)
-                Else
-                    grDetalle.GetRow(rowIndex).Cells("lcpdes").Value = 0
-                    grDetalle.GetRow(rowIndex).Cells("lcmdes").Value = 0
-                    _prCalcularPrecioTotal()
-                End If
-            End If
-        End If
+        '            P_PonerTotal(rowIndex)
+        '        Else
+        '            grDetalle.GetRow(rowIndex).Cells("lcpdes").Value = 0
+        '            grDetalle.GetRow(rowIndex).Cells("lcmdes").Value = 0
+        '            _prCalcularPrecioTotal()
+        '        End If
+        '    End If
+        'End If
 
     End Sub
 
@@ -2462,7 +2462,7 @@ Public Class F1_ServicioVenta
                 Dim lin As Integer = grDetalle.GetValue("lclin")
                 Dim pos As Integer = -1
                 _prObtenerPosicionDetalle(pos, lin)
-                If (grDetalle.GetValue("lcpdes") > 0) Then
+                If (grDetalle.GetValue("lcpdes") >= 0) Then
                     Dim porcdesc As Double = grDetalle.GetValue("lcpdes")
 
                     If (porcdesc = 0 Or porcdesc > 100) Then
@@ -2505,7 +2505,7 @@ Public Class F1_ServicioVenta
                 Dim lin As Integer = grDetalle.GetValue("lclin")
                 Dim pos As Integer = -1
                 _prObtenerPosicionDetalle(pos, lin)
-                If (grDetalle.GetValue("lcmdes") > 0) Then
+                If (grDetalle.GetValue("lcmdes") >= 0) Then
                     Dim mondesc As Double = grDetalle.GetValue("lcmdes")
                     Dim total As Double = grDetalle.GetValue("lcpuni") * grDetalle.GetValue("lccant")
                     If (mondesc = 0 Or mondesc > total) Then
