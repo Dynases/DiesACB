@@ -1582,7 +1582,11 @@ Public Class F0_Socio
 
     Private Sub Bt6AddVehiculo_Click(sender As Object, e As EventArgs) Handles Bt6AddVehiculo.Click
         If (P_ValidarVehiculos()) Then
-            DtDetalle3.Rows.Add({0, Cb4MarcaVehiculo.Value, Cb4MarcaVehiculo.Text, Cb5ModeloVehiculo.Value, Cb5ModeloVehiculo.Text, Tb21Placa.Text, CInt(Tb22NroRoseta.Text), "", 0, 0})
+            Dim Bin As New MemoryStream
+            Dim img As New Bitmap(My.Resources.imageDefault, 100, 80)
+            img.Save(Bin, Imaging.ImageFormat.Jpeg)
+            Bin.Dispose()
+            DtDetalle3.Rows.Add({0, Cb4MarcaVehiculo.Value, Cb4MarcaVehiculo.Text, Cb5ModeloVehiculo.Value, Cb5ModeloVehiculo.Text, Tb21Placa.Text, CInt(Tb22NroRoseta.Text), "", 0, Bin.GetBuffer(), 0})
             Cb4MarcaVehiculo.SelectedIndex = 0
             Cb5ModeloVehiculo.SelectedIndex = 0
             Tb21Placa.Clear()
