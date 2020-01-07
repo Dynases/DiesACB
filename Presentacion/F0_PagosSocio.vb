@@ -338,7 +338,8 @@ Public Class F0_PagosSocio
     End Function
     Private Sub P_prImprimirFacturar(numi As String, impFactura As Boolean, grabarPDF As Boolean)
         Dim _Fecha, _FechaAl As Date
-        Dim _Ds, _Ds1, _Ds2, _Ds3 As New DataSet
+        Dim _Ds, _Ds2, _Ds3 As New DataSet
+        Dim _Ds1 As DataTable
         Dim _Autorizacion, _Nit, _Fechainv, _Total, _Key, _Cod_Control, _Hora,
             _Literal, _TotalDecimal, _TotalDecimal2 As String
         Dim I, _NumFac, _numidosif, _TotalCC As Integer
@@ -351,20 +352,20 @@ Public Class F0_PagosSocio
 
         _Fecha = Dt2FechaPago.Value '.ToString("dd/MM/yyyy")
         _Hora = Now.Hour.ToString + ":" + Now.Minute.ToString
-        _Ds1 = L_Dosificacion("1", 1, _Fecha)
+        _Ds1 = L_fnTieneDosificacionAutomatica(1, Dt2FechaPago.Value.ToString("dd/MM/yyyy"), 2)
 
         _Ds = L_Reporte_Factura(numi, numi)
-        _Autorizacion = _Ds1.Tables(0).Rows(0).Item("sbautoriz").ToString
-        _NumFac = CInt(_Ds1.Tables(0).Rows(0).Item("sbnfac")) + 1
+        _Autorizacion = _Ds1.Rows(0).Item("sbautoriz").ToString
+        _NumFac = CInt(_Ds1.Rows(0).Item("sbnfac")) + 1
         _Nit = _Ds.Tables(0).Rows(0).Item("fvanitcli").ToString
         _Fechainv = _Fecha.Year.ToString +
                    _CompletarMonth(_Fecha.Month).Trim +
                    _CompletarMonth(_Fecha.Day).Trim
         _Total = _Ds.Tables(0).Rows(0).Item("fvatotal").ToString
         ice = _Ds.Tables(0).Rows(0).Item("fvaimpsi")
-        _numidosif = _Ds1.Tables(0).Rows(0).Item("sbnumi").ToString
-        _Key = _Ds1.Tables(0).Rows(0).Item("sbkey")
-        _FechaAl = _Ds1.Tables(0).Rows(0).Item("sbfal")
+        _numidosif = _Ds1.Rows(0).Item("sbnumi").ToString
+        _Key = _Ds1.Rows(0).Item("sbkey")
+        _FechaAl = _Ds1.Rows(0).Item("sbfal")
 
         Dim maxNFac As Integer = L_fnObtenerMaxIdTabla("TFV001", "fvanfac", "fvaautoriz = " + _Autorizacion)
         _NumFac = maxNFac + 1
@@ -481,7 +482,7 @@ Public Class F0_PagosSocio
         objrep.SetDataSource(dt)
         objrep.SetParameterValue("nroFactura", _CompletarNroFactura(_Ds.Tables(0).Rows(0).Item("fvanfac")))
         objrep.SetParameterValue("nroAutorizacion", _Ds.Tables(0).Rows(0).Item("fvaautoriz"))
-        objrep.SetParameterValue("MensajeContribuyente", "''" + _Ds1.Tables(0).Rows(0).Item("sbnota").ToString + "''.")
+        objrep.SetParameterValue("MensajeContribuyente", "''" + _Ds1.Rows(0).Item("sbnota").ToString + "''.")
         objrep.SetParameterValue("nit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
         objrep.SetParameterValue("lugarFecha", "Cochabamba, " + Str(Dt2FechaPago.Value.Day) + " De " + MonthName(Dt2FechaPago.Value.Month) + " De " + Str(Dt2FechaPago.Value.Year))
         objrep.SetParameterValue("nombreFactura", namefactura.ToString)
@@ -489,7 +490,7 @@ Public Class F0_PagosSocio
         objrep.SetParameterValue("TotalBs", _Literal)
         objrep.SetParameterValue("CodeControl", _Ds.Tables(0).Rows(0).Item("fvaccont"))
         objrep.SetParameterValue("FechaLimiteEmision", _Ds.Tables(0).Rows(0).Item("fvaflim"))
-        objrep.SetParameterValue("mensaje2", _Ds1.Tables(0).Rows(0).Item("sbnota2").ToString)
+        objrep.SetParameterValue("mensaje2", _Ds1.Rows(0).Item("sbnota2").ToString)
         objrep.SetParameterValue("Obs", TbiNroSocio.Value.ToString + " - " + Tb2NombreSocio.Text.Trim)
 
 
@@ -553,9 +554,9 @@ Public Class F0_PagosSocio
 
                     'CODIGO DANNY--------------------------------
                     If (FacturaSocio = True) Then
-                        Dim dtSet As DataSet = L_Dosificacion("1", 1, Dt2FechaPago.Value)
-                        If dtSet.Tables.Count > 0 Then
-                            If dtSet.Tables(0).Rows.Count = 0 Then
+                        Dim dtSet As DataTable = L_fnTieneDosificacionAutomatica(1, Dt2FechaPago.Value.ToString("dd/MM/yyyy"), 2)
+                        If dtSet.Rows.Count > 0 Then
+                            If dtSet.Rows.Count = 0 Then
                                 Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
                                 ToastNotification.Show(Me, "no existe la dosificacion automatica habilitada para esta sucursal, por lo tanto no se puede realizar la facturacion automatica".ToUpper, img, 4000, eToastGlowColor.Red, eToastPosition.BottomCenter)
                                 Return
