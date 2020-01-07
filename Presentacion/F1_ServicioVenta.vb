@@ -2244,71 +2244,81 @@ Public Class F1_ServicioVenta
                             tbFechaPago.Visible = True
                             If (FechaPago.Rows.Count > 0) Then
                                 tbFechaPago.Text = "Mes: " + FechaPago.Rows(0).Item("semes").ToString + " Año: " + FechaPago.Rows(0).Item("seano").ToString
-                                If (Now.Year = FechaPago.Rows(0).Item("seano") Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
-                                    Dim MesSitema As Integer = FechaPago.Rows(0).Item("semes")
-                                    Dim mora As Integer = FechaPago.Rows(0).Item("mora")
-                                    If (((Now.Month - mora) <= MesSitema) Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
+                                tbFechaPago.BackColor = Color.White
+                                MEP.SetError(tbFechaPago, "")
+                                MHighlighterFocus.UpdateHighlights()
+                                lbUltimaPago.Visible = True
+                                lbUltimaPago.Text = "HABILITADO"
+                                lbUltimaPago.ForeColor = Color.DarkSlateGray
+                                PagoAlDia = True
+                                SuperTabItem2.Visible = True
+                                SuperTabControl1.SelectedTabIndex = 1
+                                _prCrearTablaPoliticajanus()
+                                '    If (Now.Year = FechaPago.Rows(0).Item("seano") Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
+                                '        Dim MesSitema As Integer = FechaPago.Rows(0).Item("semes")
+                                '        Dim mora As Integer = FechaPago.Rows(0).Item("mora")
+                                '        If (((Now.Month - mora) <= MesSitema) Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
 
-                                        tbFechaPago.BackColor = Color.White
-                                        MEP.SetError(tbFechaPago, "")
-                                        MHighlighterFocus.UpdateHighlights()
-                                        lbUltimaPago.Visible = True
-                                        lbUltimaPago.Text = "HABILITADO"
-                                        lbUltimaPago.ForeColor = Color.DarkSlateGray
-                                        PagoAlDia = True
-                                        SuperTabItem2.Visible = True
-                                        SuperTabControl1.SelectedTabIndex = 1
-                                        _prCrearTablaPoliticajanus()
-                                    Else
-                                        PagoAlDia = False
-                                        MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
-                                        MHighlighterFocus.UpdateHighlights()
-                                        tbFechaPago.BackColor = Color.Red
-                                        lbUltimaPago.Visible = True
-                                        lbUltimaPago.Text = "INHABILITADO"
-                                        lbUltimaPago.ForeColor = Color.Red
-                                        SuperTabItem2.Visible = False
-                                        SuperTabControl1.SelectedTabIndex = 0
-                                    End If
+                                '            tbFechaPago.BackColor = Color.White
+                                '            MEP.SetError(tbFechaPago, "")
+                                '            MHighlighterFocus.UpdateHighlights()
+                                '            lbUltimaPago.Visible = True
+                                '            lbUltimaPago.Text = "HABILITADO"
+                                '            lbUltimaPago.ForeColor = Color.DarkSlateGray
+                                '            PagoAlDia = True
+                                '            SuperTabItem2.Visible = True
+                                '            SuperTabControl1.SelectedTabIndex = 1
+                                '            _prCrearTablaPoliticajanus()
+                                '        Else
+                                '            PagoAlDia = False
+                                '            MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
+                                '            MHighlighterFocus.UpdateHighlights()
+                                '            tbFechaPago.BackColor = Color.Red
+                                '            lbUltimaPago.Visible = True
+                                '            lbUltimaPago.Text = "INHABILITADO"
+                                '            lbUltimaPago.ForeColor = Color.Red
+                                '            SuperTabItem2.Visible = False
+                                '            SuperTabControl1.SelectedTabIndex = 0
+                                '        End If
 
-                                Else
-                                    PagoAlDia = False
-                                    MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
-                                    MHighlighterFocus.UpdateHighlights()
-                                    tbFechaPago.BackColor = Color.Red
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "INHABILITADO"
-                                    lbUltimaPago.ForeColor = Color.Red
-                                    SuperTabItem2.Visible = False
-                                    SuperTabControl1.SelectedTabIndex = 0
-                                End If
+                                '    Else
+                                '        PagoAlDia = False
+                                '        MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
+                                '        MHighlighterFocus.UpdateHighlights()
+                                '        tbFechaPago.BackColor = Color.Red
+                                '        lbUltimaPago.Visible = True
+                                '        lbUltimaPago.Text = "INHABILITADO"
+                                '        lbUltimaPago.ForeColor = Color.Red
+                                '        SuperTabItem2.Visible = False
+                                '        SuperTabControl1.SelectedTabIndex = 0
+                                '    End If
 
-                            Else 'Si el socio no hizo ningun pago
-                                If (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3) Then
-                                    tbFechaPago.Clear()
-                                    tbFechaPago.Text = "HONORARIO"
-                                    tbFechaPago.BackColor = Color.White
-                                    MEP.SetError(tbFechaPago, "")
-                                    MHighlighterFocus.UpdateHighlights()
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "HABILITADO"
-                                    lbUltimaPago.ForeColor = Color.DarkSlateGray
-                                    PagoAlDia = True
-                                    SuperTabItem2.Visible = True
-                                    SuperTabControl1.SelectedTabIndex = 1
-                                    _prCrearTablaPoliticajanus()
-                                Else
-                                    PagoAlDia = False
-                                    MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
-                                    MHighlighterFocus.UpdateHighlights()
-                                    tbFechaPago.BackColor = Color.Red
-                                    tbFechaPago.Text = "Sin Ningun Pago"
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "INHABILITADO"
-                                    lbUltimaPago.ForeColor = Color.Red
-                                    SuperTabItem2.Visible = False
-                                    SuperTabControl1.SelectedTabIndex = 0
-                                End If
+                                'Else 'Si el socio no hizo ningun pago
+                                '    If (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3) Then
+                                '        tbFechaPago.Clear()
+                                '        tbFechaPago.Text = "HONORARIO"
+                                '        tbFechaPago.BackColor = Color.White
+                                '        MEP.SetError(tbFechaPago, "")
+                                '        MHighlighterFocus.UpdateHighlights()
+                                '        lbUltimaPago.Visible = True
+                                '        lbUltimaPago.Text = "HABILITADO"
+                                '        lbUltimaPago.ForeColor = Color.DarkSlateGray
+                                '        PagoAlDia = True
+                                '        SuperTabItem2.Visible = True
+                                '        SuperTabControl1.SelectedTabIndex = 1
+                                '        _prCrearTablaPoliticajanus()
+                                '    Else
+                                '        PagoAlDia = False
+                                '        MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
+                                '        MHighlighterFocus.UpdateHighlights()
+                                '        tbFechaPago.BackColor = Color.Red
+                                '        tbFechaPago.Text = "Sin Ningun Pago"
+                                '        lbUltimaPago.Visible = True
+                                '        lbUltimaPago.Text = "INHABILITADO"
+                                '        lbUltimaPago.ForeColor = Color.Red
+                                '        SuperTabItem2.Visible = False
+                                '        SuperTabControl1.SelectedTabIndex = 0
+                                '    End If
 
                             End If
                         Else
@@ -2320,7 +2330,7 @@ Public Class F1_ServicioVenta
                             SuperTabControl1.SelectedTabIndex = 0
                         End If
 
-                        _VerificarPagoAlDia(nsoc)
+                        ' _VerificarPagoAlDia(nsoc)
                         Dim nameimagen As String = grVentasPendientes.GetValue("lafot")
                         If (File.Exists(RutaGlobal + "\Imagenes\Imagenes ClienteL" + nameimagen)) Then
                             Dim im As New Bitmap(New Bitmap(RutaGlobal + "\Imagenes\Imagenes ClienteL" + nameimagen))
@@ -2718,146 +2728,157 @@ Public Class F1_ServicioVenta
                     End If
                     Dim nsoc As Integer = grVentasPendientes.GetValue("latipo")
                     cbTipoCliente.Value = nsoc
+
                     If (nsoc = 2) Then
 
                         Dim FechaPago As DataTable = L_prObtenerUltimoPagoSocio(nsoc)
                         lbFechaPago.Visible = True
                         tbFechaPago.Visible = True
-                        If (FechaPago.Rows.Count > 0) Then
+                        tbFechaPago.BackColor = Color.White
+                        MEP.SetError(tbFechaPago, "")
+                        MHighlighterFocus.UpdateHighlights()
+                        lbUltimaPago.Visible = True
+                        lbUltimaPago.Text = "HABILITADO"
+                        lbUltimaPago.ForeColor = Color.DarkSlateGray
+                        PagoAlDia = True
+                        SuperTabItem2.Visible = True
+                        SuperTabControl1.SelectedTabIndex = 1
+                        _prCrearTablaPoliticajanus()
+                        '    If (FechaPago.Rows.Count > 0) Then
 
-                            tbFechaPago.Text = "Mes: " + FechaPago.Rows(0).Item("semes").ToString + " Año: " + FechaPago.Rows(0).Item("seano").ToString
+                        '        tbFechaPago.Text = "Mes: " + FechaPago.Rows(0).Item("semes").ToString + " Año: " + FechaPago.Rows(0).Item("seano").ToString
 
-                            If (Now.Year = FechaPago.Rows(0).Item("seano") Or Now.Year = FechaPago.Rows(0).Item("seano") + 1 Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
-                                Dim MesSitema As Integer = FechaPago.Rows(0).Item("semes")
-                                Dim mora As Integer = FechaPago.Rows(0).Item("mora")
+                        '        If (Now.Year = FechaPago.Rows(0).Item("seano") Or Now.Year = FechaPago.Rows(0).Item("seano") + 1 Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
+                        '            Dim MesSitema As Integer = FechaPago.Rows(0).Item("semes")
+                        '            Dim mora As Integer = FechaPago.Rows(0).Item("mora")
 
-                                Dim FechaDePago As Date = New Date(FechaPago.Rows(0).Item("seano"), FechaPago.Rows(0).Item("semes"), 1)
-                                Dim fecha As Date = Date.Now.AddMonths(-mora)
-                                fecha = fecha.AddDays(-(fecha.Day) + 1)
-                                If ((fecha <= FechaDePago) Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
+                        '            Dim FechaDePago As Date = New Date(FechaPago.Rows(0).Item("seano"), FechaPago.Rows(0).Item("semes"), 1)
+                        '            Dim fecha As Date = Date.Now.AddMonths(-mora)
+                        '            fecha = fecha.AddDays(-(fecha.Day) + 1)
+                        '            If ((fecha <= FechaDePago) Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
 
-                                    tbFechaPago.BackColor = Color.White
-                                    MEP.SetError(tbFechaPago, "")
-                                    MHighlighterFocus.UpdateHighlights()
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "HABILITADO"
-                                    lbUltimaPago.ForeColor = Color.DarkSlateGray
-                                    PagoAlDia = True
-                                    SuperTabItem2.Visible = True
-                                    SuperTabControl1.SelectedTabIndex = 1
-                                    _prCrearTablaPoliticajanus()
-                                Else
+                        '                tbFechaPago.BackColor = Color.White
+                        '                MEP.SetError(tbFechaPago, "")
+                        '                MHighlighterFocus.UpdateHighlights()
+                        '                lbUltimaPago.Visible = True
+                        '                lbUltimaPago.Text = "HABILITADO"
+                        '                lbUltimaPago.ForeColor = Color.DarkSlateGray
+                        '                PagoAlDia = True
+                        '                SuperTabItem2.Visible = True
+                        '                SuperTabControl1.SelectedTabIndex = 1
+                        '                _prCrearTablaPoliticajanus()
+                        '            Else
 
-                                    MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
-                                    MHighlighterFocus.UpdateHighlights()
-                                    tbFechaPago.BackColor = Color.Red
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "INHABILITADO"
-                                    lbUltimaPago.ForeColor = Color.Red
-                                    PagoAlDia = False
-                                    SuperTabItem2.Visible = False
-                                    SuperTabControl1.SelectedTabIndex = 0
-                                End If
+                        '                MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
+                        '                MHighlighterFocus.UpdateHighlights()
+                        '                tbFechaPago.BackColor = Color.Red
+                        '                lbUltimaPago.Visible = True
+                        '                lbUltimaPago.Text = "INHABILITADO"
+                        '                lbUltimaPago.ForeColor = Color.Red
+                        '                PagoAlDia = False
+                        '                SuperTabItem2.Visible = False
+                        '                SuperTabControl1.SelectedTabIndex = 0
+                        '            End If
 
-                            Else
-                                MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
-                                MHighlighterFocus.UpdateHighlights()
-                                tbFechaPago.BackColor = Color.Red
-                                lbUltimaPago.Visible = True
-                                lbUltimaPago.Text = "INHABILITADO"
-                                lbUltimaPago.ForeColor = Color.Red
-                                PagoAlDia = False
-                                SuperTabItem2.Visible = False
-                                SuperTabControl1.SelectedTabIndex = 0
-                            End If
+                        '        Else
+                        '            MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
+                        '            MHighlighterFocus.UpdateHighlights()
+                        '            tbFechaPago.BackColor = Color.Red
+                        '            lbUltimaPago.Visible = True
+                        '            lbUltimaPago.Text = "INHABILITADO"
+                        '            lbUltimaPago.ForeColor = Color.Red
+                        '            PagoAlDia = False
+                        '            SuperTabItem2.Visible = False
+                        '            SuperTabControl1.SelectedTabIndex = 0
+                        '        End If
 
-                        Else 'Si el socio no hizo ningun pago
+                        '    Else 'Si el socio no hizo ningun pago
 
-                            If (Automovil = True) Then ''Si el cliente es un vehiculo del automovil puede hacer su servicio libremente
-                                tbFechaPago.Clear()
-                                tbFechaPago.Text = "ACB"
-                                tbFechaPago.BackColor = Color.White
-                                MEP.SetError(tbFechaPago, "")
-                                MHighlighterFocus.UpdateHighlights()
-                                lbUltimaPago.Visible = True
-                                lbUltimaPago.Text = "HABILITADO"
-                                lbUltimaPago.ForeColor = Color.DarkSlateGray
-                                ''   PagoAlDia = True
+                        '        If (Automovil = True) Then ''Si el cliente es un vehiculo del automovil puede hacer su servicio libremente
+                        '            tbFechaPago.Clear()
+                        '            tbFechaPago.Text = "ACB"
+                        '            tbFechaPago.BackColor = Color.White
+                        '            MEP.SetError(tbFechaPago, "")
+                        '            MHighlighterFocus.UpdateHighlights()
+                        '            lbUltimaPago.Visible = True
+                        '            lbUltimaPago.Text = "HABILITADO"
+                        '            lbUltimaPago.ForeColor = Color.DarkSlateGray
+                        '            ''   PagoAlDia = True
 
 
 
-                            Else
-                                If (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3) Then
-                                    tbFechaPago.Clear()
-                                    tbFechaPago.Text = "HONORARIO"
-                                    tbFechaPago.BackColor = Color.White
-                                    MEP.SetError(tbFechaPago, "")
-                                    MHighlighterFocus.UpdateHighlights()
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "HABILITADO"
-                                    lbUltimaPago.ForeColor = Color.DarkSlateGray
-                                    PagoAlDia = True
-                                    SuperTabItem2.Visible = True
-                                    SuperTabControl1.SelectedTabIndex = 1
-                                    _prCrearTablaPoliticajanus()
-                                Else
-                                    MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
-                                    MHighlighterFocus.UpdateHighlights()
-                                    tbFechaPago.BackColor = Color.Red
-                                    tbFechaPago.Text = "Sin Ningun Pago"
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "INHABILITADO"
-                                    lbUltimaPago.ForeColor = Color.Red
-                                    PagoAlDia = False
-                                    SuperTabItem2.Visible = False
-                                    SuperTabControl1.SelectedTabIndex = 0
-                                End If
+                        '        Else
+                        '            If (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3) Then
+                        '                tbFechaPago.Clear()
+                        '                tbFechaPago.Text = "HONORARIO"
+                        '                tbFechaPago.BackColor = Color.White
+                        '                MEP.SetError(tbFechaPago, "")
+                        '                MHighlighterFocus.UpdateHighlights()
+                        '                lbUltimaPago.Visible = True
+                        '                lbUltimaPago.Text = "HABILITADO"
+                        '                lbUltimaPago.ForeColor = Color.DarkSlateGray
+                        '                PagoAlDia = True
+                        '                SuperTabItem2.Visible = True
+                        '                SuperTabControl1.SelectedTabIndex = 1
+                        '                _prCrearTablaPoliticajanus()
+                        '            Else
+                        '                MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
+                        '                MHighlighterFocus.UpdateHighlights()
+                        '                tbFechaPago.BackColor = Color.Red
+                        '                tbFechaPago.Text = "Sin Ningun Pago"
+                        '                lbUltimaPago.Visible = True
+                        '                lbUltimaPago.Text = "INHABILITADO"
+                        '                lbUltimaPago.ForeColor = Color.Red
+                        '                PagoAlDia = False
+                        '                SuperTabItem2.Visible = False
+                        '                SuperTabControl1.SelectedTabIndex = 0
+                        '            End If
 
-                            End If
+                        '        End If
 
+                        '    End If
+                        'Else
+
+                        '    tbFechaPago.Text = ""
+                        '    lbFechaPago.Visible = False
+                        '    tbFechaPago.Visible = False
+                        '    lbUltimaPago.Visible = False
+                        '    SuperTabItem2.Visible = False
+                        '    SuperTabControl1.SelectedTabIndex = 0
                         End If
-                    Else
+                        Dim TipoRegistrado As Integer = grVentasPendientes.GetValue("VehiculoRegistrado")
+                        If (TipoRegistrado > 0) Then
+                            cbTipo.ReadOnly = True
 
-                        tbFechaPago.Text = ""
-                        lbFechaPago.Visible = False
-                        tbFechaPago.Visible = False
-                        lbUltimaPago.Visible = False
-                        SuperTabItem2.Visible = False
-                        SuperTabControl1.SelectedTabIndex = 0
-                    End If
-                    Dim TipoRegistrado As Integer = grVentasPendientes.GetValue("VehiculoRegistrado")
-                    If (TipoRegistrado > 0) Then
-                        cbTipo.ReadOnly = True
+                        Else
+                            cbTipo.ReadOnly = False
+                        End If
 
-                    Else
-                        cbTipo.ReadOnly = False
-                    End If
-
-                    If (_fnActionNuevo()) Then
-                        CType(grDetalle.DataSource, DataTable).Rows.Clear()
-                        _prAddFilaDetalle()
-                        grVentasPendientes.RemoveFilters()
-                    Else
-                        _prCambiarEstadoItemEliminar()
-                        If (grDetalle.RowCount = 0) Then
+                        If (_fnActionNuevo()) Then
+                            CType(grDetalle.DataSource, DataTable).Rows.Clear()
                             _prAddFilaDetalle()
+                            grVentasPendientes.RemoveFilters()
+                        Else
+                            _prCambiarEstadoItemEliminar()
+                            If (grDetalle.RowCount = 0) Then
+                                _prAddFilaDetalle()
 
+                            End If
+                            grVentasPendientes.RemoveFilters()
                         End If
-                        grVentasPendientes.RemoveFilters()
+                        '_VerificarPagoAlDia(nsoc)
+
+                        grDetalle.Focus()
+
+                        grDetalle.Select()
+                        grDetalle.Col = 4
+                        grDetalle.Row = 0
                     End If
-                    _VerificarPagoAlDia(nsoc)
 
-                    grDetalle.Focus()
 
-                    grDetalle.Select()
-                    grDetalle.Col = 4
-                    grDetalle.Row = 0
+
+
                 End If
-
-
-
-
-            End If
         End If
 
     End Sub
@@ -3319,111 +3340,121 @@ Public Class F1_ServicioVenta
                     Dim nsoc As Integer = Row.Cells("tipoCliente").Value
                     Dim HonorarioMeritorio As Integer = Row.Cells("tipo").Value
                     If (nsoc = 2) Then
+                        tbFechaPago.BackColor = Color.White
+                        MEP.SetError(tbFechaPago, "")
+                        MHighlighterFocus.UpdateHighlights()
+                        lbUltimaPago.Visible = True
+                        lbUltimaPago.Text = "HABILITADO"
+                        lbUltimaPago.ForeColor = Color.DarkSlateGray
+                        PagoAlDia = True
+                        SuperTabItem2.Visible = True
+                        SuperTabControl1.SelectedTabIndex = 1
+                        _prCrearTablaPoliticajanus()
                         cbTipoCliente.Value = nsoc
                         Dim FechaPago As DataTable = L_prObtenerUltimoPagoSocio(nsoc)
                         lbFechaPago.Visible = True
                         tbFechaPago.Visible = True
-                        If (FechaPago.Rows.Count > 0) Then
-                            tbFechaPago.Text = "Mes: " + FechaPago.Rows(0).Item("semes").ToString + " Año: " + FechaPago.Rows(0).Item("seano").ToString
-                            'If (Now.Year = FechaPago.Rows(0).Item("seano") Or Now.Year = FechaPago.Rows(0).Item("seano") + 1 Or honorario = 2) Then
-                            If (FechaPago.Rows(0).Item("seano") >= Now.Year - 1 Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
-                                Dim MesSitema As Integer = FechaPago.Rows(0).Item("semes")
-                                Dim mora As Integer = FechaPago.Rows(0).Item("mora")
+                        '    If (FechaPago.Rows.Count > 0) Then
+                        '        tbFechaPago.Text = "Mes: " + FechaPago.Rows(0).Item("semes").ToString + " Año: " + FechaPago.Rows(0).Item("seano").ToString
+                        '        'If (Now.Year = FechaPago.Rows(0).Item("seano") Or Now.Year = FechaPago.Rows(0).Item("seano") + 1 Or honorario = 2) Then
+                        '        If (FechaPago.Rows(0).Item("seano") >= Now.Year - 1 Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
+                        '            Dim MesSitema As Integer = FechaPago.Rows(0).Item("semes")
+                        '            Dim mora As Integer = FechaPago.Rows(0).Item("mora")
 
-                                Dim FechaDePago As Date = New Date(FechaPago.Rows(0).Item("seano"), FechaPago.Rows(0).Item("semes"), 1)
-                                Dim fecha As Date = Date.Now.AddMonths(-mora)
-                                fecha = fecha.AddDays(-(fecha.Day) + 1)
-                                If ((fecha <= FechaDePago) Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
+                        '            Dim FechaDePago As Date = New Date(FechaPago.Rows(0).Item("seano"), FechaPago.Rows(0).Item("semes"), 1)
+                        '            Dim fecha As Date = Date.Now.AddMonths(-mora)
+                        '            fecha = fecha.AddDays(-(fecha.Day) + 1)
+                        '            If ((fecha <= FechaDePago) Or (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3)) Then
 
-                                    tbFechaPago.BackColor = Color.White
-                                    MEP.SetError(tbFechaPago, "")
-                                    MHighlighterFocus.UpdateHighlights()
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "HABILITADO"
-                                    lbUltimaPago.ForeColor = Color.DarkSlateGray
-                                    PagoAlDia = True
-                                    SuperTabItem2.Visible = True
-                                    SuperTabControl1.SelectedTabIndex = 1
-                                    _prCrearTablaPoliticajanus()
-                                Else
-                                    PagoAlDia = False
-                                    MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
-                                    MHighlighterFocus.UpdateHighlights()
-                                    tbFechaPago.BackColor = Color.Red
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "INHABILITADO"
-                                    lbUltimaPago.ForeColor = Color.Red
-                                    SuperTabItem2.Visible = False
-                                    SuperTabControl1.SelectedTabIndex = 0
-                                End If
+                        '                tbFechaPago.BackColor = Color.White
+                        '                MEP.SetError(tbFechaPago, "")
+                        '                MHighlighterFocus.UpdateHighlights()
+                        '                lbUltimaPago.Visible = True
+                        '                lbUltimaPago.Text = "HABILITADO"
+                        '                lbUltimaPago.ForeColor = Color.DarkSlateGray
+                        '                PagoAlDia = True
+                        '                SuperTabItem2.Visible = True
+                        '                SuperTabControl1.SelectedTabIndex = 1
+                        '                _prCrearTablaPoliticajanus()
+                        '            Else
+                        '                PagoAlDia = False
+                        '                MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
+                        '                MHighlighterFocus.UpdateHighlights()
+                        '                tbFechaPago.BackColor = Color.Red
+                        '                lbUltimaPago.Visible = True
+                        '                lbUltimaPago.Text = "INHABILITADO"
+                        '                lbUltimaPago.ForeColor = Color.Red
+                        '                SuperTabItem2.Visible = False
+                        '                SuperTabControl1.SelectedTabIndex = 0
+                        '            End If
 
-                            Else
-                                PagoAlDia = False
-                                MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
-                                MHighlighterFocus.UpdateHighlights()
-                                tbFechaPago.BackColor = Color.Red
-                                lbUltimaPago.Visible = True
-                                lbUltimaPago.Text = "INHABILITADO"
-                                lbUltimaPago.ForeColor = Color.Red
-                                SuperTabItem2.Visible = False
-                                SuperTabControl1.SelectedTabIndex = 0
-                            End If
+                        '        Else
+                        '            PagoAlDia = False
+                        '            MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
+                        '            MHighlighterFocus.UpdateHighlights()
+                        '            tbFechaPago.BackColor = Color.Red
+                        '            lbUltimaPago.Visible = True
+                        '            lbUltimaPago.Text = "INHABILITADO"
+                        '            lbUltimaPago.ForeColor = Color.Red
+                        '            SuperTabItem2.Visible = False
+                        '            SuperTabControl1.SelectedTabIndex = 0
+                        '        End If
 
-                        Else 'Si el socio no hizo ningun pago
-                            If (Automovil = True) Then
-                                tbFechaPago.Clear()
-                                tbFechaPago.Text = "ACB"
-                                tbFechaPago.BackColor = Color.White
-                                MEP.SetError(tbFechaPago, "")
-                                MHighlighterFocus.UpdateHighlights()
-                                lbUltimaPago.Visible = True
-                                lbUltimaPago.Text = "HABILITADO"
-                                lbUltimaPago.ForeColor = Color.DarkSlateGray
-                                '' PagoAlDia = True
+                        '    Else 'Si el socio no hizo ningun pago
+                        '        If (Automovil = True) Then
+                        '            tbFechaPago.Clear()
+                        '            tbFechaPago.Text = "ACB"
+                        '            tbFechaPago.BackColor = Color.White
+                        '            MEP.SetError(tbFechaPago, "")
+                        '            MHighlighterFocus.UpdateHighlights()
+                        '            lbUltimaPago.Visible = True
+                        '            lbUltimaPago.Text = "HABILITADO"
+                        '            lbUltimaPago.ForeColor = Color.DarkSlateGray
+                        '            '' PagoAlDia = True
 
 
 
-                            Else
-                                If (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3) Then
-                                    tbFechaPago.Clear()
-                                    tbFechaPago.Text = "HONORARIO"
-                                    tbFechaPago.BackColor = Color.White
-                                    MEP.SetError(tbFechaPago, "")
-                                    MHighlighterFocus.UpdateHighlights()
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "HABILITADO"
-                                    lbUltimaPago.ForeColor = Color.DarkSlateGray
-                                    PagoAlDia = True
-                                    SuperTabItem2.Visible = True
-                                    SuperTabControl1.SelectedTabIndex = 1
-                                    _prCrearTablaPoliticajanus()
-                                Else
-                                    PagoAlDia = False
-                                    MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
-                                    MHighlighterFocus.UpdateHighlights()
-                                    tbFechaPago.BackColor = Color.Red
-                                    tbFechaPago.Text = "Sin Ningun Pago"
-                                    lbUltimaPago.Visible = True
-                                    lbUltimaPago.Text = "INHABILITADO"
-                                    lbUltimaPago.ForeColor = Color.Red
-                                    SuperTabItem2.Visible = False
-                                    SuperTabControl1.SelectedTabIndex = 0
-                                End If
+                        '        Else
+                        '            If (HonorarioMeritorio = 2 Or HonorarioMeritorio = 3) Then
+                        '                tbFechaPago.Clear()
+                        '                tbFechaPago.Text = "HONORARIO"
+                        '                tbFechaPago.BackColor = Color.White
+                        '                MEP.SetError(tbFechaPago, "")
+                        '                MHighlighterFocus.UpdateHighlights()
+                        '                lbUltimaPago.Visible = True
+                        '                lbUltimaPago.Text = "HABILITADO"
+                        '                lbUltimaPago.ForeColor = Color.DarkSlateGray
+                        '                PagoAlDia = True
+                        '                SuperTabItem2.Visible = True
+                        '                SuperTabControl1.SelectedTabIndex = 1
+                        '                _prCrearTablaPoliticajanus()
+                        '            Else
+                        '                PagoAlDia = False
+                        '                MEP.SetError(tbFechaPago, "Socio esta con deudas atrazas!".ToUpper)
+                        '                MHighlighterFocus.UpdateHighlights()
+                        '                tbFechaPago.BackColor = Color.Red
+                        '                tbFechaPago.Text = "Sin Ningun Pago"
+                        '                lbUltimaPago.Visible = True
+                        '                lbUltimaPago.Text = "INHABILITADO"
+                        '                lbUltimaPago.ForeColor = Color.Red
+                        '                SuperTabItem2.Visible = False
+                        '                SuperTabControl1.SelectedTabIndex = 0
+                        '            End If
 
-                            End If
+                        '        End If
 
-                        End If
-                    Else
-                        cbTipoCliente.Value = nsoc
-                        tbFechaPago.Text = ""
-                        lbFechaPago.Visible = False
-                        tbFechaPago.Visible = False
-                        lbUltimaPago.Visible = False
-                        SuperTabItem2.Visible = False
-                        SuperTabControl1.SelectedTabIndex = 0
+                        '    End If
+                        'Else
+                        '    cbTipoCliente.Value = nsoc
+                        '    tbFechaPago.Text = ""
+                        '    lbFechaPago.Visible = False
+                        '    tbFechaPago.Visible = False
+                        '    lbUltimaPago.Visible = False
+                        '    SuperTabItem2.Visible = False
+                        '    SuperTabControl1.SelectedTabIndex = 0
                     End If
 
-                    _VerificarPagoAlDia(nsoc)
+                    '_VerificarPagoAlDia(nsoc)
                     Dim nameimagen As String = grVentasPendientes.GetValue("lafot")
                     If (File.Exists(RutaGlobal + "\Imagenes\Imagenes ClienteL" + nameimagen)) Then
                         Dim im As New Bitmap(New Bitmap(RutaGlobal + "\Imagenes\Imagenes ClienteL" + nameimagen))

@@ -124,7 +124,7 @@
       <HintPath>C:\librerias\Gmap\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
     <Reference Include="Interop.zkemkeeper">
-      <HintPath>..\..\..\..\Git\Librerias\ZKTECO\Interop.zkemkeeper.dll</HintPath>
+      <HintPath>C:\librerias\ZKTeco-dll64\Interop.zkemkeeper.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Janus.Data.v3">
