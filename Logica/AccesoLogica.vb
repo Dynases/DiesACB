@@ -2265,7 +2265,24 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
+    Public Shared Function L_fnTieneDosificacionAutomatica(sucursal As Integer, fecha As String, modulo As Integer) As DataTable
+        Dim _resultado As Boolean
 
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 26))
+        _listParam.Add(New Datos.DParametro("@sucursal", sucursal))
+        _listParam.Add(New Datos.DParametro("@vcfdoc", fecha))
+        _listParam.Add(New Datos.DParametro("@modulo", modulo))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_go_TCS014", _listParam)
+
+
+
+        Return _Tabla
+    End Function
 
     Public Shared Function L_fnSocioVentaDicontaPagosGrabar(ByRef numiventa As String, numiSocio As Integer, total As Double, fecha As String, obs As String) As Boolean
         Dim _resultado As Boolean

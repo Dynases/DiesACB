@@ -26,8 +26,8 @@ Partial Class F0_Socio
         Dim Cb1TipoSocio_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim Cb2LugarEmision_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F0_Socio))
-        Dim Cb5ModeloVehiculo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim Cb4MarcaVehiculo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim Cb5ModeloVehiculo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim Cb3TipoTelefono_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.rlAccion = New DevComponents.DotNetBar.Controls.ReflectionLabel()
@@ -81,18 +81,19 @@ Partial Class F0_Socio
         Me.Dgd2Vehiculos = New Janus.Windows.GridEX.GridEX()
         Me.cmOpciones = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Eliminarms = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btAddImgVehiculo = New DevComponents.DotNetBar.ButtonX()
-        Me.BtAddLibModelo = New DevComponents.DotNetBar.ButtonX()
-        Me.BtAddLibMarca = New DevComponents.DotNetBar.ButtonX()
-        Me.Cb5ModeloVehiculo = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.Tb21Placa = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.Tb22NroRoseta = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.Cb4MarcaVehiculo = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.LabelX34 = New DevComponents.DotNetBar.LabelX()
-        Me.Bt6AddVehiculo = New DevComponents.DotNetBar.ButtonX()
-        Me.LabelX32 = New DevComponents.DotNetBar.LabelX()
-        Me.LabelX33 = New DevComponents.DotNetBar.LabelX()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LabelX31 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX33 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX32 = New DevComponents.DotNetBar.LabelX()
+        Me.Bt6AddVehiculo = New DevComponents.DotNetBar.ButtonX()
+        Me.LabelX34 = New DevComponents.DotNetBar.LabelX()
+        Me.Cb4MarcaVehiculo = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.Tb22NroRoseta = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.Tb21Placa = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.Cb5ModeloVehiculo = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.BtAddLibMarca = New DevComponents.DotNetBar.ButtonX()
+        Me.BtAddLibModelo = New DevComponents.DotNetBar.ButtonX()
+        Me.btAddImgVehiculo = New DevComponents.DotNetBar.ButtonX()
         Me.Cm3Vehiculos = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MODIFICARVEHICULOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ELIMINARVEHICULOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -156,7 +157,6 @@ Partial Class F0_Socio
         Me.PanelExAccion = New DevComponents.DotNetBar.PanelEx()
         Me.CpExportarExcel = New DevComponents.DotNetBar.Controls.CircularProgress()
         Me.btExportarExcel = New DevComponents.DotNetBar.ButtonX()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelBuscador.SuspendLayout()
@@ -184,8 +184,9 @@ Partial Class F0_Socio
         Me.Gp4Vehiculos.SuspendLayout()
         CType(Me.Dgd2Vehiculos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmOpciones.SuspendLayout()
-        CType(Me.Cb5ModeloVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         CType(Me.Cb4MarcaVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Cb5ModeloVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Cm3Vehiculos.SuspendLayout()
         Me.PanelEx1.SuspendLayout()
         Me.Pn1AddFotoSocio.SuspendLayout()
@@ -206,7 +207,6 @@ Partial Class F0_Socio
         Me.TableLayoutPanelBusqueda.SuspendLayout()
         Me.GroupPanelAccion.SuspendLayout()
         Me.PanelExAccion.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'SuperTabPrincipal
@@ -1233,85 +1233,117 @@ Partial Class F0_Socio
         Me.Eliminarms.Size = New System.Drawing.Size(228, 42)
         Me.Eliminarms.Text = "ELIMINAR FILA"
         '
-        'btAddImgVehiculo
+        'Panel1
         '
-        Me.btAddImgVehiculo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btAddImgVehiculo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btAddImgVehiculo.Image = Global.Presentacion.My.Resources.Resources.photograph
-        Me.btAddImgVehiculo.ImageFixedSize = New System.Drawing.Size(45, 38)
-        Me.btAddImgVehiculo.ImageTextSpacing = 5
-        Me.btAddImgVehiculo.Location = New System.Drawing.Point(387, 1)
-        Me.btAddImgVehiculo.Margin = New System.Windows.Forms.Padding(4)
-        Me.btAddImgVehiculo.Name = "btAddImgVehiculo"
-        Me.btAddImgVehiculo.Size = New System.Drawing.Size(165, 49)
-        Me.btAddImgVehiculo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btAddImgVehiculo.TabIndex = 86
-        Me.btAddImgVehiculo.Text = "Add Img"
+        Me.Panel1.Controls.Add(Me.LabelX31)
+        Me.Panel1.Controls.Add(Me.LabelX33)
+        Me.Panel1.Controls.Add(Me.LabelX32)
+        Me.Panel1.Controls.Add(Me.Bt6AddVehiculo)
+        Me.Panel1.Controls.Add(Me.LabelX34)
+        Me.Panel1.Controls.Add(Me.Cb4MarcaVehiculo)
+        Me.Panel1.Controls.Add(Me.Tb22NroRoseta)
+        Me.Panel1.Controls.Add(Me.Tb21Placa)
+        Me.Panel1.Controls.Add(Me.Cb5ModeloVehiculo)
+        Me.Panel1.Controls.Add(Me.BtAddLibMarca)
+        Me.Panel1.Controls.Add(Me.BtAddLibModelo)
+        Me.Panel1.Controls.Add(Me.btAddImgVehiculo)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(563, 170)
+        Me.Panel1.TabIndex = 88
         '
-        'BtAddLibModelo
+        'LabelX31
         '
-        Me.BtAddLibModelo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.BtAddLibModelo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.BtAddLibModelo.Image = Global.Presentacion.My.Resources.Resources.BT_128X128ADICIONAR
-        Me.BtAddLibModelo.ImageFixedSize = New System.Drawing.Size(35, 35)
-        Me.BtAddLibModelo.Location = New System.Drawing.Point(387, 63)
-        Me.BtAddLibModelo.Margin = New System.Windows.Forms.Padding(4)
-        Me.BtAddLibModelo.Name = "BtAddLibModelo"
-        Me.BtAddLibModelo.Size = New System.Drawing.Size(67, 43)
-        Me.BtAddLibModelo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.BtAddLibModelo.TabIndex = 85
-        '
-        'BtAddLibMarca
-        '
-        Me.BtAddLibMarca.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.BtAddLibMarca.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.BtAddLibMarca.Image = Global.Presentacion.My.Resources.Resources.BT_128X128ADICIONAR
-        Me.BtAddLibMarca.ImageFixedSize = New System.Drawing.Size(35, 35)
-        Me.BtAddLibMarca.Location = New System.Drawing.Point(219, 2)
-        Me.BtAddLibMarca.Margin = New System.Windows.Forms.Padding(4)
-        Me.BtAddLibMarca.Name = "BtAddLibMarca"
-        Me.BtAddLibMarca.Size = New System.Drawing.Size(67, 43)
-        Me.BtAddLibMarca.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.BtAddLibMarca.TabIndex = 84
-        '
-        'Cb5ModeloVehiculo
-        '
-        Cb5ModeloVehiculo_DesignTimeLayout.LayoutString = resources.GetString("Cb5ModeloVehiculo_DesignTimeLayout.LayoutString")
-        Me.Cb5ModeloVehiculo.DesignTimeLayout = Cb5ModeloVehiculo_DesignTimeLayout
-        Me.Cb5ModeloVehiculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Cb5ModeloVehiculo.Location = New System.Drawing.Point(172, 77)
-        Me.Cb5ModeloVehiculo.Margin = New System.Windows.Forms.Padding(4)
-        Me.Cb5ModeloVehiculo.Name = "Cb5ModeloVehiculo"
-        Me.Cb5ModeloVehiculo.SelectedIndex = -1
-        Me.Cb5ModeloVehiculo.SelectedItem = Nothing
-        Me.Cb5ModeloVehiculo.Size = New System.Drawing.Size(207, 26)
-        Me.Cb5ModeloVehiculo.TabIndex = 1
-        '
-        'Tb21Placa
+        Me.LabelX31.AutoSize = True
+        Me.LabelX31.BackColor = System.Drawing.Color.Transparent
         '
         '
         '
+        Me.LabelX31.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX31.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX31.Location = New System.Drawing.Point(4, 105)
+        Me.LabelX31.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX31.Name = "LabelX31"
+        Me.LabelX31.Size = New System.Drawing.Size(91, 21)
+        Me.LabelX31.TabIndex = 76
+        Me.LabelX31.Text = "Nro. Roseta"
         '
-        Me.Tb21Placa.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.Tb21Placa.Border.BorderBottomWidth = 1
-        Me.Tb21Placa.Border.BorderColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemDisabledText
-        Me.Tb21Placa.Border.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemDisabledText
-        Me.Tb21Placa.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.Tb21Placa.Border.BorderLeftWidth = 1
-        Me.Tb21Placa.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.Tb21Placa.Border.BorderRightWidth = 1
-        Me.Tb21Placa.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.Tb21Placa.Border.BorderTopWidth = 1
-        Me.Tb21Placa.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.Tb21Placa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tb21Placa.Location = New System.Drawing.Point(4, 76)
-        Me.Tb21Placa.Margin = New System.Windows.Forms.Padding(4)
-        Me.Tb21Placa.MaxLength = 15
-        Me.Tb21Placa.Multiline = True
-        Me.Tb21Placa.Name = "Tb21Placa"
-        Me.Tb21Placa.PreventEnterBeep = True
-        Me.Tb21Placa.Size = New System.Drawing.Size(160, 28)
-        Me.Tb21Placa.TabIndex = 2
+        'LabelX33
+        '
+        Me.LabelX33.AutoSize = True
+        Me.LabelX33.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX33.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX33.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX33.Location = New System.Drawing.Point(0, 0)
+        Me.LabelX33.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX33.Name = "LabelX33"
+        Me.LabelX33.Size = New System.Drawing.Size(55, 21)
+        Me.LabelX33.TabIndex = 62
+        Me.LabelX33.Text = "*Marca"
+        '
+        'LabelX32
+        '
+        Me.LabelX32.AutoSize = True
+        Me.LabelX32.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX32.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX32.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX32.Location = New System.Drawing.Point(4, 54)
+        Me.LabelX32.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX32.Name = "LabelX32"
+        Me.LabelX32.Size = New System.Drawing.Size(51, 21)
+        Me.LabelX32.TabIndex = 77
+        Me.LabelX32.Text = "*Placa"
+        '
+        'Bt6AddVehiculo
+        '
+        Me.Bt6AddVehiculo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Bt6AddVehiculo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Bt6AddVehiculo.Image = Global.Presentacion.My.Resources.Resources.checked
+        Me.Bt6AddVehiculo.ImageFixedSize = New System.Drawing.Size(45, 38)
+        Me.Bt6AddVehiculo.ImageTextSpacing = 5
+        Me.Bt6AddVehiculo.Location = New System.Drawing.Point(387, 106)
+        Me.Bt6AddVehiculo.Margin = New System.Windows.Forms.Padding(4)
+        Me.Bt6AddVehiculo.Name = "Bt6AddVehiculo"
+        Me.Bt6AddVehiculo.Size = New System.Drawing.Size(165, 49)
+        Me.Bt6AddVehiculo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.Bt6AddVehiculo.TabIndex = 4
+        Me.Bt6AddVehiculo.Text = "Add Reg"
+        '
+        'LabelX34
+        '
+        Me.LabelX34.AutoSize = True
+        Me.LabelX34.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX34.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX34.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX34.Location = New System.Drawing.Point(172, 54)
+        Me.LabelX34.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX34.Name = "LabelX34"
+        Me.LabelX34.Size = New System.Drawing.Size(64, 21)
+        Me.LabelX34.TabIndex = 81
+        Me.LabelX34.Text = "*Modelo"
+        '
+        'Cb4MarcaVehiculo
+        '
+        Cb4MarcaVehiculo_DesignTimeLayout.LayoutString = resources.GetString("Cb4MarcaVehiculo_DesignTimeLayout.LayoutString")
+        Me.Cb4MarcaVehiculo.DesignTimeLayout = Cb4MarcaVehiculo_DesignTimeLayout
+        Me.Cb4MarcaVehiculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cb4MarcaVehiculo.Location = New System.Drawing.Point(4, 22)
+        Me.Cb4MarcaVehiculo.Margin = New System.Windows.Forms.Padding(4)
+        Me.Cb4MarcaVehiculo.Name = "Cb4MarcaVehiculo"
+        Me.Cb4MarcaVehiculo.SelectedIndex = -1
+        Me.Cb4MarcaVehiculo.SelectedItem = Nothing
+        Me.Cb4MarcaVehiculo.Size = New System.Drawing.Size(207, 26)
+        Me.Cb4MarcaVehiculo.TabIndex = 0
         '
         'Tb22NroRoseta
         '
@@ -1339,97 +1371,85 @@ Partial Class F0_Socio
         Me.Tb22NroRoseta.Size = New System.Drawing.Size(160, 28)
         Me.Tb22NroRoseta.TabIndex = 3
         '
-        'Cb4MarcaVehiculo
-        '
-        Cb4MarcaVehiculo_DesignTimeLayout.LayoutString = resources.GetString("Cb4MarcaVehiculo_DesignTimeLayout.LayoutString")
-        Me.Cb4MarcaVehiculo.DesignTimeLayout = Cb4MarcaVehiculo_DesignTimeLayout
-        Me.Cb4MarcaVehiculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Cb4MarcaVehiculo.Location = New System.Drawing.Point(4, 22)
-        Me.Cb4MarcaVehiculo.Margin = New System.Windows.Forms.Padding(4)
-        Me.Cb4MarcaVehiculo.Name = "Cb4MarcaVehiculo"
-        Me.Cb4MarcaVehiculo.SelectedIndex = -1
-        Me.Cb4MarcaVehiculo.SelectedItem = Nothing
-        Me.Cb4MarcaVehiculo.Size = New System.Drawing.Size(207, 26)
-        Me.Cb4MarcaVehiculo.TabIndex = 0
-        '
-        'LabelX34
-        '
-        Me.LabelX34.AutoSize = True
-        Me.LabelX34.BackColor = System.Drawing.Color.Transparent
+        'Tb21Placa
         '
         '
         '
-        Me.LabelX34.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX34.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX34.Location = New System.Drawing.Point(172, 54)
-        Me.LabelX34.Margin = New System.Windows.Forms.Padding(4)
-        Me.LabelX34.Name = "LabelX34"
-        Me.LabelX34.Size = New System.Drawing.Size(64, 21)
-        Me.LabelX34.TabIndex = 81
-        Me.LabelX34.Text = "*Modelo"
         '
-        'Bt6AddVehiculo
+        Me.Tb21Placa.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.Tb21Placa.Border.BorderBottomWidth = 1
+        Me.Tb21Placa.Border.BorderColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemDisabledText
+        Me.Tb21Placa.Border.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemDisabledText
+        Me.Tb21Placa.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.Tb21Placa.Border.BorderLeftWidth = 1
+        Me.Tb21Placa.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.Tb21Placa.Border.BorderRightWidth = 1
+        Me.Tb21Placa.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.Tb21Placa.Border.BorderTopWidth = 1
+        Me.Tb21Placa.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.Tb21Placa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tb21Placa.Location = New System.Drawing.Point(4, 76)
+        Me.Tb21Placa.Margin = New System.Windows.Forms.Padding(4)
+        Me.Tb21Placa.MaxLength = 15
+        Me.Tb21Placa.Multiline = True
+        Me.Tb21Placa.Name = "Tb21Placa"
+        Me.Tb21Placa.PreventEnterBeep = True
+        Me.Tb21Placa.Size = New System.Drawing.Size(160, 28)
+        Me.Tb21Placa.TabIndex = 2
         '
-        Me.Bt6AddVehiculo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Bt6AddVehiculo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.Bt6AddVehiculo.Image = Global.Presentacion.My.Resources.Resources.checked
-        Me.Bt6AddVehiculo.ImageFixedSize = New System.Drawing.Size(45, 38)
-        Me.Bt6AddVehiculo.ImageTextSpacing = 5
-        Me.Bt6AddVehiculo.Location = New System.Drawing.Point(387, 106)
-        Me.Bt6AddVehiculo.Margin = New System.Windows.Forms.Padding(4)
-        Me.Bt6AddVehiculo.Name = "Bt6AddVehiculo"
-        Me.Bt6AddVehiculo.Size = New System.Drawing.Size(165, 49)
-        Me.Bt6AddVehiculo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.Bt6AddVehiculo.TabIndex = 4
-        Me.Bt6AddVehiculo.Text = "Add Reg"
+        'Cb5ModeloVehiculo
         '
-        'LabelX32
+        Cb5ModeloVehiculo_DesignTimeLayout.LayoutString = resources.GetString("Cb5ModeloVehiculo_DesignTimeLayout.LayoutString")
+        Me.Cb5ModeloVehiculo.DesignTimeLayout = Cb5ModeloVehiculo_DesignTimeLayout
+        Me.Cb5ModeloVehiculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cb5ModeloVehiculo.Location = New System.Drawing.Point(172, 77)
+        Me.Cb5ModeloVehiculo.Margin = New System.Windows.Forms.Padding(4)
+        Me.Cb5ModeloVehiculo.Name = "Cb5ModeloVehiculo"
+        Me.Cb5ModeloVehiculo.SelectedIndex = -1
+        Me.Cb5ModeloVehiculo.SelectedItem = Nothing
+        Me.Cb5ModeloVehiculo.Size = New System.Drawing.Size(207, 26)
+        Me.Cb5ModeloVehiculo.TabIndex = 1
         '
-        Me.LabelX32.AutoSize = True
-        Me.LabelX32.BackColor = System.Drawing.Color.Transparent
+        'BtAddLibMarca
         '
+        Me.BtAddLibMarca.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.BtAddLibMarca.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.BtAddLibMarca.Image = Global.Presentacion.My.Resources.Resources.BT_128X128ADICIONAR
+        Me.BtAddLibMarca.ImageFixedSize = New System.Drawing.Size(35, 35)
+        Me.BtAddLibMarca.Location = New System.Drawing.Point(219, 2)
+        Me.BtAddLibMarca.Margin = New System.Windows.Forms.Padding(4)
+        Me.BtAddLibMarca.Name = "BtAddLibMarca"
+        Me.BtAddLibMarca.Size = New System.Drawing.Size(67, 43)
+        Me.BtAddLibMarca.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.BtAddLibMarca.TabIndex = 84
         '
+        'BtAddLibModelo
         '
-        Me.LabelX32.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX32.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX32.Location = New System.Drawing.Point(4, 54)
-        Me.LabelX32.Margin = New System.Windows.Forms.Padding(4)
-        Me.LabelX32.Name = "LabelX32"
-        Me.LabelX32.Size = New System.Drawing.Size(51, 21)
-        Me.LabelX32.TabIndex = 77
-        Me.LabelX32.Text = "*Placa"
+        Me.BtAddLibModelo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.BtAddLibModelo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.BtAddLibModelo.Image = Global.Presentacion.My.Resources.Resources.BT_128X128ADICIONAR
+        Me.BtAddLibModelo.ImageFixedSize = New System.Drawing.Size(35, 35)
+        Me.BtAddLibModelo.Location = New System.Drawing.Point(387, 63)
+        Me.BtAddLibModelo.Margin = New System.Windows.Forms.Padding(4)
+        Me.BtAddLibModelo.Name = "BtAddLibModelo"
+        Me.BtAddLibModelo.Size = New System.Drawing.Size(67, 43)
+        Me.BtAddLibModelo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.BtAddLibModelo.TabIndex = 85
         '
-        'LabelX33
+        'btAddImgVehiculo
         '
-        Me.LabelX33.AutoSize = True
-        Me.LabelX33.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX33.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX33.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX33.Location = New System.Drawing.Point(0, 0)
-        Me.LabelX33.Margin = New System.Windows.Forms.Padding(4)
-        Me.LabelX33.Name = "LabelX33"
-        Me.LabelX33.Size = New System.Drawing.Size(55, 21)
-        Me.LabelX33.TabIndex = 62
-        Me.LabelX33.Text = "*Marca"
-        '
-        'LabelX31
-        '
-        Me.LabelX31.AutoSize = True
-        Me.LabelX31.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX31.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX31.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX31.Location = New System.Drawing.Point(4, 105)
-        Me.LabelX31.Margin = New System.Windows.Forms.Padding(4)
-        Me.LabelX31.Name = "LabelX31"
-        Me.LabelX31.Size = New System.Drawing.Size(91, 21)
-        Me.LabelX31.TabIndex = 76
-        Me.LabelX31.Text = "Nro. Roseta"
+        Me.btAddImgVehiculo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btAddImgVehiculo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btAddImgVehiculo.Image = Global.Presentacion.My.Resources.Resources.photograph
+        Me.btAddImgVehiculo.ImageFixedSize = New System.Drawing.Size(45, 38)
+        Me.btAddImgVehiculo.ImageTextSpacing = 5
+        Me.btAddImgVehiculo.Location = New System.Drawing.Point(387, 1)
+        Me.btAddImgVehiculo.Margin = New System.Windows.Forms.Padding(4)
+        Me.btAddImgVehiculo.Name = "btAddImgVehiculo"
+        Me.btAddImgVehiculo.Size = New System.Drawing.Size(165, 49)
+        Me.btAddImgVehiculo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btAddImgVehiculo.TabIndex = 86
+        Me.btAddImgVehiculo.Text = "Add Img"
         '
         'Cm3Vehiculos
         '
@@ -2536,26 +2556,6 @@ Partial Class F0_Socio
         Me.btExportarExcel.TabIndex = 0
         Me.btExportarExcel.Text = "Exportar"
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.LabelX31)
-        Me.Panel1.Controls.Add(Me.LabelX33)
-        Me.Panel1.Controls.Add(Me.LabelX32)
-        Me.Panel1.Controls.Add(Me.Bt6AddVehiculo)
-        Me.Panel1.Controls.Add(Me.LabelX34)
-        Me.Panel1.Controls.Add(Me.Cb4MarcaVehiculo)
-        Me.Panel1.Controls.Add(Me.Tb22NroRoseta)
-        Me.Panel1.Controls.Add(Me.Tb21Placa)
-        Me.Panel1.Controls.Add(Me.Cb5ModeloVehiculo)
-        Me.Panel1.Controls.Add(Me.BtAddLibMarca)
-        Me.Panel1.Controls.Add(Me.BtAddLibModelo)
-        Me.Panel1.Controls.Add(Me.btAddImgVehiculo)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(563, 170)
-        Me.Panel1.TabIndex = 88
-        '
         'F0_Socio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -2594,8 +2594,10 @@ Partial Class F0_Socio
         Me.Gp4Vehiculos.ResumeLayout(False)
         CType(Me.Dgd2Vehiculos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmOpciones.ResumeLayout(False)
-        CType(Me.Cb5ModeloVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         CType(Me.Cb4MarcaVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Cb5ModeloVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Cm3Vehiculos.ResumeLayout(False)
         Me.PanelEx1.ResumeLayout(False)
         Me.PanelEx1.PerformLayout()
@@ -2618,8 +2620,6 @@ Partial Class F0_Socio
         Me.TableLayoutPanelBusqueda.ResumeLayout(False)
         Me.GroupPanelAccion.ResumeLayout(False)
         Me.PanelExAccion.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
