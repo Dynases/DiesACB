@@ -45,6 +45,7 @@ Public Class F0_PagosSocio
     Dim DtPrecioMortuoria As DataTable
     Dim DtMortuoria As DataTable
     Dim BoMortuaria As Boolean = False
+    Dim PMortuoria As String
 
     Dim FontHeader As New Font("Arial", gi_userFuente, FontStyle.Bold)
     Dim FontText As New Font("Arial", gi_userFuente - 1, FontStyle.Regular)
@@ -57,6 +58,7 @@ Public Class F0_PagosSocio
     Private boEsAusente As Boolean = False
 
     Private FacturaSocio As Boolean = False
+
 #End Region
 
 #Region "Eventos"
@@ -322,7 +324,119 @@ Public Class F0_PagosSocio
 
         Return res
     End Function
+    Private Sub P_prImprimirRecibo(numi As String, impFactura As Boolean, grabarPDF As Boolean)
 
+        Dim _Fecha As Date
+        Dim _Ds, _Ds2, _Ds3 As New DataSet
+        Dim _Fechainv, _Total, _Hora, _Literal, _TotalDecimal, _TotalDecimal2 As String
+        Dim I, _TotalCC As Integer
+        Dim _Desc, _TotalLi As Decimal
+        Dim _VistaPrevia As Integer = 0
+        _Desc = CDbl(0)
+        If Not IsNothing(P_Global.Visualizador) Then
+            P_Global.Visualizador.Close()
+        End If
+
+        _Fecha = Dt2FechaPago.Value '.ToString("dd/MM/yyyy")
+        _Hora = Now.Hour.ToString + ":" + Now.Minute.ToString
+
+
+        _Ds = L_Reporte_Recibo(numi)
+
+        _Fechainv = _Fecha.Year.ToString +
+                   _CompletarMonth(_Fecha.Month).Trim +
+                   _CompletarMonth(_Fecha.Day).Trim
+        _Total = _Ds.Tables(0).Rows(0).Item("sfmonto").ToString
+
+        _TotalCC = Math.Round(CDbl(_Total), MidpointRounding.AwayFromZero)
+
+        'Literal 
+        _TotalLi = _Ds.Tables(0).Rows(0).Item("sfmonto") '- _Ds.Tables(0).Rows(0).Item("fvadesc")
+        _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
+        _TotalDecimal2 = CDbl(_TotalDecimal) * 100
+
+        'Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_Total) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
+        _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
+        _Ds2 = L_Reporte_Factura_Cia("1")
+
+
+        Dim dt As DataTable = L_fnFacturaLavadero(numi)
+        'Dim dtAyuda As DataTable = L_fnFacturaAyudaPagoSocios(numi)
+
+        ''''''''''''''AQUI DE UN AñO ANTERIOR '''''''''''''''''''''''
+        'Dim result As DataRow() = dtAyuda.Select("seano=" + Str(Now.Date.Year - 1))
+        'Dim total As Decimal = 0
+        'For l As Integer = 0 To result.Length - 1 Step 1
+        '    total += result(l).Item("Total")
+
+        'Next
+
+        'If (result.Length > 0) Then
+
+        '    '1 as Cantidad, detalle
+        '    '			, PrecioUnitario, Total,vdnumi , img
+        '    If (result.Length > 1) Then
+
+        '        dt.Rows.Add(result.Length, "PAGO CUOTA DE SOCIO DE " + result(0).Item("detalle") + " A " + result(result.Length - 1).Item("detalle") + " DEL " + Str(Now.Date.Year - 1), total / result.Length, total, 0, DBNull.Value)
+        '    Else
+        '        dt.Rows.Add(result.Length, "PAGO CUOTA DE SOCIO DE " + result(0).Item("detalle") + " DEL " + Str(Now.Date.Year - 1), total / result.Length, total, 0, DBNull.Value)
+        '    End If
+
+        'End If
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ''''''''''''''AQUI DEL AñO ACTUAL '''''''''''''''''''''''
+        'Dim resultActual As DataRow() = dtAyuda.Select("seano=" + Str(Now.Date.Year))
+        'Dim totalActual As Decimal = 0
+        'For l As Integer = 0 To resultActual.Length - 1 Step 1
+        '    totalActual += resultActual(l).Item("Total")
+
+        'Next
+
+        'If (resultActual.Length > 0) Then
+
+        '    '1 as Cantidad, detalle
+        '    '			, PrecioUnitario, Total,vdnumi , img
+        '    If (resultActual.Length > 1) Then
+
+        '        dt.Rows.Add(resultActual.Length, "PAGO CUOTA DE SOCIO DE " + resultActual(0).Item("detalle") + " A " + resultActual(resultActual.Length - 1).Item("detalle").ToString + " DEL " + Str(Now.Date.Year), totalActual / resultActual.Length, totalActual, 0, DBNull.Value)
+        '    Else
+        '        dt.Rows.Add(resultActual.Length, "PAGO CUOTA DE SOCIO DE " + resultActual(0).Item("detalle") + " DEL " + Str(Now.Date.Year), totalActual / resultActual.Length, totalActual, 0, DBNull.Value)
+        '    End If
+
+        'End If
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+        If (True) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador = New Visualizador 'Comentar
+        End If
+        Dim objrep As Object = Nothing
+
+        objrep = New R_ReciboMortuoria
+
+        objrep.SetDataSource(_Ds)
+        objrep.SetParameterValue("lugarFecha", "Cochabamba, " + Str(Dt2FechaPago.Value.Day) + " De " + MonthName(Dt2FechaPago.Value.Month) + " De " + Str(Dt2FechaPago.Value.Year))
+        objrep.SetParameterValue("nombreFactura", namefactura.ToString)
+        objrep.SetParameterValue("TotalBs", _Literal)
+        objrep.SetParameterValue("Obs", TbiNroSocio.Value.ToString + " - " + Tb2NombreSocio.Text.Trim)
+
+
+        P_Global.Visualizador.CRV1.ReportSource = objrep
+        P_Global.Visualizador.Show()
+        P_Global.Visualizador.BringToFront()
+
+
+        'If (grabarPDF) Then
+        '    'Copia de Factura en PDF
+        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+        '    End If
+        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(_NumFac) + "_" + CStr(_Autorizacion) + ".pdf")
+
+        'End If
+
+    End Sub
 
     Public Function P_fnImageToByteArray(ByVal imageIn As Image) As Byte()
         Dim ms As New System.IO.MemoryStream()
@@ -535,17 +649,24 @@ Public Class F0_PagosSocio
         If (FacturaSocio = False) Then
             Return True
         End If
-        Dim f1 As F1_VentanaFactura
-        f1 = New F1_VentanaFactura
-        f1.Nombre = Tb2NombreSocio.Text
-        f1.ShowDialog()
-        If (f1.nameFactura.ToString.Length > 0 And f1.nit.ToString.Length > 0) Then
-            nit = f1.nit.ToString
-            namefactura = f1.nameFactura.ToString
-            Return True
+
+        If PMortuoria = 0 Then
+            Dim f1 As F1_VentanaFactura
+            f1 = New F1_VentanaFactura
+            f1.Nombre = Tb2NombreSocio.Text
+            f1.ShowDialog()
+            If (f1.nameFactura.ToString.Length > 0 And f1.nit.ToString.Length > 0) Then
+                nit = f1.nit.ToString
+                namefactura = f1.nameFactura.ToString
+                Return True
+            Else
+                Return False
+            End If
         Else
-            Return False
+            namefactura = Tb2NombreSocio.Text
+            Return True
         End If
+
     End Function
     Private Sub P_Grabar()
         If (Nuevo) Then
@@ -575,6 +696,7 @@ Public Class F0_PagosSocio
                     Dim Dt2 As DataTable
                     Dim DtM1 As DataTable
                     Dim DtM2 As DataTable
+                    Dim DtPagosMor As DataTable
 
                     Dim ppnc As Boolean
                     'Año anterior
@@ -618,10 +740,20 @@ Public Class F0_PagosSocio
                     End If
                     Dim res As Boolean = L_fnSocioPagosGrabar(Numi, Dt1, DtM1, numiVentas)
                     Dim res2 As Boolean = L_fnSocioPagosGrabar(Numi, Dt2, DtM2, numiVentas)
-                    If (FacturaSocio = True) Then
+
+
+                    'If (FacturaSocio = True) Then
+                    '    dt_detalle = L_fnSocioObtenerDetallePagoFactura(numiVentas)
+                    '    P_fnGenerarFactura(numiVentas)
+                    'End If
+                    DtPagosMor = CType(DgdMortuoria.PrimaryGrid.DataSource, DataTable)
+                    If (DtPagosMor.Rows(0).Item("check11") = 1 Or DtPagosMor.Rows(0).Item("check12") = 1) Then
+                        P_prImprimirRecibo(Numi, True, True)
+                    Else
                         dt_detalle = L_fnSocioObtenerDetallePagoFactura(numiVentas)
                         P_fnGenerarFactura(numiVentas)
                     End If
+
 
 
                     If (res) Then
@@ -3150,6 +3282,8 @@ Public Class F0_PagosSocio
         P_prArmarGrillaTelefono(numi)
 
         GroupPanelDatosPago.Select()
+
+        PMortuoria = mortuoria
     End Sub
 
     Private Sub TbiNroSocio_Leave(sender As Object, e As EventArgs) Handles TbiNroSocio.Leave

@@ -219,9 +219,9 @@ Partial Class P_Principal
         'SideNav1
         '
         Me.SideNav1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.SideNav1.Controls.Add(Me.SideNavPanel1)
         Me.SideNav1.Controls.Add(Me.SideNav_Conf)
         Me.SideNav1.Controls.Add(Me.SideNavPanel4)
-        Me.SideNav1.Controls.Add(Me.SideNavPanel1)
         Me.SideNav1.Controls.Add(Me.SideNavPanel6)
         Me.SideNav1.Controls.Add(Me.SideNav_Logistica)
         Me.SideNav1.Controls.Add(Me.SideNavPanel2)
@@ -243,8 +243,9 @@ Partial Class P_Principal
         Me.SideNav_Conf.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SideNav_Conf.Location = New System.Drawing.Point(170, 36)
         Me.SideNav_Conf.Name = "SideNav_Conf"
-        Me.SideNav_Conf.Size = New System.Drawing.Size(843, 524)
+        Me.SideNav_Conf.Size = New System.Drawing.Size(842, 524)
         Me.SideNav_Conf.TabIndex = 2
+        Me.SideNav_Conf.Visible = False
         '
         'MetroTilePanel1
         '
@@ -265,7 +266,7 @@ Partial Class P_Principal
         Me.MetroTilePanel1.Location = New System.Drawing.Point(0, 0)
         Me.MetroTilePanel1.MultiLine = True
         Me.MetroTilePanel1.Name = "MetroTilePanel1"
-        Me.MetroTilePanel1.Size = New System.Drawing.Size(843, 410)
+        Me.MetroTilePanel1.Size = New System.Drawing.Size(842, 410)
         Me.MetroTilePanel1.TabIndex = 0
         Me.MetroTilePanel1.Text = "mtp1Configuracion"
         '
@@ -388,7 +389,7 @@ Partial Class P_Principal
         Me.PictureBox4.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PictureBox4.Location = New System.Drawing.Point(0, 410)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(843, 114)
+        Me.PictureBox4.Size = New System.Drawing.Size(842, 114)
         Me.PictureBox4.TabIndex = 2
         Me.PictureBox4.TabStop = False
         Me.PictureBox4.Visible = False
@@ -638,11 +639,10 @@ Partial Class P_Principal
         Me.SideNavPanel1.Controls.Add(Me.MetroTilePanel4)
         Me.SideNavPanel1.Controls.Add(Me.PictureBox1)
         Me.SideNavPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideNavPanel1.Location = New System.Drawing.Point(148, 32)
+        Me.SideNavPanel1.Location = New System.Drawing.Point(170, 36)
         Me.SideNavPanel1.Name = "SideNavPanel1"
-        Me.SideNavPanel1.Size = New System.Drawing.Size(865, 527)
+        Me.SideNavPanel1.Size = New System.Drawing.Size(842, 524)
         Me.SideNavPanel1.TabIndex = 66
-        Me.SideNavPanel1.Visible = False
         '
         'MetroTilePanel4
         '
@@ -663,7 +663,7 @@ Partial Class P_Principal
         Me.MetroTilePanel4.Location = New System.Drawing.Point(0, 0)
         Me.MetroTilePanel4.MultiLine = True
         Me.MetroTilePanel4.Name = "MetroTilePanel4"
-        Me.MetroTilePanel4.Size = New System.Drawing.Size(865, 413)
+        Me.MetroTilePanel4.Size = New System.Drawing.Size(842, 410)
         Me.MetroTilePanel4.TabIndex = 2
         Me.MetroTilePanel4.Text = "mtp2Logistica"
         '
@@ -833,9 +833,9 @@ Partial Class P_Principal
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 413)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 410)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(865, 114)
+        Me.PictureBox1.Size = New System.Drawing.Size(842, 114)
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.Visible = False
@@ -2087,7 +2087,6 @@ Partial Class P_Principal
         '
         'FP_Configuracion
         '
-        Me.FP_Configuracion.Checked = True
         Me.FP_Configuracion.Name = "FP_Configuracion"
         Me.FP_Configuracion.Panel = Me.SideNav_Conf
         Me.FP_Configuracion.Symbol = ""
@@ -2110,6 +2109,7 @@ Partial Class P_Principal
         '
         'FP_Socios
         '
+        Me.FP_Socios.Checked = True
         Me.FP_Socios.Name = "FP_Socios"
         Me.FP_Socios.Panel = Me.SideNavPanel1
         Me.FP_Socios.Symbol = ""
