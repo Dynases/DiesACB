@@ -56,6 +56,8 @@ Partial Class F0_PagosSocio
         Me.DgdMortuoria = New DevComponents.DotNetBar.SuperGrid.SuperGridControl()
         Me.Dgj1Busqueda = New Janus.Windows.GridEX.GridEX()
         Me.rlAccion = New DevComponents.DotNetBar.Controls.ReflectionLabel()
+        Me.LabelX10 = New DevComponents.DotNetBar.LabelX()
+        Me.swPagosCM = New DevComponents.DotNetBar.Controls.SwitchButton()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelBuscador.SuspendLayout()
@@ -100,24 +102,24 @@ Partial Class F0_PagosSocio
         Me.SuperTabPrincipal.ControlBox.MenuBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabPrincipal.ControlBox.MenuBox, Me.SuperTabPrincipal.ControlBox.CloseBox})
-        Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(5)
+        Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SuperTabPrincipal.SelectedTabIndex = 1
-        Me.SuperTabPrincipal.Size = New System.Drawing.Size(1312, 814)
+        Me.SuperTabPrincipal.Size = New System.Drawing.Size(984, 651)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelBuscador, 0)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
         '
         'SuperTabControlPanelBuscador
         '
         Me.SuperTabControlPanelBuscador.Controls.Add(Me.Dgj1Busqueda)
-        Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 28)
-        Me.SuperTabControlPanelBuscador.Padding = New System.Windows.Forms.Padding(5)
-        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(1179, 662)
+        Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 23)
+        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SuperTabControlPanelBuscador.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(884, 538)
         '
         'SuperTabControlPanelRegistro
         '
-        Me.SuperTabControlPanelRegistro.Location = New System.Drawing.Point(0, 28)
-        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(5)
-        Me.SuperTabControlPanelRegistro.Size = New System.Drawing.Size(1312, 786)
+        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControlPanelRegistro.Size = New System.Drawing.Size(984, 626)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelSuperior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelInferior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelPrincipal, 0)
@@ -125,8 +127,8 @@ Partial Class F0_PagosSocio
         'PanelSuperior
         '
         Me.PanelSuperior.Controls.Add(Me.rlAccion)
-        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(5)
-        Me.PanelSuperior.Size = New System.Drawing.Size(1312, 89)
+        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelSuperior.Size = New System.Drawing.Size(984, 72)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelSuperior.Style.BackColor1.Color = System.Drawing.Color.Yellow
         Me.PanelSuperior.Style.BackColor2.Color = System.Drawing.Color.Khaki
@@ -141,9 +143,9 @@ Partial Class F0_PagosSocio
         '
         'PanelInferior
         '
-        Me.PanelInferior.Location = New System.Drawing.Point(0, 742)
-        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(5)
-        Me.PanelInferior.Size = New System.Drawing.Size(1312, 44)
+        Me.PanelInferior.Location = New System.Drawing.Point(0, 590)
+        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelInferior.Size = New System.Drawing.Size(984, 36)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Gold
         Me.PanelInferior.Style.BackColor2.Color = System.Drawing.Color.Gold
@@ -192,22 +194,22 @@ Partial Class F0_PagosSocio
         '
         'PanelToolBar2
         '
-        Me.PanelToolBar2.Location = New System.Drawing.Point(1205, 0)
-        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(5)
+        Me.PanelToolBar2.Location = New System.Drawing.Point(904, 0)
+        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         '
         'PanelPrincipal
         '
         Me.PanelPrincipal.Controls.Add(Me.Pn2Detalle)
         Me.PanelPrincipal.Controls.Add(Me.Pn1Cabecera)
-        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(5)
-        Me.PanelPrincipal.Size = New System.Drawing.Size(1312, 653)
+        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelPrincipal.Size = New System.Drawing.Size(984, 518)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.Pn1Cabecera, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.Pn2Detalle, 0)
         '
         'btnUltimo
         '
-        Me.btnUltimo.Location = New System.Drawing.Point(171, 0)
+        Me.btnUltimo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         '
         'btnSiguiente
         '
@@ -220,8 +222,8 @@ Partial Class F0_PagosSocio
         '
         'MPanelUserAct
         '
-        Me.MPanelUserAct.Location = New System.Drawing.Point(1045, 0)
-        Me.MPanelUserAct.Margin = New System.Windows.Forms.Padding(5)
+        Me.MPanelUserAct.Location = New System.Drawing.Point(784, 0)
+        Me.MPanelUserAct.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         '
         'MRlAccion
         '
@@ -240,9 +242,8 @@ Partial Class F0_PagosSocio
         Me.Pn1Cabecera.DisabledBackColor = System.Drawing.Color.Empty
         Me.Pn1Cabecera.Dock = System.Windows.Forms.DockStyle.Left
         Me.Pn1Cabecera.Location = New System.Drawing.Point(0, 0)
-        Me.Pn1Cabecera.Margin = New System.Windows.Forms.Padding(4)
         Me.Pn1Cabecera.Name = "Pn1Cabecera"
-        Me.Pn1Cabecera.Size = New System.Drawing.Size(579, 653)
+        Me.Pn1Cabecera.Size = New System.Drawing.Size(434, 518)
         Me.Pn1Cabecera.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.Pn1Cabecera.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.Pn1Cabecera.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -256,6 +257,8 @@ Partial Class F0_PagosSocio
         '
         Me.GroupPanelDatosPago.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanelDatosPago.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanelDatosPago.Controls.Add(Me.swPagosCM)
+        Me.GroupPanelDatosPago.Controls.Add(Me.LabelX10)
         Me.GroupPanelDatosPago.Controls.Add(Me.QrFactura)
         Me.GroupPanelDatosPago.Controls.Add(Me.chPagoAnho)
         Me.GroupPanelDatosPago.Controls.Add(Me.rlMortuoria)
@@ -270,10 +273,9 @@ Partial Class F0_PagosSocio
         Me.GroupPanelDatosPago.Controls.Add(Me.Tbd1Monto)
         Me.GroupPanelDatosPago.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelDatosPago.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanelDatosPago.Location = New System.Drawing.Point(0, 410)
-        Me.GroupPanelDatosPago.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupPanelDatosPago.Location = New System.Drawing.Point(0, 333)
         Me.GroupPanelDatosPago.Name = "GroupPanelDatosPago"
-        Me.GroupPanelDatosPago.Size = New System.Drawing.Size(579, 243)
+        Me.GroupPanelDatosPago.Size = New System.Drawing.Size(434, 185)
         '
         '
         '
@@ -309,10 +311,11 @@ Partial Class F0_PagosSocio
         '
         Me.QrFactura.ErrorCorrectLevel = Gma.QrCodeNet.Encoding.ErrorCorrectionLevel.M
         Me.QrFactura.Image = CType(resources.GetObject("QrFactura.Image"), System.Drawing.Image)
-        Me.QrFactura.Location = New System.Drawing.Point(399, 172)
+        Me.QrFactura.Location = New System.Drawing.Point(299, 140)
+        Me.QrFactura.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.QrFactura.Name = "QrFactura"
         Me.QrFactura.QuietZoneModule = Gma.QrCodeNet.Encoding.Windows.Render.QuietZoneModules.Two
-        Me.QrFactura.Size = New System.Drawing.Size(42, 35)
+        Me.QrFactura.Size = New System.Drawing.Size(32, 28)
         Me.QrFactura.TabIndex = 11
         Me.QrFactura.TabStop = False
         Me.QrFactura.Text = "QrCodeImgControl1"
@@ -325,10 +328,9 @@ Partial Class F0_PagosSocio
         '
         Me.chPagoAnho.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.chPagoAnho.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chPagoAnho.Location = New System.Drawing.Point(300, 4)
-        Me.chPagoAnho.Margin = New System.Windows.Forms.Padding(4)
+        Me.chPagoAnho.Location = New System.Drawing.Point(225, 3)
         Me.chPagoAnho.Name = "chPagoAnho"
-        Me.chPagoAnho.Size = New System.Drawing.Size(259, 28)
+        Me.chPagoAnho.Size = New System.Drawing.Size(194, 23)
         Me.chPagoAnho.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.chPagoAnho.TabIndex = 10
         Me.chPagoAnho.Text = "Pagar un año completo"
@@ -341,10 +343,9 @@ Partial Class F0_PagosSocio
         Me.rlMortuoria.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.rlMortuoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rlMortuoria.ForeColor = System.Drawing.Color.Black
-        Me.rlMortuoria.Location = New System.Drawing.Point(76, 158)
-        Me.rlMortuoria.Margin = New System.Windows.Forms.Padding(4)
+        Me.rlMortuoria.Location = New System.Drawing.Point(57, 141)
         Me.rlMortuoria.Name = "rlMortuoria"
-        Me.rlMortuoria.Size = New System.Drawing.Size(403, 49)
+        Me.rlMortuoria.Size = New System.Drawing.Size(302, 40)
         Me.rlMortuoria.TabIndex = 8
         Me.rlMortuoria.Text = "<b><font size=""+10""><font color=""#FF0000""></font></font></b>"
         '
@@ -355,10 +356,9 @@ Partial Class F0_PagosSocio
         '
         Me.LabelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX8.Location = New System.Drawing.Point(4, 75)
-        Me.LabelX8.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX8.Location = New System.Drawing.Point(3, 84)
         Me.LabelX8.Name = "LabelX8"
-        Me.LabelX8.Size = New System.Drawing.Size(147, 28)
+        Me.LabelX8.Size = New System.Drawing.Size(110, 23)
         Me.LabelX8.TabIndex = 6
         Me.LabelX8.Text = "Fecha Pago:"
         '
@@ -373,8 +373,7 @@ Partial Class F0_PagosSocio
         Me.Dt2FechaPago.ButtonDropDown.Visible = True
         Me.Dt2FechaPago.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Dt2FechaPago.IsPopupCalendarOpen = False
-        Me.Dt2FechaPago.Location = New System.Drawing.Point(159, 75)
-        Me.Dt2FechaPago.Margin = New System.Windows.Forms.Padding(4)
+        Me.Dt2FechaPago.Location = New System.Drawing.Point(119, 84)
         '
         '
         '
@@ -405,7 +404,7 @@ Partial Class F0_PagosSocio
         Me.Dt2FechaPago.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.Dt2FechaPago.MonthCalendar.TodayButtonVisible = True
         Me.Dt2FechaPago.Name = "Dt2FechaPago"
-        Me.Dt2FechaPago.Size = New System.Drawing.Size(133, 26)
+        Me.Dt2FechaPago.Size = New System.Drawing.Size(100, 23)
         Me.Dt2FechaPago.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Dt2FechaPago.TabIndex = 2
         '
@@ -416,10 +415,9 @@ Partial Class F0_PagosSocio
         '
         Me.LabelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX7.Location = New System.Drawing.Point(4, 111)
-        Me.LabelX7.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX7.Location = New System.Drawing.Point(3, 113)
         Me.LabelX7.Name = "LabelX7"
-        Me.LabelX7.Size = New System.Drawing.Size(147, 28)
+        Me.LabelX7.Size = New System.Drawing.Size(110, 23)
         Me.LabelX7.TabIndex = 7
         Me.LabelX7.Text = "Cambio:"
         '
@@ -431,11 +429,10 @@ Partial Class F0_PagosSocio
         Me.Tb4Cambio.Border.Class = "TextBoxBorder"
         Me.Tb4Cambio.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.Tb4Cambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tb4Cambio.Location = New System.Drawing.Point(159, 111)
-        Me.Tb4Cambio.Margin = New System.Windows.Forms.Padding(4)
+        Me.Tb4Cambio.Location = New System.Drawing.Point(119, 113)
         Me.Tb4Cambio.Name = "Tb4Cambio"
         Me.Tb4Cambio.PreventEnterBeep = True
-        Me.Tb4Cambio.Size = New System.Drawing.Size(133, 26)
+        Me.Tb4Cambio.Size = New System.Drawing.Size(100, 23)
         Me.Tb4Cambio.TabIndex = 9
         Me.Tb4Cambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -446,10 +443,9 @@ Partial Class F0_PagosSocio
         Me.Bt2Generar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Bt2Generar.Image = Global.Presentacion.My.Resources.Resources.FECHA_SIG
         Me.Bt2Generar.ImageFixedSize = New System.Drawing.Size(75, 75)
-        Me.Bt2Generar.Location = New System.Drawing.Point(300, 39)
-        Me.Bt2Generar.Margin = New System.Windows.Forms.Padding(4)
+        Me.Bt2Generar.Location = New System.Drawing.Point(225, 55)
         Me.Bt2Generar.Name = "Bt2Generar"
-        Me.Bt2Generar.Size = New System.Drawing.Size(259, 100)
+        Me.Bt2Generar.Size = New System.Drawing.Size(194, 81)
         Me.Bt2Generar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Bt2Generar.TabIndex = 3
         Me.Bt2Generar.Text = "Iniciar Pagos"
@@ -461,10 +457,9 @@ Partial Class F0_PagosSocio
         '
         Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX6.Location = New System.Drawing.Point(4, 39)
-        Me.LabelX6.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX6.Location = New System.Drawing.Point(3, 55)
         Me.LabelX6.Name = "LabelX6"
-        Me.LabelX6.Size = New System.Drawing.Size(147, 28)
+        Me.LabelX6.Size = New System.Drawing.Size(110, 23)
         Me.LabelX6.TabIndex = 5
         Me.LabelX6.Text = "Nro. Recibo:"
         '
@@ -475,10 +470,9 @@ Partial Class F0_PagosSocio
         '
         Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX5.Location = New System.Drawing.Point(4, 4)
-        Me.LabelX5.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX5.Location = New System.Drawing.Point(3, 3)
         Me.LabelX5.Name = "LabelX5"
-        Me.LabelX5.Size = New System.Drawing.Size(147, 28)
+        Me.LabelX5.Size = New System.Drawing.Size(110, 23)
         Me.LabelX5.TabIndex = 4
         Me.LabelX5.Text = "Monto:"
         '
@@ -490,11 +484,10 @@ Partial Class F0_PagosSocio
         Me.Tb3NroRecibo.Border.Class = "TextBoxBorder"
         Me.Tb3NroRecibo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.Tb3NroRecibo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tb3NroRecibo.Location = New System.Drawing.Point(159, 39)
-        Me.Tb3NroRecibo.Margin = New System.Windows.Forms.Padding(4)
+        Me.Tb3NroRecibo.Location = New System.Drawing.Point(119, 55)
         Me.Tb3NroRecibo.Name = "Tb3NroRecibo"
         Me.Tb3NroRecibo.PreventEnterBeep = True
-        Me.Tb3NroRecibo.Size = New System.Drawing.Size(133, 26)
+        Me.Tb3NroRecibo.Size = New System.Drawing.Size(100, 23)
         Me.Tb3NroRecibo.TabIndex = 1
         Me.Tb3NroRecibo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -508,10 +501,9 @@ Partial Class F0_PagosSocio
         Me.Tbd1Monto.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
         Me.Tbd1Monto.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Tbd1Monto.Increment = 1.0R
-        Me.Tbd1Monto.Location = New System.Drawing.Point(159, 4)
-        Me.Tbd1Monto.Margin = New System.Windows.Forms.Padding(4)
+        Me.Tbd1Monto.Location = New System.Drawing.Point(119, 3)
         Me.Tbd1Monto.Name = "Tbd1Monto"
-        Me.Tbd1Monto.Size = New System.Drawing.Size(133, 26)
+        Me.Tbd1Monto.Size = New System.Drawing.Size(100, 23)
         Me.Tbd1Monto.TabIndex = 0
         '
         'GroupPanelDatosSocio
@@ -530,10 +522,9 @@ Partial Class F0_PagosSocio
         Me.GroupPanelDatosSocio.Controls.Add(Me.Dt1FechaIngreso)
         Me.GroupPanelDatosSocio.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelDatosSocio.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupPanelDatosSocio.Location = New System.Drawing.Point(0, 64)
-        Me.GroupPanelDatosSocio.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupPanelDatosSocio.Location = New System.Drawing.Point(0, 52)
         Me.GroupPanelDatosSocio.Name = "GroupPanelDatosSocio"
-        Me.GroupPanelDatosSocio.Size = New System.Drawing.Size(579, 346)
+        Me.GroupPanelDatosSocio.Size = New System.Drawing.Size(434, 281)
         '
         '
         '
@@ -568,10 +559,9 @@ Partial Class F0_PagosSocio
         'dgjTelefono
         '
         Me.dgjTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgjTelefono.Location = New System.Drawing.Point(159, 111)
-        Me.dgjTelefono.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgjTelefono.Location = New System.Drawing.Point(119, 90)
         Me.dgjTelefono.Name = "dgjTelefono"
-        Me.dgjTelefono.Size = New System.Drawing.Size(400, 148)
+        Me.dgjTelefono.Size = New System.Drawing.Size(300, 120)
         Me.dgjTelefono.TabIndex = 8
         '
         'rlTipoSocio
@@ -582,10 +572,9 @@ Partial Class F0_PagosSocio
         Me.rlTipoSocio.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.rlTipoSocio.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rlTipoSocio.ForeColor = System.Drawing.Color.Black
-        Me.rlTipoSocio.Location = New System.Drawing.Point(4, 266)
-        Me.rlTipoSocio.Margin = New System.Windows.Forms.Padding(4)
+        Me.rlTipoSocio.Location = New System.Drawing.Point(3, 216)
         Me.rlTipoSocio.Name = "rlTipoSocio"
-        Me.rlTipoSocio.Size = New System.Drawing.Size(555, 49)
+        Me.rlTipoSocio.Size = New System.Drawing.Size(416, 40)
         Me.rlTipoSocio.TabIndex = 5
         Me.rlTipoSocio.Text = "<b><font size=""+10""><font color=""#FF0000""></font></font></b>"
         '
@@ -598,11 +587,10 @@ Partial Class F0_PagosSocio
         Me.TbiNroSocio.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.TbiNroSocio.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
         Me.TbiNroSocio.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbiNroSocio.Location = New System.Drawing.Point(159, 4)
-        Me.TbiNroSocio.Margin = New System.Windows.Forms.Padding(4)
+        Me.TbiNroSocio.Location = New System.Drawing.Point(119, 3)
         Me.TbiNroSocio.MinValue = 0
         Me.TbiNroSocio.Name = "TbiNroSocio"
-        Me.TbiNroSocio.Size = New System.Drawing.Size(133, 26)
+        Me.TbiNroSocio.Size = New System.Drawing.Size(100, 23)
         Me.TbiNroSocio.TabIndex = 0
         '
         'LabelX1
@@ -612,10 +600,9 @@ Partial Class F0_PagosSocio
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX1.Location = New System.Drawing.Point(4, 4)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX1.Location = New System.Drawing.Point(3, 3)
         Me.LabelX1.Name = "LabelX1"
-        Me.LabelX1.Size = New System.Drawing.Size(147, 28)
+        Me.LabelX1.Size = New System.Drawing.Size(110, 23)
         Me.LabelX1.TabIndex = 1
         Me.LabelX1.Text = "Número de Socio:"
         '
@@ -625,10 +612,9 @@ Partial Class F0_PagosSocio
         Me.Bt1Buscar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Bt1Buscar.Image = CType(resources.GetObject("Bt1Buscar.Image"), System.Drawing.Image)
         Me.Bt1Buscar.ImageFixedSize = New System.Drawing.Size(20, 20)
-        Me.Bt1Buscar.Location = New System.Drawing.Point(292, 4)
-        Me.Bt1Buscar.Margin = New System.Windows.Forms.Padding(4)
+        Me.Bt1Buscar.Location = New System.Drawing.Point(219, 3)
         Me.Bt1Buscar.Name = "Bt1Buscar"
-        Me.Bt1Buscar.Size = New System.Drawing.Size(31, 28)
+        Me.Bt1Buscar.Size = New System.Drawing.Size(23, 23)
         Me.Bt1Buscar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Bt1Buscar.TabIndex = 9
         '
@@ -639,10 +625,9 @@ Partial Class F0_PagosSocio
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX2.Location = New System.Drawing.Point(4, 39)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX2.Location = New System.Drawing.Point(3, 32)
         Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(147, 28)
+        Me.LabelX2.Size = New System.Drawing.Size(110, 23)
         Me.LabelX2.TabIndex = 2
         Me.LabelX2.Text = "Nombre:"
         '
@@ -654,11 +639,10 @@ Partial Class F0_PagosSocio
         Me.Tb2NombreSocio.Border.Class = "TextBoxBorder"
         Me.Tb2NombreSocio.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.Tb2NombreSocio.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tb2NombreSocio.Location = New System.Drawing.Point(159, 39)
-        Me.Tb2NombreSocio.Margin = New System.Windows.Forms.Padding(4)
+        Me.Tb2NombreSocio.Location = New System.Drawing.Point(119, 32)
         Me.Tb2NombreSocio.Name = "Tb2NombreSocio"
         Me.Tb2NombreSocio.PreventEnterBeep = True
-        Me.Tb2NombreSocio.Size = New System.Drawing.Size(400, 26)
+        Me.Tb2NombreSocio.Size = New System.Drawing.Size(300, 23)
         Me.Tb2NombreSocio.TabIndex = 6
         '
         'LabelX4
@@ -668,10 +652,9 @@ Partial Class F0_PagosSocio
         '
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX4.Location = New System.Drawing.Point(4, 111)
-        Me.LabelX4.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX4.Location = New System.Drawing.Point(3, 90)
         Me.LabelX4.Name = "LabelX4"
-        Me.LabelX4.Size = New System.Drawing.Size(147, 28)
+        Me.LabelX4.Size = New System.Drawing.Size(110, 23)
         Me.LabelX4.TabIndex = 4
         Me.LabelX4.Text = "Teléfonos:"
         '
@@ -682,10 +665,9 @@ Partial Class F0_PagosSocio
         '
         Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX3.Location = New System.Drawing.Point(4, 75)
-        Me.LabelX3.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX3.Location = New System.Drawing.Point(3, 61)
         Me.LabelX3.Name = "LabelX3"
-        Me.LabelX3.Size = New System.Drawing.Size(147, 28)
+        Me.LabelX3.Size = New System.Drawing.Size(110, 23)
         Me.LabelX3.TabIndex = 3
         Me.LabelX3.Text = "Fecha Ingreso:"
         '
@@ -700,8 +682,7 @@ Partial Class F0_PagosSocio
         Me.Dt1FechaIngreso.ButtonDropDown.Visible = True
         Me.Dt1FechaIngreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Dt1FechaIngreso.IsPopupCalendarOpen = False
-        Me.Dt1FechaIngreso.Location = New System.Drawing.Point(159, 75)
-        Me.Dt1FechaIngreso.Margin = New System.Windows.Forms.Padding(4)
+        Me.Dt1FechaIngreso.Location = New System.Drawing.Point(119, 61)
         '
         '
         '
@@ -732,7 +713,7 @@ Partial Class F0_PagosSocio
         Me.Dt1FechaIngreso.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.Dt1FechaIngreso.MonthCalendar.TodayButtonVisible = True
         Me.Dt1FechaIngreso.Name = "Dt1FechaIngreso"
-        Me.Dt1FechaIngreso.Size = New System.Drawing.Size(133, 26)
+        Me.Dt1FechaIngreso.Size = New System.Drawing.Size(100, 23)
         Me.Dt1FechaIngreso.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Dt1FechaIngreso.TabIndex = 7
         '
@@ -745,9 +726,8 @@ Partial Class F0_PagosSocio
         Me.GroupPanelGestionPago.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelGestionPago.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupPanelGestionPago.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanelGestionPago.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanelGestionPago.Name = "GroupPanelGestionPago"
-        Me.GroupPanelGestionPago.Size = New System.Drawing.Size(579, 64)
+        Me.GroupPanelGestionPago.Size = New System.Drawing.Size(434, 52)
         '
         '
         '
@@ -788,12 +768,11 @@ Partial Class F0_PagosSocio
         Me.tbiGestion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbiGestion.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
         Me.tbiGestion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbiGestion.Location = New System.Drawing.Point(159, 4)
-        Me.tbiGestion.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbiGestion.Location = New System.Drawing.Point(119, 3)
         Me.tbiGestion.MaxValue = 9999
         Me.tbiGestion.MinValue = 2017
         Me.tbiGestion.Name = "tbiGestion"
-        Me.tbiGestion.Size = New System.Drawing.Size(133, 26)
+        Me.tbiGestion.Size = New System.Drawing.Size(100, 23)
         Me.tbiGestion.TabIndex = 0
         Me.tbiGestion.Value = 2017
         '
@@ -804,10 +783,9 @@ Partial Class F0_PagosSocio
         '
         Me.LabelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX9.Location = New System.Drawing.Point(4, 4)
-        Me.LabelX9.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX9.Location = New System.Drawing.Point(3, 3)
         Me.LabelX9.Name = "LabelX9"
-        Me.LabelX9.Size = New System.Drawing.Size(147, 28)
+        Me.LabelX9.Size = New System.Drawing.Size(110, 23)
         Me.LabelX9.TabIndex = 1
         Me.LabelX9.Text = "Gestión:"
         '
@@ -819,11 +797,10 @@ Partial Class F0_PagosSocio
         Me.Pn2Detalle.Controls.Add(Me.DgdMortuoria)
         Me.Pn2Detalle.DisabledBackColor = System.Drawing.Color.Empty
         Me.Pn2Detalle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Pn2Detalle.Location = New System.Drawing.Point(579, 0)
-        Me.Pn2Detalle.Margin = New System.Windows.Forms.Padding(4)
+        Me.Pn2Detalle.Location = New System.Drawing.Point(434, 0)
         Me.Pn2Detalle.Name = "Pn2Detalle"
-        Me.Pn2Detalle.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
-        Me.Pn2Detalle.Size = New System.Drawing.Size(733, 653)
+        Me.Pn2Detalle.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.Pn2Detalle.Size = New System.Drawing.Size(550, 518)
         Me.Pn2Detalle.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.Pn2Detalle.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.Pn2Detalle.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -837,10 +814,9 @@ Partial Class F0_PagosSocio
         '
         Me.DgdPagos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgdPagos.FilterExprColors.SysFunction = System.Drawing.Color.DarkRed
-        Me.DgdPagos.Location = New System.Drawing.Point(7, 6)
-        Me.DgdPagos.Margin = New System.Windows.Forms.Padding(4)
+        Me.DgdPagos.Location = New System.Drawing.Point(5, 5)
         Me.DgdPagos.Name = "DgdPagos"
-        Me.DgdPagos.Size = New System.Drawing.Size(719, 530)
+        Me.DgdPagos.Size = New System.Drawing.Size(540, 418)
         Me.DgdPagos.TabIndex = 0
         Me.DgdPagos.Text = "SuperGridControl1"
         '
@@ -848,20 +824,18 @@ Partial Class F0_PagosSocio
         '
         Me.DgdMortuoria.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.DgdMortuoria.FilterExprColors.SysFunction = System.Drawing.Color.DarkRed
-        Me.DgdMortuoria.Location = New System.Drawing.Point(7, 536)
-        Me.DgdMortuoria.Margin = New System.Windows.Forms.Padding(4)
+        Me.DgdMortuoria.Location = New System.Drawing.Point(5, 423)
         Me.DgdMortuoria.Name = "DgdMortuoria"
-        Me.DgdMortuoria.Size = New System.Drawing.Size(719, 111)
+        Me.DgdMortuoria.Size = New System.Drawing.Size(540, 90)
         Me.DgdMortuoria.TabIndex = 1
         Me.DgdMortuoria.Text = "SuperGridControl1"
         '
         'Dgj1Busqueda
         '
         Me.Dgj1Busqueda.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Dgj1Busqueda.Location = New System.Drawing.Point(5, 5)
-        Me.Dgj1Busqueda.Margin = New System.Windows.Forms.Padding(4)
+        Me.Dgj1Busqueda.Location = New System.Drawing.Point(4, 4)
         Me.Dgj1Busqueda.Name = "Dgj1Busqueda"
-        Me.Dgj1Busqueda.Size = New System.Drawing.Size(1169, 652)
+        Me.Dgj1Busqueda.Size = New System.Drawing.Size(876, 530)
         Me.Dgj1Busqueda.TabIndex = 0
         '
         'rlAccion
@@ -872,19 +846,47 @@ Partial Class F0_PagosSocio
         Me.rlAccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.rlAccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rlAccion.ForeColor = System.Drawing.Color.Black
-        Me.rlAccion.Location = New System.Drawing.Point(509, 7)
-        Me.rlAccion.Margin = New System.Windows.Forms.Padding(4)
+        Me.rlAccion.Location = New System.Drawing.Point(382, 6)
         Me.rlAccion.Name = "rlAccion"
-        Me.rlAccion.Size = New System.Drawing.Size(267, 74)
+        Me.rlAccion.Size = New System.Drawing.Size(200, 60)
         Me.rlAccion.TabIndex = 10
         Me.rlAccion.Text = "<b><font size=""+10""><font color=""#FF0000""></font></font></b>"
         '
+        'LabelX10
+        '
+        '
+        '
+        '
+        Me.LabelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX10.Location = New System.Drawing.Point(3, 27)
+        Me.LabelX10.Name = "LabelX10"
+        Me.LabelX10.Size = New System.Drawing.Size(110, 23)
+        Me.LabelX10.TabIndex = 12
+        Me.LabelX10.Text = "Tipo de Pago:"
+        '
+        'swPagosCM
+        '
+        '
+        '
+        '
+        Me.swPagosCM.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swPagosCM.Location = New System.Drawing.Point(119, 30)
+        Me.swPagosCM.Name = "swPagosCM"
+        Me.swPagosCM.OffText = "Pago Mortuoria"
+        Me.swPagosCM.OnText = "Pago Cuotas"
+        Me.swPagosCM.Size = New System.Drawing.Size(123, 22)
+        Me.swPagosCM.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swPagosCM.TabIndex = 13
+        Me.swPagosCM.Value = True
+        Me.swPagosCM.ValueObject = "Y"
+        '
         'F0_PagosSocio
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1312, 814)
-        Me.Margin = New System.Windows.Forms.Padding(5)
+        Me.ClientSize = New System.Drawing.Size(984, 651)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "F0_PagosSocio"
         Me.Text = "F0_PagosSocio"
         Me.Controls.SetChildIndex(Me.SuperTabPrincipal, 0)
@@ -953,4 +955,6 @@ Partial Class F0_PagosSocio
     Friend WithEvents chPagoAnho As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents dgjTelefono As Janus.Windows.GridEX.GridEX
     Friend WithEvents QrFactura As Gma.QrCodeNet.Encoding.Windows.Forms.QrCodeImgControl
+    Friend WithEvents LabelX10 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents swPagosCM As DevComponents.DotNetBar.Controls.SwitchButton
 End Class
