@@ -11622,6 +11622,32 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_fnReciboMortuoria(numi As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 27))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@numi", numi))
+        _Tabla = D_ProcedimientoConParam("sp_go_TCS014", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnActualizarNroRecibo(numi As Integer, nroFactura As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 28))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@nroFactura", nroFactura))
+
+        _listParam.Add(New Datos.DParametro("@numi", numi))
+        _Tabla = D_ProcedimientoConParam("sp_go_TCS014", _listParam)
+
+        Return _Tabla
+    End Function
     Public Shared Sub L_Modificar_Factura(Where As String, Optional _Fecha As String = "",
                                          Optional _Nfact As String = "", Optional _NAutoriz As String = "",
                                          Optional _Est As String = "", Optional _NitCli As String = "",
@@ -11693,7 +11719,9 @@ Public Class AccesoLogica
         Dim _Tabla As DataTable
         Dim _Ds As New DataSet
         Dim _Where As String
-        _Where = " sfnumi = " + _Numi + " and sfrec = " + "0"
+        '_Where = "sflin in (select max(a.sflin)
+        'From TCS015 as a where a.sfnumi = " + _Numi + " and sfrec = " + "0" + " and sfest = " + "2" + ")"
+        _Where = "sflin in (select a.sflin 	from TCS015 as a where a.sfnumi = " + _Numi + " and sfrec = " + "0" + " and sfest = " + "2" + ")"
 
         _Tabla = D_Datos_Tabla("*", "VR_GO_ReciboMortuoria", _Where)
         _Ds.Tables.Add(_Tabla)

@@ -324,102 +324,69 @@ Public Class F0_PagosSocio
 
         Return res
     End Function
-    Private Sub P_prImprimirRecibo(numi As String, impFactura As Boolean, grabarPDF As Boolean)
+    Private Sub P_prImprimirRecibo(numi As String, impFactura As Boolean, grabarPDF As Boolean, numiVenta As String)
 
         Dim _Fecha As Date
         Dim _Ds, _Ds2, _Ds3 As New DataSet
-        Dim _Fechainv, _Total, _Hora, _Literal, _TotalDecimal, _TotalDecimal2 As String
-        Dim I, _TotalCC As Integer
+        Dim dtmor As DataTable
+        Dim _Fechainv, _Hora, _Literal, _TotalDecimal, _TotalDecimal2 As String
+        Dim _Total As String = "0"
+        Dim _TotalCC As Integer
         Dim _Desc, _TotalLi As Decimal
         Dim _VistaPrevia As Integer = 0
         _Desc = CDbl(0)
+
         If Not IsNothing(P_Global.Visualizador) Then
             P_Global.Visualizador.Close()
         End If
 
-        _Fecha = Dt2FechaPago.Value '.ToString("dd/MM/yyyy")
+        _Fecha = Dt2FechaPago.Value
         _Hora = Now.Hour.ToString + ":" + Now.Minute.ToString
-
 
         _Ds = L_Reporte_Recibo(numi)
 
         _Fechainv = _Fecha.Year.ToString +
                    _CompletarMonth(_Fecha.Month).Trim +
                    _CompletarMonth(_Fecha.Day).Trim
-        _Total = _Ds.Tables(0).Rows(0).Item("sfmonto").ToString
+
+        dtmor = _Ds.Tables(0)
+
+        '_Total = _Ds.Tables(0).Rows(0).Item("sfmonto").ToString
+        _Total = dtmor.Compute("SUM(sfmonto)", "")
 
         _TotalCC = Math.Round(CDbl(_Total), MidpointRounding.AwayFromZero)
 
         'Literal 
-        _TotalLi = _Ds.Tables(0).Rows(0).Item("sfmonto") '- _Ds.Tables(0).Rows(0).Item("fvadesc")
+        '_TotalLi = _Ds.Tables(0).Rows(0).Item("sfmonto") '- _Ds.Tables(0).Rows(0).Item("fvadesc")
+        _TotalLi = dtmor.Compute("SUM(sfmonto)", "")
         _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
         _TotalDecimal2 = CDbl(_TotalDecimal) * 100
 
-        'Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_Total) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
         _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
         _Ds2 = L_Reporte_Factura_Cia("1")
 
 
-        Dim dt As DataTable = L_fnFacturaLavadero(numi)
-        'Dim dtAyuda As DataTable = L_fnFacturaAyudaPagoSocios(numi)
+        Dim dt As DataTable = L_fnReciboMortuoria(numi)
 
-        ''''''''''''''AQUI DE UN AñO ANTERIOR '''''''''''''''''''''''
-        'Dim result As DataRow() = dtAyuda.Select("seano=" + Str(Now.Date.Year - 1))
-        'Dim total As Decimal = 0
-        'For l As Integer = 0 To result.Length - 1 Step 1
-        '    total += result(l).Item("Total")
+        'Actualizar Número de Recibo
+        Dim maxNRec As Integer = L_fnObtenerMaxIdTabla("TV002", "vcnumi", "vcnumi = " + numiVenta)
 
-        'Next
-
-        'If (result.Length > 0) Then
-
-        '    '1 as Cantidad, detalle
-        '    '			, PrecioUnitario, Total,vdnumi , img
-        '    If (result.Length > 1) Then
-
-        '        dt.Rows.Add(result.Length, "PAGO CUOTA DE SOCIO DE " + result(0).Item("detalle") + " A " + result(result.Length - 1).Item("detalle") + " DEL " + Str(Now.Date.Year - 1), total / result.Length, total, 0, DBNull.Value)
-        '    Else
-        '        dt.Rows.Add(result.Length, "PAGO CUOTA DE SOCIO DE " + result(0).Item("detalle") + " DEL " + Str(Now.Date.Year - 1), total / result.Length, total, 0, DBNull.Value)
-        '    End If
-
-        'End If
-        '''''''''''''''''''''''''''''''''''''''''''''''''''''''
-        ''''''''''''''AQUI DEL AñO ACTUAL '''''''''''''''''''''''
-        'Dim resultActual As DataRow() = dtAyuda.Select("seano=" + Str(Now.Date.Year))
-        'Dim totalActual As Decimal = 0
-        'For l As Integer = 0 To resultActual.Length - 1 Step 1
-        '    totalActual += resultActual(l).Item("Total")
-
-        'Next
-
-        'If (resultActual.Length > 0) Then
-
-        '    '1 as Cantidad, detalle
-        '    '			, PrecioUnitario, Total,vdnumi , img
-        '    If (resultActual.Length > 1) Then
-
-        '        dt.Rows.Add(resultActual.Length, "PAGO CUOTA DE SOCIO DE " + resultActual(0).Item("detalle") + " A " + resultActual(resultActual.Length - 1).Item("detalle").ToString + " DEL " + Str(Now.Date.Year), totalActual / resultActual.Length, totalActual, 0, DBNull.Value)
-        '    Else
-        '        dt.Rows.Add(resultActual.Length, "PAGO CUOTA DE SOCIO DE " + resultActual(0).Item("detalle") + " DEL " + Str(Now.Date.Year), totalActual / resultActual.Length, totalActual, 0, DBNull.Value)
-        '    End If
-
-        'End If
-        ''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
+        L_fnActualizarNroRecibo(numi, maxNRec)
 
 
         If (True) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
-            P_Global.Visualizador = New Visualizador 'Comentar
+            P_Global.Visualizador = New Visualizador
         End If
         Dim objrep As Object = Nothing
 
         objrep = New R_ReciboMortuoria
 
-        objrep.SetDataSource(_Ds)
+        objrep.SetDataSource(dt)
         objrep.SetParameterValue("lugarFecha", "Cochabamba, " + Str(Dt2FechaPago.Value.Day) + " De " + MonthName(Dt2FechaPago.Value.Month) + " De " + Str(Dt2FechaPago.Value.Year))
         objrep.SetParameterValue("nombreFactura", namefactura.ToString)
         objrep.SetParameterValue("TotalBs", _Literal)
         objrep.SetParameterValue("Obs", TbiNroSocio.Value.ToString + " - " + Tb2NombreSocio.Text.Trim)
+        objrep.SetParameterValue("NroRecibo", maxNRec)
 
 
         P_Global.Visualizador.CRV1.ReportSource = objrep
@@ -646,11 +613,16 @@ Public Class F0_PagosSocio
         Return cadena
     End Function
     Public Function _fnObtenerNit() As Boolean
+        Dim DtPagosMor As DataTable
+        DtPagosMor = CType(DgdMortuoria.PrimaryGrid.DataSource, DataTable)
         If (FacturaSocio = False) Then
             Return True
         End If
 
-        If PMortuoria = 0 Then
+        If (DtPagosMor.Rows(0).Item("estado") = 2 Or DtPagosMor.Rows(0).Item("estado2") = 2) Then
+            namefactura = Tb2NombreSocio.Text
+            Return True
+        Else
             Dim f1 As F1_VentanaFactura
             f1 = New F1_VentanaFactura
             f1.Nombre = Tb2NombreSocio.Text
@@ -662,10 +634,23 @@ Public Class F0_PagosSocio
             Else
                 Return False
             End If
-        Else
-            namefactura = Tb2NombreSocio.Text
-            Return True
         End If
+        'If PMortuoria = 0 Then
+        '    Dim f1 As F1_VentanaFactura
+        '    f1 = New F1_VentanaFactura
+        '    f1.Nombre = Tb2NombreSocio.Text
+        '    f1.ShowDialog()
+        '    If (f1.nameFactura.ToString.Length > 0 And f1.nit.ToString.Length > 0) Then
+        '        nit = f1.nit.ToString
+        '        namefactura = f1.nameFactura.ToString
+        '        Return True
+        '    Else
+        '        Return False
+        '    End If
+        'Else
+        '    namefactura = Tb2NombreSocio.Text
+        '    Return True
+        'End If
 
     End Function
     Private Sub P_Grabar()
@@ -741,14 +726,15 @@ Public Class F0_PagosSocio
                     Dim res As Boolean = L_fnSocioPagosGrabar(Numi, Dt1, DtM1, numiVentas)
                     Dim res2 As Boolean = L_fnSocioPagosGrabar(Numi, Dt2, DtM2, numiVentas)
 
-
                     'If (FacturaSocio = True) Then
                     '    dt_detalle = L_fnSocioObtenerDetallePagoFactura(numiVentas)
                     '    P_fnGenerarFactura(numiVentas)
                     'End If
+
+                    'Pagos Mortuorios imprimirán recibos y pagos cuotas facturas
                     DtPagosMor = CType(DgdMortuoria.PrimaryGrid.DataSource, DataTable)
-                    If (DtPagosMor.Rows(0).Item("check11") = 1 Or DtPagosMor.Rows(0).Item("check12") = 1) Then
-                        P_prImprimirRecibo(Numi, True, True)
+                    If (DtPagosMor.Rows(0).Item("estado") = 2 Or DtPagosMor.Rows(0).Item("estado2") = 2) Then
+                        P_prImprimirRecibo(Numi, True, True, numiVentas)
                     Else
                         dt_detalle = L_fnSocioObtenerDetallePagoFactura(numiVentas)
                         P_fnGenerarFactura(numiVentas)
@@ -924,6 +910,10 @@ Public Class F0_PagosSocio
         DgdMortuoria.PrimaryGrid.DataSource = Nothing
 
         chPagoAnho.Checked = False
+
+        swPagosCM.Value = True
+        DgdPagos.Enabled = True
+        DgdMortuoria.Enabled = True
     End Sub
 
     Private Sub P_ActualizarPuterosNavegacion()
@@ -1905,6 +1895,12 @@ Public Class F0_PagosSocio
                 P_ArmarGrillaMortuoria(0)
                 P_ValidarCeldasPagos()
                 P_ValidarCeldasMortuoria()
+                If swPagosCM.Value = True Then
+                    DgdMortuoria.Enabled = False
+                Else
+                    DgdPagos.Enabled = False
+                End If
+
             End If
         End If
         If (Modificar) Then

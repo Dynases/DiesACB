@@ -120,8 +120,8 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="QrFactura.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAYAAADhu0ooAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
-        dAAAEnQB3mYfeAAAAuhJREFUaEPtj+FqozEMBPv+L90j4Ali5D3Z6fXHNR1Ywo4kh+/j8034/dCfxvt+
+        iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAYAAADhu0ooAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAuhJREFUaEPtj+FqozEMBPv+L90j4Ali5D3Z6fXHNR1Ywo4kh+/j8034/dCfxvt+
         6MfHx0uBycPUAX8b08zu6CQweZg64G9jmkmLCe/T7U2a26e9RNpv5qsP0+1NmtunvUTab8aLdAfcoe7W
         THgvdQfcoZl06IA71N2aCe+l7oA7NJMOHTjt9uA5gdQdcIdm0qEDp90ePCeQugPu0Ew6dMAdTj3dHuzr
         bg24QzPp0AF3OPV0e7CvuzXgDs2kxcTpvvfS3eleIu03868eNt5Ld6d7ibTfDIu3ge/qtzHN7I5OAt/V
@@ -653,10 +653,10 @@
     <value>17, 17</value>
   </metadata>
   <metadata name="MHighlighterFocus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>104, 17</value>
+    <value>93, 17</value>
   </metadata>
   <metadata name="MFlyoutUsuario.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>290, 17</value>
+    <value>248, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
