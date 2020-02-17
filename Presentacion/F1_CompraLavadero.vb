@@ -53,7 +53,8 @@ Public Class F1_CompraLavadero
         End With
         With grDetalle.RootTable.Columns("lgtcl3cpro")
             .Width = 60
-            .Visible = False
+            .Caption = "CODIGO"
+            .Visible = True
         End With
         With grDetalle.RootTable.Columns("descripcion")
             .Width = 350
@@ -98,13 +99,13 @@ Public Class F1_CompraLavadero
         With grDetalle.RootTable.Columns("lglin")
             .Caption = "CODIGO"
             .Width = 150
-            .Visible = True
+            .Visible = False
         End With
-        With grDetalle.RootTable.Columns("lglin")
-            .Caption = "CODIGO"
-            .Width = 150
-            .Visible = True
-        End With
+        'With grDetalle.RootTable.Columns("lglin")
+        '    .Caption = "CODIGO"
+        '    .Width = 150
+        '    .Visible = True
+        'End With
         With grDetalle.RootTable.Columns("lgstocka")
             .Caption = "STOCK ACTUAL"
             .Width = 150
@@ -408,10 +409,12 @@ Public Class F1_CompraLavadero
         listEstCeldas.Add(New Modelos.Celda("lffechaRecepcion", True, "FECHA DE RECEPCION", 150))
         listEstCeldas.Add(New Modelos.Celda("lfprov", False))
         listEstCeldas.Add(New Modelos.Celda("proveedor", False, "PROVEEDOR", 150))
-        listEstCeldas.Add(New Modelos.Celda("lfobs", True, "OBSERVACION", 400))
+        listEstCeldas.Add(New Modelos.Celda("lfobs", False, "OBSERVACION", 400))
         listEstCeldas.Add(New Modelos.Celda("lffact", False))
         listEstCeldas.Add(New Modelos.Celda("lfhact", False))
         listEstCeldas.Add(New Modelos.Celda("lfuact", False))
+        listEstCeldas.Add(New Modelos.Celda("lgtcl3cpro", True, "CODIGO", 50))
+        listEstCeldas.Add(New Modelos.Celda("ldcdprod1", True, "DESCRIPCION", 200))
         Return listEstCeldas
 
 

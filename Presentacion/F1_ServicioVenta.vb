@@ -82,7 +82,7 @@ Public Class F1_ServicioVenta
             .Width = 70
             .TextAlignment = TextAlignment.Center
             .Caption = "ID"
-            .Visible = False
+            .Visible = True
         End With
         With grProducto.RootTable.Columns("ldcprod")
             .Width = 100
@@ -544,10 +544,12 @@ Public Class F1_ServicioVenta
         With grDetalle.RootTable.Columns("lctce4pro")
             .Width = 90
             .Visible = False
+
         End With
         With grDetalle.RootTable.Columns("lctcl3pro")
             .Width = 90
-            .Visible = False
+            .Visible = True
+            .Caption = "CODIGO"
         End With
         With grDetalle.RootTable.Columns("eddesc")
             .Width = 350
