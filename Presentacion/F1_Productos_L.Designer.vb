@@ -46,6 +46,10 @@ Partial Class F1_Productos_L
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX8 = New DevComponents.DotNetBar.LabelX()
         Me.tbprecioVenta = New DevComponents.Editors.DoubleInput()
+        Me.LabelX9 = New DevComponents.DotNetBar.LabelX()
+        Me.tbPrecioSocios = New DevComponents.Editors.DoubleInput()
+        Me.LabelX10 = New DevComponents.DotNetBar.LabelX()
+        Me.tbPrecioInternos = New DevComponents.Editors.DoubleInput()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -67,6 +71,8 @@ Partial Class F1_Productos_L
         CType(Me.cbUMedida, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbprecioCompra, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbprecioVenta, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbPrecioSocios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbPrecioInternos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SuperTabPrincipal
@@ -163,6 +169,10 @@ Partial Class F1_Productos_L
         '
         'MPanelSup
         '
+        Me.MPanelSup.Controls.Add(Me.LabelX10)
+        Me.MPanelSup.Controls.Add(Me.tbPrecioInternos)
+        Me.MPanelSup.Controls.Add(Me.LabelX9)
+        Me.MPanelSup.Controls.Add(Me.tbPrecioSocios)
         Me.MPanelSup.Controls.Add(Me.LabelX8)
         Me.MPanelSup.Controls.Add(Me.tbprecioVenta)
         Me.MPanelSup.Controls.Add(Me.LabelX2)
@@ -208,6 +218,10 @@ Partial Class F1_Productos_L
         Me.MPanelSup.Controls.SetChildIndex(Me.LabelX2, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.tbprecioVenta, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.LabelX8, 0)
+        Me.MPanelSup.Controls.SetChildIndex(Me.tbPrecioSocios, 0)
+        Me.MPanelSup.Controls.SetChildIndex(Me.LabelX9, 0)
+        Me.MPanelSup.Controls.SetChildIndex(Me.tbPrecioInternos, 0)
+        Me.MPanelSup.Controls.SetChildIndex(Me.LabelX10, 0)
         '
         'PanelPrincipal
         '
@@ -566,9 +580,9 @@ Partial Class F1_Productos_L
         Me.LabelX8.Location = New System.Drawing.Point(38, 270)
         Me.LabelX8.Margin = New System.Windows.Forms.Padding(4)
         Me.LabelX8.Name = "LabelX8"
-        Me.LabelX8.Size = New System.Drawing.Size(139, 28)
+        Me.LabelX8.Size = New System.Drawing.Size(219, 28)
         Me.LabelX8.TabIndex = 211
-        Me.LabelX8.Text = "PRECIO VENTA:"
+        Me.LabelX8.Text = "PRECIO VENTA CLIENTES:"
         '
         'tbprecioVenta
         '
@@ -588,6 +602,72 @@ Partial Class F1_Productos_L
         Me.tbprecioVenta.Size = New System.Drawing.Size(147, 30)
         Me.tbprecioVenta.TabIndex = 210
         Me.tbprecioVenta.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right
+        '
+        'LabelX9
+        '
+        '
+        '
+        '
+        Me.LabelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX9.Location = New System.Drawing.Point(475, 232)
+        Me.LabelX9.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX9.Name = "LabelX9"
+        Me.LabelX9.Size = New System.Drawing.Size(219, 28)
+        Me.LabelX9.TabIndex = 213
+        Me.LabelX9.Text = "PRECIO VENTA SOCIOS:"
+        '
+        'tbPrecioSocios
+        '
+        '
+        '
+        '
+        Me.tbPrecioSocios.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbPrecioSocios.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbPrecioSocios.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.tbPrecioSocios.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbPrecioSocios.ForeColor = System.Drawing.Color.Black
+        Me.tbPrecioSocios.Increment = 1.0R
+        Me.tbPrecioSocios.Location = New System.Drawing.Point(740, 232)
+        Me.tbPrecioSocios.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbPrecioSocios.MinValue = 0R
+        Me.tbPrecioSocios.Name = "tbPrecioSocios"
+        Me.tbPrecioSocios.Size = New System.Drawing.Size(147, 30)
+        Me.tbPrecioSocios.TabIndex = 212
+        Me.tbPrecioSocios.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right
+        '
+        'LabelX10
+        '
+        '
+        '
+        '
+        Me.LabelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX10.Location = New System.Drawing.Point(475, 268)
+        Me.LabelX10.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX10.Name = "LabelX10"
+        Me.LabelX10.Size = New System.Drawing.Size(219, 28)
+        Me.LabelX10.TabIndex = 215
+        Me.LabelX10.Text = "PRECIO VENTA INTERNOS:"
+        '
+        'tbPrecioInternos
+        '
+        '
+        '
+        '
+        Me.tbPrecioInternos.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbPrecioInternos.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbPrecioInternos.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.tbPrecioInternos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbPrecioInternos.ForeColor = System.Drawing.Color.Black
+        Me.tbPrecioInternos.Increment = 1.0R
+        Me.tbPrecioInternos.Location = New System.Drawing.Point(740, 268)
+        Me.tbPrecioInternos.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbPrecioInternos.MinValue = 0R
+        Me.tbPrecioInternos.Name = "tbPrecioInternos"
+        Me.tbPrecioInternos.Size = New System.Drawing.Size(147, 30)
+        Me.tbPrecioInternos.TabIndex = 214
+        Me.tbPrecioInternos.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right
         '
         'F1_Productos_L
         '
@@ -622,6 +702,8 @@ Partial Class F1_Productos_L
         CType(Me.cbUMedida, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbprecioCompra, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbprecioVenta, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbPrecioSocios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbPrecioInternos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -646,4 +728,8 @@ Partial Class F1_Productos_L
     Friend WithEvents tbprecioCompra As DevComponents.Editors.DoubleInput
     Friend WithEvents LabelX8 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbprecioVenta As DevComponents.Editors.DoubleInput
+    Friend WithEvents LabelX10 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbPrecioInternos As DevComponents.Editors.DoubleInput
+    Friend WithEvents LabelX9 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbPrecioSocios As DevComponents.Editors.DoubleInput
 End Class

@@ -250,6 +250,9 @@ Public Class F1_Productos_L
         cbUMedida.ReadOnly = False
         tbprecioCompra.IsInputReadOnly = False
         tbprecioVenta.IsInputReadOnly = False
+        tbPrecioSocios.IsInputReadOnly = False
+        tbPrecioInternos.IsInputReadOnly = False
+
         nameImg = "Default.jpg"
         _prCrearCarpetaImagenes()
         _prCrearCarpetaTemporal()
@@ -265,6 +268,8 @@ Public Class F1_Productos_L
         btnImage.Visible = False
         tbprecioCompra.IsInputReadOnly = True
         tbprecioVenta.IsInputReadOnly = True
+        tbPrecioSocios.IsInputReadOnly = True
+        tbPrecioInternos.IsInputReadOnly = True
         tbEstado.IsReadOnly = True
         JGrM_Buscador.RootTable.HeaderFormatStyle.FontBold = TriState.True
 
@@ -285,6 +290,9 @@ Public Class F1_Productos_L
         tbsmin.Text = ""
         tbprecioCompra.Value = 0
         tbprecioVenta.Value = 0
+        tbPrecioSocios.Value = 0
+        tbPrecioInternos.Value = 0
+
         cbGrupo.SelectedIndex = -1
         cbUMedida.SelectedIndex = -1
         pbImage.Image = My.Resources.imageDefault
@@ -350,7 +358,7 @@ Public Class F1_Productos_L
     End Function
     Public Overrides Function _PMOGetListEstructuraBuscador() As List(Of Modelos.Celda)
         Dim listEstCeldas As New List(Of Modelos.Celda)
-
+        '',ldprevSocio ,ldprevInternos  
         '    ldnumi ,ldcprod ,ldcdprod1,ldprec ,ldprev  ,ldgr1,grupo.cedesc1 as GrupoProducto ,ldumed 
         ',ldsmin ,ldap,CAST(IIF(ldap=1,1,0) as bit) as estado,ldimg , CAST('' as Image) as img,ldfact ,ldhact ,lduact  
         listEstCeldas.Add(New Modelos.Celda("ldnumi", True, "ID", 60))
@@ -358,6 +366,10 @@ Public Class F1_Productos_L
         listEstCeldas.Add(New Modelos.Celda("ldcdprod1", True, "DESCRIPCION DE PRODUCTO", 350))
         listEstCeldas.Add(New Modelos.Celda("ldprec", True, "PRECIO DE COMPRA", 150))
         listEstCeldas.Add(New Modelos.Celda("ldprev", True, "PRECIO DE VENTA", 150))
+        listEstCeldas.Add(New Modelos.Celda("ldprev", True, "PVENTA Clientes", 150))
+        listEstCeldas.Add(New Modelos.Celda("ldprevSocio", True, "PVENTA Socios", 150))
+        listEstCeldas.Add(New Modelos.Celda("ldprevInternos", True, "PVENTA Innternos", 150))
+
         listEstCeldas.Add(New Modelos.Celda("ldgr1", False))
         listEstCeldas.Add(New Modelos.Celda("GrupoProducto", True, "GRUPO DE PRODUCTOS", 180))
         listEstCeldas.Add(New Modelos.Celda("ldumed", False, "UNIDAD DE MEDIDA", 150))
@@ -393,6 +405,8 @@ Public Class F1_Productos_L
             lbUsuario.Text = .GetValue("lduact").ToString
             tbprecioCompra.Value = .GetValue("ldprec")
             tbprecioVenta.Value = .GetValue("ldprev")
+            tbPrecioSocios.Value = .GetValue("ldprevSocio")
+            tbPrecioInternos.Value = .GetValue("ldprevInternos")
         End With
         Dim estado As Integer = JGrM_Buscador.GetValue("ldap")
         If (estado = 1) Then
@@ -421,7 +435,7 @@ Public Class F1_Productos_L
 
     End Sub
     Public Overrides Function _PMOGrabarRegistro() As Boolean
-        Dim res As Boolean = L_prProductoGrabar(tbNumi.Text, "0", tbcdprod1.Text, cbGrupo.Value, cbUMedida.Text, tbsmin.Text, IIf(tbEstado.Value = True, 1, 0), nameImg, tbprecioCompra.Value, tbprecioVenta.Value)
+        Dim res As Boolean = L_prProductoGrabar(tbNumi.Text, "0", tbcdprod1.Text, cbGrupo.Value, cbUMedida.Text, tbsmin.Text, IIf(tbEstado.Value = True, 1, 0), nameImg, tbprecioCompra.Value, tbprecioVenta.Value, tbPrecioSocios.Value, tbPrecioInternos.Value)
         If res Then
             Modificado = False
             _fnMoverImagenRuta(RutaGlobal + "\Imagenes\Imagenes Productos", nameImg)
@@ -434,9 +448,9 @@ Public Class F1_Productos_L
         Dim nameImage As String = JGrM_Buscador.GetValue("ldimg")
         Dim res As Boolean
         If (Modificado = False) Then
-            res = L_prProductoModificar(tbNumi.Text, "0", tbcdprod1.Text, cbGrupo.Value, cbUMedida.Text, tbsmin.Text, IIf(tbEstado.Value = True, 1, 0), nameImage, tbprecioCompra.Value, tbprecioVenta.Value)
+            res = L_prProductoModificar(tbNumi.Text, "0", tbcdprod1.Text, cbGrupo.Value, cbUMedida.Text, tbsmin.Text, IIf(tbEstado.Value = True, 1, 0), nameImage, tbprecioCompra.Value, tbprecioVenta.Value, tbPrecioSocios.Value, tbPrecioInternos.Value)
         Else
-            res = L_prProductoModificar(tbNumi.Text, "0", tbcdprod1.Text, cbGrupo.Value, cbUMedida.Text, tbsmin.Text, IIf(tbEstado.Value = True, 1, 0), nameImg, tbprecioCompra.Value, tbprecioVenta.Value)
+            res = L_prProductoModificar(tbNumi.Text, "0", tbcdprod1.Text, cbGrupo.Value, cbUMedida.Text, tbsmin.Text, IIf(tbEstado.Value = True, 1, 0), nameImg, tbprecioCompra.Value, tbprecioVenta.Value, tbPrecioSocios.Value, tbPrecioInternos.Value)
         End If
 
         If res Then

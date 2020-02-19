@@ -5743,7 +5743,7 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
     Public Shared Function L_prProductoGrabar(ByRef _ldnumi As String, _ldcprod As String, _ldcdprod1 As String, _ldgr As Integer, _ldumed As String, _ldsmin As Integer, _ldap As Integer, _Nameimg As String,
-                                              _prec As Double, _prev As Double) As Boolean
+                                              _prec As Double, _prev As Double, _prevSocio As Double, _prevInterno As Double) As Boolean
         Dim _resultado As Boolean
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
@@ -5758,6 +5758,8 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@ldimg", _Nameimg))
         _listParam.Add(New Datos.DParametro("@ldprec", _prec))
         _listParam.Add(New Datos.DParametro("@ldprev", _prev))
+        _listParam.Add(New Datos.DParametro("@ldpreSocio", _prevSocio))
+        _listParam.Add(New Datos.DParametro("@ldpreInterno", _prevInterno))
         _listParam.Add(New Datos.DParametro("@lduact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TCL003", _listParam)
 
@@ -5770,7 +5772,9 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
-    Public Shared Function L_prProductoModificar(ByRef _ldnumi As String, _ldcprod As String, _ldcdprod1 As String, _ldgr As Integer, _ldumed As String, _ldsmin As Integer, _ldap As Integer, _Nameimg As String, _prec As Double, _prev As Double) As Boolean
+    Public Shared Function L_prProductoModificar(ByRef _ldnumi As String, _ldcprod As String, _ldcdprod1 As String,
+                                                 _ldgr As Integer, _ldumed As String, _ldsmin As Integer,
+                                                 _ldap As Integer, _Nameimg As String, _prec As Double, _prev As Double, _prevSocio As Double, _prevInterno As Double) As Boolean
         Dim _resultado As Boolean
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
@@ -5786,6 +5790,8 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@ldimg", _Nameimg))
         _listParam.Add(New Datos.DParametro("@ldprec", _prec))
         _listParam.Add(New Datos.DParametro("@ldprev", _prev))
+        _listParam.Add(New Datos.DParametro("@ldpreSocio", _prevSocio))
+        _listParam.Add(New Datos.DParametro("@ldpreInterno", _prevInterno))
         _listParam.Add(New Datos.DParametro("@lduact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TCL003", _listParam)
 
