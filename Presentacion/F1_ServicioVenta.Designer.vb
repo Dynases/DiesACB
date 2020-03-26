@@ -294,15 +294,14 @@ Partial Class F1_ServicioVenta
         Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabPrincipal.SelectedTabIndex = 1
         Me.SuperTabPrincipal.Size = New System.Drawing.Size(1028, 609)
-        Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelBuscador, 0)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
+        Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelBuscador, 0)
         '
         'SuperTabControlPanelBuscador
         '
         Me.SuperTabControlPanelBuscador.Controls.Add(Me.Panel1)
-        Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 23)
         Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(4)
-        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(1028, 587)
+        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(1028, 584)
         '
         'SupTabItemBusqueda
         '
@@ -1440,7 +1439,7 @@ Partial Class F1_ServicioVenta
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1028, 587)
+        Me.Panel1.Size = New System.Drawing.Size(1028, 584)
         Me.Panel1.TabIndex = 0
         '
         'Panel2
@@ -1450,7 +1449,7 @@ Partial Class F1_ServicioVenta
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 406)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1028, 181)
+        Me.Panel2.Size = New System.Drawing.Size(1028, 178)
         Me.Panel2.TabIndex = 1
         '
         'GroupPanel1
@@ -1462,7 +1461,7 @@ Partial Class F1_ServicioVenta
         Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel1.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1028, 181)
+        Me.GroupPanel1.Size = New System.Drawing.Size(1028, 178)
         '
         '
         '
@@ -1502,7 +1501,7 @@ Partial Class F1_ServicioVenta
         Me.PanelCombos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCombos.Location = New System.Drawing.Point(0, 0)
         Me.PanelCombos.Name = "PanelCombos"
-        Me.PanelCombos.Size = New System.Drawing.Size(1022, 159)
+        Me.PanelCombos.Size = New System.Drawing.Size(1022, 156)
         Me.PanelCombos.TabIndex = 0
         '
         'TableLayoutPanel1
@@ -1519,7 +1518,7 @@ Partial Class F1_ServicioVenta
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1022, 159)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1022, 156)
         Me.TableLayoutPanel1.TabIndex = 135
         '
         'Panel24
@@ -1540,7 +1539,7 @@ Partial Class F1_ServicioVenta
         Me.Panel24.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel24.Location = New System.Drawing.Point(683, 3)
         Me.Panel24.Name = "Panel24"
-        Me.Panel24.Size = New System.Drawing.Size(336, 153)
+        Me.Panel24.Size = New System.Drawing.Size(336, 150)
         Me.Panel24.TabIndex = 134
         '
         'Panel21
@@ -1928,7 +1927,7 @@ Partial Class F1_ServicioVenta
         Me.Panel22.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel22.Location = New System.Drawing.Point(3, 3)
         Me.Panel22.Name = "Panel22"
-        Me.Panel22.Size = New System.Drawing.Size(334, 153)
+        Me.Panel22.Size = New System.Drawing.Size(334, 150)
         Me.Panel22.TabIndex = 132
         '
         'lb1
@@ -2315,7 +2314,7 @@ Partial Class F1_ServicioVenta
         Me.Panel23.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel23.Location = New System.Drawing.Point(343, 3)
         Me.Panel23.Name = "Panel23"
-        Me.Panel23.Size = New System.Drawing.Size(334, 153)
+        Me.Panel23.Size = New System.Drawing.Size(334, 150)
         Me.Panel23.TabIndex = 133
         '
         'lb7
@@ -2754,8 +2753,8 @@ Partial Class F1_ServicioVenta
         Me.SuperTabControl2.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl2.ControlBox.Name = ""
         Me.SuperTabControl2.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl2.ControlBox.MenuBox, Me.SuperTabControl2.ControlBox.CloseBox})
-        Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel4)
+        Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControl2.ForeColor = System.Drawing.Color.White
         Me.SuperTabControl2.Location = New System.Drawing.Point(3, 3)
@@ -2777,9 +2776,9 @@ Partial Class F1_ServicioVenta
         '
         Me.SuperTabControlPanel3.Controls.Add(Me.Panel26)
         Me.SuperTabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 25)
+        Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 27)
         Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
-        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(455, 353)
+        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(455, 351)
         Me.SuperTabControlPanel3.TabIndex = 1
         Me.SuperTabControlPanel3.TabItem = Me.SuperTabItem3
         '
@@ -2791,7 +2790,7 @@ Partial Class F1_ServicioVenta
         Me.Panel26.Location = New System.Drawing.Point(0, 0)
         Me.Panel26.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel26.Name = "Panel26"
-        Me.Panel26.Size = New System.Drawing.Size(455, 353)
+        Me.Panel26.Size = New System.Drawing.Size(455, 351)
         Me.Panel26.TabIndex = 0
         '
         'pbImgProdu
@@ -2800,7 +2799,7 @@ Partial Class F1_ServicioVenta
         Me.pbImgProdu.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pbImgProdu.Location = New System.Drawing.Point(200, 0)
         Me.pbImgProdu.Name = "pbImgProdu"
-        Me.pbImgProdu.Size = New System.Drawing.Size(255, 353)
+        Me.pbImgProdu.Size = New System.Drawing.Size(255, 351)
         Me.pbImgProdu.TabIndex = 2
         Me.pbImgProdu.TabStop = False
         '
@@ -2811,7 +2810,7 @@ Partial Class F1_ServicioVenta
         Me.panelA.Dock = System.Windows.Forms.DockStyle.Left
         Me.panelA.Location = New System.Drawing.Point(0, 0)
         Me.panelA.Name = "panelA"
-        Me.panelA.Size = New System.Drawing.Size(200, 353)
+        Me.panelA.Size = New System.Drawing.Size(200, 351)
         Me.panelA.TabIndex = 1
         '
         'SuperTabItem3
@@ -2827,7 +2826,7 @@ Partial Class F1_ServicioVenta
         Me.SuperTabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControlPanel4.Location = New System.Drawing.Point(0, 27)
         Me.SuperTabControlPanel4.Name = "SuperTabControlPanel4"
-        Me.SuperTabControlPanel4.Size = New System.Drawing.Size(483, 290)
+        Me.SuperTabControlPanel4.Size = New System.Drawing.Size(455, 351)
         Me.SuperTabControlPanel4.TabIndex = 0
         Me.SuperTabControlPanel4.TabItem = Me.SuperTabItem4
         '
@@ -2837,7 +2836,7 @@ Partial Class F1_ServicioVenta
         Me.GridEX1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GridEX1.Location = New System.Drawing.Point(0, 0)
         Me.GridEX1.Name = "GridEX1"
-        Me.GridEX1.Size = New System.Drawing.Size(483, 290)
+        Me.GridEX1.Size = New System.Drawing.Size(455, 351)
         Me.GridEX1.TabIndex = 0
         '
         'SuperTabItem4
@@ -2977,7 +2976,7 @@ Partial Class F1_ServicioVenta
         Me.cbTipoVehiculoR.ReadOnly = True
         Me.cbTipoVehiculoR.SelectedIndex = -1
         Me.cbTipoVehiculoR.SelectedItem = Nothing
-        Me.cbTipoVehiculoR.Size = New System.Drawing.Size(216, 20)
+        Me.cbTipoVehiculoR.Size = New System.Drawing.Size(216, 21)
         Me.cbTipoVehiculoR.TabIndex = 65
         Me.cbTipoVehiculoR.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -3087,7 +3086,7 @@ Partial Class F1_ServicioVenta
         Me.cbTamanoR.ReadOnly = True
         Me.cbTamanoR.SelectedIndex = -1
         Me.cbTamanoR.SelectedItem = Nothing
-        Me.cbTamanoR.Size = New System.Drawing.Size(168, 20)
+        Me.cbTamanoR.Size = New System.Drawing.Size(168, 21)
         Me.cbTamanoR.TabIndex = 59
         Me.cbTamanoR.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '

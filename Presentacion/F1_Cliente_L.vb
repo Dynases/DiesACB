@@ -820,10 +820,7 @@ Public Class F1_Cliente_L
 
     Private Sub F1_Insumos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         _prIniciarTodo()
-
     End Sub
-
-   
 
     Private Sub LabelX7_MouseHover(sender As Object, e As EventArgs)
         MHighlighterFocus.SetHighlightOnFocus(UsImg.pbImage, DevComponents.DotNetBar.Validator.eHighlightColor.Custom)

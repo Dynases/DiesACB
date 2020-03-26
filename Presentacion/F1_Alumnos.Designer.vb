@@ -101,6 +101,7 @@ Partial Class F1_Alumnos
         Me.tbNroFactura = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.LabelX25 = New DevComponents.DotNetBar.LabelX()
         Me.btMarcarTodos = New DevComponents.DotNetBar.ButtonX()
+        Me.btInscripcion = New DevComponents.DotNetBar.ButtonX()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -151,6 +152,10 @@ Partial Class F1_Alumnos
         Me.SuperTabPrincipal.Size = New System.Drawing.Size(1173, 561)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelBuscador, 0)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
+        '
+        'SuperTabControlPanelBuscador
+        '
+        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(1173, 536)
         '
         'SuperTabControlPanelRegistro
         '
@@ -232,11 +237,13 @@ Partial Class F1_Alumnos
         '
         'PanelToolBar2
         '
+        Me.PanelToolBar2.Controls.Add(Me.btInscripcion)
         Me.PanelToolBar2.Controls.Add(Me.btMarcarTodos)
-        Me.PanelToolBar2.Location = New System.Drawing.Point(948, 0)
-        Me.PanelToolBar2.Size = New System.Drawing.Size(225, 82)
+        Me.PanelToolBar2.Location = New System.Drawing.Point(789, 0)
+        Me.PanelToolBar2.Size = New System.Drawing.Size(384, 82)
         Me.PanelToolBar2.Controls.SetChildIndex(Me.btnImprimir, 0)
         Me.PanelToolBar2.Controls.SetChildIndex(Me.btMarcarTodos, 0)
+        Me.PanelToolBar2.Controls.SetChildIndex(Me.btInscripcion, 0)
         '
         'MPanelSup
         '
@@ -382,7 +389,7 @@ Partial Class F1_Alumnos
         '
         'btnImprimir
         '
-        Me.btnImprimir.Location = New System.Drawing.Point(153, 0)
+        Me.btnImprimir.Location = New System.Drawing.Point(312, 0)
         Me.btnImprimir.Size = New System.Drawing.Size(72, 82)
         '
         'MPanelUserAct
@@ -1303,13 +1310,30 @@ Partial Class F1_Alumnos
         Me.btMarcarTodos.Image = Global.Presentacion.My.Resources.Resources.GENERAR_REPORTE
         Me.btMarcarTodos.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.btMarcarTodos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btMarcarTodos.Location = New System.Drawing.Point(3, 0)
+        Me.btMarcarTodos.Location = New System.Drawing.Point(162, 0)
         Me.btMarcarTodos.Name = "btMarcarTodos"
         Me.btMarcarTodos.Size = New System.Drawing.Size(150, 82)
         Me.btMarcarTodos.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btMarcarTodos.TabIndex = 12
         Me.btMarcarTodos.Text = "PLANILLA DE CONTROL DE CLASES PRACTICAS"
         Me.btMarcarTodos.TextColor = System.Drawing.Color.Black
+        '
+        'btInscripcion
+        '
+        Me.btInscripcion.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btInscripcion.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
+        Me.btInscripcion.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btInscripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btInscripcion.Image = Global.Presentacion.My.Resources.Resources.INSCRIPCION
+        Me.btInscripcion.ImageFixedSize = New System.Drawing.Size(48, 48)
+        Me.btInscripcion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btInscripcion.Location = New System.Drawing.Point(72, 0)
+        Me.btInscripcion.Name = "btInscripcion"
+        Me.btInscripcion.Size = New System.Drawing.Size(90, 82)
+        Me.btInscripcion.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btInscripcion.TabIndex = 13
+        Me.btInscripcion.Text = "INSCRIBIR"
+        Me.btInscripcion.TextColor = System.Drawing.Color.Black
         '
         'F1_Alumnos
         '
@@ -1426,4 +1450,5 @@ Partial Class F1_Alumnos
     Friend WithEvents ToolStripMenuItemCopiar As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents cmNombre As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ToolStripMenuItemPegar As System.Windows.Forms.ToolStripMenuItem
+    Protected WithEvents btInscripcion As DevComponents.DotNetBar.ButtonX
 End Class

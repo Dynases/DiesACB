@@ -28,6 +28,7 @@ Public Class F1_ServicioVenta
     Dim TablaInventario As DataTable
     Dim Automovil As Boolean = False ''''Variable para verificar si el vehiculo es para el automovil del acb
 #End Region
+
 #Region "METODOS PRIVADOS"
     Private Sub _prIniciarTodo()
 
@@ -1635,7 +1636,6 @@ Public Class F1_ServicioVenta
 
     Private Sub F1_ServicioVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         _prIniciarTodo()
-
     End Sub
 
     Private Sub ButtonX1_Click(sender As Object, e As EventArgs) Handles ButtonX1.Click
@@ -2887,7 +2887,6 @@ Public Class F1_ServicioVenta
 #End Region
 
 
-
     Public Sub _fnObtenerFilaDetalle(ByRef pos As Integer, numi As Integer)
         For i As Integer = 0 To CType(grDetalle.DataSource, DataTable).Rows.Count - 1 Step 1
             Dim _numi As Integer = CType(grDetalle.DataSource, DataTable).Rows(i).Item("lclin")
@@ -3605,4 +3604,5 @@ Public Class F1_ServicioVenta
             End If
         End If
     End Sub
+
 End Class

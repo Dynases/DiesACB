@@ -2269,13 +2269,10 @@ Public Class F0_Socio
                 If (estado = 0) Then
 
 
-
                     ''CType(Dgd2Vehiculos.DataSource, DataTable).Rows(PosicionData).Item("estado") = -2
                     CType(Dgd2Vehiculos.DataSource, DataTable).Rows(PosicionData).Delete()
 
-
                     ''  Dgd2Vehiculos.RootTable.ApplyFilter(New Janus.Windows.GridEX.GridEXFilterCondition(Dgd2Vehiculos.RootTable.Columns("estado"), Janus.Windows.GridEX.ConditionOperator.GreaterThanOrEqualTo, 0))
-
 
                 End If
 

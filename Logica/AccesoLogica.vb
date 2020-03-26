@@ -1237,6 +1237,30 @@ Public Class AccesoLogica
     End Function
 
 #End Region
+#Region "INSCRIPCIÓN ALUMNOS"
+    Public Shared Function L_prListarServicios(_suc As String) As DataTable
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 5))
+        _listParam.Add(New Datos.DParametro("@suc", _suc))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE0021", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_prListarFacturas() As DataTable
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 6))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE0021", _listParam)
+
+        Return _Tabla
+    End Function
+
+#End Region
 
 #Region "FERIADOS"
 
@@ -2069,7 +2093,16 @@ Public Class AccesoLogica
         Return _resultado
 
     End Function
+    Public Shared Function L_prHorarioSucursal(Optional _Cadena As String = "", Optional _order As String = "") As DataTable
 
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 6))
+        _listParam.Add(New Datos.DParametro("@cbuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_dg_TC002", _listParam)
+
+        Return _Tabla
+    End Function
 
 #End Region
 
@@ -3988,7 +4021,7 @@ Public Class AccesoLogica
     End Function
 
 
-    Public Shared Function L_prHoraGrabar(ByRef _numi As String, _fecha As String, _obs As String, _suc As String, _tipo As String, _TC0021 As DataTable) As Boolean
+    Public Shared Function L_prHoraGrabar(ByRef _numi As String, _fecha As String, _obs As String, _suc As String, _tipo As String, _TC0021 As DataTable, _estado As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -4000,6 +4033,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@cbobs", _obs))
         _listParam.Add(New Datos.DParametro("@cbsuc", _suc))
         _listParam.Add(New Datos.DParametro("@cbtipo", _tipo))
+        _listParam.Add(New Datos.DParametro("@cbestado", _estado))
         _listParam.Add(New Datos.DParametro("@TC0021", "", _TC0021))
         _listParam.Add(New Datos.DParametro("@cbuact", L_Usuario))
 
@@ -4015,7 +4049,7 @@ Public Class AccesoLogica
         Return _resultado
     End Function
 
-    Public Shared Function L_prHoraModificar(ByRef _numi As String, _fecha As String, _obs As String, _suc As String, _tipo As String, _TC0021 As DataTable) As Boolean
+    Public Shared Function L_prHoraModificar(ByRef _numi As String, _fecha As String, _obs As String, _suc As String, _tipo As String, _TC0021 As DataTable, _estado As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -4027,6 +4061,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@cbobs", _obs))
         _listParam.Add(New Datos.DParametro("@cbsuc", _suc))
         _listParam.Add(New Datos.DParametro("@cbtipo", _tipo))
+        _listParam.Add(New Datos.DParametro("@cbestado", _estado))
         _listParam.Add(New Datos.DParametro("@TC0021", "", _TC0021))
         _listParam.Add(New Datos.DParametro("@cbuact", L_Usuario))
 

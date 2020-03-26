@@ -914,10 +914,6 @@ Public Class F1_Alumnos
         End If
     End Sub
 
-    Private Sub btnGrabar_Click(sender As Object, e As EventArgs) Handles btnGrabar.Click
-
-    End Sub
-
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
         _prImprimir()
     End Sub
@@ -1025,5 +1021,13 @@ Public Class F1_Alumnos
         '    tbNroFactura.Tag = numiFact
 
         'End If
+    End Sub
+
+    Private Sub btInscripcion_Click(sender As Object, e As EventArgs) Handles btInscripcion.Click
+        Dim frm As New F1_AlumnoInscrip
+        'frm._nameButton = btCertiAlumnos.
+        frm.Sucursal = tbSuc.Value
+        frm.Alumno = tbNombre.Text + " " + tbApellido.Text
+        frm.Show()
     End Sub
 End Class

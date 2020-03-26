@@ -46,6 +46,7 @@ Partial Class ModeloF0
         Me.btnAnterior = New DevComponents.DotNetBar.ButtonX()
         Me.btnPrimero = New DevComponents.DotNetBar.ButtonX()
         Me.PanelSuperior = New DevComponents.DotNetBar.PanelEx()
+        Me.MRlAccion = New DevComponents.DotNetBar.Controls.ReflectionLabel()
         Me.PanelToolBar2 = New System.Windows.Forms.Panel()
         Me.btnImprimir = New DevComponents.DotNetBar.ButtonX()
         Me.PanelToolBar1 = New System.Windows.Forms.Panel()
@@ -60,7 +61,6 @@ Partial Class ModeloF0
         Me.MEP = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.MHighlighterFocus = New DevComponents.DotNetBar.Validator.Highlighter()
         Me.MFlyoutUsuario = New DevComponents.DotNetBar.Controls.Flyout(Me.components)
-        Me.MRlAccion = New DevComponents.DotNetBar.Controls.ReflectionLabel()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -399,6 +399,20 @@ Partial Class ModeloF0
         Me.PanelSuperior.Style.GradientAngle = 90
         Me.PanelSuperior.TabIndex = 0
         '
+        'MRlAccion
+        '
+        '
+        '
+        '
+        Me.MRlAccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.MRlAccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MRlAccion.ForeColor = System.Drawing.Color.Black
+        Me.MRlAccion.Location = New System.Drawing.Point(382, 6)
+        Me.MRlAccion.Name = "MRlAccion"
+        Me.MRlAccion.Size = New System.Drawing.Size(200, 60)
+        Me.MRlAccion.TabIndex = 8
+        Me.MRlAccion.Text = "<b><font size=""+10""><font color=""#FF0000""></font></font></b>"
+        '
         'PanelToolBar2
         '
         Me.PanelToolBar2.Controls.Add(Me.btnImprimir)
@@ -486,7 +500,7 @@ Partial Class ModeloF0
         Me.btnEliminar.Size = New System.Drawing.Size(72, 72)
         Me.btnEliminar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btnEliminar.TabIndex = 8
-        Me.btnEliminar.Text = "ELIMNAR"
+        Me.btnEliminar.Text = "ELIMINAR"
         Me.btnEliminar.TextColor = System.Drawing.Color.Black
         '
         'btnModificar
@@ -560,20 +574,6 @@ Partial Class ModeloF0
         Me.MFlyoutUsuario.DropShadow = False
         Me.MFlyoutUsuario.Parent = Me
         Me.MFlyoutUsuario.TargetControl = Me.BubbleBarUsuario
-        '
-        'MRlAccion
-        '
-        '
-        '
-        '
-        Me.MRlAccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.MRlAccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MRlAccion.ForeColor = System.Drawing.Color.Black
-        Me.MRlAccion.Location = New System.Drawing.Point(382, 6)
-        Me.MRlAccion.Name = "MRlAccion"
-        Me.MRlAccion.Size = New System.Drawing.Size(200, 60)
-        Me.MRlAccion.TabIndex = 8
-        Me.MRlAccion.Text = "<b><font size=""+10""><font color=""#FF0000""></font></font></b>"
         '
         'ModeloF0
         '

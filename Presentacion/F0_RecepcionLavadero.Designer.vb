@@ -236,7 +236,7 @@ Partial Class F0_RecepcionLavadero
         Me.SuperTabPrincipal.ControlBox.MenuBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabPrincipal.ControlBox.MenuBox, Me.SuperTabPrincipal.ControlBox.CloseBox})
-        Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabPrincipal.Size = New System.Drawing.Size(1023, 609)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelBuscador, 0)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
@@ -244,12 +244,12 @@ Partial Class F0_RecepcionLavadero
         'SuperTabControlPanelBuscador
         '
         Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 23)
-        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(2)
         Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(884, 538)
         '
         'SuperTabControlPanelRegistro
         '
-        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControlPanelRegistro.Size = New System.Drawing.Size(1023, 584)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelSuperior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelInferior, 0)
@@ -258,7 +258,7 @@ Partial Class F0_RecepcionLavadero
         'PanelSuperior
         '
         Me.PanelSuperior.Controls.Add(Me.swestado)
-        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelSuperior.Size = New System.Drawing.Size(1023, 72)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelSuperior.Style.BackColor1.Color = System.Drawing.Color.Yellow
@@ -275,7 +275,7 @@ Partial Class F0_RecepcionLavadero
         'PanelInferior
         '
         Me.PanelInferior.Location = New System.Drawing.Point(0, 548)
-        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelInferior.Size = New System.Drawing.Size(1023, 36)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Gold
@@ -328,7 +328,7 @@ Partial Class F0_RecepcionLavadero
         Me.PanelToolBar2.Controls.Add(Me.btnImagen)
         Me.PanelToolBar2.Controls.Add(Me.btnCamara)
         Me.PanelToolBar2.Location = New System.Drawing.Point(776, 0)
-        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelToolBar2.Size = New System.Drawing.Size(247, 72)
         Me.PanelToolBar2.Controls.SetChildIndex(Me.btnImprimir, 0)
         Me.PanelToolBar2.Controls.SetChildIndex(Me.btnCamara, 0)
@@ -337,7 +337,7 @@ Partial Class F0_RecepcionLavadero
         'PanelPrincipal
         '
         Me.PanelPrincipal.Controls.Add(Me.SuperTabControl1)
-        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelPrincipal.Size = New System.Drawing.Size(1023, 476)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.SuperTabControl1, 0)
@@ -345,7 +345,7 @@ Partial Class F0_RecepcionLavadero
         'btnImprimir
         '
         Me.btnImprimir.Location = New System.Drawing.Point(175, 0)
-        Me.btnImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnImprimir.Margin = New System.Windows.Forms.Padding(4)
         '
         'btnUltimo
         '
@@ -363,7 +363,7 @@ Partial Class F0_RecepcionLavadero
         'MPanelUserAct
         '
         Me.MPanelUserAct.Location = New System.Drawing.Point(823, 0)
-        Me.MPanelUserAct.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelUserAct.Margin = New System.Windows.Forms.Padding(4)
         '
         'MRlAccion
         '
@@ -441,7 +441,7 @@ Partial Class F0_RecepcionLavadero
         Me.GpVentasSinCobrar.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GpVentasSinCobrar.Location = New System.Drawing.Point(561, 0)
         Me.GpVentasSinCobrar.Name = "GpVentasSinCobrar"
-        Me.GpVentasSinCobrar.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.GpVentasSinCobrar.Padding = New System.Windows.Forms.Padding(3)
         Me.GpVentasSinCobrar.Size = New System.Drawing.Size(434, 230)
         '
         '
@@ -2481,7 +2481,7 @@ Partial Class F0_RecepcionLavadero
         Me.swestado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.swestado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.swestado.Location = New System.Drawing.Point(574, 24)
-        Me.swestado.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.swestado.Margin = New System.Windows.Forms.Padding(2)
         Me.swestado.Name = "swestado"
         Me.swestado.OffBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.swestado.OffText = "No Procesado"
@@ -2497,7 +2497,7 @@ Partial Class F0_RecepcionLavadero
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1023, 609)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F0_RecepcionLavadero"
         Me.Text = "F0_NControlLavadero"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

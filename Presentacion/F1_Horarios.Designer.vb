@@ -41,6 +41,8 @@ Partial Class F1_Horarios
         Me.ELIMINARFILAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tbTipo = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
+        Me.tbEstado = New DevComponents.DotNetBar.Controls.SwitchButton()
+        Me.LabelX15 = New DevComponents.DotNetBar.LabelX()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -79,7 +81,7 @@ Partial Class F1_Horarios
         Me.SuperTabPrincipal.ControlBox.MenuBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabPrincipal.ControlBox.MenuBox, Me.SuperTabPrincipal.ControlBox.CloseBox})
-        Me.SuperTabPrincipal.Size = New System.Drawing.Size(889, 437)
+        Me.SuperTabPrincipal.Size = New System.Drawing.Size(939, 498)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelBuscador, 0)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
         '
@@ -90,7 +92,7 @@ Partial Class F1_Horarios
         'SuperTabControlPanelRegistro
         '
         Me.SuperTabControlPanelRegistro.Controls.Add(Me.GroupPanel1)
-        Me.SuperTabControlPanelRegistro.Size = New System.Drawing.Size(889, 412)
+        Me.SuperTabControlPanelRegistro.Size = New System.Drawing.Size(939, 473)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelSuperior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelInferior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelPrincipal, 0)
@@ -98,7 +100,7 @@ Partial Class F1_Horarios
         '
         'PanelSuperior
         '
-        Me.PanelSuperior.Size = New System.Drawing.Size(889, 72)
+        Me.PanelSuperior.Size = New System.Drawing.Size(939, 72)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelSuperior.Style.BackColor1.Color = System.Drawing.Color.Yellow
         Me.PanelSuperior.Style.BackColor2.Color = System.Drawing.Color.Khaki
@@ -109,8 +111,8 @@ Partial Class F1_Horarios
         '
         'PanelInferior
         '
-        Me.PanelInferior.Location = New System.Drawing.Point(0, 376)
-        Me.PanelInferior.Size = New System.Drawing.Size(889, 36)
+        Me.PanelInferior.Location = New System.Drawing.Point(0, 437)
+        Me.PanelInferior.Size = New System.Drawing.Size(939, 36)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Gold
         Me.PanelInferior.Style.BackColor2.Color = System.Drawing.Color.Gold
@@ -150,10 +152,12 @@ Partial Class F1_Horarios
         '
         'PanelToolBar2
         '
-        Me.PanelToolBar2.Location = New System.Drawing.Point(809, 0)
+        Me.PanelToolBar2.Location = New System.Drawing.Point(859, 0)
         '
         'MPanelSup
         '
+        Me.MPanelSup.Controls.Add(Me.tbEstado)
+        Me.MPanelSup.Controls.Add(Me.LabelX15)
         Me.MPanelSup.Controls.Add(Me.tbTipo)
         Me.MPanelSup.Controls.Add(Me.LabelX4)
         Me.MPanelSup.Controls.Add(Me.tbFecha)
@@ -164,7 +168,7 @@ Partial Class F1_Horarios
         Me.MPanelSup.Controls.Add(Me.LabelX2)
         Me.MPanelSup.Controls.Add(Me.LabelX1)
         Me.MPanelSup.Controls.Add(Me.tbNumi)
-        Me.MPanelSup.Size = New System.Drawing.Size(889, 184)
+        Me.MPanelSup.Size = New System.Drawing.Size(939, 184)
         Me.MPanelSup.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.tbNumi, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.LabelX1, 0)
@@ -176,15 +180,17 @@ Partial Class F1_Horarios
         Me.MPanelSup.Controls.SetChildIndex(Me.tbFecha, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.LabelX4, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.tbTipo, 0)
+        Me.MPanelSup.Controls.SetChildIndex(Me.LabelX15, 0)
+        Me.MPanelSup.Controls.SetChildIndex(Me.tbEstado, 0)
         '
         'PanelPrincipal
         '
-        Me.PanelPrincipal.Size = New System.Drawing.Size(889, 304)
+        Me.PanelPrincipal.Size = New System.Drawing.Size(939, 365)
         '
         'GroupPanelBuscador
         '
         Me.GroupPanelBuscador.Dock = System.Windows.Forms.DockStyle.Left
-        Me.GroupPanelBuscador.Size = New System.Drawing.Size(721, 120)
+        Me.GroupPanelBuscador.Size = New System.Drawing.Size(721, 181)
         '
         '
         '
@@ -216,11 +222,11 @@ Partial Class F1_Horarios
         '
         'JGrM_Buscador
         '
-        Me.JGrM_Buscador.Size = New System.Drawing.Size(715, 97)
+        Me.JGrM_Buscador.Size = New System.Drawing.Size(715, 158)
         '
         'MPanelUserAct
         '
-        Me.MPanelUserAct.Location = New System.Drawing.Point(689, 0)
+        Me.MPanelUserAct.Location = New System.Drawing.Point(739, 0)
         '
         'GroupPanel1
         '
@@ -233,7 +239,7 @@ Partial Class F1_Horarios
         Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel1.Location = New System.Drawing.Point(724, 72)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(166, 301)
+        Me.GroupPanel1.Size = New System.Drawing.Size(216, 362)
         '
         '
         '
@@ -279,7 +285,7 @@ Partial Class F1_Horarios
         Me.grDetalle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grDetalle.Location = New System.Drawing.Point(0, 0)
         Me.grDetalle.Name = "grDetalle"
-        Me.grDetalle.Size = New System.Drawing.Size(160, 280)
+        Me.grDetalle.Size = New System.Drawing.Size(210, 341)
         Me.grDetalle.TabIndex = 0
         '
         'tbSuc
@@ -287,7 +293,7 @@ Partial Class F1_Horarios
         tbSuc_DesignTimeLayout.LayoutString = resources.GetString("tbSuc_DesignTimeLayout.LayoutString")
         Me.tbSuc.DesignTimeLayout = tbSuc_DesignTimeLayout
         Me.tbSuc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbSuc.Location = New System.Drawing.Point(140, 103)
+        Me.tbSuc.Location = New System.Drawing.Point(140, 96)
         Me.tbSuc.Name = "tbSuc"
         Me.tbSuc.SelectedIndex = -1
         Me.tbSuc.SelectedItem = Nothing
@@ -301,7 +307,7 @@ Partial Class F1_Horarios
         '
         Me.LabelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX16.Location = New System.Drawing.Point(11, 101)
+        Me.LabelX16.Location = New System.Drawing.Point(11, 94)
         Me.LabelX16.Name = "LabelX16"
         Me.LabelX16.Size = New System.Drawing.Size(109, 23)
         Me.LabelX16.TabIndex = 109
@@ -314,7 +320,7 @@ Partial Class F1_Horarios
         '
         Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX3.Location = New System.Drawing.Point(12, 133)
+        Me.LabelX3.Location = New System.Drawing.Point(12, 126)
         Me.LabelX3.Name = "LabelX3"
         Me.LabelX3.Size = New System.Drawing.Size(111, 23)
         Me.LabelX3.TabIndex = 108
@@ -328,7 +334,7 @@ Partial Class F1_Horarios
         Me.tbObs.Border.Class = "TextBoxBorder"
         Me.tbObs.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbObs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbObs.Location = New System.Drawing.Point(140, 134)
+        Me.tbObs.Location = New System.Drawing.Point(140, 127)
         Me.tbObs.Name = "tbObs"
         Me.tbObs.PreventEnterBeep = True
         Me.tbObs.Size = New System.Drawing.Size(431, 22)
@@ -341,7 +347,7 @@ Partial Class F1_Horarios
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX2.Location = New System.Drawing.Point(12, 47)
+        Me.LabelX2.Location = New System.Drawing.Point(12, 40)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.Size = New System.Drawing.Size(117, 23)
         Me.LabelX2.TabIndex = 107
@@ -354,7 +360,7 @@ Partial Class F1_Horarios
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX1.Location = New System.Drawing.Point(12, 18)
+        Me.LabelX1.Location = New System.Drawing.Point(12, 11)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.Size = New System.Drawing.Size(75, 23)
         Me.LabelX1.TabIndex = 106
@@ -368,7 +374,7 @@ Partial Class F1_Horarios
         Me.tbNumi.Border.Class = "TextBoxBorder"
         Me.tbNumi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbNumi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNumi.Location = New System.Drawing.Point(140, 19)
+        Me.tbNumi.Location = New System.Drawing.Point(140, 12)
         Me.tbNumi.Name = "tbNumi"
         Me.tbNumi.PreventEnterBeep = True
         Me.tbNumi.Size = New System.Drawing.Size(100, 22)
@@ -378,7 +384,7 @@ Partial Class F1_Horarios
         '
         Me.tbFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.tbFecha.Location = New System.Drawing.Point(140, 47)
+        Me.tbFecha.Location = New System.Drawing.Point(140, 40)
         Me.tbFecha.Name = "tbFecha"
         Me.tbFecha.Size = New System.Drawing.Size(122, 22)
         Me.tbFecha.TabIndex = 0
@@ -400,7 +406,7 @@ Partial Class F1_Horarios
         tbTipo_DesignTimeLayout.LayoutString = resources.GetString("tbTipo_DesignTimeLayout.LayoutString")
         Me.tbTipo.DesignTimeLayout = tbTipo_DesignTimeLayout
         Me.tbTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTipo.Location = New System.Drawing.Point(140, 75)
+        Me.tbTipo.Location = New System.Drawing.Point(140, 68)
         Me.tbTipo.Name = "tbTipo"
         Me.tbTipo.SelectedIndex = -1
         Me.tbTipo.SelectedItem = Nothing
@@ -414,17 +420,47 @@ Partial Class F1_Horarios
         '
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX4.Location = New System.Drawing.Point(11, 73)
+        Me.LabelX4.Location = New System.Drawing.Point(11, 66)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.Size = New System.Drawing.Size(109, 23)
         Me.LabelX4.TabIndex = 112
         Me.LabelX4.Text = "TIPO:"
         '
+        'tbEstado
+        '
+        '
+        '
+        '
+        Me.tbEstado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbEstado.Location = New System.Drawing.Point(140, 155)
+        Me.tbEstado.Name = "tbEstado"
+        Me.tbEstado.OffText = "INACTIVO"
+        Me.tbEstado.OnText = "ACTIVO"
+        Me.tbEstado.Size = New System.Drawing.Size(136, 22)
+        Me.tbEstado.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.tbEstado.TabIndex = 163
+        Me.tbEstado.Value = True
+        Me.tbEstado.ValueObject = "Y"
+        '
+        'LabelX15
+        '
+        '
+        '
+        '
+        Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX15.Location = New System.Drawing.Point(12, 155)
+        Me.LabelX15.Name = "LabelX15"
+        Me.LabelX15.Size = New System.Drawing.Size(75, 23)
+        Me.LabelX15.TabIndex = 164
+        Me.LabelX15.Text = "ESTADO:"
+        '
         'F1_Horarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(889, 437)
+        Me.ClientSize = New System.Drawing.Size(939, 498)
         Me.Name = "F1_Horarios"
         Me.Text = "F1_Horarios"
         Me.Controls.SetChildIndex(Me.SuperTabPrincipal, 0)
@@ -469,4 +505,6 @@ Partial Class F1_Horarios
     Friend WithEvents ELIMINARFILAToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tbTipo As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbEstado As DevComponents.DotNetBar.Controls.SwitchButton
+    Friend WithEvents LabelX15 As DevComponents.DotNetBar.LabelX
 End Class

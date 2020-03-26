@@ -117,6 +117,7 @@ Public Class F1_Horarios
         tbSuc.ReadOnly = False
         tbTipo.ReadOnly = False
         tbFecha.Enabled = True
+        tbEstado.IsReadOnly = False
 
         grDetalle.Enabled = True
         grDetalle.AllowUserToAddRows = True
@@ -128,6 +129,7 @@ Public Class F1_Horarios
         tbTipo.ReadOnly = True
         tbFecha.Enabled = False
         tbSuc.ReadOnly = True
+        tbEstado.IsReadOnly = True
 
         grDetalle.Enabled = False
     End Sub
@@ -138,6 +140,7 @@ Public Class F1_Horarios
         tbFecha.Value = Now.Date
         tbSuc.Text = ""
         tbTipo.Text = ""
+        tbEstado.Value = True
 
         'VACIO EL DETALLE
         _prCargarGridDetalle(-1)
@@ -154,7 +157,7 @@ Public Class F1_Horarios
 
     Public Overrides Function _PMOGrabarRegistro() As Boolean
 
-        Dim res As Boolean = L_prHoraGrabar(tbNumi.Text, tbFecha.Value.ToString("yyyy/MM/dd"), tbObs.Text, tbSuc.Value, tbTipo.Value, CType(grDetalle.DataSource, DataTable))
+        Dim res As Boolean = L_prHoraGrabar(tbNumi.Text, tbFecha.Value.ToString("yyyy/MM/dd"), tbObs.Text, tbSuc.Value, tbTipo.Value, CType(grDetalle.DataSource, DataTable), IIf(tbEstado.Value = True, 1, 0))
         If res Then
             ToastNotification.Show(Me, "Codigo de horario ".ToUpper + tbNumi.Text + " Grabado con Exito.".ToUpper, My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
             tbFecha.Focus()
@@ -164,8 +167,8 @@ Public Class F1_Horarios
     End Function
 
     Public Overrides Function _PMOModificarRegistro() As Boolean
-       
-        Dim res As Boolean = L_prHoraModificar(tbNumi.Text, tbFecha.Value.ToString("yyyy/MM/dd"), tbObs.Text, tbSuc.Value, tbTipo.Value, CType(grDetalle.DataSource, DataTable))
+
+        Dim res As Boolean = L_prHoraModificar(tbNumi.Text, tbFecha.Value.ToString("yyyy/MM/dd"), tbObs.Text, tbSuc.Value, tbTipo.Value, CType(grDetalle.DataSource, DataTable), IIf(tbEstado.Value = True, 1, 0))
         If res Then
             ToastNotification.Show(Me, "Codigo de horario ".ToUpper + tbNumi.Text + " modificado con Exito.".ToUpper, My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
         End If
@@ -239,6 +242,7 @@ Public Class F1_Horarios
         listEstCeldas.Add(New Modelos.Celda("cbfact", False))
         listEstCeldas.Add(New Modelos.Celda("cbhact", False))
         listEstCeldas.Add(New Modelos.Celda("cbuact", False))
+        listEstCeldas.Add(New Modelos.Celda("cbestado", False))
         Return listEstCeldas
     End Function
 
@@ -260,6 +264,12 @@ Public Class F1_Horarios
             'CARGAR DETALLE
             _prCargarGridDetalle(tbNumi.Text)
         End With
+        Dim est As Integer = JGrM_Buscador.GetValue("cbestado")
+        If (est = 1) Then
+            tbEstado.Value = True
+        Else
+            tbEstado.Value = False
+        End If
 
         LblPaginacion.Text = Str(_MPos + 1) + "/" + JGrM_Buscador.RowCount.ToString
 
@@ -301,4 +311,5 @@ Public Class F1_Horarios
             .Cells("estado").Value = 0
         End With
     End Sub
+
 End Class
