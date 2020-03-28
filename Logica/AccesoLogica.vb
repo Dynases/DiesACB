@@ -1238,6 +1238,107 @@ Public Class AccesoLogica
 
 #End Region
 #Region "INSCRIPCIÓN ALUMNOS"
+
+    Public Shared Function L_prEliminarInscripcion(_numi As String, ByRef _mensaje As String) As Boolean
+        Dim _resultado As Boolean
+
+        If L_fnbValidarEliminacion(_numi, "TCE0021", "cbnumi", _mensaje) = True Then
+            Dim _Tabla As DataTable
+
+            Dim _listParam As New List(Of Datos.DParametro)
+
+            _listParam.Add(New Datos.DParametro("@tipo", -1))
+            _listParam.Add(New Datos.DParametro("@numi", _numi))
+            _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+            _Tabla = D_ProcedimientoConParam("sp_dg_TCE0021", _listParam)
+
+            If _Tabla.Rows.Count > 0 Then
+                _numi = _Tabla.Rows(0).Item(0)
+                _resultado = True
+            Else
+                _resultado = False
+            End If
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+    Public Shared Function L_prGrabarInscripcion(ByRef _numi As String, _codalumno As String, _fecha As String, _nfactura As String, _obs As String, _TCE0022 As DataTable) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@numi", _numi))
+        _listParam.Add(New Datos.DParametro("@cbnumi", _codalumno))
+        _listParam.Add(New Datos.DParametro("@fecha", _fecha))
+        _listParam.Add(New Datos.DParametro("@nfactura", _nfactura))
+        _listParam.Add(New Datos.DParametro("@obs", _obs))
+        _listParam.Add(New Datos.DParametro("@est", 1))
+        _listParam.Add(New Datos.DParametro("@TCE0022", "", _TCE0022))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE0021", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _numi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+    Public Shared Function L_prGrabarModificadoInscripcion(ByRef _numi As String, _codalumno As String, _fecha As String, _nfactura As String, _obs As String, _TCE0022 As DataTable) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@numi", _numi))
+        _listParam.Add(New Datos.DParametro("@cbnumi", _codalumno))
+        _listParam.Add(New Datos.DParametro("@fecha", _fecha))
+        _listParam.Add(New Datos.DParametro("@nfactura", _nfactura))
+        _listParam.Add(New Datos.DParametro("@obs", _obs))
+        _listParam.Add(New Datos.DParametro("@est", 2))
+        _listParam.Add(New Datos.DParametro("@TCE0022", "", _TCE0022))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE0021", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _numi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+    Public Shared Function L_prListarInscripcion(_codAlumno As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@cbnumi", _codAlumno))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE0021", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_prListarDetalle(_id As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@numi", _id))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE0021", _listParam)
+
+        Return _Tabla
+    End Function
     Public Shared Function L_prListarServicios(_suc As String) As DataTable
 
         Dim _Tabla As DataTable
@@ -1249,16 +1350,18 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
-    Public Shared Function L_prListarFacturas() As DataTable
+    Public Shared Function L_prListarFacturas(_suc As String) As DataTable
 
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 6))
+        _listParam.Add(New Datos.DParametro("@suc", _suc))
         _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE0021", _listParam)
 
         Return _Tabla
     End Function
+
 
 #End Region
 

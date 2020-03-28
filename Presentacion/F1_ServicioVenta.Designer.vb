@@ -24,12 +24,12 @@ Partial Class F1_ServicioVenta
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim cbTipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_ServicioVenta))
         Dim cbTipoCliente_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbventa_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim SuperTabColorTable1 As DevComponents.DotNetBar.Rendering.SuperTabColorTable = New DevComponents.DotNetBar.Rendering.SuperTabColorTable()
-        Dim SuperTabLinearGradientColorTable1 As DevComponents.DotNetBar.Rendering.SuperTabLinearGradientColorTable = New DevComponents.DotNetBar.Rendering.SuperTabLinearGradientColorTable()
+        Dim SuperTabColorTable2 As DevComponents.DotNetBar.Rendering.SuperTabColorTable = New DevComponents.DotNetBar.Rendering.SuperTabColorTable()
+        Dim SuperTabLinearGradientColorTable2 As DevComponents.DotNetBar.Rendering.SuperTabLinearGradientColorTable = New DevComponents.DotNetBar.Rendering.SuperTabLinearGradientColorTable()
         Dim cbTipoVehiculoR_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_ServicioVenta))
         Dim cbTamanoR_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.GpDetalle = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.grDetalle = New Janus.Windows.GridEX.GridEX()
@@ -168,14 +168,14 @@ Partial Class F1_ServicioVenta
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.SuperTabControl2 = New DevComponents.DotNetBar.SuperTabControl()
+        Me.SuperTabControlPanel4 = New DevComponents.DotNetBar.SuperTabControlPanel()
+        Me.GridEX1 = New Janus.Windows.GridEX.GridEX()
+        Me.SuperTabItem4 = New DevComponents.DotNetBar.SuperTabItem()
         Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.Panel26 = New System.Windows.Forms.Panel()
         Me.pbImgProdu = New System.Windows.Forms.PictureBox()
         Me.panelA = New System.Windows.Forms.Panel()
         Me.SuperTabItem3 = New DevComponents.DotNetBar.SuperTabItem()
-        Me.SuperTabControlPanel4 = New DevComponents.DotNetBar.SuperTabControlPanel()
-        Me.GridEX1 = New Janus.Windows.GridEX.GridEX()
-        Me.SuperTabItem4 = New DevComponents.DotNetBar.SuperTabItem()
         Me.GroupPanel3 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel25 = New System.Windows.Forms.Panel()
         Me.tbObservacionR = New DevComponents.DotNetBar.Controls.TextBoxX()
@@ -264,11 +264,11 @@ Partial Class F1_ServicioVenta
         Me.GroupPanel2.SuspendLayout()
         CType(Me.SuperTabControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControl2.SuspendLayout()
+        Me.SuperTabControlPanel4.SuspendLayout()
+        CType(Me.GridEX1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControlPanel3.SuspendLayout()
         Me.Panel26.SuspendLayout()
         CType(Me.pbImgProdu, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuperTabControlPanel4.SuspendLayout()
-        CType(Me.GridEX1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel3.SuspendLayout()
         Me.Panel25.SuspendLayout()
         CType(Me.cbTipoVehiculoR, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -294,8 +294,8 @@ Partial Class F1_ServicioVenta
         Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabPrincipal.SelectedTabIndex = 1
         Me.SuperTabPrincipal.Size = New System.Drawing.Size(1028, 609)
-        Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelBuscador, 0)
+        Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
         '
         'SuperTabControlPanelBuscador
         '
@@ -2753,8 +2753,8 @@ Partial Class F1_ServicioVenta
         Me.SuperTabControl2.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl2.ControlBox.Name = ""
         Me.SuperTabControl2.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl2.ControlBox.MenuBox, Me.SuperTabControl2.ControlBox.CloseBox})
-        Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel3)
+        Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControl2.ForeColor = System.Drawing.Color.White
         Me.SuperTabControl2.Location = New System.Drawing.Point(3, 3)
@@ -2766,11 +2766,38 @@ Partial Class F1_ServicioVenta
         Me.SuperTabControl2.TabFont = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuperTabControl2.TabIndex = 1
         Me.SuperTabControl2.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem3, Me.SuperTabItem4})
-        SuperTabLinearGradientColorTable1.Colors = New System.Drawing.Color() {System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))}
-        SuperTabColorTable1.Background = SuperTabLinearGradientColorTable1
-        Me.SuperTabControl2.TabStripColor = SuperTabColorTable1
+        SuperTabLinearGradientColorTable2.Colors = New System.Drawing.Color() {System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))}
+        SuperTabColorTable2.Background = SuperTabLinearGradientColorTable2
+        Me.SuperTabControl2.TabStripColor = SuperTabColorTable2
         Me.SuperTabControl2.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.Office2010BackstageBlue
         Me.SuperTabControl2.Text = "Descuento"
+        '
+        'SuperTabControlPanel4
+        '
+        Me.SuperTabControlPanel4.Controls.Add(Me.GridEX1)
+        Me.SuperTabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SuperTabControlPanel4.Location = New System.Drawing.Point(0, 27)
+        Me.SuperTabControlPanel4.Name = "SuperTabControlPanel4"
+        Me.SuperTabControlPanel4.Size = New System.Drawing.Size(455, 351)
+        Me.SuperTabControlPanel4.TabIndex = 0
+        Me.SuperTabControlPanel4.TabItem = Me.SuperTabItem4
+        '
+        'GridEX1
+        '
+        Me.GridEX1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridEX1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridEX1.Location = New System.Drawing.Point(0, 0)
+        Me.GridEX1.Name = "GridEX1"
+        Me.GridEX1.Size = New System.Drawing.Size(455, 351)
+        Me.GridEX1.TabIndex = 0
+        '
+        'SuperTabItem4
+        '
+        Me.SuperTabItem4.AttachedControl = Me.SuperTabControlPanel4
+        Me.SuperTabItem4.GlobalItem = False
+        Me.SuperTabItem4.Name = "SuperTabItem4"
+        Me.SuperTabItem4.Text = "Descuento"
+        Me.SuperTabItem4.Visible = False
         '
         'SuperTabControlPanel3
         '
@@ -2819,33 +2846,6 @@ Partial Class F1_ServicioVenta
         Me.SuperTabItem3.GlobalItem = False
         Me.SuperTabItem3.Name = "SuperTabItem3"
         Me.SuperTabItem3.Text = "Imagenes"
-        '
-        'SuperTabControlPanel4
-        '
-        Me.SuperTabControlPanel4.Controls.Add(Me.GridEX1)
-        Me.SuperTabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel4.Location = New System.Drawing.Point(0, 27)
-        Me.SuperTabControlPanel4.Name = "SuperTabControlPanel4"
-        Me.SuperTabControlPanel4.Size = New System.Drawing.Size(455, 351)
-        Me.SuperTabControlPanel4.TabIndex = 0
-        Me.SuperTabControlPanel4.TabItem = Me.SuperTabItem4
-        '
-        'GridEX1
-        '
-        Me.GridEX1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridEX1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GridEX1.Location = New System.Drawing.Point(0, 0)
-        Me.GridEX1.Name = "GridEX1"
-        Me.GridEX1.Size = New System.Drawing.Size(455, 351)
-        Me.GridEX1.TabIndex = 0
-        '
-        'SuperTabItem4
-        '
-        Me.SuperTabItem4.AttachedControl = Me.SuperTabControlPanel4
-        Me.SuperTabItem4.GlobalItem = False
-        Me.SuperTabItem4.Name = "SuperTabItem4"
-        Me.SuperTabItem4.Text = "Descuento"
-        Me.SuperTabItem4.Visible = False
         '
         'GroupPanel3
         '
@@ -3332,11 +3332,11 @@ Partial Class F1_ServicioVenta
         Me.GroupPanel2.ResumeLayout(False)
         CType(Me.SuperTabControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControl2.ResumeLayout(False)
+        Me.SuperTabControlPanel4.ResumeLayout(False)
+        CType(Me.GridEX1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControlPanel3.ResumeLayout(False)
         Me.Panel26.ResumeLayout(False)
         CType(Me.pbImgProdu, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SuperTabControlPanel4.ResumeLayout(False)
-        CType(Me.GridEX1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanel3.ResumeLayout(False)
         Me.Panel25.ResumeLayout(False)
         Me.Panel25.PerformLayout()

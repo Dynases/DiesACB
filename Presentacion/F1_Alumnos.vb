@@ -1024,10 +1024,13 @@ Public Class F1_Alumnos
     End Sub
 
     Private Sub btInscripcion_Click(sender As Object, e As EventArgs) Handles btInscripcion.Click
-        Dim frm As New F1_AlumnoInscrip
+        Dim frm As New F0_AlumnoInscrip
         'frm._nameButton = btCertiAlumnos.
         frm.Sucursal = tbSuc.Value
+        frm.CodAlumno = tbNumi.Text
         frm.Alumno = tbNombre.Text + " " + tbApellido.Text
         frm.Show()
     End Sub
+
+
 End Class

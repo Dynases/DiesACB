@@ -365,16 +365,10 @@
     <Compile Include="F0_Usuarios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F1_AlumnoInscrip.Designer.vb">
-      <DependentUpon>F1_AlumnoInscrip.vb</DependentUpon>
+    <Compile Include="F0_AlumnoInscrip.Designer.vb">
+      <DependentUpon>F0_AlumnoInscrip.vb</DependentUpon>
     </Compile>
-    <Compile Include="F1_AlumnoInscrip.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="F1_AlumnoInscrip1.designer.vb">
-      <DependentUpon>F1_AlumnoInscrip1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="F1_AlumnoInscrip1.vb">
+    <Compile Include="F0_AlumnoInscrip.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F1_AlumnosCerti.Designer.vb">
@@ -1371,11 +1365,8 @@
     <EmbeddedResource Include="F0_Usuarios.resx">
       <DependentUpon>F0_Usuarios.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F1_AlumnoInscrip.resx">
-      <DependentUpon>F1_AlumnoInscrip.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="F1_AlumnoInscrip1.resx">
-      <DependentUpon>F1_AlumnoInscrip1.vb</DependentUpon>
+    <EmbeddedResource Include="F0_AlumnoInscrip.resx">
+      <DependentUpon>F0_AlumnoInscrip.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F1_AlumnosCerti.resx">
       <DependentUpon>F1_AlumnosCerti.vb</DependentUpon>

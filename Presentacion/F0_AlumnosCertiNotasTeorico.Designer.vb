@@ -161,9 +161,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.SuperTabPrincipal.ControlBox.MenuBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabPrincipal.ControlBox.MenuBox, Me.SuperTabPrincipal.ControlBox.CloseBox})
-        Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SuperTabPrincipal.SelectedTabIndex = 1
-        Me.SuperTabPrincipal.Size = New System.Drawing.Size(1179, 741)
+        Me.SuperTabPrincipal.Size = New System.Drawing.Size(884, 602)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelBuscador, 0)
         '
@@ -171,9 +171,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         Me.SuperTabControlPanelBuscador.Controls.Add(Me.Panel3)
         Me.SuperTabControlPanelBuscador.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 28)
-        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(1179, 713)
+        Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 23)
+        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(884, 579)
         '
         'SupTabItemBusqueda
         '
@@ -181,9 +181,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         'SuperTabControlPanelRegistro
         '
-        Me.SuperTabControlPanelRegistro.Location = New System.Drawing.Point(0, 28)
-        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.SuperTabControlPanelRegistro.Size = New System.Drawing.Size(1179, 713)
+        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControlPanelRegistro.Size = New System.Drawing.Size(884, 577)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelSuperior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelInferior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelPrincipal, 0)
@@ -191,8 +190,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         'PanelSuperior
         '
         Me.PanelSuperior.Controls.Add(Me.Panel4)
-        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.PanelSuperior.Size = New System.Drawing.Size(1179, 87)
+        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelSuperior.Size = New System.Drawing.Size(884, 71)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelSuperior.Style.BackColor1.Color = System.Drawing.Color.Yellow
         Me.PanelSuperior.Style.BackColor2.Color = System.Drawing.Color.Khaki
@@ -207,8 +206,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         'PanelInferior
         '
-        Me.PanelInferior.Location = New System.Drawing.Point(0, 669)
-        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.PanelInferior.Location = New System.Drawing.Point(0, 541)
+        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Gold
         Me.PanelInferior.Style.BackColor2.Color = System.Drawing.Color.Gold
@@ -243,9 +242,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         'PanelToolBar1
         '
         Me.PanelToolBar1.Controls.Add(Me.btPonerNotas)
-        Me.PanelToolBar1.Location = New System.Drawing.Point(177, 0)
-        Me.PanelToolBar1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.PanelToolBar1.Size = New System.Drawing.Size(693, 87)
+        Me.PanelToolBar1.Location = New System.Drawing.Point(133, 0)
+        Me.PanelToolBar1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelToolBar1.Size = New System.Drawing.Size(520, 71)
         Me.PanelToolBar1.Controls.SetChildIndex(Me.btPonerNotas, 0)
         Me.PanelToolBar1.Controls.SetChildIndex(Me.btnNuevo, 0)
         Me.PanelToolBar1.Controls.SetChildIndex(Me.btnModificar, 0)
@@ -255,74 +254,73 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(527, 0)
-        Me.btnSalir.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.btnSalir.Size = New System.Drawing.Size(96, 87)
+        Me.btnSalir.Location = New System.Drawing.Point(395, 0)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnSalir.Size = New System.Drawing.Size(72, 71)
         '
         'btnGrabar
         '
-        Me.btnGrabar.Location = New System.Drawing.Point(431, 0)
-        Me.btnGrabar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.btnGrabar.Size = New System.Drawing.Size(96, 87)
+        Me.btnGrabar.Location = New System.Drawing.Point(323, 0)
+        Me.btnGrabar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnGrabar.Size = New System.Drawing.Size(72, 71)
         Me.btnGrabar.Visible = False
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(335, 0)
-        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.btnEliminar.Size = New System.Drawing.Size(96, 87)
+        Me.btnEliminar.Location = New System.Drawing.Point(251, 0)
+        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnEliminar.Size = New System.Drawing.Size(72, 71)
         Me.btnEliminar.Visible = False
         '
         'btnModificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(239, 0)
-        Me.btnModificar.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.btnModificar.Size = New System.Drawing.Size(96, 87)
+        Me.btnModificar.Location = New System.Drawing.Point(179, 0)
+        Me.btnModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnModificar.Size = New System.Drawing.Size(72, 71)
         Me.btnModificar.Visible = False
         '
         'btnNuevo
         '
-        Me.btnNuevo.Location = New System.Drawing.Point(143, 0)
-        Me.btnNuevo.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.btnNuevo.Size = New System.Drawing.Size(96, 87)
+        Me.btnNuevo.Location = New System.Drawing.Point(107, 0)
+        Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnNuevo.Size = New System.Drawing.Size(72, 71)
         Me.btnNuevo.Visible = False
         '
         'PanelToolBar2
         '
-        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.PanelToolBar2.Size = New System.Drawing.Size(107, 87)
+        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelToolBar2.Size = New System.Drawing.Size(80, 71)
         '
         'PanelPrincipal
         '
         Me.PanelPrincipal.Controls.Add(Me.gpListaAlumnos)
         Me.PanelPrincipal.Controls.Add(Me.gpNotas)
-        Me.PanelPrincipal.Location = New System.Drawing.Point(0, 87)
-        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.PanelPrincipal.Size = New System.Drawing.Size(1179, 582)
+        Me.PanelPrincipal.Location = New System.Drawing.Point(0, 71)
+        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelPrincipal.Size = New System.Drawing.Size(884, 470)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.gpNotas, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.gpListaAlumnos, 0)
         '
         'PanelUsuario
         '
-        Me.PanelUsuario.Location = New System.Drawing.Point(843, 7)
-        Me.PanelUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.PanelUsuario.Location = New System.Drawing.Point(632, 6)
+        Me.PanelUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         '
         'btnImprimir
         '
-        Me.btnImprimir.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.btnImprimir.Size = New System.Drawing.Size(96, 87)
+        Me.btnImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnImprimir.Size = New System.Drawing.Size(72, 71)
         '
         'btnUltimo
         '
-        Me.btnUltimo.Location = New System.Drawing.Point(171, 0)
         Me.btnUltimo.Margin = New System.Windows.Forms.Padding(2)
         '
         'LblPaginacion
         '
-        Me.LblPaginacion.Location = New System.Drawing.Point(213, 0)
-        Me.LblPaginacion.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.LblPaginacion.Size = New System.Drawing.Size(171, 44)
+        Me.LblPaginacion.Location = New System.Drawing.Point(160, 0)
+        Me.LblPaginacion.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblPaginacion.Size = New System.Drawing.Size(128, 36)
         Me.LblPaginacion.Text = ""
         '
         'MRlAccion
@@ -331,9 +329,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         '
         Me.MRlAccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.MRlAccion.Location = New System.Drawing.Point(1000, 11)
-        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.MRlAccion.Size = New System.Drawing.Size(83, 74)
+        Me.MRlAccion.Location = New System.Drawing.Point(750, 9)
+        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MRlAccion.Size = New System.Drawing.Size(62, 60)
         '
         'gpNotas
         '
@@ -345,9 +343,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.gpNotas.Dock = System.Windows.Forms.DockStyle.Top
         Me.gpNotas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gpNotas.Location = New System.Drawing.Point(0, 0)
-        Me.gpNotas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.gpNotas.Name = "gpNotas"
-        Me.gpNotas.Size = New System.Drawing.Size(1179, 276)
+        Me.gpNotas.Size = New System.Drawing.Size(884, 224)
         '
         '
         '
@@ -385,9 +382,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(834, 249)
+        Me.Panel1.Size = New System.Drawing.Size(624, 201)
         Me.Panel1.TabIndex = 0
         '
         'TableLayoutPanel1
@@ -398,12 +394,11 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.TableLayoutPanel1.Controls.Add(Me.GroupPanel2, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(834, 249)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(624, 201)
         Me.TableLayoutPanel1.TabIndex = 2
         '
         'GroupPanel3
@@ -413,10 +408,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupPanel3.Controls.Add(Me.DataGridView1)
         Me.GroupPanel3.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanel3.Location = New System.Drawing.Point(4, 128)
-        Me.GroupPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanel3.Location = New System.Drawing.Point(3, 103)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(826, 117)
+        Me.GroupPanel3.Size = New System.Drawing.Size(618, 95)
         '
         '
         '
@@ -454,9 +448,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Top
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(820, 54)
+        Me.DataGridView1.Size = New System.Drawing.Size(612, 44)
         Me.DataGridView1.TabIndex = 0
         '
         'GroupPanel2
@@ -466,10 +459,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupPanel2.Controls.Add(Me.grNotas)
         Me.GroupPanel2.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanel2.Location = New System.Drawing.Point(4, 4)
-        Me.GroupPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanel2.Location = New System.Drawing.Point(3, 3)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(826, 116)
+        Me.GroupPanel2.Size = New System.Drawing.Size(618, 94)
         '
         '
         '
@@ -507,9 +499,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.grNotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grNotas.Dock = System.Windows.Forms.DockStyle.Top
         Me.grNotas.Location = New System.Drawing.Point(0, 0)
-        Me.grNotas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grNotas.Name = "grNotas"
-        Me.grNotas.Size = New System.Drawing.Size(820, 54)
+        Me.grNotas.Size = New System.Drawing.Size(612, 44)
         Me.grNotas.TabIndex = 0
         '
         'GroupPanel1
@@ -519,10 +510,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupPanel1.Controls.Add(Me.Panel2)
         Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupPanel1.Location = New System.Drawing.Point(834, 0)
-        Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanel1.Location = New System.Drawing.Point(624, 0)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(339, 249)
+        Me.GroupPanel1.Size = New System.Drawing.Size(254, 201)
         '
         '
         '
@@ -560,9 +550,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.Panel2.Controls.Add(Me.lblNotaApro)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(333, 222)
+        Me.Panel2.Size = New System.Drawing.Size(248, 178)
         Me.Panel2.TabIndex = 1
         '
         'lblNota
@@ -587,9 +576,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.lblNota.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblNota.Font = New System.Drawing.Font("Verdana", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNota.Location = New System.Drawing.Point(0, 0)
-        Me.lblNota.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblNota.Name = "lblNota"
-        Me.lblNota.Size = New System.Drawing.Size(333, 222)
+        Me.lblNota.Size = New System.Drawing.Size(248, 178)
         Me.lblNota.TabIndex = 17
         Me.lblNota.Text = "<font size=""+50""><font color=""#F44336"">51</font></font>"
         '
@@ -601,9 +589,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.lblNotaApro.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lblNotaApro.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblNotaApro.Location = New System.Drawing.Point(0, 0)
-        Me.lblNotaApro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblNotaApro.Name = "lblNotaApro"
-        Me.lblNotaApro.Size = New System.Drawing.Size(333, 222)
+        Me.lblNotaApro.Size = New System.Drawing.Size(248, 178)
         Me.lblNotaApro.TabIndex = 0
         Me.lblNotaApro.Text = "<font size=""+50""><font color=""#00E676"">51</font></font>"
         '
@@ -615,10 +602,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.gpListaAlumnos.DisabledBackColor = System.Drawing.Color.Empty
         Me.gpListaAlumnos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.gpListaAlumnos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gpListaAlumnos.Location = New System.Drawing.Point(0, 276)
-        Me.gpListaAlumnos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gpListaAlumnos.Location = New System.Drawing.Point(0, 224)
         Me.gpListaAlumnos.Name = "gpListaAlumnos"
-        Me.gpListaAlumnos.Size = New System.Drawing.Size(1179, 306)
+        Me.gpListaAlumnos.Size = New System.Drawing.Size(884, 246)
         '
         '
         '
@@ -654,9 +640,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         Me.grAlumnos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grAlumnos.Location = New System.Drawing.Point(0, 0)
-        Me.grAlumnos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grAlumnos.Name = "grAlumnos"
-        Me.grAlumnos.Size = New System.Drawing.Size(1173, 279)
+        Me.grAlumnos.Size = New System.Drawing.Size(878, 223)
         Me.grAlumnos.TabIndex = 0
         '
         'btPonerNotas
@@ -670,9 +655,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.btPonerNotas.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.btPonerNotas.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
         Me.btPonerNotas.Location = New System.Drawing.Point(0, 0)
-        Me.btPonerNotas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btPonerNotas.Name = "btPonerNotas"
-        Me.btPonerNotas.Size = New System.Drawing.Size(143, 87)
+        Me.btPonerNotas.Size = New System.Drawing.Size(107, 71)
         Me.btPonerNotas.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btPonerNotas.TabIndex = 11
         Me.btPonerNotas.Text = "ASIGNAR NOTA"
@@ -683,14 +667,14 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.cmOpciones.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.cmOpciones.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ASIGNARNOTAToolStripMenuItem})
         Me.cmOpciones.Name = "cmOpciones"
-        Me.cmOpciones.Size = New System.Drawing.Size(360, 40)
+        Me.cmOpciones.Size = New System.Drawing.Size(301, 40)
         '
         'ASIGNARNOTAToolStripMenuItem
         '
         Me.ASIGNARNOTAToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.clase_falta
         Me.ASIGNARNOTAToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ASIGNARNOTAToolStripMenuItem.Name = "ASIGNARNOTAToolStripMenuItem"
-        Me.ASIGNARNOTAToolStripMenuItem.Size = New System.Drawing.Size(359, 36)
+        Me.ASIGNARNOTAToolStripMenuItem.Size = New System.Drawing.Size(300, 36)
         Me.ASIGNARNOTAToolStripMenuItem.Text = "ALUMNO NO SE PRESENTO AL EXAMEN"
         '
         'Panel3
@@ -700,9 +684,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.Panel3.Controls.Add(Me.GroupPanel7)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1179, 713)
+        Me.Panel3.Size = New System.Drawing.Size(884, 579)
         Me.Panel3.TabIndex = 0
         '
         'SuperTabControl1
@@ -724,12 +707,11 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel2)
         Me.SuperTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControl1.Location = New System.Drawing.Point(0, 0)
-        Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SuperTabControl1.Name = "SuperTabControl1"
         Me.SuperTabControl1.ReorderTabsEnabled = True
         Me.SuperTabControl1.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
         Me.SuperTabControl1.SelectedTabIndex = 0
-        Me.SuperTabControl1.Size = New System.Drawing.Size(840, 713)
+        Me.SuperTabControl1.Size = New System.Drawing.Size(630, 579)
         Me.SuperTabControl1.TabFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuperTabControl1.TabIndex = 4
         Me.SuperTabControl1.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem1, Me.SuperTabItem2})
@@ -739,10 +721,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         Me.SuperTabControlPanel1.Controls.Add(Me.GroupPanel6)
         Me.SuperTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel1.Location = New System.Drawing.Point(0, 31)
-        Me.SuperTabControlPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControlPanel1.Location = New System.Drawing.Point(0, 20)
         Me.SuperTabControlPanel1.Name = "SuperTabControlPanel1"
-        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(840, 682)
+        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(630, 559)
         Me.SuperTabControlPanel1.TabIndex = 1
         Me.SuperTabControlPanel1.TabItem = Me.SuperTabItem1
         '
@@ -754,9 +735,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupPanel6.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel6.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupPanel6.Name = "GroupPanel6"
-        Me.GroupPanel6.Size = New System.Drawing.Size(840, 682)
+        Me.GroupPanel6.Size = New System.Drawing.Size(630, 559)
         '
         '
         '
@@ -796,12 +776,11 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.TableLayoutTeorico.Controls.Add(Me.GroupBoxTeo1, 0, 0)
         Me.TableLayoutTeorico.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutTeorico.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutTeorico.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutTeorico.Name = "TableLayoutTeorico"
         Me.TableLayoutTeorico.RowCount = 2
         Me.TableLayoutTeorico.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutTeorico.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutTeorico.Size = New System.Drawing.Size(834, 655)
+        Me.TableLayoutTeorico.Size = New System.Drawing.Size(624, 536)
         Me.TableLayoutTeorico.TabIndex = 3
         '
         'GroupBoxTeo2
@@ -810,11 +789,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupBoxTeo2.Controls.Add(Me.grTeo2)
         Me.GroupBoxTeo2.Controls.Add(Me.Panel7)
         Me.GroupBoxTeo2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxTeo2.Location = New System.Drawing.Point(4, 340)
-        Me.GroupBoxTeo2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBoxTeo2.Location = New System.Drawing.Point(3, 279)
         Me.GroupBoxTeo2.Name = "GroupBoxTeo2"
-        Me.GroupBoxTeo2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBoxTeo2.Size = New System.Drawing.Size(826, 329)
+        Me.GroupBoxTeo2.Size = New System.Drawing.Size(618, 271)
         Me.GroupBoxTeo2.TabIndex = 3
         Me.GroupBoxTeo2.TabStop = False
         Me.GroupBoxTeo2.Text = "S E G U N D A     O P C I O N"
@@ -824,10 +801,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.grTeo2.BackgroundColor = System.Drawing.SystemColors.Control
         Me.grTeo2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grTeo2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grTeo2.Location = New System.Drawing.Point(4, 23)
-        Me.grTeo2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grTeo2.Location = New System.Drawing.Point(3, 18)
         Me.grTeo2.Name = "grTeo2"
-        Me.grTeo2.Size = New System.Drawing.Size(698, 302)
+        Me.grTeo2.Size = New System.Drawing.Size(522, 250)
         Me.grTeo2.TabIndex = 0
         '
         'Panel7
@@ -835,10 +811,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.Panel7.Controls.Add(Me.pondeTeo2)
         Me.Panel7.Controls.Add(Me.lblTeo2)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel7.Location = New System.Drawing.Point(702, 23)
-        Me.Panel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel7.Location = New System.Drawing.Point(525, 18)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(120, 302)
+        Me.Panel7.Size = New System.Drawing.Size(90, 250)
         Me.Panel7.TabIndex = 3
         '
         'pondeTeo2
@@ -851,11 +826,10 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.pondeTeo2.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
         Me.pondeTeo2.Dock = System.Windows.Forms.DockStyle.Top
         Me.pondeTeo2.Increment = 1.0R
-        Me.pondeTeo2.Location = New System.Drawing.Point(0, 76)
-        Me.pondeTeo2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pondeTeo2.Location = New System.Drawing.Point(0, 62)
         Me.pondeTeo2.Name = "pondeTeo2"
         Me.pondeTeo2.ShowUpDown = True
-        Me.pondeTeo2.Size = New System.Drawing.Size(120, 26)
+        Me.pondeTeo2.Size = New System.Drawing.Size(90, 22)
         Me.pondeTeo2.TabIndex = 0
         '
         'lblTeo2
@@ -880,9 +854,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.lblTeo2.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblTeo2.Font = New System.Drawing.Font("Verdana", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTeo2.Location = New System.Drawing.Point(0, 0)
-        Me.lblTeo2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblTeo2.Name = "lblTeo2"
-        Me.lblTeo2.Size = New System.Drawing.Size(120, 76)
+        Me.lblTeo2.Size = New System.Drawing.Size(90, 62)
         Me.lblTeo2.TabIndex = 17
         Me.lblTeo2.Text = "<font size=""+10""><font color=""#F44336"">51</font></font>"
         '
@@ -892,11 +865,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupBoxTeo1.Controls.Add(Me.grTeo1)
         Me.GroupBoxTeo1.Controls.Add(Me.Panel6)
         Me.GroupBoxTeo1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxTeo1.Location = New System.Drawing.Point(4, 4)
-        Me.GroupBoxTeo1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBoxTeo1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxTeo1.Name = "GroupBoxTeo1"
-        Me.GroupBoxTeo1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBoxTeo1.Size = New System.Drawing.Size(826, 318)
+        Me.GroupBoxTeo1.Size = New System.Drawing.Size(618, 262)
         Me.GroupBoxTeo1.TabIndex = 2
         Me.GroupBoxTeo1.TabStop = False
         Me.GroupBoxTeo1.Text = "P R I M E R A    O P C I O N"
@@ -906,10 +877,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.grTeo1.BackgroundColor = System.Drawing.SystemColors.Control
         Me.grTeo1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grTeo1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grTeo1.Location = New System.Drawing.Point(4, 23)
-        Me.grTeo1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grTeo1.Location = New System.Drawing.Point(3, 18)
         Me.grTeo1.Name = "grTeo1"
-        Me.grTeo1.Size = New System.Drawing.Size(698, 301)
+        Me.grTeo1.Size = New System.Drawing.Size(522, 249)
         Me.grTeo1.TabIndex = 0
         '
         'Panel6
@@ -917,10 +887,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.Panel6.Controls.Add(Me.pondeTeo1)
         Me.Panel6.Controls.Add(Me.lblTeo1)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(702, 23)
-        Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel6.Location = New System.Drawing.Point(525, 18)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(120, 291)
+        Me.Panel6.Size = New System.Drawing.Size(90, 241)
         Me.Panel6.TabIndex = 2
         '
         'pondeTeo1
@@ -933,12 +902,11 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.pondeTeo1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
         Me.pondeTeo1.Dock = System.Windows.Forms.DockStyle.Top
         Me.pondeTeo1.Increment = 1.0R
-        Me.pondeTeo1.Location = New System.Drawing.Point(0, 76)
-        Me.pondeTeo1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pondeTeo1.Location = New System.Drawing.Point(0, 62)
         Me.pondeTeo1.MinValue = 0R
         Me.pondeTeo1.Name = "pondeTeo1"
         Me.pondeTeo1.ShowUpDown = True
-        Me.pondeTeo1.Size = New System.Drawing.Size(120, 26)
+        Me.pondeTeo1.Size = New System.Drawing.Size(90, 22)
         Me.pondeTeo1.TabIndex = 0
         '
         'lblTeo1
@@ -963,9 +931,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.lblTeo1.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblTeo1.Font = New System.Drawing.Font("Verdana", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTeo1.Location = New System.Drawing.Point(0, 0)
-        Me.lblTeo1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblTeo1.Name = "lblTeo1"
-        Me.lblTeo1.Size = New System.Drawing.Size(120, 76)
+        Me.lblTeo1.Size = New System.Drawing.Size(90, 62)
         Me.lblTeo1.TabIndex = 17
         Me.lblTeo1.Text = "<font size=""+10""><font color=""#F44336"">51</font></font>"
         '
@@ -980,10 +947,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         Me.SuperTabControlPanel2.Controls.Add(Me.GroupPanel5)
         Me.SuperTabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel2.Location = New System.Drawing.Point(0, 33)
-        Me.SuperTabControlPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControlPanel2.Location = New System.Drawing.Point(0, 27)
         Me.SuperTabControlPanel2.Name = "SuperTabControlPanel2"
-        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(840, 677)
+        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(630, 550)
         Me.SuperTabControlPanel2.TabIndex = 0
         Me.SuperTabControlPanel2.TabItem = Me.SuperTabItem2
         '
@@ -995,9 +961,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupPanel5.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel5.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupPanel5.Name = "GroupPanel5"
-        Me.GroupPanel5.Size = New System.Drawing.Size(840, 677)
+        Me.GroupPanel5.Size = New System.Drawing.Size(630, 550)
         '
         '
         '
@@ -1037,12 +1002,11 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.TableLayoutPanel3.Controls.Add(Me.GroupBoxPrac1, 0, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(834, 650)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(624, 527)
         Me.TableLayoutPanel3.TabIndex = 4
         '
         'GroupBoxPrac2
@@ -1051,11 +1015,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupBoxPrac2.Controls.Add(Me.grPrac2)
         Me.GroupBoxPrac2.Controls.Add(Me.Panel8)
         Me.GroupBoxPrac2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxPrac2.Location = New System.Drawing.Point(4, 329)
-        Me.GroupBoxPrac2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBoxPrac2.Location = New System.Drawing.Point(3, 266)
         Me.GroupBoxPrac2.Name = "GroupBoxPrac2"
-        Me.GroupBoxPrac2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBoxPrac2.Size = New System.Drawing.Size(826, 317)
+        Me.GroupBoxPrac2.Size = New System.Drawing.Size(618, 258)
         Me.GroupBoxPrac2.TabIndex = 3
         Me.GroupBoxPrac2.TabStop = False
         Me.GroupBoxPrac2.Text = "S E G U N D A     O P C I O N"
@@ -1065,10 +1027,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.grPrac2.BackgroundColor = System.Drawing.SystemColors.Control
         Me.grPrac2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grPrac2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grPrac2.Location = New System.Drawing.Point(4, 23)
-        Me.grPrac2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grPrac2.Location = New System.Drawing.Point(3, 18)
         Me.grPrac2.Name = "grPrac2"
-        Me.grPrac2.Size = New System.Drawing.Size(698, 290)
+        Me.grPrac2.Size = New System.Drawing.Size(522, 237)
         Me.grPrac2.TabIndex = 0
         '
         'Panel8
@@ -1077,10 +1038,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.Panel8.Controls.Add(Me.pondePrac2)
         Me.Panel8.Controls.Add(Me.lblPrac2)
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel8.Location = New System.Drawing.Point(702, 23)
-        Me.Panel8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel8.Location = New System.Drawing.Point(525, 18)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(120, 290)
+        Me.Panel8.Size = New System.Drawing.Size(90, 237)
         Me.Panel8.TabIndex = 3
         '
         'btMarcarTodosPractico2
@@ -1092,10 +1052,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.btMarcarTodosPractico2.Image = Global.Presentacion.My.Resources.Resources.GRABACION_EXITOSA
         Me.btMarcarTodosPractico2.ImageFixedSize = New System.Drawing.Size(24, 24)
         Me.btMarcarTodosPractico2.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btMarcarTodosPractico2.Location = New System.Drawing.Point(0, 208)
-        Me.btMarcarTodosPractico2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btMarcarTodosPractico2.Location = New System.Drawing.Point(0, 170)
         Me.btMarcarTodosPractico2.Name = "btMarcarTodosPractico2"
-        Me.btMarcarTodosPractico2.Size = New System.Drawing.Size(120, 82)
+        Me.btMarcarTodosPractico2.Size = New System.Drawing.Size(90, 67)
         Me.btMarcarTodosPractico2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btMarcarTodosPractico2.TabIndex = 19
         Me.btMarcarTodosPractico2.Text = "SELECCIONAR TODOS"
@@ -1111,11 +1070,10 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.pondePrac2.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
         Me.pondePrac2.Dock = System.Windows.Forms.DockStyle.Top
         Me.pondePrac2.Increment = 1.0R
-        Me.pondePrac2.Location = New System.Drawing.Point(0, 76)
-        Me.pondePrac2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pondePrac2.Location = New System.Drawing.Point(0, 62)
         Me.pondePrac2.Name = "pondePrac2"
         Me.pondePrac2.ShowUpDown = True
-        Me.pondePrac2.Size = New System.Drawing.Size(120, 26)
+        Me.pondePrac2.Size = New System.Drawing.Size(90, 22)
         Me.pondePrac2.TabIndex = 0
         '
         'lblPrac2
@@ -1140,9 +1098,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.lblPrac2.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblPrac2.Font = New System.Drawing.Font("Verdana", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrac2.Location = New System.Drawing.Point(0, 0)
-        Me.lblPrac2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblPrac2.Name = "lblPrac2"
-        Me.lblPrac2.Size = New System.Drawing.Size(120, 76)
+        Me.lblPrac2.Size = New System.Drawing.Size(90, 62)
         Me.lblPrac2.TabIndex = 17
         Me.lblPrac2.Text = "<font size=""+10""><font color=""#F44336"">51</font></font>"
         '
@@ -1152,11 +1109,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupBoxPrac1.Controls.Add(Me.grPrac1)
         Me.GroupBoxPrac1.Controls.Add(Me.Panel9)
         Me.GroupBoxPrac1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBoxPrac1.Location = New System.Drawing.Point(4, 4)
-        Me.GroupBoxPrac1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBoxPrac1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBoxPrac1.Name = "GroupBoxPrac1"
-        Me.GroupBoxPrac1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBoxPrac1.Size = New System.Drawing.Size(826, 317)
+        Me.GroupBoxPrac1.Size = New System.Drawing.Size(618, 257)
         Me.GroupBoxPrac1.TabIndex = 2
         Me.GroupBoxPrac1.TabStop = False
         Me.GroupBoxPrac1.Text = "P R I M E R A    O P C I O N"
@@ -1166,10 +1121,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.grPrac1.BackgroundColor = System.Drawing.SystemColors.Control
         Me.grPrac1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grPrac1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grPrac1.Location = New System.Drawing.Point(4, 23)
-        Me.grPrac1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grPrac1.Location = New System.Drawing.Point(3, 18)
         Me.grPrac1.Name = "grPrac1"
-        Me.grPrac1.Size = New System.Drawing.Size(698, 290)
+        Me.grPrac1.Size = New System.Drawing.Size(522, 236)
         Me.grPrac1.TabIndex = 0
         '
         'Panel9
@@ -1178,10 +1132,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.Panel9.Controls.Add(Me.pondePrac1)
         Me.Panel9.Controls.Add(Me.lblPrac1)
         Me.Panel9.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel9.Location = New System.Drawing.Point(702, 23)
-        Me.Panel9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel9.Location = New System.Drawing.Point(525, 18)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(120, 290)
+        Me.Panel9.Size = New System.Drawing.Size(90, 236)
         Me.Panel9.TabIndex = 2
         '
         'btMarcarTodosPractico1
@@ -1193,10 +1146,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.btMarcarTodosPractico1.Image = Global.Presentacion.My.Resources.Resources.GRABACION_EXITOSA
         Me.btMarcarTodosPractico1.ImageFixedSize = New System.Drawing.Size(24, 24)
         Me.btMarcarTodosPractico1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btMarcarTodosPractico1.Location = New System.Drawing.Point(0, 208)
-        Me.btMarcarTodosPractico1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btMarcarTodosPractico1.Location = New System.Drawing.Point(0, 169)
         Me.btMarcarTodosPractico1.Name = "btMarcarTodosPractico1"
-        Me.btMarcarTodosPractico1.Size = New System.Drawing.Size(120, 82)
+        Me.btMarcarTodosPractico1.Size = New System.Drawing.Size(90, 67)
         Me.btMarcarTodosPractico1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btMarcarTodosPractico1.TabIndex = 18
         Me.btMarcarTodosPractico1.Text = "SELECCIONAR TODOS"
@@ -1212,12 +1164,11 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.pondePrac1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
         Me.pondePrac1.Dock = System.Windows.Forms.DockStyle.Top
         Me.pondePrac1.Increment = 1.0R
-        Me.pondePrac1.Location = New System.Drawing.Point(0, 76)
-        Me.pondePrac1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pondePrac1.Location = New System.Drawing.Point(0, 62)
         Me.pondePrac1.MinValue = 0R
         Me.pondePrac1.Name = "pondePrac1"
         Me.pondePrac1.ShowUpDown = True
-        Me.pondePrac1.Size = New System.Drawing.Size(120, 26)
+        Me.pondePrac1.Size = New System.Drawing.Size(90, 22)
         Me.pondePrac1.TabIndex = 0
         '
         'lblPrac1
@@ -1242,9 +1193,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.lblPrac1.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblPrac1.Font = New System.Drawing.Font("Verdana", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrac1.Location = New System.Drawing.Point(0, 0)
-        Me.lblPrac1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblPrac1.Name = "lblPrac1"
-        Me.lblPrac1.Size = New System.Drawing.Size(120, 76)
+        Me.lblPrac1.Size = New System.Drawing.Size(90, 62)
         Me.lblPrac1.TabIndex = 17
         Me.lblPrac1.Text = "<font size=""+10""><font color=""#F44336"">51</font></font>"
         '
@@ -1265,10 +1215,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupPanel7.Controls.Add(Me.Panel5)
         Me.GroupPanel7.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupPanel7.Location = New System.Drawing.Point(840, 0)
-        Me.GroupPanel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanel7.Location = New System.Drawing.Point(630, 0)
         Me.GroupPanel7.Name = "GroupPanel7"
-        Me.GroupPanel7.Size = New System.Drawing.Size(339, 713)
+        Me.GroupPanel7.Size = New System.Drawing.Size(254, 579)
         '
         '
         '
@@ -1307,11 +1256,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupBox2.Controls.Add(Me.LabelX4)
         Me.GroupBox2.Controls.Add(Me.tbNotaPrac1)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupBox2.Location = New System.Drawing.Point(0, 207)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 168)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(333, 101)
+        Me.GroupBox2.Size = New System.Drawing.Size(248, 82)
         Me.GroupBox2.TabIndex = 61
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "NOTAS PRACTICO"
@@ -1324,11 +1271,10 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.tbNotaPrac2.Border.Class = "TextBoxBorder"
         Me.tbNotaPrac2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbNotaPrac2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNotaPrac2.Location = New System.Drawing.Point(153, 60)
-        Me.tbNotaPrac2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbNotaPrac2.Location = New System.Drawing.Point(115, 49)
         Me.tbNotaPrac2.Name = "tbNotaPrac2"
         Me.tbNotaPrac2.PreventEnterBeep = True
-        Me.tbNotaPrac2.Size = New System.Drawing.Size(80, 26)
+        Me.tbNotaPrac2.Size = New System.Drawing.Size(60, 22)
         Me.tbNotaPrac2.TabIndex = 61
         Me.tbNotaPrac2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1339,10 +1285,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX3.Location = New System.Drawing.Point(23, 60)
-        Me.LabelX3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX3.Location = New System.Drawing.Point(17, 49)
         Me.LabelX3.Name = "LabelX3"
-        Me.LabelX3.Size = New System.Drawing.Size(123, 28)
+        Me.LabelX3.Size = New System.Drawing.Size(92, 23)
         Me.LabelX3.TabIndex = 60
         Me.LabelX3.Text = "2DA OPCION :"
         '
@@ -1353,10 +1298,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX4.Location = New System.Drawing.Point(23, 25)
-        Me.LabelX4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX4.Location = New System.Drawing.Point(17, 20)
         Me.LabelX4.Name = "LabelX4"
-        Me.LabelX4.Size = New System.Drawing.Size(123, 28)
+        Me.LabelX4.Size = New System.Drawing.Size(92, 23)
         Me.LabelX4.TabIndex = 59
         Me.LabelX4.Text = "1ER OPCION :"
         '
@@ -1368,11 +1312,10 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.tbNotaPrac1.Border.Class = "TextBoxBorder"
         Me.tbNotaPrac1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbNotaPrac1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNotaPrac1.Location = New System.Drawing.Point(153, 26)
-        Me.tbNotaPrac1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbNotaPrac1.Location = New System.Drawing.Point(115, 21)
         Me.tbNotaPrac1.Name = "tbNotaPrac1"
         Me.tbNotaPrac1.PreventEnterBeep = True
-        Me.tbNotaPrac1.Size = New System.Drawing.Size(80, 26)
+        Me.tbNotaPrac1.Size = New System.Drawing.Size(60, 22)
         Me.tbNotaPrac1.TabIndex = 58
         Me.tbNotaPrac1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1383,11 +1326,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.GroupBox1.Controls.Add(Me.LabelX2)
         Me.GroupBox1.Controls.Add(Me.tbNotaTeo1)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 106)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 86)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(333, 101)
+        Me.GroupBox1.Size = New System.Drawing.Size(248, 82)
         Me.GroupBox1.TabIndex = 60
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "NOTAS TEORICO"
@@ -1400,11 +1341,10 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.tbNotaTeo2.Border.Class = "TextBoxBorder"
         Me.tbNotaTeo2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbNotaTeo2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNotaTeo2.Location = New System.Drawing.Point(153, 60)
-        Me.tbNotaTeo2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbNotaTeo2.Location = New System.Drawing.Point(115, 49)
         Me.tbNotaTeo2.Name = "tbNotaTeo2"
         Me.tbNotaTeo2.PreventEnterBeep = True
-        Me.tbNotaTeo2.Size = New System.Drawing.Size(80, 26)
+        Me.tbNotaTeo2.Size = New System.Drawing.Size(60, 22)
         Me.tbNotaTeo2.TabIndex = 61
         Me.tbNotaTeo2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1415,10 +1355,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX1.Location = New System.Drawing.Point(23, 60)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX1.Location = New System.Drawing.Point(17, 49)
         Me.LabelX1.Name = "LabelX1"
-        Me.LabelX1.Size = New System.Drawing.Size(123, 28)
+        Me.LabelX1.Size = New System.Drawing.Size(92, 23)
         Me.LabelX1.TabIndex = 60
         Me.LabelX1.Text = "2DA OPCION :"
         '
@@ -1429,10 +1368,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX2.Location = New System.Drawing.Point(23, 25)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX2.Location = New System.Drawing.Point(17, 20)
         Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(123, 28)
+        Me.LabelX2.Size = New System.Drawing.Size(92, 23)
         Me.LabelX2.TabIndex = 59
         Me.LabelX2.Text = "1ER OPCION :"
         '
@@ -1444,11 +1382,10 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.tbNotaTeo1.Border.Class = "TextBoxBorder"
         Me.tbNotaTeo1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbNotaTeo1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNotaTeo1.Location = New System.Drawing.Point(153, 26)
-        Me.tbNotaTeo1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbNotaTeo1.Location = New System.Drawing.Point(115, 21)
         Me.tbNotaTeo1.Name = "tbNotaTeo1"
         Me.tbNotaTeo1.PreventEnterBeep = True
-        Me.tbNotaTeo1.Size = New System.Drawing.Size(80, 26)
+        Me.tbNotaTeo1.Size = New System.Drawing.Size(60, 22)
         Me.tbNotaTeo1.TabIndex = 58
         Me.tbNotaTeo1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1458,9 +1395,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.Panel5.Controls.Add(Me.btnVolver)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
-        Me.Panel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(333, 106)
+        Me.Panel5.Size = New System.Drawing.Size(248, 86)
         Me.Panel5.TabIndex = 1
         '
         'btnGrabarNota
@@ -1473,10 +1409,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.btnGrabarNota.Image = Global.Presentacion.My.Resources.Resources.GUARDAR
         Me.btnGrabarNota.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.btnGrabarNota.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnGrabarNota.Location = New System.Drawing.Point(108, 0)
-        Me.btnGrabarNota.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnGrabarNota.Location = New System.Drawing.Point(81, 0)
         Me.btnGrabarNota.Name = "btnGrabarNota"
-        Me.btnGrabarNota.Size = New System.Drawing.Size(225, 106)
+        Me.btnGrabarNota.Size = New System.Drawing.Size(167, 86)
         Me.btnGrabarNota.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btnGrabarNota.TabIndex = 12
         Me.btnGrabarNota.Text = "GRABAR NOTA"
@@ -1493,9 +1428,8 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.btnVolver.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.btnVolver.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
         Me.btnVolver.Location = New System.Drawing.Point(0, 0)
-        Me.btnVolver.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.Size = New System.Drawing.Size(108, 106)
+        Me.btnVolver.Size = New System.Drawing.Size(81, 86)
         Me.btnVolver.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btnVolver.TabIndex = 13
         Me.btnVolver.Text = "VOLVER"
@@ -1507,9 +1441,9 @@ Partial Class F0_AlumnosCertiNotasTeorico
         Me.Panel4.Controls.Add(Me.tbTodos)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(177, 87)
+        Me.Panel4.Size = New System.Drawing.Size(133, 71)
         Me.Panel4.TabIndex = 12
         '
         'LabelX5
@@ -1519,10 +1453,10 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX5.Location = New System.Drawing.Point(12, 14)
-        Me.LabelX5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.LabelX5.Location = New System.Drawing.Point(9, 11)
+        Me.LabelX5.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.LabelX5.Name = "LabelX5"
-        Me.LabelX5.Size = New System.Drawing.Size(136, 23)
+        Me.LabelX5.Size = New System.Drawing.Size(102, 19)
         Me.LabelX5.TabIndex = 10
         Me.LabelX5.Text = "TODOS"
         '
@@ -1533,21 +1467,21 @@ Partial Class F0_AlumnosCertiNotasTeorico
         '
         Me.tbTodos.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbTodos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTodos.Location = New System.Drawing.Point(12, 43)
-        Me.tbTodos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.tbTodos.Location = New System.Drawing.Point(9, 35)
+        Me.tbTodos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.tbTodos.Name = "tbTodos"
         Me.tbTodos.OffText = "NO"
         Me.tbTodos.OnText = "SI"
-        Me.tbTodos.Size = New System.Drawing.Size(136, 36)
+        Me.tbTodos.Size = New System.Drawing.Size(102, 29)
         Me.tbTodos.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbTodos.TabIndex = 9
         '
         'F0_AlumnosCertiNotasTeorico
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1179, 741)
-        Me.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.ClientSize = New System.Drawing.Size(884, 602)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "F0_AlumnosCertiNotasTeorico"
         Me.Text = "F0_PreExamen"
         Me.Controls.SetChildIndex(Me.SuperTabPrincipal, 0)
