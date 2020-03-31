@@ -147,7 +147,7 @@ Public Class ModeloF1
             _PMOMostrarRegistro(_MPos)
         End If
     End Sub
-    Private Sub _PMUltimoRegistro()
+    Public Sub _PMUltimoRegistro()
         If JGrM_Buscador.RowCount > 0 Then
             _MPos = JGrM_Buscador.RowCount - 1
             _PMOMostrarRegistro(_MPos)

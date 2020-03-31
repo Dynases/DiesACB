@@ -1259,6 +1259,7 @@ Partial Class F1_Alumnos
         Me.LabelX24.Size = New System.Drawing.Size(85, 23)
         Me.LabelX24.TabIndex = 102
         Me.LabelX24.Text = "NRO GRUPO:"
+        Me.LabelX24.Visible = False
         '
         'tbNroGrupo
         '
@@ -1273,6 +1274,7 @@ Partial Class F1_Alumnos
         Me.tbNroGrupo.PreventEnterBeep = True
         Me.tbNroGrupo.Size = New System.Drawing.Size(54, 22)
         Me.tbNroGrupo.TabIndex = 103
+        Me.tbNroGrupo.Visible = False
         '
         'tbNroFactura
         '
@@ -1287,6 +1289,7 @@ Partial Class F1_Alumnos
         Me.tbNroFactura.PreventEnterBeep = True
         Me.tbNroFactura.Size = New System.Drawing.Size(75, 22)
         Me.tbNroFactura.TabIndex = 105
+        Me.tbNroFactura.Visible = False
         '
         'LabelX25
         '
@@ -1300,6 +1303,7 @@ Partial Class F1_Alumnos
         Me.LabelX25.Size = New System.Drawing.Size(100, 23)
         Me.LabelX25.TabIndex = 104
         Me.LabelX25.Text = "NRO FACTURA:"
+        Me.LabelX25.Visible = False
         '
         'btMarcarTodos
         '

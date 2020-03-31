@@ -382,7 +382,9 @@ Public Class F1_Alumnos
         Else
             nomImg = vlImagen.nombre
         End If
+        'Dim res As Boolean = L_prAlumnoGrabar(tbNumi.Text, tbCi.Text, tbNombre.Text, tbApellido.Text, tbDireccion.Text, tbTelef1.Text, tbTelef2.Text, tbEmail.Text, tbFNac.Value.ToString("yyyy/MM/dd"), tbFIng.Value.ToString("yyyy/MM/dd"), tbLugNac.Value, tbEstCivil.Value, tbProf.Value, tbTipo.Value, IIf(tbEstado.Value = True, 1, 0), nomImg, tbObs.Text, IIf(tbFamiliar.Value = True, tbSocio.Value, 0), IIf(tbFamiliar.Value = True, tbParent.Value, 0), IIf(tbMenor.Value = True, 1, 0), IIf(tbMenor.Value = True, tbTutCi.Text, ""), IIf(tbMenor.Value = True, tbTutNom.Text, ""), tbSuc.Value, tbNroGrupo.Text.Trim, tbNroFactura.Text, 0) 'tbNroFactura.Tag.ToString.Trim
         Dim res As Boolean = L_prAlumnoGrabar(tbNumi.Text, tbCi.Text, tbNombre.Text, tbApellido.Text, tbDireccion.Text, tbTelef1.Text, tbTelef2.Text, tbEmail.Text, tbFNac.Value.ToString("yyyy/MM/dd"), tbFIng.Value.ToString("yyyy/MM/dd"), tbLugNac.Value, tbEstCivil.Value, tbProf.Value, tbTipo.Value, IIf(tbEstado.Value = True, 1, 0), nomImg, tbObs.Text, IIf(tbFamiliar.Value = True, tbSocio.Value, 0), IIf(tbFamiliar.Value = True, tbParent.Value, 0), IIf(tbMenor.Value = True, 1, 0), IIf(tbMenor.Value = True, tbTutCi.Text, ""), IIf(tbMenor.Value = True, tbTutNom.Text, ""), tbSuc.Value, tbNroGrupo.Text.Trim, tbNroFactura.Text, 0) 'tbNroFactura.Tag.ToString.Trim
+
         If res Then
             If IsNothing(vlImagen) = False Then
                 vlImagen.nombre = nomImg
@@ -390,6 +392,7 @@ Public Class F1_Alumnos
             End If
 
             ToastNotification.Show(Me, "Codigo de alumno ".ToUpper + tbNumi.Text + " Grabado con Exito.".ToUpper, My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
+
 
             Dim info As New TaskDialogInfo("clases practicas".ToUpper, eTaskDialogIcon.Delete, "clases practicas".ToUpper, "¿Desea programar las clases practicas del alumno registrado?".ToUpper, eTaskDialogButton.Yes Or eTaskDialogButton.Cancel, eTaskDialogBackgroundColor.Blue)
             Dim result As eTaskDialogResult = TaskDialog.Show(info)
@@ -473,14 +476,14 @@ Public Class F1_Alumnos
             MEP.SetError(tbDireccion, "")
         End If
 
-        If tbNroFactura.Text = String.Empty Then
-            tbNroFactura.BackColor = Color.Red
-            MEP.SetError(tbNroFactura, "ingrese el numero de factura del alumno!".ToUpper)
-            _ok = False
-        Else
-            tbNroFactura.BackColor = Color.White
-            MEP.SetError(tbNroFactura, "")
-        End If
+        'If tbNroFactura.Text = String.Empty Then
+        '    tbNroFactura.BackColor = Color.Red
+        '    MEP.SetError(tbNroFactura, "ingrese el numero de factura del alumno!".ToUpper)
+        '    _ok = False
+        'Else
+        '    tbNroFactura.BackColor = Color.White
+        '    MEP.SetError(tbNroFactura, "")
+        'End If
 
         'If tbEmail.Text = String.Empty Then
         '    tbEmail.BackColor = Color.Red

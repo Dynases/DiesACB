@@ -1109,7 +1109,11 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
-    Public Shared Function L_prAlumnoGrabar(ByRef _numi As String, _ci As String, _nom As String, _apellido As String, _direc As String, _telef1 As String, _telef2 As String, _email As String, _fNac As String, _fIng As String, _lugNac As String, _estCivil As String, _profesion As String, _tipo As String, _estado As String, ByRef _foto As String, _obs As String, _numiSocio As String, _parentesco As String, _menor As String, _tutCi As String, _tutNom As String, _suc As String, _nroGrupo As String, _nroFactura As String, numiFactura As String) As Boolean
+    Public Shared Function L_prAlumnoGrabar(ByRef _numi As String, _ci As String, _nom As String, _apellido As String, _direc As String, _telef1 As String,
+                                            _telef2 As String, _email As String, _fNac As String, _fIng As String, _lugNac As String, _estCivil As String,
+                                            _profesion As String, _tipo As String, _estado As String, ByRef _foto As String, _obs As String, _numiSocio As String,
+                                            _parentesco As String, _menor As String, _tutCi As String, _tutNom As String, _suc As String, _nroGrupo As String,
+                                            _nroFactura As String, numiFactura As String) As Boolean
         Dim _res As Boolean
 
         Dim _Tabla As DataTable
@@ -1265,7 +1269,7 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
-    Public Shared Function L_prGrabarInscripcion(ByRef _numi As String, _codalumno As String, _fecha As String, _nfactura As String, _obs As String, _TCE0022 As DataTable) As Boolean
+    Public Shared Function L_prGrabarInscripcion(ByRef _numi As String, _codalumno As String, _fecha As String, _idventa As String, _nfactura As String, _obs As String, _TCE0022 As DataTable) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -1275,6 +1279,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@numi", _numi))
         _listParam.Add(New Datos.DParametro("@cbnumi", _codalumno))
         _listParam.Add(New Datos.DParametro("@fecha", _fecha))
+        _listParam.Add(New Datos.DParametro("@idventa", _idventa))
         _listParam.Add(New Datos.DParametro("@nfactura", _nfactura))
         _listParam.Add(New Datos.DParametro("@obs", _obs))
         _listParam.Add(New Datos.DParametro("@est", 1))
@@ -1292,7 +1297,7 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
-    Public Shared Function L_prGrabarModificadoInscripcion(ByRef _numi As String, _codalumno As String, _fecha As String, _nfactura As String, _obs As String, _TCE0022 As DataTable) As Boolean
+    Public Shared Function L_prGrabarModificadoInscripcion(ByRef _numi As String, _codalumno As String, _fecha As String, _idventa As String, _nfactura As String, _obs As String, _TCE0022 As DataTable) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -1302,6 +1307,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@numi", _numi))
         _listParam.Add(New Datos.DParametro("@cbnumi", _codalumno))
         _listParam.Add(New Datos.DParametro("@fecha", _fecha))
+        _listParam.Add(New Datos.DParametro("@idventa", _idventa))
         _listParam.Add(New Datos.DParametro("@nfactura", _nfactura))
         _listParam.Add(New Datos.DParametro("@obs", _obs))
         _listParam.Add(New Datos.DParametro("@est", 2))
@@ -3444,7 +3450,49 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_prCargarServicios(_idalumno As String, _idinscripcion As String) As DataTable
+        Dim _Tabla As DataTable
 
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 36))
+        _listParam.Add(New Datos.DParametro("@egalum", _idalumno))
+        _listParam.Add(New Datos.DParametro("@cdccnumi", _idinscripcion))
+        _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_prCargarHorarioSuc(_idalumno As String, _idinscripcion As String, _idservicio As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 37))
+        _listParam.Add(New Datos.DParametro("@egalum", _idalumno))
+        _listParam.Add(New Datos.DParametro("@cdccnumi", _idinscripcion))
+        _listParam.Add(New Datos.DParametro("@idservicio", _idservicio))
+        _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_prCargarSucursal(_idalumno As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 38))
+        _listParam.Add(New Datos.DParametro("@egalum", _idalumno))
+        _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
+
+        Return _Tabla
+    End Function
+
+#End Region
 #Region "TCE0062"
 
     Public Shared Function L_prHoraLibreTCE0062Eliminar(_numiHoraLib As String) As Boolean
@@ -3617,8 +3665,6 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
-#End Region
-
 #End Region
 
 #Region "CLASES PERFECCIONAMIENTO"

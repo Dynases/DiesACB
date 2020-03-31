@@ -28,6 +28,7 @@ Public Class F0_ClasesPracticas3
 
 
     Public _numiAlumInscrito As Int16 = -1
+    Public idInscripcion As Integer
 
     Dim _listColores As List(Of Color)
 
@@ -62,7 +63,7 @@ Public Class F0_ClasesPracticas3
 
         'Dim fecha As DateTime =
         '_prCargarBuscador(New DateTime(2017, 1, 1))
-        Me.Text = "P r o g r a m a c i ó n    d e    c l a s e s    p r a c t i c a s".ToUpper
+        Me.Text = "P r o g r a m a c i ó n    d e    c l a s e s    p r á c t i c a s".ToUpper
         Me.WindowState = FormWindowState.Maximized
 
         '------------YA NO CARGO DEL NUMERO DE CLASES ESTATICAMENTE-------------------------------------------------
@@ -79,7 +80,7 @@ Public Class F0_ClasesPracticas3
 
         tbFechaSelect.Value = New Date(Now.Year, Now.Month, 1)
 
-        _prCargarComboSucursal()
+        '_prCargarComboSucursal()
 
         _prCargarComboInstructores()
 
@@ -120,6 +121,12 @@ Public Class F0_ClasesPracticas3
         AddHandler tbFechaSelect.ValueChanged, AddressOf tbFechaSelect_ValueChanged
 
         'iniciando el cambio de numero de clases por sucursal
+
+        'Cargar combos nuevos
+        _prCargarComboServicios()
+        _prCargarComboSucursal1()
+        tbHorarioSuc.ReadOnly = True
+        tbSuc.ReadOnly = True
     End Sub
     Private Sub _prCargarListaColores()
         _listColores = New List(Of Color)
@@ -963,6 +970,53 @@ Public Class F0_ClasesPracticas3
             .DataSource = dt
             .Refresh()
         End With
+    End Sub
+    Public Sub _prCargarComboServicios()
+        Dim dt As New DataTable
+        dt = L_prCargarServicios(_numiAlumInscrito, idInscripcion) 'gi_userSuc
+
+        With tbServicio
+            .DropDownList.Columns.Clear()
+
+            '.DropDownList.Columns.Add("cdservicio").Width = 70
+            '.DropDownList.Columns("cdservicio").Caption = "COD"
+
+            .DropDownList.Columns.Add("eddesc").Width = 200
+            .DropDownList.Columns("eddesc").Caption = "SERVICIO"
+
+            '.DropDownList.Columns.Add("cdhorsuc").Width = 70
+            '.DropDownList.Columns("cdhorsuc").Caption = "COD"
+
+            .DropDownList.Columns.Add("cadesc").Width = 200
+            .DropDownList.Columns("cadesc").Caption = "HORARIO-SUC"
+
+            .ValueMember = "cdservicio"
+            .DisplayMember = "eddesc"
+            .DataSource = dt
+            .Refresh()
+        End With
+        tbServicio.SelectedIndex = 0
+    End Sub
+
+    Public Sub _prCargarComboSucursal1()
+        Dim dt As New DataTable
+        dt = L_prCargarSucursal(_numiAlumInscrito) 'gi_userSuc
+
+        With tbSuc
+            .DropDownList.Columns.Clear()
+
+            .DropDownList.Columns.Add("cbsuc").Width = 70
+            .DropDownList.Columns("cbsuc").Caption = "COD"
+
+            .DropDownList.Columns.Add("cadesc").Width = 200
+            .DropDownList.Columns("cadesc").Caption = "SUCURSAL"
+
+            .ValueMember = "cbsuc"
+            .DisplayMember = "cadesc"
+            .DataSource = dt
+            .Refresh()
+        End With
+        tbSuc.SelectedIndex = 0
     End Sub
     Private Sub _prCargarGridAlumnos(numiInst As String)
         Dim dt As New DataTable
@@ -3147,6 +3201,29 @@ Public Class F0_ClasesPracticas3
             End If
 
 
+        End If
+    End Sub
+
+    Private Sub tbServicio_ValueChanged(sender As Object, e As EventArgs) Handles tbServicio.ValueChanged
+        If tbServicio.SelectedIndex >= 0 Then
+            Dim dt As New DataTable
+            dt = L_prCargarHorarioSuc(_numiAlumInscrito, idInscripcion, tbServicio.Value)
+
+            With tbHorarioSuc
+                .DropDownList.Columns.Clear()
+
+                .DropDownList.Columns.Add("cdhorsuc").Width = 70
+                .DropDownList.Columns("cdhorsuc").Caption = "COD"
+
+                .DropDownList.Columns.Add("cadesc").Width = 200
+                .DropDownList.Columns("cadesc").Caption = "HORARIO-SUC"
+
+                .ValueMember = "cdhorsuc"
+                .DisplayMember = "cadesc"
+                .DataSource = dt
+                .Refresh()
+            End With
+            tbHorarioSuc.SelectedIndex = 0
         End If
     End Sub
 End Class

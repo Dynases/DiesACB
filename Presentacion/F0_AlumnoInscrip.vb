@@ -8,11 +8,12 @@ Imports DevComponents.DotNetBar.SuperGrid
 Public Class F0_AlumnoInscrip
 #Region "Variable Globales"
     Public _nameButton As String
-
     Public Sucursal As Integer
     Public CodAlumno As Integer
     Public Alumno As String
+
     Dim _Pos As Integer
+    Dim IdVenta As Integer
 
 #End Region
 
@@ -69,23 +70,28 @@ Public Class F0_AlumnoInscrip
     Private Sub _prCargarComboServicios(Suc As Integer)
         Dim dt As New DataTable
         dt = L_prListarServicios(Suc)
+        If dt.Rows.Count > 0 Then
+            With cbServicio
+                .DropDownList.Columns.Clear()
 
-        With cbServicio
-            .DropDownList.Columns.Clear()
+                .DropDownList.Columns.Add("ednumi").Width = 70
+                .DropDownList.Columns("ednumi").Caption = "COD"
 
-            .DropDownList.Columns.Add("ednumi").Width = 70
-            .DropDownList.Columns("ednumi").Caption = "COD"
+                .DropDownList.Columns.Add("eddesc").Width = 300
+                .DropDownList.Columns("eddesc").Caption = "descripcion".ToUpper
 
-            .DropDownList.Columns.Add("eddesc").Width = 300
-            .DropDownList.Columns("eddesc").Caption = "descripcion".ToUpper
+                .ValueMember = "ednumi"
+                .DisplayMember = "eddesc"
+                .DataSource = dt
+                .Refresh()
+            End With
+            cbServicio.SelectedIndex = 0
+        Else
+            Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+            ToastNotification.Show(Me, "La Sucursal que se eligió para el alumno no tiene servicios enlazados".ToUpper, img, 4000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+            Exit Sub
+        End If
 
-            .ValueMember = "ednumi"
-            .DisplayMember = "eddesc"
-            .DataSource = dt
-            .Refresh()
-        End With
-
-        cbServicio.SelectedIndex = 0
     End Sub
 
     Private Sub tbNFactura_KeyDown(sender As Object, e As KeyEventArgs) Handles tbNFactura.KeyDown
@@ -121,21 +127,8 @@ Public Class F0_AlumnoInscrip
                 bandera = ef.band
                 If (bandera = True) Then
                     Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+                    IdVenta = Row.Cells("vcnumi").Value
                     tbNFactura.Text = Row.Cells("factura").Value
-                    '_CodEmpleado = Row.Cells("paven").Value
-                    '_CodCliente = Row.Cells("paclpr").Value
-                    'tbCliente.Text = Row.Cells("cliente").Value
-                    'tbVendedor.Text = Row.Cells("vendedor").Value
-                    'tbProforma.Text = Row.Cells("panumi").Value
-                    'cbSucursal.Value = Row.Cells("paalm").Value
-                    ''Nuevos datos agregados
-                    '_CodObra = Row.Cells("paobra").Value
-                    'tbObra.Text = Row.Cells("oanomb").Value
-                    'tbMdesc.Text = Row.Cells("padesc").Value
-                    ''tbTransporte.Text = Row.Cells("patransp").Value
-
-                    '_prCargarProductoDeLaProforma(Row.Cells("panumi").Value)
-
                 End If
             End If
         End If
@@ -162,110 +155,22 @@ Public Class F0_AlumnoInscrip
         tbCodigo.Clear()
         dtFecha.Value = Now.Date
         'tbAlumno.Clear()
+        IdVenta = 0
         tbNFactura.Clear()
         tbObservacion.Clear()
         cbHoraSuc.SelectedIndex = 0
-        cbServicio.SelectedIndex = 0
+        'cbServicio.SelectedIndex = 0
         tbNGrupo.Clear()
+
+        If cbServicio.SelectedIndex <= -1 Then
+            cbServicio.Value = ""
+        Else
+            cbServicio.SelectedIndex = 0
+        End If
 
         _CargarGridDetalle(-1)
     End Sub
-    Private Sub _CargarGridDetalle(idCabecera As String)
-        Dim dt As New DataTable
-        dt = L_prListarDetalle(idCabecera)
 
-        JGDetalle.BoundMode = BoundMode.Bound
-        JGDetalle.DataSource = dt
-        JGDetalle.RetrieveStructure()
-
-        'dar formato a las columnas
-        With JGDetalle.RootTable.Columns("cdnumi")
-            .Visible = False
-            .Caption = "Código"
-            .Width = 70
-            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-        End With
-
-        With JGDetalle.RootTable.Columns("cdccnumi")
-            .Visible = False
-            .Caption = "Cod Inscripción"
-            .Width = 70
-            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .DefaultValue = 0
-        End With
-
-        With JGDetalle.RootTable.Columns("cdcbnumi")
-            .Visible = False
-            .Caption = "Cod  Alumno"
-            .Width = 150
-            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .FormatString = "0.00"
-        End With
-
-        With JGDetalle.RootTable.Columns("cdhorsuc")
-            .Caption = "Id Horario-Suc".ToUpper
-            .Visible = False
-            .Width = 70
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-        End With
-
-        With JGDetalle.RootTable.Columns("cadesc")
-            .Caption = "Horario Suc".ToUpper
-            .Visible = True
-            .Width = 300
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-        End With
-
-        With JGDetalle.RootTable.Columns("cdservicio")
-            .Visible = False
-            .Caption = "Id Servicio".ToUpper
-            .Width = 120
-            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .EmptyStringValue = ""
-
-        End With
-        With JGDetalle.RootTable.Columns("eddesc")
-            .Caption = "Servicio".ToUpper
-            .Width = 300
-            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .EmptyStringValue = ""
-        End With
-        With JGDetalle.RootTable.Columns("cdngrupo")
-            .Caption = "Nro Grupo".ToUpper
-            .Width = 190
-            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .EmptyStringValue = ""
-        End With
-        With JGDetalle.RootTable.Columns("estado")
-            .Visible = False
-            .Caption = "Estado"
-            .Width = 50
-            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .EmptyStringValue = ""
-
-        End With
-
-        'Habilitar Filtradores
-        With JGDetalle
-            '.DefaultFilterRowComparison = FilterConditionOperator.Contains
-            '.FilterMode = FilterMode.Automatic
-            '.FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges
-            .GroupByBoxVisible = False
-
-            'diseño de la grilla
-            .VisualStyle = VisualStyle.Office2007
-
-            .AllowAddNew = InheritableBoolean.False
-            .ContextMenuStrip = ContextMenuStrip1
-        End With
-    End Sub
     Private Sub _prAddDetalleVenta()
         CType(JGDetalle.DataSource, DataTable).Rows.Add(_fnSiguienteNumi() + 1, 0, 0, 0, "", 0, "", "", 0)
     End Sub
@@ -342,7 +247,7 @@ Public Class F0_AlumnoInscrip
     End Function
     Public Sub _GuardarNuevo()
         Dim numi As String = ""
-        Dim res As Boolean = L_prGrabarInscripcion(numi, CodAlumno, dtFecha.Value, tbNFactura.Text, tbObservacion.Text, CType(JGDetalle.DataSource, DataTable))
+        Dim res As Boolean = L_prGrabarInscripcion(numi, CodAlumno, dtFecha.Value, IdVenta, tbNFactura.Text, tbObservacion.Text, CType(JGDetalle.DataSource, DataTable))
 
         If res Then
 
@@ -356,6 +261,17 @@ Public Class F0_AlumnoInscrip
             _CargarInscripcion(CodAlumno)
             _Limpiar()
             _Salir()
+
+            Dim info As New TaskDialogInfo("clases practicas".ToUpper, eTaskDialogIcon.Delete, "clases practicas".ToUpper, "¿Desea programar las clases practicas del alumno registrado?".ToUpper, eTaskDialogButton.Yes Or eTaskDialogButton.Cancel, eTaskDialogBackgroundColor.Blue)
+            Dim result As eTaskDialogResult = TaskDialog.Show(info)
+            If result = eTaskDialogResult.Yes Then
+                Dim frm As F0_ClasesPracticas3
+                frm = New F0_ClasesPracticas3
+                frm._numiAlumInscrito = CodAlumno
+                frm.idInscripcion = tbCodigo.Text
+                frm.Show()
+            End If
+
         Else
             Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
             ToastNotification.Show(Me, "La inscripción no pudo ser insertada.".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
@@ -363,7 +279,7 @@ Public Class F0_AlumnoInscrip
 
     End Sub
     Public Sub _GuardarModificado()
-        Dim res As Boolean = L_prGrabarModificadoInscripcion(tbCodigo.Text, CodAlumno, dtFecha.Value, tbNFactura.Text, tbObservacion.Text, CType(JGDetalle.DataSource, DataTable))
+        Dim res As Boolean = L_prGrabarModificadoInscripcion(tbCodigo.Text, CodAlumno, dtFecha.Value, IdVenta, tbNFactura.Text, tbObservacion.Text, CType(JGDetalle.DataSource, DataTable))
         If res Then
             Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
             ToastNotification.Show(Me, "Código de Inscripción ".ToUpper + tbCodigo.Text + " Modificado con éxito.".ToUpper,
@@ -458,6 +374,10 @@ Public Class F0_AlumnoInscrip
             .FormatString = "dd/MM/yyyy"
             .Visible = True
         End With
+        With JGInscripcion.RootTable.Columns("ccidventa")
+            .Width = 90
+            .Visible = False
+        End With
         With JGInscripcion.RootTable.Columns("ccnfactura")
             .Width = 120
             .Visible = True
@@ -498,6 +418,102 @@ Public Class F0_AlumnoInscrip
         End If
 
     End Sub
+    Private Sub _CargarGridDetalle(idCabecera As String)
+        Dim dt As New DataTable
+        dt = L_prListarDetalle(idCabecera)
+
+        JGDetalle.BoundMode = BoundMode.Bound
+        JGDetalle.DataSource = dt
+        JGDetalle.RetrieveStructure()
+
+        'dar formato a las columnas
+        With JGDetalle.RootTable.Columns("cdnumi")
+            .Visible = False
+            .Caption = "Código"
+            .Width = 70
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+        End With
+
+        With JGDetalle.RootTable.Columns("cdccnumi")
+            .Visible = False
+            .Caption = "Cod Inscripción"
+            .Width = 70
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .DefaultValue = 0
+        End With
+
+        With JGDetalle.RootTable.Columns("cdcbnumi")
+            .Visible = False
+            .Caption = "Cod  Alumno"
+            .Width = 150
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .FormatString = "0.00"
+        End With
+
+        With JGDetalle.RootTable.Columns("cdhorsuc")
+            .Caption = "Id Horario-Suc".ToUpper
+            .Visible = False
+            .Width = 70
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+        End With
+
+        With JGDetalle.RootTable.Columns("cadesc")
+            .Caption = "Horario Sucursal".ToUpper
+            .Visible = True
+            .Width = 300
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+        End With
+
+        With JGDetalle.RootTable.Columns("cdservicio")
+            .Visible = False
+            .Caption = "Id Servicio".ToUpper
+            .Width = 120
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .EmptyStringValue = ""
+
+        End With
+        With JGDetalle.RootTable.Columns("eddesc")
+            .Caption = "Servicio".ToUpper
+            .Width = 300
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .EmptyStringValue = ""
+        End With
+        With JGDetalle.RootTable.Columns("cdngrupo")
+            .Caption = "Nro Grupo".ToUpper
+            .Width = 190
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .EmptyStringValue = ""
+        End With
+        With JGDetalle.RootTable.Columns("estado")
+            .Visible = False
+            .Caption = "Estado"
+            .Width = 50
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .EmptyStringValue = ""
+
+        End With
+
+        'Habilitar Filtradores
+        With JGDetalle
+            '.DefaultFilterRowComparison = FilterConditionOperator.Contains
+            '.FilterMode = FilterMode.Automatic
+            '.FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges
+            .GroupByBoxVisible = False
+
+            'diseño de la grilla
+            .VisualStyle = VisualStyle.Office2007
+
+            .AllowAddNew = InheritableBoolean.False
+            .ContextMenuStrip = ContextMenuStrip1
+        End With
+    End Sub
     Private Sub _MostrarRegistro(_N As Integer)
         'JGInscripcion.Row = _Pos
         With JGInscripcion
@@ -505,6 +521,7 @@ Public Class F0_AlumnoInscrip
             dtFecha.Value = .GetValue("ccfecha")
             CodAlumno = .GetValue("cccbnumi")
             tbAlumno.Text = .GetValue("alumno").ToString
+            IdVenta = .GetValue("ccidventa")
             tbNFactura.Text = .GetValue("ccnfactura").ToString
             tbObservacion.Text = .GetValue("ccobs").ToString
         End With
