@@ -137,6 +137,9 @@ Partial Class F1_Sucursal
         Me.BubbleBarUsuario.MouseOverTabColors.BorderColor = System.Drawing.SystemColors.Highlight
         Me.BubbleBarUsuario.SelectedTabColors.BorderColor = System.Drawing.Color.Black
         '
+        'btnGrabar
+        '
+        '
         'btnModificar
         '
         '

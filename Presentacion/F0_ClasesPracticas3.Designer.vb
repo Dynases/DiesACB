@@ -23,15 +23,19 @@ Partial Class F0_ClasesPracticas3
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim tbServicio_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F0_ClasesPracticas3))
+        Dim tbHorarioSuc_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbSuc_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbPersona_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim tbHorarioSuc_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim tbServicio_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F0_ClasesPracticas3))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.tbServicio = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
+        Me.tbHorarioSuc = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.tbSuc = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX16 = New DevComponents.DotNetBar.LabelX()
         Me.Panel5 = New System.Windows.Forms.Panel()
@@ -80,10 +84,6 @@ Partial Class F0_ClasesPracticas3
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.msOpsVerDisp = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ADICIONARHORARIOToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tbHorarioSuc = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
-        Me.tbServicio = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -99,6 +99,8 @@ Partial Class F0_ClasesPracticas3
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        CType(Me.tbServicio, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbHorarioSuc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbSuc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         CType(Me.tbPersona, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,8 +115,6 @@ Partial Class F0_ClasesPracticas3
         Me.Panel7.SuspendLayout()
         Me.msOpsAlumnos.SuspendLayout()
         Me.msOpsVerDisp.SuspendLayout()
-        CType(Me.tbHorarioSuc, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tbServicio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SuperTabPrincipal
@@ -324,6 +324,56 @@ Partial Class F0_ClasesPracticas3
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(1275, 62)
         Me.Panel4.TabIndex = 36
+        '
+        'tbServicio
+        '
+        tbServicio_DesignTimeLayout.LayoutString = resources.GetString("tbServicio_DesignTimeLayout.LayoutString")
+        Me.tbServicio.DesignTimeLayout = tbServicio_DesignTimeLayout
+        Me.tbServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbServicio.Location = New System.Drawing.Point(1045, 16)
+        Me.tbServicio.Name = "tbServicio"
+        Me.tbServicio.SelectedIndex = -1
+        Me.tbServicio.SelectedItem = Nothing
+        Me.tbServicio.Size = New System.Drawing.Size(225, 22)
+        Me.tbServicio.TabIndex = 114
+        '
+        'LabelX3
+        '
+        '
+        '
+        '
+        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX3.Location = New System.Drawing.Point(975, 15)
+        Me.LabelX3.Name = "LabelX3"
+        Me.LabelX3.Size = New System.Drawing.Size(69, 23)
+        Me.LabelX3.TabIndex = 115
+        Me.LabelX3.Text = "SERVICIO:"
+        '
+        'tbHorarioSuc
+        '
+        tbHorarioSuc_DesignTimeLayout.LayoutString = resources.GetString("tbHorarioSuc_DesignTimeLayout.LayoutString")
+        Me.tbHorarioSuc.DesignTimeLayout = tbHorarioSuc_DesignTimeLayout
+        Me.tbHorarioSuc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbHorarioSuc.Location = New System.Drawing.Point(745, 16)
+        Me.tbHorarioSuc.Name = "tbHorarioSuc"
+        Me.tbHorarioSuc.SelectedIndex = -1
+        Me.tbHorarioSuc.SelectedItem = Nothing
+        Me.tbHorarioSuc.Size = New System.Drawing.Size(223, 22)
+        Me.tbHorarioSuc.TabIndex = 112
+        '
+        'LabelX2
+        '
+        '
+        '
+        '
+        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX2.Location = New System.Drawing.Point(644, 15)
+        Me.LabelX2.Name = "LabelX2"
+        Me.LabelX2.Size = New System.Drawing.Size(97, 23)
+        Me.LabelX2.TabIndex = 113
+        Me.LabelX2.Text = "HORARIO-SUC:"
         '
         'tbSuc
         '
@@ -556,7 +606,7 @@ Partial Class F0_ClasesPracticas3
         Me.msOpsHorario.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.msOpsHorario.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ADICIONARHORARIOToolStripMenuItem, Me.CLASESREFORZAMIENTOToolStripMenuItem, Me.ASIGNARPERMISOToolStripMenuItem, Me.ASIGNARSUSPENCIONToolStripMenuItem, Me.ASIGNARFALTAToolStripMenuItem, Me.ASIGARCLASEToolStripMenuItem, Me.ASIGNARCLASEREFORZAMIENTOToolStripMenuItem, Me.AGREGAROBSERVACIONToolStripMenuItem, Me.ASToolStripMenuItem, Me.VOLVERAPROGRAMARCLASEToolStripMenuItem, Me.ELIMINARLIBERACIONDEHORAToolStripMenuItem, Me.AGREGARHORADILIGENCIAToolStripMenuItem})
         Me.msOpsHorario.Name = "msOpcionesHorario"
-        Me.msOpsHorario.Size = New System.Drawing.Size(313, 436)
+        Me.msOpsHorario.Size = New System.Drawing.Size(313, 458)
         '
         'ADICIONARHORARIOToolStripMenuItem
         '
@@ -826,56 +876,6 @@ Partial Class F0_ClasesPracticas3
         Me.ADICIONARHORARIOToolStripMenuItem1.Size = New System.Drawing.Size(192, 22)
         Me.ADICIONARHORARIOToolStripMenuItem1.Text = "ADICIONAR HORARIO"
         '
-        'tbHorarioSuc
-        '
-        tbHorarioSuc_DesignTimeLayout.LayoutString = resources.GetString("tbHorarioSuc_DesignTimeLayout.LayoutString")
-        Me.tbHorarioSuc.DesignTimeLayout = tbHorarioSuc_DesignTimeLayout
-        Me.tbHorarioSuc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbHorarioSuc.Location = New System.Drawing.Point(745, 16)
-        Me.tbHorarioSuc.Name = "tbHorarioSuc"
-        Me.tbHorarioSuc.SelectedIndex = -1
-        Me.tbHorarioSuc.SelectedItem = Nothing
-        Me.tbHorarioSuc.Size = New System.Drawing.Size(223, 22)
-        Me.tbHorarioSuc.TabIndex = 112
-        '
-        'LabelX2
-        '
-        '
-        '
-        '
-        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX2.Location = New System.Drawing.Point(644, 15)
-        Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(97, 23)
-        Me.LabelX2.TabIndex = 113
-        Me.LabelX2.Text = "HORARIO-SUC:"
-        '
-        'tbServicio
-        '
-        tbServicio_DesignTimeLayout.LayoutString = resources.GetString("tbServicio_DesignTimeLayout.LayoutString")
-        Me.tbServicio.DesignTimeLayout = tbServicio_DesignTimeLayout
-        Me.tbServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbServicio.Location = New System.Drawing.Point(1045, 16)
-        Me.tbServicio.Name = "tbServicio"
-        Me.tbServicio.SelectedIndex = -1
-        Me.tbServicio.SelectedItem = Nothing
-        Me.tbServicio.Size = New System.Drawing.Size(225, 22)
-        Me.tbServicio.TabIndex = 114
-        '
-        'LabelX3
-        '
-        '
-        '
-        '
-        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX3.Location = New System.Drawing.Point(975, 15)
-        Me.LabelX3.Name = "LabelX3"
-        Me.LabelX3.Size = New System.Drawing.Size(69, 23)
-        Me.LabelX3.TabIndex = 115
-        Me.LabelX3.Text = "SERVICIO:"
-        '
         'F0_ClasesPracticas3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -903,6 +903,8 @@ Partial Class F0_ClasesPracticas3
         Me.Panel1.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        CType(Me.tbServicio, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbHorarioSuc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbSuc, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         CType(Me.tbPersona, System.ComponentModel.ISupportInitialize).EndInit()
@@ -917,8 +919,6 @@ Partial Class F0_ClasesPracticas3
         Me.Panel7.ResumeLayout(False)
         Me.msOpsAlumnos.ResumeLayout(False)
         Me.msOpsVerDisp.ResumeLayout(False)
-        CType(Me.tbHorarioSuc, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.tbServicio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -1689,7 +1689,7 @@ Public Class AccesoLogica
     End Function
 
     Public Shared Function L_prServicioGrabar(ByRef _numi As String, _codigo As String, _desc As String, _precio As String, _tipo As String, _estado As String, _TCE0041 As DataTable, _TCE0042 As DataTable, _suc As Integer,
-                                              _TipoCliente As Integer) As Boolean
+                                              _TipoCliente As Integer, _cantclase As Integer) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -1707,6 +1707,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@TCE0042", "", _TCE0042))
         _listParam.Add(New Datos.DParametro("@edsuc", _suc))
         _listParam.Add(New Datos.DParametro("@tipoCliente", _TipoCliente))
+        _listParam.Add(New Datos.DParametro("@cantclase", _cantclase))
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE004", _listParam)
 
         If _Tabla.Rows.Count > 0 Then
@@ -1719,7 +1720,7 @@ Public Class AccesoLogica
         Return _resultado
     End Function
     Public Shared Function L_prServicioModificar(ByRef _numi As String, _codigo As String, _desc As String, _precio As String, _tipo As String, _estado As String, _TCE0041 As DataTable, _TCE0042 As DataTable, ByRef _mensaje As String, _suc As Integer,
-                                                   _TipoCliente As Integer) As Boolean
+                                                   _TipoCliente As Integer, _cantclase As Integer) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -1737,6 +1738,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@TCE0042", "", _TCE0042))
         _listParam.Add(New Datos.DParametro("@edsuc", _suc))
         _listParam.Add(New Datos.DParametro("@tipoCliente", _TipoCliente))
+        _listParam.Add(New Datos.DParametro("@cantclase", _cantclase))
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE004", _listParam)
 
         If _Tabla.Rows.Count > 0 Then
@@ -3077,7 +3079,9 @@ Public Class AccesoLogica
         Return _resultado
     End Function
 
-    Public Shared Function L_prClasesPracCabeceraDetalleGrabar2(ByRef _numi As String, _numiChof As String, _numiAlum As String, _estado As String, numClasPrac As String, numClasRef As String, _TCE0061 As DataTable) As Boolean
+    Public Shared Function L_prClasesPracCabeceraDetalleGrabar2(ByRef _numi As String, _numiChof As String, _numiAlum As String, _estado As String, numClasPrac As String,
+                                                                numClasRef As String, _TCE0061 As DataTable, _suc As String, _horsuc As String, _servicio As String,
+                                                                _idinscripcion As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -3091,6 +3095,10 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@egnclsprac", numClasPrac))
         _listParam.Add(New Datos.DParametro("@egnclsref", numClasRef))
         _listParam.Add(New Datos.DParametro("@TCE0061", "", _TCE0061))
+        _listParam.Add(New Datos.DParametro("@Suc", _suc))
+        _listParam.Add(New Datos.DParametro("@HorSuc", _horsuc))
+        _listParam.Add(New Datos.DParametro("@Servicio", _servicio))
+        _listParam.Add(New Datos.DParametro("@ccnumi", _idinscripcion))
         _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
@@ -3457,7 +3465,7 @@ Public Class AccesoLogica
 
         _listParam.Add(New Datos.DParametro("@tipo", 36))
         _listParam.Add(New Datos.DParametro("@egalum", _idalumno))
-        _listParam.Add(New Datos.DParametro("@cdccnumi", _idinscripcion))
+        _listParam.Add(New Datos.DParametro("@ccnumi", _idinscripcion))
         _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
@@ -3470,8 +3478,8 @@ Public Class AccesoLogica
 
         _listParam.Add(New Datos.DParametro("@tipo", 37))
         _listParam.Add(New Datos.DParametro("@egalum", _idalumno))
-        _listParam.Add(New Datos.DParametro("@cdccnumi", _idinscripcion))
-        _listParam.Add(New Datos.DParametro("@idservicio", _idservicio))
+        _listParam.Add(New Datos.DParametro("@ccnumi", _idinscripcion))
+        _listParam.Add(New Datos.DParametro("@Servicio", _idservicio))
         _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
@@ -3485,6 +3493,20 @@ Public Class AccesoLogica
 
         _listParam.Add(New Datos.DParametro("@tipo", 38))
         _listParam.Add(New Datos.DParametro("@egalum", _idalumno))
+        _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_prCargarCantClases(_servicio As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 39))
+        _listParam.Add(New Datos.DParametro("@Servicio", _servicio))
         _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)

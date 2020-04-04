@@ -125,8 +125,8 @@ Public Class F0_ClasesPracticas3
         'Cargar combos nuevos
         _prCargarComboServicios()
         _prCargarComboSucursal1()
-        tbHorarioSuc.ReadOnly = True
-        tbSuc.ReadOnly = True
+        'tbHorarioSuc.ReadOnly = True
+        'tbSuc.ReadOnly = True
     End Sub
     Private Sub _prCargarListaColores()
         _listColores = New List(Of Color)
@@ -954,7 +954,8 @@ Public Class F0_ClasesPracticas3
 
     Public Sub _prCargarComboInstructores()
         Dim dt As New DataTable
-        dt = L_prPersonaAyudaGeneralPorSucursal(tbSuc.Value, gi_LibPERSTIPOInstructor) 'gi_userSuc
+        'dt = L_prPersonaAyudaGeneralPorSucursal(tbSuc.Value, gi_LibPERSTIPOInstructor) 'gi_userSuc
+        dt = L_prPersonaAyudaGeneralPorSucursal(tbHorarioSuc.Value, gi_LibPERSTIPOInstructor) 'Se cambio tbSuc por tbHorarioSuc 31-03-20
 
         With tbPersona
             .DropDownList.Columns.Clear()
@@ -975,52 +976,59 @@ Public Class F0_ClasesPracticas3
         Dim dt As New DataTable
         dt = L_prCargarServicios(_numiAlumInscrito, idInscripcion) 'gi_userSuc
 
-        With tbServicio
-            .DropDownList.Columns.Clear()
+        If dt.Rows.Count > 0 Then
+            With tbServicio
+                .DropDownList.Columns.Clear()
 
-            '.DropDownList.Columns.Add("cdservicio").Width = 70
-            '.DropDownList.Columns("cdservicio").Caption = "COD"
+                '.DropDownList.Columns.Add("cdservicio").Width = 70
+                '.DropDownList.Columns("cdservicio").Caption = "COD"
 
-            .DropDownList.Columns.Add("eddesc").Width = 200
-            .DropDownList.Columns("eddesc").Caption = "SERVICIO"
+                .DropDownList.Columns.Add("eddesc").Width = 200
+                .DropDownList.Columns("eddesc").Caption = "SERVICIO"
 
-            '.DropDownList.Columns.Add("cdhorsuc").Width = 70
-            '.DropDownList.Columns("cdhorsuc").Caption = "COD"
+                '.DropDownList.Columns.Add("cdhorsuc").Width = 70
+                '.DropDownList.Columns("cdhorsuc").Caption = "COD"
 
-            .DropDownList.Columns.Add("cadesc").Width = 200
-            .DropDownList.Columns("cadesc").Caption = "HORARIO-SUC"
+                .DropDownList.Columns.Add("cadesc").Width = 200
+                .DropDownList.Columns("cadesc").Caption = "HORARIO-SUC"
 
-            .ValueMember = "cdservicio"
-            .DisplayMember = "eddesc"
-            .DataSource = dt
-            .Refresh()
-        End With
-        tbServicio.SelectedIndex = 0
+                .ValueMember = "cdservicio"
+                .DisplayMember = "eddesc"
+                .DataSource = dt
+                .Refresh()
+            End With
+            tbServicio.SelectedIndex = 0
+        End If
+
     End Sub
 
     Public Sub _prCargarComboSucursal1()
         Dim dt As New DataTable
         dt = L_prCargarSucursal(_numiAlumInscrito) 'gi_userSuc
+        If dt.Rows.Count > 0 Then
+            With tbSuc
+                .DropDownList.Columns.Clear()
 
-        With tbSuc
-            .DropDownList.Columns.Clear()
+                .DropDownList.Columns.Add("cbsuc").Width = 70
+                .DropDownList.Columns("cbsuc").Caption = "COD"
 
-            .DropDownList.Columns.Add("cbsuc").Width = 70
-            .DropDownList.Columns("cbsuc").Caption = "COD"
+                .DropDownList.Columns.Add("cadesc").Width = 200
+                .DropDownList.Columns("cadesc").Caption = "SUCURSAL"
 
-            .DropDownList.Columns.Add("cadesc").Width = 200
-            .DropDownList.Columns("cadesc").Caption = "SUCURSAL"
+                .ValueMember = "cbsuc"
+                .DisplayMember = "cadesc"
+                .DataSource = dt
+                .Refresh()
+            End With
+            tbSuc.SelectedIndex = 0
+        End If
 
-            .ValueMember = "cbsuc"
-            .DisplayMember = "cadesc"
-            .DataSource = dt
-            .Refresh()
-        End With
-        tbSuc.SelectedIndex = 0
     End Sub
     Private Sub _prCargarGridAlumnos(numiInst As String)
         Dim dt As New DataTable
-        dt = L_prAlumnoAyudaColor(tbSuc.Value, numiInst, tbFechaSelect.Value.ToString("yyyy/MM/dd")) 'gi_userSuc
+        'dt = L_prAlumnoAyudaColor(tbSuc.Value, numiInst, tbFechaSelect.Value.ToString("yyyy/MM/dd")) 'gi_userSuc
+        dt = L_prAlumnoAyudaColor(tbHorarioSuc.Value, numiInst, tbFechaSelect.Value.ToString("yyyy/MM/dd")) 'Se Cambio tbSuc por tbHorarioSuc 31-03-20
+
 
         For i = 0 To dt.Rows.Count - 1
             dt.Rows(i).Item("color") = _listColores.Item(i).ToArgb()
@@ -1028,7 +1036,8 @@ Public Class F0_ClasesPracticas3
 
         'aumento el datatable de alumnos pero para el siguiente mes
         Dim dt2 As New DataTable
-        dt2 = L_prAlumnoAyudaColor(tbSuc.Value, numiInst, DateAdd(DateInterval.Month, 1, tbFechaSelect.Value).ToString("yyyy/MM/dd")) 'gi_userSuc
+        'dt2 = L_prAlumnoAyudaColor(tbSuc.Value, numiInst, DateAdd(DateInterval.Month, 1, tbFechaSelect.Value).ToString("yyyy/MM/dd")) 'gi_userSuc
+        dt2 = L_prAlumnoAyudaColor(tbHorarioSuc.Value, numiInst, DateAdd(DateInterval.Month, 1, tbFechaSelect.Value).ToString("yyyy/MM/dd")) 'Se Cambio tbSuc por tbHorarioSuc 31-03-20
         For i = 0 To dt2.Rows.Count - 1
             dt2.Rows(i).Item("color") = _listColores.Item(i).ToArgb()
         Next
@@ -1255,7 +1264,8 @@ Public Class F0_ClasesPracticas3
 
         'CARGAR LA ESTRUCTURA DE LOS MESES
         '_meses = New ClsMeses(fecha, numiInst, CType(grAlumnos.DataSource, DataTable), tbSuc.Value)
-        _meses = New ClsMeses(fecha, numiInst, CType(grAlumnos.DataSource, DataTable), CType(grAlumnos.Tag, DataTable), tbSuc.Value)
+        '_meses = New ClsMeses(fecha, numiInst, CType(grAlumnos.DataSource, DataTable), CType(grAlumnos.Tag, DataTable), tbSuc.Value)
+        _meses = New ClsMeses(fecha, numiInst, CType(grAlumnos.DataSource, DataTable), CType(grAlumnos.Tag, DataTable), tbHorarioSuc.Value) 'Se cambio tbSuc por TbHorarioSuc 31-03-20
 
         Dim fuente As New Font("Tahoma", 9, FontStyle.Regular)
         For i = 1 To 31
@@ -1425,7 +1435,8 @@ Public Class F0_ClasesPracticas3
         grCabecera.DataSource = dtCabecera
 
         'CARGAR LA ESTRUCTURA DE LOS MESES
-        _meses = New ClsMeses(fecha, tbSuc.Value)
+        '_meses = New ClsMeses(fecha, tbSuc.Value)
+        _meses = New ClsMeses(fecha, tbHorarioSuc.Value) 'Se cambio tbHorarioSuc
 
 
         Dim fuente As New Font("Tahoma", 10, FontStyle.Regular)
@@ -1611,7 +1622,8 @@ Public Class F0_ClasesPracticas3
             If frmAyuda.seleccionado = True Then
                 Dim numiAalumno As String = frmAyuda.filaSelect.Cells("cbnumi").Value
                 Dim numiReg As String = ""
-                Dim respuesta As Boolean = L_prClasesPracCabeceraDetalleGrabar2(numiReg, tbPersona.Value, numiAalumno, IIf(_isClasePractica = True, 1, 2), _cantClasesPracticas, _cantClasesReforzamiento, _dtFechas)
+                Dim idInscrip = idInscripcion 'Pendiente tengo que cambiar
+                Dim respuesta As Boolean = L_prClasesPracCabeceraDetalleGrabar2(numiReg, tbPersona.Value, numiAalumno, IIf(_isClasePractica = True, 1, 2), _cantClasesPracticas, _cantClasesReforzamiento, _dtFechas, tbSuc.Value, tbHorarioSuc.Value, tbServicio.Value, idInscrip)
                 If respuesta Then
                     _prCargarGridAlumnos(tbPersona.Value)
                     _prCargarGridHorario(tbFechaSelect.Value, tbPersona.Value)
@@ -1627,17 +1639,22 @@ Public Class F0_ClasesPracticas3
             'grabar un alumno recien inscrito
             Dim numiAalumno As String = _numiAlumInscrito
             Dim numiReg As String = ""
-            Dim respuesta As Boolean = L_prClasesPracCabeceraDetalleGrabar2(numiReg, tbPersona.Value, numiAalumno, IIf(_isClasePractica = True, 1, 2), _cantClasesPracticas, _cantClasesReforzamiento, _dtFechas)
+            Dim idInscrip = idInscripcion
+            Dim respuesta As Boolean = L_prClasesPracCabeceraDetalleGrabar2(numiReg, tbPersona.Value, numiAalumno, IIf(_isClasePractica = True, 1, 2), _cantClasesPracticas, _cantClasesReforzamiento, _dtFechas, tbSuc.Value, tbHorarioSuc.Value, tbServicio.Value, idInscrip)
             If respuesta Then
                 _prCargarGridAlumnos(tbPersona.Value)
                 _prCargarGridHorario(tbFechaSelect.Value, tbPersona.Value)
                 btnNuevo.Enabled = False
                 _dtFechas.Rows.Clear()
                 tbFechaSelect.Enabled = True
-                '_limiteDias = 15
+
                 _limiteDias = _cantClasesPracticas
-                _numiAlumInscrito = -1
+                '_numiAlumInscrito = -1
                 _marcarManual = 0
+
+                Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
+                ToastNotification.Show(Me, " Grabado con éxito.".ToUpper, img, 2000, eToastGlowColor.Green, eToastPosition.TopCenter)
+
             End If
         End If
     End Sub
@@ -2019,7 +2036,8 @@ Public Class F0_ClasesPracticas3
 
     Private Sub _prSeleccionarHoras()
 
-        Dim dtHoras As DataTable = L_prHoraDetDelMesGeneral(tbFechaSelect.Value.ToString("yyyy/MM/dd"), tbSuc.Value, gi_LibHORARIOTipoPractEscuela)
+        'Dim dtHoras As DataTable = L_prHoraDetDelMesGeneral(tbFechaSelect.Value.ToString("yyyy/MM/dd"), tbSuc.Value, gi_LibHORARIOTipoPractEscuela)
+        Dim dtHoras As DataTable = L_prHoraDetDelMesGeneral(tbFechaSelect.Value.ToString("yyyy/MM/dd"), tbHorarioSuc.Value, gi_LibHORARIOTipoPractEscuela) 'Se cambio tbSuc por tbHorarioSuc 31-03-20
         Dim vHoras As List(Of String) = New List(Of String)
         For Each fila As DataRow In dtHoras.Rows
             vHoras.Add(fila.Item("cchora"))
@@ -2078,7 +2096,8 @@ Public Class F0_ClasesPracticas3
             Next
 
             If tbTodosInst.Value = True Then
-                L_prHoraLibreTCE0062GrabarTodosInstructoresPorSucursal(_dtHorasLiberar, tbSuc.Value, obs)
+                'L_prHoraLibreTCE0062GrabarTodosInstructoresPorSucursal(_dtHorasLiberar, tbSuc.Value, obs)
+                L_prHoraLibreTCE0062GrabarTodosInstructoresPorSucursal(_dtHorasLiberar, tbHorarioSuc.Value, obs) 'Se cambio tbSuc por tbHorarioSuc 31-03-20
             Else
                 L_prHoraLibreTCE0062GrabarPorInstructor(_dtHorasLiberar, obs)
             End If
@@ -2144,7 +2163,8 @@ Public Class F0_ClasesPracticas3
             Exit Sub
         End If
 
-        Dim dtInts As DataTable = L_prPersonaAyudaGeneralPorSucursal(tbSuc.Value, gi_LibPERSTIPOInstructor)
+        'Dim dtInts As DataTable = L_prPersonaAyudaGeneralPorSucursal(tbSuc.Value, gi_LibPERSTIPOInstructor)
+        Dim dtInts As DataTable = L_prPersonaAyudaGeneralPorSucursal(tbHorarioSuc.Value, gi_LibPERSTIPOInstructor) 'Se cambio tbSuc por tbHorarioSuc 31-03-20
         Dim dtInstFinal As DataTable = L_prPersonaAyudaGeneralPorSucursal(-1, gi_LibPERSTIPOInstructor)
 
         Dim dtClases As DataTable
@@ -2181,7 +2201,8 @@ Public Class F0_ClasesPracticas3
             If frmAyuda.seleccionado = True Then
                 'ahora selecciono esa fecha para hacer la grabacion del horario
 
-                Dim dtHoras As DataTable = L_prHoraDetDelMesGeneral(tbFechaSelect.Value.ToString("yyyy/MM/dd"), tbSuc.Value, gi_LibHORARIOTipoPractEscuela)
+                'Dim dtHoras As DataTable = L_prHoraDetDelMesGeneral(tbFechaSelect.Value.ToString("yyyy/MM/dd"), tbSuc.Value, gi_LibHORARIOTipoPractEscuela)
+                Dim dtHoras As DataTable = L_prHoraDetDelMesGeneral(tbFechaSelect.Value.ToString("yyyy/MM/dd"), tbHorarioSuc.Value, gi_LibHORARIOTipoPractEscuela) 'Se cambio tbSuc por tbHorarioSuc 31-03-20
                 Dim vHoras As List(Of String) = New List(Of String)
                 For Each fila As DataRow In dtHoras.Rows
                     vHoras.Add(fila.Item("cchora"))
@@ -2272,6 +2293,8 @@ Public Class F0_ClasesPracticas3
         If btnEliminar.Visible Then
             _prLimpiar()
         Else
+            idInscripcion = -1
+            _numiAlumInscrito = -1
             Close()
         End If
 
@@ -2721,18 +2744,18 @@ Public Class F0_ClasesPracticas3
     End Sub
 
     Private Sub tbSuc_ValueChanged(sender As Object, e As EventArgs) Handles tbSuc.ValueChanged
-        If tbSuc.SelectedIndex >= 0 Then
-            'codigo para hacer el numero de clases por  sucursal--------------------------------
-            Dim dtSuc As DataTable = L_prSucursalAyudaPorNumi(tbSuc.Value)
-            _cantClasesPracticas = dtSuc.Rows(0).Item("canprac")
-            _cantClasesReforzamiento = dtSuc.Rows(0).Item("canrefor")
-            '-----------------------------------------------------------------------------------
+        'If tbSuc.SelectedIndex >= 0 Then
+        '    'codigo para hacer el numero de clases por  sucursal--------------------------------
+        '    Dim dtSuc As DataTable = L_prSucursalAyudaPorNumi(tbSuc.Value)
+        '    _cantClasesPracticas = dtSuc.Rows(0).Item("canprac")
+        '    _cantClasesReforzamiento = dtSuc.Rows(0).Item("canrefor")
+        '    '-----------------------------------------------------------------------------------
 
-            _prCargarComboInstructores()
-            tbPersona.SelectedIndex = -1
-            grAlumnos.DataSource = Nothing
-            grHorario.DataSource = Nothing
-        End If
+        '    _prCargarComboInstructores()
+        '    tbPersona.SelectedIndex = -1
+        '    grAlumnos.DataSource = Nothing
+        '    grHorario.DataSource = Nothing
+        'End If
     End Sub
 
 
@@ -3224,6 +3247,28 @@ Public Class F0_ClasesPracticas3
                 .Refresh()
             End With
             tbHorarioSuc.SelectedIndex = 0
+
+            'Codigo para recuperar la cantidad de clases por servicio-------------------
+            Dim dtServ As DataTable = L_prCargarCantClases(tbServicio.Value)
+            _cantClasesPracticas = dtServ.Rows(0).Item("etcantclase")
+            '_cantClasesReforzamiento = dtServ.Rows(0).Item("etcantclase")
         End If
     End Sub
+
+    Private Sub tbHorarioSuc_ValueChanged(sender As Object, e As EventArgs) Handles tbHorarioSuc.ValueChanged
+        If tbHorarioSuc.SelectedIndex >= 0 Then
+            ''codigo para hacer el numero de clases por  sucursal--------------------------------
+            'Dim dtSuc As DataTable = L_prSucursalAyudaPorNumi(tbHorarioSuc.Value)
+            '_cantClasesPracticas = dtSuc.Rows(0).Item("canprac")
+            '_cantClasesReforzamiento = dtSuc.Rows(0).Item("canrefor")
+
+            '-----------------------------------------------------------------------------------
+
+            _prCargarComboInstructores()
+            tbPersona.SelectedIndex = -1
+            grAlumnos.DataSource = Nothing
+            grHorario.DataSource = Nothing
+        End If
+    End Sub
+
 End Class

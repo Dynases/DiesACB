@@ -258,6 +258,7 @@ Public Class F1_Servicio
         tbEstado.IsReadOnly = False
         'tbPrecio.IsInputReadOnly = False
         cbsucursal.ReadOnly = False
+        tbCantClases.IsInputReadOnly = False
         'grDetalle.Enabled = True
         grDetalle.AllowAddNew = InheritableBoolean.True
 
@@ -275,6 +276,7 @@ Public Class F1_Servicio
         tbTipo.ReadOnly = True
         tbEstado.IsReadOnly = True
         tbPrecio.ReadOnly = True
+        tbCantClases.IsInputReadOnly = True
 
         btnElimFila1.Visible = False
         btnEliminar2.Visible = False
@@ -289,6 +291,7 @@ Public Class F1_Servicio
         tbTipo.Text = ""
         tbEstado.Value = True
         tbPrecio.Text = "0"
+        tbCantClases.Value = 0
 
         'VACIO EL DETALLE
         _prCargarGridDetalle(-1)
@@ -320,7 +323,7 @@ Public Class F1_Servicio
 
         _prLlenarNumTiposPrecios()
         Dim dtDetalle2 As DataTable = CType(grDetalle2.DataSource, DataTable).DefaultView.ToTable(True, "eqnumi", "eqtce4", "eqtip1_4", "eqmes", "eqano", "eqprecio", "estado")
-        Dim res As Boolean = L_prServicioGrabar(tbNumi.Text, tbCodigo.Text, tbDesc.Text, tbPrecio.Text, tbTipo.Value, IIf(tbEstado.Value = True, 1, 0), CType(grDetalle.DataSource, DataTable), dtDetalle2, cbsucursal.Value, cbTipoCliente.Value)
+        Dim res As Boolean = L_prServicioGrabar(tbNumi.Text, tbCodigo.Text, tbDesc.Text, tbPrecio.Text, tbTipo.Value, IIf(tbEstado.Value = True, 1, 0), CType(grDetalle.DataSource, DataTable), dtDetalle2, cbsucursal.Value, cbTipoCliente.Value, tbCantClases.Value)
         If res Then
             ToastNotification.Show(Me, "Codigo de servicio ".ToUpper + tbNumi.Text + " Grabado con Exito.".ToUpper, My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
             tbCodigo.Focus()
@@ -339,7 +342,7 @@ Public Class F1_Servicio
         Dim mensaje As String = String.Empty
         _prLlenarNumTiposPrecios()
         Dim dtDetalle2 As DataTable = CType(grDetalle2.DataSource, DataTable).DefaultView.ToTable(True, "eqnumi", "eqtce4", "eqtip1_4", "eqmes", "eqano", "eqprecio", "estado")
-        Dim res As Boolean = L_prServicioModificar(tbNumi.Text, tbCodigo.Text, tbDesc.Text, tbPrecio.Text, tbTipo.Value, IIf(tbEstado.Value = True, 1, 0), CType(grDetalle.DataSource, DataTable), dtDetalle2, mensaje, cbsucursal.Value, cbTipoCliente.Value)
+        Dim res As Boolean = L_prServicioModificar(tbNumi.Text, tbCodigo.Text, tbDesc.Text, tbPrecio.Text, tbTipo.Value, IIf(tbEstado.Value = True, 1, 0), CType(grDetalle.DataSource, DataTable), dtDetalle2, mensaje, cbsucursal.Value, cbTipoCliente.Value, tbCantClases.Value)
         If res Then
             ToastNotification.Show(Me, "Codigo de servicio ".ToUpper + tbNumi.Text + " modificado con Exito.".ToUpper, My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
         Else
@@ -437,6 +440,7 @@ Public Class F1_Servicio
         listEstCeldas.Add(New Modelos.Celda("tipo", False))
         listEstCeldas.Add(New Modelos.Celda("tipoCliente", True, "TipoCliente", 140))
         listEstCeldas.Add(New Modelos.Celda("sucursal", True, "SUCURSAL", 250))
+        listEstCeldas.Add(New Modelos.Celda("cantclase", False))
 
         Return listEstCeldas
     End Function
@@ -456,6 +460,11 @@ Public Class F1_Servicio
             lbFecha.Text = CType(.GetValue("edfact"), Date).ToString("dd/MM/yyyy")
             lbHora.Text = .GetValue("edhact").ToString
             lbUsuario.Text = .GetValue("eduact").ToString
+
+            If tbTipo.Value = 1 Then
+                tbCantClases.Value = IIf(IsDBNull(.GetValue("cantclase")) = True, 0, .GetValue("cantclase"))
+
+            End If
 
             'CARGAR DETALLE
             If tbTipo.Value = _tipoValor Then
@@ -556,11 +565,26 @@ Public Class F1_Servicio
                 gpDetalle1.Visible = False
                 lbTipoCliente.Visible = True
                 cbTipoCliente.Visible = True
+
+                lbCantClases.Visible = False
+                tbCantClases.Visible = False
+
+            ElseIf tbTipo.Value = 1 Then
+                gpDetalle2.Visible = False
+                gpDetalle1.Visible = True
+                lbTipoCliente.Visible = False
+                cbTipoCliente.Visible = False
+
+                lbCantClases.Visible = True
+                tbCantClases.Visible = True
             Else
                 gpDetalle2.Visible = False
                 gpDetalle1.Visible = True
                 lbTipoCliente.Visible = False
                 cbTipoCliente.Visible = False
+
+                lbCantClases.Visible = False
+                tbCantClases.Visible = False
             End If
 
         End If

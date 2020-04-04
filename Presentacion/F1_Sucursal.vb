@@ -262,4 +262,5 @@ Public Class F1_Sucursal
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         tbIp.Focus()
     End Sub
+
 End Class
