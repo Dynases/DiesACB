@@ -15,6 +15,8 @@ Public Class F0_AlumnoInscrip
     Dim _Pos As Integer
     Dim IdVenta As Integer
 
+    Private vlRutaBase As String = gs_CarpetaRaiz '"C:\Imagenes\DIES"
+
 #End Region
 
     Private Sub F1_AlumnoInscrip_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -674,4 +676,62 @@ Public Class F0_AlumnoInscrip
             LblPaginacion.Text = Str(_pos + 1) + "/" + JGInscripcion.RowCount.ToString
         End If
     End Sub
+
+    Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
+        _prImprimir()
+    End Sub
+
+    Private Sub _prImprimir()
+        Dim rutaDestino As String = vlRutaBase + "\Imagenes\Imagenes Alumnos\"
+        Dim objrep As New R_FichaEscuela2
+        Dim dt As New DataTable
+        Dim teorica As String
+
+        dt = L_prAlumnoFichaInscripcion(CodAlumno)
+        teorica = tbObservacion.Text
+        If dt.Rows.Count = 0 Then
+            dt = L_prAlumnoFichaInscripcion2(CodAlumno)
+        End If
+
+        Dim img As Bitmap
+        Dim foto As String = dt.Rows(0).Item("cbfot")
+        If (IO.File.Exists(rutaDestino + foto)) Then
+            img = New Bitmap(rutaDestino + foto)
+
+            For Each fila1 As DataRow In dt.Rows
+                'fila1.Item("cbfot2") = _fnImageToByteArray(img)
+                fila1.Item("cbfot2") = _fnImageToByteArray(rutaDestino + foto)
+            Next
+            '_dt.Rows(0).Item("foto") = _fnImageToByteArray(img)
+            '_dt.Rows(0).Item("foto") = _fnBytesArchivo(direccionFoto)
+        End If
+
+        'ahora lo mando al visualizador
+        P_Global.Visualizador = New Visualizador
+        objrep.SetDataSource(dt)
+        objrep.SetParameterValue("teorica", teorica)
+        P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+        P_Global.Visualizador.Show() 'Comentar
+        P_Global.Visualizador.BringToFront() 'Comentar
+
+        'imprimir
+        'If PrintDialog1.ShowDialog = DialogResult.OK Then
+        '    objrep.SetDataSource(dt)
+        '    objrep.PrintOptions.PrinterName = PrintDialog1.PrinterSettings.PrinterName
+        '    objrep.PrintToPrinter(1, False, 1, 10)
+        'End If
+    End Sub
+    Public Function _fnImageToByteArray(ByVal ruta As String) As Byte()
+
+        Dim bitmap As Bitmap = New Bitmap(New MemoryStream(IO.File.ReadAllBytes(ruta)))
+        Dim img As Bitmap = New Bitmap(bitmap)
+        Dim Bin As New MemoryStream
+        img.Save(Bin, Imaging.ImageFormat.Jpeg)
+
+        Return Bin.GetBuffer
+    End Function
+
+
+
+
 End Class

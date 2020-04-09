@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class R_FichaEscuela
+Public Class R_FichaEscuela2
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class R_FichaEscuela
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "R_FichaEscuela.rpt"
+            Return "R_FichaEscuela2.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class R_FichaEscuela
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Presentacion.R_FichaEscuela.rpt"
+            Return "Presentacion.R_FichaEscuela2.rpt"
         End Get
         Set
             'Do nothing
@@ -118,7 +118,7 @@ Public Class R_FichaEscuela
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedR_FichaEscuela
+Public Class CachedR_FichaEscuela2
     Inherits Component
     Implements ICachedReport
     
@@ -160,7 +160,7 @@ Public Class CachedR_FichaEscuela
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As R_FichaEscuela = New R_FichaEscuela()
+        Dim rpt As R_FichaEscuela2 = New R_FichaEscuela2()
         rpt.Site = Me.Site
         Return rpt
     End Function

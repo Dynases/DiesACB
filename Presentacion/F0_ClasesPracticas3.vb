@@ -49,11 +49,11 @@ Public Class F0_ClasesPracticas3
     Const conEstClaseSuspension As Integer = 3
 
     Private _cantClasesPracticas As Integer = 13
-    Private _cantClasesReforzamiento As Integer = 5
+    'Private _cantClasesReforzamiento As Integer = 5
+    Private _cantClasesReforzamiento As Integer = 0
 
     Private _isClasePractica As Boolean
 
-    'Dim _cantClasesPracticas As Integer
 
 #End Region
 

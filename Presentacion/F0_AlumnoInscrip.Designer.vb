@@ -188,6 +188,9 @@ Partial Class F0_AlumnoInscrip
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.TableLayoutPanel2, 0)
         '
+        'btnImprimir
+        '
+        '
         'btnUltimo
         '
         '
