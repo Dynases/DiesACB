@@ -271,6 +271,7 @@ Public Class F0_AlumnoInscrip
                 frm = New F0_ClasesPracticas3
                 frm._numiAlumInscrito = CodAlumno
                 frm.idInscripcion = tbCodigo.Text
+                frm.ventanaInscrip = True
                 frm.Show()
             End If
 

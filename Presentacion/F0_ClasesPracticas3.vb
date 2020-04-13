@@ -29,6 +29,7 @@ Public Class F0_ClasesPracticas3
 
     Public _numiAlumInscrito As Int16 = -1
     Public idInscripcion As Integer
+    Public ventanaInscrip As Boolean
 
     Dim _listColores As List(Of Color)
 
@@ -122,11 +123,18 @@ Public Class F0_ClasesPracticas3
 
         'iniciando el cambio de numero de clases por sucursal
 
+
         'Cargar combos nuevos
-        _prCargarComboServicios()
-        _prCargarComboSucursal1()
-        'tbHorarioSuc.ReadOnly = True
-        'tbSuc.ReadOnly = True
+        If ventanaInscrip = True Then
+            _prCargarComboServicios()
+            _prCargarComboSucursal1()
+            tbHorarioSuc.ReadOnly = True
+            tbSuc.ReadOnly = True
+            ventanaInscrip = False
+        Else
+
+        End If
+
     End Sub
     Private Sub _prCargarListaColores()
         _listColores = New List(Of Color)
@@ -974,7 +982,7 @@ Public Class F0_ClasesPracticas3
     End Sub
     Public Sub _prCargarComboServicios()
         Dim dt As New DataTable
-        dt = L_prCargarServicios(_numiAlumInscrito, idInscripcion) 'gi_userSuc
+        dt = L_prCargarServicios(_numiAlumInscrito, idInscripcion)
 
         If dt.Rows.Count > 0 Then
             With tbServicio

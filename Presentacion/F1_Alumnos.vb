@@ -918,7 +918,7 @@ Public Class F1_Alumnos
     End Sub
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
-        _prImprimir()
+        '_prImprimir()
     End Sub
 
     Private Sub btMarcarTodos_Click(sender As Object, e As EventArgs) Handles btMarcarTodos.Click

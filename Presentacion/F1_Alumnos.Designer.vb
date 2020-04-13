@@ -25,12 +25,12 @@ Partial Class F1_Alumnos
         Me.components = New System.ComponentModel.Container()
         Dim tbEstCivil_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbTipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_Alumnos))
         Dim tbProf_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbSocio_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbParent_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbSuc_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbLugNac_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_Alumnos))
         Me.PanelAgrImagen = New System.Windows.Forms.Panel()
         Me.RadialMenuImgOpc = New DevComponents.DotNetBar.RadialMenu()
         Me.btnAgregar = New DevComponents.DotNetBar.RadialMenuItem()
@@ -391,6 +391,7 @@ Partial Class F1_Alumnos
         '
         Me.btnImprimir.Location = New System.Drawing.Point(312, 0)
         Me.btnImprimir.Size = New System.Drawing.Size(72, 82)
+        Me.btnImprimir.Visible = False
         '
         'MPanelUserAct
         '

@@ -28,8 +28,8 @@ Partial Class F0_ClasesPracticas3
         Dim tbHorarioSuc_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbSuc_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbPersona_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.tbServicio = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
@@ -532,14 +532,14 @@ Partial Class F0_ClasesPracticas3
         '
         Me.grHorario.AllowUserToResizeColumns = False
         Me.grHorario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grHorario.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grHorario.DefaultCellStyle = DataGridViewCellStyle3
         Me.grHorario.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grHorario.Location = New System.Drawing.Point(0, 26)
         Me.grHorario.Name = "grHorario"
@@ -550,14 +550,14 @@ Partial Class F0_ClasesPracticas3
         '
         Me.grCabecera.AllowUserToResizeColumns = False
         Me.grCabecera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grCabecera.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grCabecera.DefaultCellStyle = DataGridViewCellStyle4
         Me.grCabecera.Dock = System.Windows.Forms.DockStyle.Top
         Me.grCabecera.Location = New System.Drawing.Point(0, 0)
         Me.grCabecera.Name = "grCabecera"
@@ -615,7 +615,7 @@ Partial Class F0_ClasesPracticas3
         Me.ADICIONARHORARIOToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ADICIONARHORARIOToolStripMenuItem.Name = "ADICIONARHORARIOToolStripMenuItem"
         Me.ADICIONARHORARIOToolStripMenuItem.Size = New System.Drawing.Size(312, 36)
-        Me.ADICIONARHORARIOToolStripMenuItem.Text = "CLASES PRACTICAS"
+        Me.ADICIONARHORARIOToolStripMenuItem.Text = "PROGRAMAR CLASES"
         '
         'ADICIONARHORARIOToolStripMenuItem2
         '
@@ -641,6 +641,7 @@ Partial Class F0_ClasesPracticas3
         Me.CLASESREFORZAMIENTOToolStripMenuItem.Name = "CLASESREFORZAMIENTOToolStripMenuItem"
         Me.CLASESREFORZAMIENTOToolStripMenuItem.Size = New System.Drawing.Size(312, 36)
         Me.CLASESREFORZAMIENTOToolStripMenuItem.Text = "CLASES REFORZAMIENTO"
+        Me.CLASESREFORZAMIENTOToolStripMenuItem.Visible = False
         '
         'ADICIONARHORARIOToolStripMenuItem3
         '
