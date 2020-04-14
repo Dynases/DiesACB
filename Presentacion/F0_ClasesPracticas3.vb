@@ -81,8 +81,6 @@ Public Class F0_ClasesPracticas3
 
         tbFechaSelect.Value = New Date(Now.Year, Now.Month, 1)
 
-        '_prCargarComboSucursal()
-
         _prCargarComboInstructores()
 
         btnNuevo.Enabled = False
@@ -132,7 +130,9 @@ Public Class F0_ClasesPracticas3
             tbSuc.ReadOnly = True
             ventanaInscrip = False
         Else
-
+            _prCargarComboSucursalDirecto()
+            _prCargarComboServiciosDirecto(tbSuc.Value)
+            _prCargarComboHorarioSucursalDirecto()
         End If
 
     End Sub
@@ -931,7 +931,7 @@ Public Class F0_ClasesPracticas3
         _listColores.Add(_prGetColorFromHex("#FF9E80")) 'deep orange A100
     End Sub
 
-    Private Sub _prCargarComboSucursal()
+    Private Sub _prCargarComboSucursalDirecto()
         Dim dt As New DataTable
         dt = L_prSucursalAyuda()
 
@@ -1010,6 +1010,59 @@ Public Class F0_ClasesPracticas3
 
     End Sub
 
+    Private Sub _prCargarComboServiciosDirecto(Suc As Integer)
+        Dim dt As New DataTable
+        dt = L_prListarServicios(Suc)
+        If dt.Rows.Count > 0 Then
+            With tbServicio
+                .DropDownList.Columns.Clear()
+
+                .DropDownList.Columns.Add("ednumi").Width = 70
+                .DropDownList.Columns("ednumi").Caption = "COD"
+
+                .DropDownList.Columns.Add("eddesc").Width = 300
+                .DropDownList.Columns("eddesc").Caption = "descripcion".ToUpper
+
+                .ValueMember = "ednumi"
+                .DisplayMember = "eddesc"
+                .DataSource = dt
+                .Refresh()
+            End With
+            tbServicio.SelectedIndex = 0
+        Else
+            Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+            ToastNotification.Show(Me, "La Sucursal que se eligió no tiene servicios enlazados".ToUpper, img, 4000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+            Exit Sub
+        End If
+
+    End Sub
+    Private Sub _prCargarComboHorarioSucursalDirecto()
+        Dim dt As New DataTable
+        dt = L_prHorarioSucursal()
+
+        With tbHorarioSuc
+            .DropDownList.Columns.Clear()
+
+            .DropDownList.Columns.Add("cbsuc").Width = 70
+            .DropDownList.Columns("cbsuc").Caption = "COD"
+
+            .DropDownList.Columns.Add("cadesc").Width = 300
+            .DropDownList.Columns("cadesc").Caption = "descripcion".ToUpper
+
+            .ValueMember = "cbsuc"
+            .DisplayMember = "cadesc"
+            .DataSource = dt
+            .Refresh()
+        End With
+
+        'If gb_userTodasSuc = False Then
+        '    tbSuc.Enabled = False
+        'End If
+
+        'tbSuc.Value = 11
+        tbHorarioSuc.SelectedIndex = 0
+    End Sub
+
     Public Sub _prCargarComboSucursal1()
         Dim dt As New DataTable
         dt = L_prCargarSucursal(_numiAlumInscrito) 'gi_userSuc
@@ -1032,6 +1085,8 @@ Public Class F0_ClasesPracticas3
         End If
 
     End Sub
+
+
     Private Sub _prCargarGridAlumnos(numiInst As String)
         Dim dt As New DataTable
         'dt = L_prAlumnoAyudaColor(tbSuc.Value, numiInst, tbFechaSelect.Value.ToString("yyyy/MM/dd")) 'gi_userSuc
@@ -1078,10 +1133,9 @@ Public Class F0_ClasesPracticas3
 
         With grAlumnos.RootTable.Columns("cbnom2")
             .Caption = "Nombre"
-            .Width = 250
+            .Width = 210
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
         End With
-
 
         With grAlumnos.RootTable.Columns("color")
             .Caption = "Color"
@@ -1618,11 +1672,13 @@ Public Class F0_ClasesPracticas3
         If _numiAlumInscrito = -1 Then
             'grabar horario de forma normal como si estuvieran de forma nativa en el programa
             Dim frmAyuda As Modelos.ModeloAyuda
-            Dim dt As DataTable = L_prAlumnoLibresInstructorAyuda(tbSuc.Value, tbPersona.Value) 'gi_userSuc
+            'Dim dt As DataTable = L_prAlumnoLibresInstructorAyuda(tbSuc.Value, tbPersona.Value) 'gi_userSuc
+            Dim dt As DataTable = L_prAlumnoLibresInstructorAyuda(tbHorarioSuc.Value, tbPersona.Value) 'Se cambio tbSuc por tbHorarioSuc 13-04-20 L.C.
             Dim listEstCeldas As New List(Of Modelos.Celda)
             listEstCeldas.Add(New Modelos.Celda("cbnumi", True, "Codigo".ToUpper, 70))
             listEstCeldas.Add(New Modelos.Celda("cbci", True, "CI".ToUpper, 70))
             listEstCeldas.Add(New Modelos.Celda("cbnom2", True, "Nombre completo".ToUpper, 300))
+            listEstCeldas.Add(New Modelos.Celda("ccnumi", False, "Id Inscripción".ToUpper, 70))
 
             frmAyuda = New Modelos.ModeloAyuda(600, 300, dt, "Seleccione el estudiante a quien se programara el horario".ToUpper, listEstCeldas)
             frmAyuda.ShowDialog()
@@ -1630,7 +1686,7 @@ Public Class F0_ClasesPracticas3
             If frmAyuda.seleccionado = True Then
                 Dim numiAalumno As String = frmAyuda.filaSelect.Cells("cbnumi").Value
                 Dim numiReg As String = ""
-                Dim idInscrip = idInscripcion 'Pendiente tengo que cambiar
+                Dim idInscrip = frmAyuda.filaSelect.Cells("ccnumi").Value
                 Dim respuesta As Boolean = L_prClasesPracCabeceraDetalleGrabar2(numiReg, tbPersona.Value, numiAalumno, IIf(_isClasePractica = True, 1, 2), _cantClasesPracticas, _cantClasesReforzamiento, _dtFechas, tbSuc.Value, tbHorarioSuc.Value, tbServicio.Value, idInscrip)
                 If respuesta Then
                     _prCargarGridAlumnos(tbPersona.Value)
@@ -2601,11 +2657,13 @@ Public Class F0_ClasesPracticas3
 
             'grabar horario
             Dim frmAyuda As Modelos.ModeloAyuda
-            Dim dt As DataTable = L_prAlumnoLibresInstructorFaltanClasesAyuda(tbSuc.Value, tbPersona.Value) 'gi_userSuc
+            'Dim dt As DataTable = L_prAlumnoLibresInstructorFaltanClasesAyuda(tbSuc.Value, tbPersona.Value) 'gi_userSuc
+            Dim dt As DataTable = L_prAlumnoLibresInstructorFaltanClasesAyuda(tbHorarioSuc.Value, tbPersona.Value) 'Se cambio tbSuc por tbHorarioSuc 13-04-20 L.C.
             Dim listEstCeldas As New List(Of Modelos.Celda)
             listEstCeldas.Add(New Modelos.Celda("cbnumi", True, "Codigo".ToUpper, 70))
             listEstCeldas.Add(New Modelos.Celda("cbci", True, "CI".ToUpper, 70))
             listEstCeldas.Add(New Modelos.Celda("cbnom2", True, "Nombre completo".ToUpper, 300))
+            listEstCeldas.Add(New Modelos.Celda("ccnumi", False, "Id Inscripcion".ToUpper, 70))
 
             frmAyuda = New Modelos.ModeloAyuda(600, 300, dt, "Seleccione el estudiante a quien se programara el horario".ToUpper, listEstCeldas)
             frmAyuda.ShowDialog()
@@ -2613,7 +2671,8 @@ Public Class F0_ClasesPracticas3
             If frmAyuda.seleccionado = True Then
                 Dim numiAalumno As String = frmAyuda.filaSelect.Cells("cbnumi").Value
                 Dim numiReg As String = ""
-                Dim respuesta As Boolean = L_prClasesPracDetalleGrabar2(numiReg, tbPersona.Value, numiAalumno, estadoTipoClase, _cantClasesPracticas, _cantClasesReforzamiento, _dtFechas)
+                Dim idInscrip = frmAyuda.filaSelect.Cells("ccnumi").Value
+                Dim respuesta As Boolean = L_prClasesPracDetalleGrabar2(numiReg, tbPersona.Value, numiAalumno, estadoTipoClase, _cantClasesPracticas, _cantClasesReforzamiento, _dtFechas, tbSuc.Value, tbHorarioSuc.Value, tbServicio.Value, idInscrip)
                 If respuesta = True Then
                     _dtFechas.Rows.Clear()
                     _prCargarGridAlumnos(tbPersona.Value)
@@ -3115,6 +3174,7 @@ Public Class F0_ClasesPracticas3
             listEstCeldas.Add(New Modelos.Celda("cbnumi", True, "Codigo".ToUpper, 70))
             listEstCeldas.Add(New Modelos.Celda("cbci", True, "CI".ToUpper, 70))
             listEstCeldas.Add(New Modelos.Celda("cbnom2", True, "Nombre completo".ToUpper, 300))
+            listEstCeldas.Add(New Modelos.Celda("ccnumi", False, "Id Inscripcion".ToUpper, 70))
 
             frmAyuda = New Modelos.ModeloAyuda(600, 300, dt, "Seleccione el estudiante a quien se programara el horario".ToUpper, listEstCeldas)
             frmAyuda.ShowDialog()
@@ -3122,7 +3182,9 @@ Public Class F0_ClasesPracticas3
             If frmAyuda.seleccionado = True Then
                 Dim numiAalumno As String = frmAyuda.filaSelect.Cells("cbnumi").Value
                 Dim numiReg As String = ""
-                Dim respuesta As Boolean = L_prClasesPracDetalleGrabar2(numiReg, tbPersona.Value, numiAalumno, estadoTipoClase, _cantClasesPracticas, _cantClasesReforzamiento, _dtFechas)
+                Dim idInscrip = frmAyuda.filaSelect.Cells("ccnumi").Value
+
+                Dim respuesta As Boolean = L_prClasesPracDetalleGrabar2(numiReg, tbPersona.Value, numiAalumno, estadoTipoClase, _cantClasesPracticas, _cantClasesReforzamiento, _dtFechas, tbSuc.Value, tbHorarioSuc.Value, tbServicio.Value, idInscrip)
                 If respuesta = True Then
                     _dtFechas.Rows.Clear()
                     _prCargarGridAlumnos(tbPersona.Value)
@@ -3236,30 +3298,47 @@ Public Class F0_ClasesPracticas3
     End Sub
 
     Private Sub tbServicio_ValueChanged(sender As Object, e As EventArgs) Handles tbServicio.ValueChanged
-        If tbServicio.SelectedIndex >= 0 Then
-            Dim dt As New DataTable
-            dt = L_prCargarHorarioSuc(_numiAlumInscrito, idInscripcion, tbServicio.Value)
+        If ventanaInscrip = True Then
+            If tbServicio.SelectedIndex >= 0 Then
+                Dim dt As New DataTable
+                dt = L_prCargarHorarioSuc(_numiAlumInscrito, idInscripcion, tbServicio.Value)
 
-            With tbHorarioSuc
-                .DropDownList.Columns.Clear()
+                With tbHorarioSuc
+                    .DropDownList.Columns.Clear()
 
-                .DropDownList.Columns.Add("cdhorsuc").Width = 70
-                .DropDownList.Columns("cdhorsuc").Caption = "COD"
+                    .DropDownList.Columns.Add("cdhorsuc").Width = 70
+                    .DropDownList.Columns("cdhorsuc").Caption = "COD"
 
-                .DropDownList.Columns.Add("cadesc").Width = 200
-                .DropDownList.Columns("cadesc").Caption = "HORARIO-SUC"
+                    .DropDownList.Columns.Add("cadesc").Width = 200
+                    .DropDownList.Columns("cadesc").Caption = "HORARIO-SUC"
 
-                .ValueMember = "cdhorsuc"
-                .DisplayMember = "cadesc"
-                .DataSource = dt
-                .Refresh()
-            End With
-            tbHorarioSuc.SelectedIndex = 0
+                    .ValueMember = "cdhorsuc"
+                    .DisplayMember = "cadesc"
+                    .DataSource = dt
+                    .Refresh()
+                End With
+                tbHorarioSuc.SelectedIndex = 0
 
+                'Codigo para recuperar la cantidad de clases por servicio-------------------
+                Dim dtServ As DataTable = L_prCargarCantClases(tbServicio.Value)
+                If dtServ.Rows.Count > 0 Then
+                    _cantClasesPracticas = dtServ.Rows(0).Item("etcantclase")
+                    '_cantClasesReforzamiento = dtServ.Rows(0).Item("etcantclase")
+                Else
+                    Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                    ToastNotification.Show(Me, "El Servicio no tiene cantidad de clases, favor vaya al modulo Servicios y agréguelo".ToUpper, img, 5000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                End If
+
+            End If
+        Else
             'Codigo para recuperar la cantidad de clases por servicio-------------------
             Dim dtServ As DataTable = L_prCargarCantClases(tbServicio.Value)
-            _cantClasesPracticas = dtServ.Rows(0).Item("etcantclase")
-            '_cantClasesReforzamiento = dtServ.Rows(0).Item("etcantclase")
+            If dtServ.Rows.Count > 0 Then
+                _cantClasesPracticas = dtServ.Rows(0).Item("etcantclase")
+            Else
+                Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                ToastNotification.Show(Me, "El Servicio no tiene cantidad de clases, favor vaya al modulo Servicios y agréguelo".ToUpper, img, 5000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+            End If
         End If
     End Sub
 

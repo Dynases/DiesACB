@@ -3138,7 +3138,9 @@ Public Class AccesoLogica
         Return _resultado
     End Function
 
-    Public Shared Function L_prClasesPracDetalleGrabar2(ByRef _numi As String, _numiChof As String, _numiAlum As String, _estadoTipoClase As String, numClasPrac As String, numClasRef As String, _TCE0061 As DataTable) As Boolean
+    Public Shared Function L_prClasesPracDetalleGrabar2(ByRef _numi As String, _numiChof As String, _numiAlum As String, _estadoTipoClase As String,
+                                                        numClasPrac As String, numClasRef As String, _TCE0061 As DataTable, _suc As String, _horsuc As String,
+                                                        _servicio As String, _idinscripcion As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -3152,6 +3154,10 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@egnclsprac", numClasPrac))
         _listParam.Add(New Datos.DParametro("@egnclsref", numClasRef))
         _listParam.Add(New Datos.DParametro("@TCE0061", "", _TCE0061))
+        _listParam.Add(New Datos.DParametro("@Suc", _suc))
+        _listParam.Add(New Datos.DParametro("@HorSuc", _horsuc))
+        _listParam.Add(New Datos.DParametro("@Servicio", _servicio))
+        _listParam.Add(New Datos.DParametro("@ccnumi", _idinscripcion))
         _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
