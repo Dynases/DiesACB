@@ -936,13 +936,14 @@ Public Class AccesoLogica
 #End Region
 
 #Region "ALUMNNO"
-    Public Shared Function L_prAlumnoFichaInscripcion(_numi As String) As DataTable 'modelo 1 con condificion
+    Public Shared Function L_prAlumnoFichaInscripcion(_numi As String, _idinscripcion As String) As DataTable 'modelo 1 con condificion
         Dim _Tabla As DataTable
 
         Dim _listParam As New List(Of Datos.DParametro)
 
         _listParam.Add(New Datos.DParametro("@tipo", 9))
         _listParam.Add(New Datos.DParametro("@cbnumi", _numi))
+        _listParam.Add(New Datos.DParametro("@idinscripcion", _idinscripcion))
         _listParam.Add(New Datos.DParametro("@cbuact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE002", _listParam)
@@ -3018,6 +3019,24 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@egchof", _numiInst))
         _listParam.Add(New Datos.DParametro("@egalum", _numiAlum))
         _listParam.Add(New Datos.DParametro("@ehhfec", _fecha))
+        '_listParam.Add(New Datos.DParametro("@ehhhor", _hora))
+        _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_prClasesPracDetFechasPorAlumnoYFechaGeneralContablesMenorAUnaFechaYHoraXNuevo(_numiInst As String, _numiAlum As String, _fecha As String, _servicio As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 515))
+        _listParam.Add(New Datos.DParametro("@egchof", _numiInst))
+        _listParam.Add(New Datos.DParametro("@egalum", _numiAlum))
+        _listParam.Add(New Datos.DParametro("@ehhfec", _fecha))
+        _listParam.Add(New Datos.DParametro("@Servicio", _servicio))
         '_listParam.Add(New Datos.DParametro("@ehhhor", _hora))
         _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
 

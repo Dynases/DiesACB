@@ -157,40 +157,40 @@ Public Class F1_Alumnos
     End Sub
 
     Private Sub _prImprimir()
-        Dim rutaDestino As String = vlRutaBase + "\Imagenes\Imagenes Alumnos\"
-        Dim objrep As New R_FichaEscuela
-        Dim dt As New DataTable
-        dt = L_prAlumnoFichaInscripcion(tbNumi.Text)
-        If dt.Rows.Count = 0 Then
-            dt = L_prAlumnoFichaInscripcion2(tbNumi.Text)
-        End If
-
-        Dim img As Bitmap
-        Dim foto As String = dt.Rows(0).Item("cbfot")
-        If (IO.File.Exists(rutaDestino + foto)) Then
-            img = New Bitmap(rutaDestino + foto)
-
-            For Each fila1 As DataRow In dt.Rows
-                'fila1.Item("cbfot2") = _fnImageToByteArray(img)
-                fila1.Item("cbfot2") = _fnImageToByteArray(rutaDestino + foto)
-            Next
-            '_dt.Rows(0).Item("foto") = _fnImageToByteArray(img)
-            '_dt.Rows(0).Item("foto") = _fnBytesArchivo(direccionFoto)
-        End If
-
-        'ahora lo mando al visualizador
-        P_Global.Visualizador = New Visualizador
-        objrep.SetDataSource(dt)
-        P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
-        P_Global.Visualizador.Show() 'Comentar
-        P_Global.Visualizador.BringToFront() 'Comentar
-
-        'imprimir
-        'If PrintDialog1.ShowDialog = DialogResult.OK Then
-        '    objrep.SetDataSource(dt)
-        '    objrep.PrintOptions.PrinterName = PrintDialog1.PrinterSettings.PrinterName
-        '    objrep.PrintToPrinter(1, False, 1, 10)
+        'Dim rutaDestino As String = vlRutaBase + "\Imagenes\Imagenes Alumnos\"
+        'Dim objrep As New R_FichaEscuela
+        'Dim dt As New DataTable
+        'dt = L_prAlumnoFichaInscripcion(tbNumi.Text)
+        'If dt.Rows.Count = 0 Then
+        '    dt = L_prAlumnoFichaInscripcion2(tbNumi.Text)
         'End If
+
+        'Dim img As Bitmap
+        'Dim foto As String = dt.Rows(0).Item("cbfot")
+        'If (IO.File.Exists(rutaDestino + foto)) Then
+        '    img = New Bitmap(rutaDestino + foto)
+
+        '    For Each fila1 As DataRow In dt.Rows
+        '        'fila1.Item("cbfot2") = _fnImageToByteArray(img)
+        '        fila1.Item("cbfot2") = _fnImageToByteArray(rutaDestino + foto)
+        '    Next
+        '    '_dt.Rows(0).Item("foto") = _fnImageToByteArray(img)
+        '    '_dt.Rows(0).Item("foto") = _fnBytesArchivo(direccionFoto)
+        'End If
+
+        ''ahora lo mando al visualizador
+        'P_Global.Visualizador = New Visualizador
+        'objrep.SetDataSource(dt)
+        'P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+        'P_Global.Visualizador.Show() 'Comentar
+        'P_Global.Visualizador.BringToFront() 'Comentar
+
+        ''imprimir
+        ''If PrintDialog1.ShowDialog = DialogResult.OK Then
+        ''    objrep.SetDataSource(dt)
+        ''    objrep.PrintOptions.PrinterName = PrintDialog1.PrinterSettings.PrinterName
+        ''    objrep.PrintToPrinter(1, False, 1, 10)
+        ''End If
 
 
     End Sub

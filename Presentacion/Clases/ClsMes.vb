@@ -65,10 +65,14 @@ Public Class ClsMes
         'cargar fechas de los alumnos
         'cargar los datos de la grilla
         Dim numiAlum As String
+        Dim idinscripcion As String
+        Dim servicio As String
         For i = 0 To dtAlumnos.Rows.Count - 1
             numiAlum = dtAlumnos.Rows(i).Item("cbnumi")
+            idinscripcion = dtAlumnos.Rows(i).Item("evidinscrip")
+            servicio = dtAlumnos.Rows(i).Item("evservicio")
 
-            _prCargarDiasDeAlumnos2(numiInstr.ToString, numiAlum.ToString, Color.FromArgb(dtAlumnos.Rows(i).Item("color")), dtHorasTodoElMesInstructor, dtHorasMesesAnterioresPorInstructor)
+            _prCargarDiasDeAlumnos2(numiInstr.ToString, numiAlum.ToString, Color.FromArgb(dtAlumnos.Rows(i).Item("color")), dtHorasTodoElMesInstructor, dtHorasMesesAnterioresPorInstructor, idinscripcion, servicio)
         Next
         '----------------------------------------------------------
 
@@ -262,7 +266,7 @@ Public Class ClsMes
         Next
     End Sub
 
-    Public Sub _prCargarDiasDeAlumnos2(numiInstruc As String, numiAlum As String, c As Color, dtFechasTotales As DataTable, dtFechasAntTotales As DataTable)
+    Public Sub _prCargarDiasDeAlumnos2(numiInstruc As String, numiAlum As String, c As Color, dtFechasTotales As DataTable, dtFechasAntTotales As DataTable, idinscripcion As String, servicio As String)
         'Dim dtFechas As DataTable = L_prClasesPracDetFechasPorAlumnoGeneral(numiInstruc, numiAlum)
         ''Dim dtFechasAnt As DataTable = L_prClasesPracDetFechasPorAlumnoYFechaGeneralContables(numiInstruc, numiAlum, DateAdd(DateInterval.Month, -1, vFecha).ToString("yyyy/MM/dd"))
         Dim dtFechasAnt As DataTable = dtFechasAntTotales.Copy
@@ -274,7 +278,7 @@ Public Class ClsMes
 
         Dim dtFechas As DataTable = dtFechasTotales.Copy()
         dtFechas.Rows.Clear()
-        Dim filasFiltradas As DataRow() = dtFechasTotales.Select("egalum=" + numiAlum)
+        Dim filasFiltradas As DataRow() = dtFechasTotales.Select("egalum=" + numiAlum + " and evidinscrip=" + idinscripcion)
         If filasFiltradas.Count > 0 Then
             dtFechas = filasFiltradas.CopyToDataTable
         End If
@@ -288,7 +292,7 @@ Public Class ClsMes
             num = dtFechasAnt.Rows.Count + 1
         End If
 
-        Dim dtFechasAntDeOtroInstructor As DataTable = L_prClasesPracDetFechasPorAlumnoYFechaGeneralContablesMenorAUnaFechaYHoraX(numiInstruc, numiAlum, CType(dtFechas.Rows(0).Item("ehfec"), Date).ToString("yyyy/MM/dd")) ', dtFechas.Rows(0).Item("ehhor")
+        Dim dtFechasAntDeOtroInstructor As DataTable = L_prClasesPracDetFechasPorAlumnoYFechaGeneralContablesMenorAUnaFechaYHoraXNuevo(numiInstruc, numiAlum, CType(dtFechas.Rows(0).Item("ehfec"), Date).ToString("yyyy/MM/dd"), servicio) ', dtFechas.Rows(0).Item("ehhor")
         num = num + dtFechasAntDeOtroInstructor.Rows.Count
         For Each fila As DataRow In dtFechas.Rows
             Dim fecha As Date = fila.Item("ehfec")

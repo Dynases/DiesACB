@@ -1153,6 +1153,15 @@ Public Class F0_ClasesPracticas3
             .Visible = False
         End With
 
+        'Ultimos que se agregaron 16-04-20 L.C.
+        With grAlumnos.RootTable.Columns("evidinscrip")
+            .Visible = False
+        End With
+
+        With grAlumnos.RootTable.Columns("evservicio")
+            .Visible = False
+        End With
+
         'Habilitar Filtradores
         With grAlumnos
             .DefaultFilterRowComparison = FilterConditionOperator.Contains
@@ -2842,7 +2851,7 @@ Public Class F0_ClasesPracticas3
     End Sub
 
     Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
-        If tbSuc.SelectedIndex < 0 Or tbPersona.SelectedIndex < 0 Then
+        If tbHorarioSuc.SelectedIndex < 0 Or tbPersona.SelectedIndex < 0 Then
             ToastNotification.Show(Me, "tiene que estar seleccionado el instructor y la sucursal".ToUpper, My.Resources.WARNING, 5000, eToastGlowColor.Red, eToastPosition.TopCenter)
             Exit Sub
         End If

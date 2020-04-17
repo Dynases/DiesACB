@@ -720,6 +720,7 @@ Partial Class F0_ClasesPracticas3
         Me.ASIGNARCLASEREFORZAMIENTOToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
         Me.ASIGNARCLASEREFORZAMIENTOToolStripMenuItem.Size = New System.Drawing.Size(312, 36)
         Me.ASIGNARCLASEREFORZAMIENTOToolStripMenuItem.Text = "ASIGNAR CLASE REFORZAMIENTO"
+        Me.ASIGNARCLASEREFORZAMIENTOToolStripMenuItem.Visible = False
         '
         'AGREGAROBSERVACIONToolStripMenuItem
         '

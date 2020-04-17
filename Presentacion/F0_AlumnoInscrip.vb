@@ -688,7 +688,7 @@ Public Class F0_AlumnoInscrip
         Dim dt As New DataTable
         Dim teorica As String
 
-        dt = L_prAlumnoFichaInscripcion(CodAlumno)
+        dt = L_prAlumnoFichaInscripcion(CodAlumno, tbCodigo.Text)
         teorica = tbObservacion.Text
         If dt.Rows.Count = 0 Then
             dt = L_prAlumnoFichaInscripcion2(CodAlumno)
