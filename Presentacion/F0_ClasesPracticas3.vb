@@ -128,7 +128,7 @@ Public Class F0_ClasesPracticas3
             _prCargarComboSucursal1()
             tbHorarioSuc.ReadOnly = True
             tbSuc.ReadOnly = True
-            ventanaInscrip = False
+            'ventanaInscrip = False
         Else
             _prCargarComboSucursalDirecto()
             _prCargarComboServiciosDirecto(tbSuc.Value)
@@ -933,7 +933,7 @@ Public Class F0_ClasesPracticas3
 
     Private Sub _prCargarComboSucursalDirecto()
         Dim dt As New DataTable
-        dt = L_prSucursalAyuda()
+        dt = L_prListarSucursal()
 
         With tbSuc
             .DropDownList.Columns.Clear()
@@ -2368,6 +2368,7 @@ Public Class F0_ClasesPracticas3
         Else
             idInscripcion = -1
             _numiAlumInscrito = -1
+            ventanaInscrip = False
             Close()
         End If
 
@@ -2820,18 +2821,21 @@ Public Class F0_ClasesPracticas3
     End Sub
 
     Private Sub tbSuc_ValueChanged(sender As Object, e As EventArgs) Handles tbSuc.ValueChanged
-        'If tbSuc.SelectedIndex >= 0 Then
-        '    'codigo para hacer el numero de clases por  sucursal--------------------------------
-        '    Dim dtSuc As DataTable = L_prSucursalAyudaPorNumi(tbSuc.Value)
-        '    _cantClasesPracticas = dtSuc.Rows(0).Item("canprac")
-        '    _cantClasesReforzamiento = dtSuc.Rows(0).Item("canrefor")
-        '    '-----------------------------------------------------------------------------------
+        If tbSuc.SelectedIndex >= 0 Then
+            ''codigo para hacer el numero de clases por  sucursal--------------------------------
+            'Dim dtSuc As DataTable = L_prSucursalAyudaPorNumi(tbSuc.Value)
+            '_cantClasesPracticas = dtSuc.Rows(0).Item("canprac")
+            '_cantClasesReforzamiento = dtSuc.Rows(0).Item("canrefor")
+            ''-----------------------------------------------------------------------------------
 
-        '    _prCargarComboInstructores()
-        '    tbPersona.SelectedIndex = -1
-        '    grAlumnos.DataSource = Nothing
-        '    grHorario.DataSource = Nothing
-        'End If
+            '_prCargarComboInstructores()
+            'tbPersona.SelectedIndex = -1
+            'grAlumnos.DataSource = Nothing
+            'grHorario.DataSource = Nothing
+
+            _prCargarComboServiciosSegunSucursal(tbSuc.Value)
+
+        End If
     End Sub
 
 
@@ -3367,4 +3371,30 @@ Public Class F0_ClasesPracticas3
         End If
     End Sub
 
+    Private Sub _prCargarComboServiciosSegunSucursal(Suc As Integer)
+        Dim dt As New DataTable
+        dt = L_prListarServicios(Suc)
+        If dt.Rows.Count > 0 Then
+            With tbServicio
+                .DropDownList.Columns.Clear()
+
+                .DropDownList.Columns.Add("ednumi").Width = 70
+                .DropDownList.Columns("ednumi").Caption = "COD"
+
+                .DropDownList.Columns.Add("eddesc").Width = 300
+                .DropDownList.Columns("eddesc").Caption = "descripcion".ToUpper
+
+                .ValueMember = "ednumi"
+                .DisplayMember = "eddesc"
+                .DataSource = dt
+                .Refresh()
+            End With
+            tbServicio.SelectedIndex = 0
+        Else
+            Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+            ToastNotification.Show(Me, "La Sucursal que se eligió no tiene servicios enlazados".ToUpper, img, 4000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+            Exit Sub
+        End If
+
+    End Sub
 End Class

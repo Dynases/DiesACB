@@ -56,6 +56,8 @@ Partial Class F1_Servicio
         Me.lbTipoCliente = New DevComponents.DotNetBar.LabelX()
         Me.lbCantClases = New DevComponents.DotNetBar.LabelX()
         Me.tbCantClases = New DevComponents.Editors.IntegerInput()
+        Me.lbLetra = New DevComponents.DotNetBar.LabelX()
+        Me.tbLetra = New DevComponents.DotNetBar.Controls.TextBoxX()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -100,7 +102,7 @@ Partial Class F1_Servicio
         Me.SuperTabPrincipal.ControlBox.MenuBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabPrincipal.ControlBox.MenuBox, Me.SuperTabPrincipal.ControlBox.CloseBox})
-        Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabPrincipal.Size = New System.Drawing.Size(1492, 561)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelBuscador, 0)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
@@ -108,12 +110,12 @@ Partial Class F1_Servicio
         'SuperTabControlPanelBuscador
         '
         Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 23)
-        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(2)
         Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(884, 538)
         '
         'SuperTabControlPanelRegistro
         '
-        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControlPanelRegistro.Size = New System.Drawing.Size(1492, 536)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelSuperior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelInferior, 0)
@@ -121,7 +123,7 @@ Partial Class F1_Servicio
         '
         'PanelSuperior
         '
-        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelSuperior.Size = New System.Drawing.Size(1492, 72)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelSuperior.Style.BackColor1.Color = System.Drawing.Color.Yellow
@@ -133,7 +135,7 @@ Partial Class F1_Servicio
         '
         'PanelInferior
         '
-        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelInferior.Size = New System.Drawing.Size(1492, 36)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Gold
@@ -170,9 +172,6 @@ Partial Class F1_Servicio
         '
         Me.btnGrabar.TabIndex = 0
         '
-        'btnEliminar
-        '
-        '
         'btnModificar
         '
         '
@@ -182,10 +181,12 @@ Partial Class F1_Servicio
         'PanelToolBar2
         '
         Me.PanelToolBar2.Location = New System.Drawing.Point(1412, 0)
-        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(4)
         '
         'MPanelSup
         '
+        Me.MPanelSup.Controls.Add(Me.tbLetra)
+        Me.MPanelSup.Controls.Add(Me.lbLetra)
         Me.MPanelSup.Controls.Add(Me.tbCantClases)
         Me.MPanelSup.Controls.Add(Me.cbTipoCliente)
         Me.MPanelSup.Controls.Add(Me.lbCantClases)
@@ -208,7 +209,7 @@ Partial Class F1_Servicio
         Me.MPanelSup.Controls.Add(Me.tbCodigo)
         Me.MPanelSup.Controls.Add(Me.LabelX1)
         Me.MPanelSup.Controls.Add(Me.tbNumi)
-        Me.MPanelSup.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelSup.Margin = New System.Windows.Forms.Padding(4)
         Me.MPanelSup.Size = New System.Drawing.Size(1492, 184)
         Me.MPanelSup.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.tbNumi, 0)
@@ -233,15 +234,17 @@ Partial Class F1_Servicio
         Me.MPanelSup.Controls.SetChildIndex(Me.lbCantClases, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.cbTipoCliente, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.tbCantClases, 0)
+        Me.MPanelSup.Controls.SetChildIndex(Me.lbLetra, 0)
+        Me.MPanelSup.Controls.SetChildIndex(Me.tbLetra, 0)
         '
         'PanelPrincipal
         '
-        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelPrincipal.Size = New System.Drawing.Size(1492, 428)
         '
         'GroupPanelBuscador
         '
-        Me.GroupPanelBuscador.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanelBuscador.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanelBuscador.Size = New System.Drawing.Size(1492, 244)
         '
         '
@@ -274,22 +277,22 @@ Partial Class F1_Servicio
         '
         'JGrM_Buscador
         '
-        Me.JGrM_Buscador.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.JGrM_Buscador.Margin = New System.Windows.Forms.Padding(4)
         Me.JGrM_Buscador.Size = New System.Drawing.Size(1486, 221)
         '
         'PanelUsuario
         '
         Me.PanelUsuario.Location = New System.Drawing.Point(510, 18)
-        Me.PanelUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'btnUltimo
         '
-        Me.btnUltimo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnUltimo.Margin = New System.Windows.Forms.Padding(2)
         '
         'MPanelUserAct
         '
         Me.MPanelUserAct.Location = New System.Drawing.Point(1292, 0)
-        Me.MPanelUserAct.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelUserAct.Margin = New System.Windows.Forms.Padding(4)
         '
         'tbTipo
         '
@@ -660,7 +663,7 @@ Partial Class F1_Servicio
         '
         Me.lbCantClases.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbCantClases.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCantClases.Location = New System.Drawing.Point(291, 133)
+        Me.lbCantClases.Location = New System.Drawing.Point(254, 133)
         Me.lbCantClases.Name = "lbCantClases"
         Me.lbCantClases.Size = New System.Drawing.Size(102, 23)
         Me.lbCantClases.TabIndex = 112
@@ -674,18 +677,46 @@ Partial Class F1_Servicio
         Me.tbCantClases.BackgroundStyle.Class = "DateTimeInputBackground"
         Me.tbCantClases.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbCantClases.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
-        Me.tbCantClases.Location = New System.Drawing.Point(397, 134)
+        Me.tbCantClases.Location = New System.Drawing.Point(360, 134)
         Me.tbCantClases.Margin = New System.Windows.Forms.Padding(2)
         Me.tbCantClases.Name = "tbCantClases"
-        Me.tbCantClases.Size = New System.Drawing.Size(106, 20)
+        Me.tbCantClases.Size = New System.Drawing.Size(64, 20)
         Me.tbCantClases.TabIndex = 113
+        '
+        'lbLetra
+        '
+        '
+        '
+        '
+        Me.lbLetra.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbLetra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbLetra.Location = New System.Drawing.Point(434, 134)
+        Me.lbLetra.Name = "lbLetra"
+        Me.lbLetra.Size = New System.Drawing.Size(50, 20)
+        Me.lbLetra.TabIndex = 114
+        Me.lbLetra.Text = "LETRA:"
+        '
+        'tbLetra
+        '
+        '
+        '
+        '
+        Me.tbLetra.Border.Class = "TextBoxBorder"
+        Me.tbLetra.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbLetra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbLetra.Location = New System.Drawing.Point(492, 133)
+        Me.tbLetra.MaxLength = 2
+        Me.tbLetra.Name = "tbLetra"
+        Me.tbLetra.PreventEnterBeep = True
+        Me.tbLetra.Size = New System.Drawing.Size(57, 22)
+        Me.tbLetra.TabIndex = 115
         '
         'F1_Servicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1492, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F1_Servicio"
         Me.Text = "F1_Servicio"
         Me.Controls.SetChildIndex(Me.SuperTabPrincipal, 0)
@@ -750,4 +781,6 @@ Partial Class F1_Servicio
     Friend WithEvents lbTipoCliente As DevComponents.DotNetBar.LabelX
     Friend WithEvents lbCantClases As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbCantClases As DevComponents.Editors.IntegerInput
+    Friend WithEvents tbLetra As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents lbLetra As DevComponents.DotNetBar.LabelX
 End Class

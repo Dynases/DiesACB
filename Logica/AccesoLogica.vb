@@ -1690,7 +1690,7 @@ Public Class AccesoLogica
     End Function
 
     Public Shared Function L_prServicioGrabar(ByRef _numi As String, _codigo As String, _desc As String, _precio As String, _tipo As String, _estado As String, _TCE0041 As DataTable, _TCE0042 As DataTable, _suc As Integer,
-                                              _TipoCliente As Integer, _cantclase As Integer) As Boolean
+                                              _TipoCliente As Integer, _cantclase As Integer, _letra As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -1709,6 +1709,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@edsuc", _suc))
         _listParam.Add(New Datos.DParametro("@tipoCliente", _TipoCliente))
         _listParam.Add(New Datos.DParametro("@cantclase", _cantclase))
+        _listParam.Add(New Datos.DParametro("@letra", _letra))
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE004", _listParam)
 
         If _Tabla.Rows.Count > 0 Then
@@ -1721,7 +1722,7 @@ Public Class AccesoLogica
         Return _resultado
     End Function
     Public Shared Function L_prServicioModificar(ByRef _numi As String, _codigo As String, _desc As String, _precio As String, _tipo As String, _estado As String, _TCE0041 As DataTable, _TCE0042 As DataTable, ByRef _mensaje As String, _suc As Integer,
-                                                   _TipoCliente As Integer, _cantclase As Integer) As Boolean
+                                                   _TipoCliente As Integer, _cantclase As Integer, _letra As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -1740,6 +1741,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@edsuc", _suc))
         _listParam.Add(New Datos.DParametro("@tipoCliente", _TipoCliente))
         _listParam.Add(New Datos.DParametro("@cantclase", _cantclase))
+        _listParam.Add(New Datos.DParametro("@letra", _letra))
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE004", _listParam)
 
         If _Tabla.Rows.Count > 0 Then
@@ -2106,12 +2108,23 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
+
     Public Shared Function L_prSucursalAyudaPorNumi(numi As String) As DataTable
 
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 5))
         _listParam.Add(New Datos.DParametro("@canumi", numi))
+        _listParam.Add(New Datos.DParametro("@cauact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_dg_TC001", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_prListarSucursal(Optional _Cadena As String = "", Optional _order As String = "") As DataTable
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 6))
         _listParam.Add(New Datos.DParametro("@cauact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_dg_TC001", _listParam)
 

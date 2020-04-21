@@ -125,7 +125,6 @@ Public Class PR_CronoClasesPracticas
                     i = i + 1
                 Next
 
-
             End If
         Else 'todos los instructores
             Dim fecha As String = tbFecha.Value.ToString("yyyy/MM/dd")

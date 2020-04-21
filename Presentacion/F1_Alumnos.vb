@@ -134,7 +134,7 @@ Public Class F1_Alumnos
 
     Private Sub _prCargarComboSucursal()
         Dim dt As New DataTable
-        dt = L_prSucursalAyuda()
+        dt = L_prListarSucursal()
 
         With tbSuc
             .DropDownList.Columns.Clear()

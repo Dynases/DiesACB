@@ -259,6 +259,8 @@ Public Class F1_Servicio
         'tbPrecio.IsInputReadOnly = False
         cbsucursal.ReadOnly = False
         tbCantClases.IsInputReadOnly = False
+        tbLetra.ReadOnly = False
+
         'grDetalle.Enabled = True
         grDetalle.AllowAddNew = InheritableBoolean.True
 
@@ -277,6 +279,7 @@ Public Class F1_Servicio
         tbEstado.IsReadOnly = True
         tbPrecio.ReadOnly = True
         tbCantClases.IsInputReadOnly = True
+        tbLetra.ReadOnly = True
 
         btnElimFila1.Visible = False
         btnEliminar2.Visible = False
@@ -292,6 +295,7 @@ Public Class F1_Servicio
         tbEstado.Value = True
         tbPrecio.Text = "0"
         tbCantClases.Value = 0
+        tbLetra.Text = ""
 
         'VACIO EL DETALLE
         _prCargarGridDetalle(-1)
@@ -323,7 +327,7 @@ Public Class F1_Servicio
 
         _prLlenarNumTiposPrecios()
         Dim dtDetalle2 As DataTable = CType(grDetalle2.DataSource, DataTable).DefaultView.ToTable(True, "eqnumi", "eqtce4", "eqtip1_4", "eqmes", "eqano", "eqprecio", "estado")
-        Dim res As Boolean = L_prServicioGrabar(tbNumi.Text, tbCodigo.Text, tbDesc.Text, tbPrecio.Text, tbTipo.Value, IIf(tbEstado.Value = True, 1, 0), CType(grDetalle.DataSource, DataTable), dtDetalle2, cbsucursal.Value, cbTipoCliente.Value, tbCantClases.Value)
+        Dim res As Boolean = L_prServicioGrabar(tbNumi.Text, tbCodigo.Text, tbDesc.Text, tbPrecio.Text, tbTipo.Value, IIf(tbEstado.Value = True, 1, 0), CType(grDetalle.DataSource, DataTable), dtDetalle2, cbsucursal.Value, cbTipoCliente.Value, tbCantClases.Value, tbLetra.Text)
         If res Then
             ToastNotification.Show(Me, "Codigo de servicio ".ToUpper + tbNumi.Text + " Grabado con Exito.".ToUpper, My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
             tbCodigo.Focus()
@@ -342,7 +346,7 @@ Public Class F1_Servicio
         Dim mensaje As String = String.Empty
         _prLlenarNumTiposPrecios()
         Dim dtDetalle2 As DataTable = CType(grDetalle2.DataSource, DataTable).DefaultView.ToTable(True, "eqnumi", "eqtce4", "eqtip1_4", "eqmes", "eqano", "eqprecio", "estado")
-        Dim res As Boolean = L_prServicioModificar(tbNumi.Text, tbCodigo.Text, tbDesc.Text, tbPrecio.Text, tbTipo.Value, IIf(tbEstado.Value = True, 1, 0), CType(grDetalle.DataSource, DataTable), dtDetalle2, mensaje, cbsucursal.Value, cbTipoCliente.Value, tbCantClases.Value)
+        Dim res As Boolean = L_prServicioModificar(tbNumi.Text, tbCodigo.Text, tbDesc.Text, tbPrecio.Text, tbTipo.Value, IIf(tbEstado.Value = True, 1, 0), CType(grDetalle.DataSource, DataTable), dtDetalle2, mensaje, cbsucursal.Value, cbTipoCliente.Value, tbCantClases.Value, tbLetra.Text)
         If res Then
             ToastNotification.Show(Me, "Codigo de servicio ".ToUpper + tbNumi.Text + " modificado con Exito.".ToUpper, My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
         Else
@@ -427,9 +431,9 @@ Public Class F1_Servicio
         Dim listEstCeldas As New List(Of Modelos.Celda)
         listEstCeldas.Add(New Modelos.Celda("ednumi", True, "ID", 70))
         listEstCeldas.Add(New Modelos.Celda("edcod", True, "COD", 70))
-        listEstCeldas.Add(New Modelos.Celda("eddesc", True, "DESCRIPCION", 300))
+        listEstCeldas.Add(New Modelos.Celda("eddesc", True, "DESCRIPCION", 350))
         listEstCeldas.Add(New Modelos.Celda("edtipo", False))
-        listEstCeldas.Add(New Modelos.Celda("tipodesc", True, "MODULO", 100))
+        listEstCeldas.Add(New Modelos.Celda("tipodesc", True, "MODULO", 150))
         listEstCeldas.Add(New Modelos.Celda("edest", False))
         listEstCeldas.Add(New Modelos.Celda("edest2", True, "ESTADO", 70))
         listEstCeldas.Add(New Modelos.Celda("edprec", True, "PRECIO", 70, "0.00"))
@@ -441,6 +445,7 @@ Public Class F1_Servicio
         listEstCeldas.Add(New Modelos.Celda("tipoCliente", True, "TipoCliente", 140))
         listEstCeldas.Add(New Modelos.Celda("sucursal", True, "SUCURSAL", 250))
         listEstCeldas.Add(New Modelos.Celda("cantclase", False))
+        listEstCeldas.Add(New Modelos.Celda("letra", False))
 
         Return listEstCeldas
     End Function
@@ -463,7 +468,7 @@ Public Class F1_Servicio
 
             If tbTipo.Value = 1 Then
                 tbCantClases.Value = IIf(IsDBNull(.GetValue("cantclase")) = True, 0, .GetValue("cantclase"))
-
+                tbLetra.Text = IIf(IsDBNull(.GetValue("letra")) = True, " ", .GetValue("letra"))
             End If
 
             'CARGAR DETALLE
@@ -568,6 +573,8 @@ Public Class F1_Servicio
 
                 lbCantClases.Visible = False
                 tbCantClases.Visible = False
+                lbLetra.Visible = False
+                tbLetra.Visible = False
 
             ElseIf tbTipo.Value = 1 Then
                 gpDetalle2.Visible = False
@@ -577,6 +584,8 @@ Public Class F1_Servicio
 
                 lbCantClases.Visible = True
                 tbCantClases.Visible = True
+                lbLetra.Visible = True
+                tbLetra.Visible = True
             Else
                 gpDetalle2.Visible = False
                 gpDetalle1.Visible = True
@@ -585,6 +594,8 @@ Public Class F1_Servicio
 
                 lbCantClases.Visible = False
                 tbCantClases.Visible = False
+                lbLetra.Visible = False
+                tbLetra.Visible = False
             End If
 
         End If
@@ -659,11 +670,6 @@ Public Class F1_Servicio
         End If
     End Sub
 
-    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
 
-    End Sub
 
-    Private Sub MultiColumnCombo1_ValueChanged(sender As Object, e As EventArgs) Handles cbsucursal.ValueChanged
-
-    End Sub
 End Class
