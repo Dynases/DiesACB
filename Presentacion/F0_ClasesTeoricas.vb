@@ -98,7 +98,7 @@ Public Class F0_ClasesTeoricas
 
         With grAsignacion.RootTable.Columns("cbnumi")
             .Caption = "COD. ALUM".ToUpper
-            .Width = 40
+            .Width = 100
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .EditType = EditType.NoEdit
@@ -106,7 +106,7 @@ Public Class F0_ClasesTeoricas
 
         With grAsignacion.RootTable.Columns("cbnom2")
             .Caption = "alumno".ToUpper
-            .Width = 300
+            .Width = 330
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .EditType = EditType.NoEdit
         End With

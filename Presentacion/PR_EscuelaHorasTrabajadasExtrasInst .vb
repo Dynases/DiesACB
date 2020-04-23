@@ -261,7 +261,8 @@ Public Class PR_EscuelaHorasTrabajadasExtrasInst
             'grabar horario
             Dim frmAyuda As Modelos.ModeloAyuda
             Dim dt As DataTable
-            dt = L_prPersonaAyudaGeneral(gi_LibPERSTIPOInstructor)
+            'dt = L_prPersonaAyudaGeneral(gi_LibPERSTIPOInstructor)
+            dt = L_prPersonaAyudaGeneralPorSucursal(11, gi_LibPERSTIPOInstructor)
 
             Dim listEstCeldas As New List(Of Modelos.Celda)
             listEstCeldas.Add(New Modelos.Celda("panumi", True, "Codigo".ToUpper, 70))
