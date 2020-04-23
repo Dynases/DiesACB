@@ -10,7 +10,8 @@ Public Class PR_CronoClasesPracticas
         tbFiltrarInst.Value = False
         tbInstr.Enabled = False
         MReportViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
-        _prCargarComboSucursal()
+        '_prCargarComboSucursal()
+        _prCargarComboHorarioSucursal()
         _prCargarComboInstructores()
     End Sub
     Public Sub _prCargarComboInstructores()
@@ -60,9 +61,38 @@ Public Class PR_CronoClasesPracticas
         End If
 
     End Sub
+    Private Sub _prCargarComboHorarioSucursal()
+        Dim dt As New DataTable
+        dt = L_prHorarioSucursal()
+
+        With tbSuc
+            .DropDownList.Columns.Clear()
+
+            .DropDownList.Columns.Add("cbsuc").Width = 70
+            .DropDownList.Columns("cbsuc").Caption = "COD"
+
+            .DropDownList.Columns.Add("cadesc").Width = 300
+            .DropDownList.Columns("cadesc").Caption = "descripcion".ToUpper
+
+            .ValueMember = "cbsuc"
+            .DisplayMember = "cadesc"
+            .DataSource = dt
+            .Refresh()
+        End With
+
+        If dt.Rows.Count > 0 Then
+            'tbSuc.Value = gi_userSuc
+            tbSuc.SelectedIndex = 0
+            If gb_userTodasSuc = False Then
+                tbSuc.ReadOnly = True
+            End If
+
+        End If
+
+    End Sub
     Private Sub _prCargarReporte()
         If tbSuc.SelectedIndex < 0 Then
-            ToastNotification.Show(Me, "seleccione sucursal!".ToUpper, My.Resources.INFORMATION, 2000, eToastGlowColor.Blue, eToastPosition.BottomLeft)
+            ToastNotification.Show(Me, "seleccione horario-sucursal!".ToUpper, My.Resources.INFORMATION, 2000, eToastGlowColor.Blue, eToastPosition.BottomLeft)
             Exit Sub
         End If
         Dim dtInstructoresHoras As New DataTable
@@ -90,22 +120,28 @@ Public Class PR_CronoClasesPracticas
                         If hora = dtHorasGrabadas.Rows(k).Item("ehhor") Then
                             dtInstructoresHoras.Rows(i).Item("nro") = j + 1
                             dtInstructoresHoras.Rows(i).Item("cbnom2") = dtHorasGrabadas.Rows(k).Item("cbnom2")
-                            If (dtHorasGrabadas.Rows(k).Item("egest") = 2) Then
-                                dtInstructoresHoras.Rows(i).Item("nroClase") = "R" + dtHorasGrabadas.Rows(k).Item("nroClase").ToString
+                            'If (dtHorasGrabadas.Rows(k).Item("egest") = 2) Then
+                            '    dtInstructoresHoras.Rows(i).Item("nroClase") = "R" + dtHorasGrabadas.Rows(k).Item("nroClase").ToString
+                            'Else
+                            '    dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("etletra") + dtHorasGrabadas.Rows(k).Item("nroClase").ToString
+                            'End If
+
+                            If (dtHorasGrabadas.Rows(k).Item("etletra") = "D") Then
+                                dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("etletra")
                             Else
-                                dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("nroClase").ToString
+                                dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("etletra") + dtHorasGrabadas.Rows(k).Item("nroClase").ToString
                             End If
 
                             '---------------------------------------------------------
                             'PARA ACTUALIZAR BIEN EL NUMERO DE CLASE
-                            Dim dtFechasAntDeOtroInstructor As DataTable = L_prClasesPracDetFechasPorAlumnoYFechaGeneralContablesMenorAUnaFechaYHoraX(tbInstr.Value, dtHorasGrabadas.Rows(k).Item("egalum"), fecha) ', dtFechas.Rows(0).Item("ehhor")
+                            Dim dtFechasAntDeOtroInstructor As DataTable = L_prClasesPracDetFechasPorAlumnoYFechaGeneralContablesMenorAUnaFechaYHoraXNuevo(tbInstr.Value, dtHorasGrabadas.Rows(k).Item("egalum"), fecha, dtHorasGrabadas.Rows(k).Item("evservicio")) ', dtFechas.Rows(0).Item("ehhor")
                             If dtFechasAntDeOtroInstructor.Rows.Count > 0 Then
                                 Dim num As Integer = dtHorasGrabadas.Rows(k).Item("nroClase")
                                 num = num + dtFechasAntDeOtroInstructor.Rows.Count
-                                If (dtHorasGrabadas.Rows(k).Item("egest") = 2) Then
-                                    dtInstructoresHoras.Rows(i).Item("nroClase") = "R" + num.ToString
+                                If (dtHorasGrabadas.Rows(k).Item("etletra") = "D") Then
+                                    dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("etletra")
                                 Else
-                                    dtInstructoresHoras.Rows(i).Item("nroClase") = num.ToString
+                                    dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("etletra") + num.ToString
                                 End If
                             End If
                             '---------------------------------------------------------
@@ -143,21 +179,21 @@ Public Class PR_CronoClasesPracticas
                         If hora = dtHorasGrabadas.Rows(k).Item("ehhor") Then
                             dtInstructoresHoras.Rows(i).Item("nro") = j + 1
                             dtInstructoresHoras.Rows(i).Item("cbnom2") = dtHorasGrabadas.Rows(k).Item("cbnom2")
-                            If (dtHorasGrabadas.Rows(k).Item("egest") = 2) Then
-                                dtInstructoresHoras.Rows(i).Item("nroClase") = "R" + dtHorasGrabadas.Rows(k).Item("nroClase").ToString
+                            If (dtHorasGrabadas.Rows(k).Item("etletra") = "D") Then
+                                dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("etletra").ToString
                             Else
-                                dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("nroClase").ToString
+                                dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("etletra").ToString + dtHorasGrabadas.Rows(k).Item("nroClase").ToString
                             End If
                             '---------------------------------------------------------
                             'PARA ACTUALIZAR BIEN EL NUMERO DE CLASE
-                            Dim dtFechasAntDeOtroInstructor As DataTable = L_prClasesPracDetFechasPorAlumnoYFechaGeneralContablesMenorAUnaFechaYHoraX(fila.Item("panumi"), dtHorasGrabadas.Rows(k).Item("egalum"), fecha) ', dtFechas.Rows(0).Item("ehhor")
+                            Dim dtFechasAntDeOtroInstructor As DataTable = L_prClasesPracDetFechasPorAlumnoYFechaGeneralContablesMenorAUnaFechaYHoraXNuevo(fila.Item("panumi"), dtHorasGrabadas.Rows(k).Item("egalum"), fecha, dtHorasGrabadas.Rows(k).Item("evservicio")) ', dtFechas.Rows(0).Item("ehhor")
                             If dtFechasAntDeOtroInstructor.Rows.Count > 0 Then
                                 Dim num As Integer = dtHorasGrabadas.Rows(k).Item("nroClase")
                                 num = num + dtFechasAntDeOtroInstructor.Rows.Count
-                                If (dtHorasGrabadas.Rows(k).Item("egest") = 2) Then
-                                    dtInstructoresHoras.Rows(i).Item("nroClase") = "R" + num.ToString
+                                If (dtHorasGrabadas.Rows(k).Item("etletra") = "D") Then
+                                    dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("etletra")
                                 Else
-                                    dtInstructoresHoras.Rows(i).Item("nroClase") = num.ToString
+                                    dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("etletra").ToString + num.ToString
                                 End If
                             End If
                             '---------------------------------------------------------

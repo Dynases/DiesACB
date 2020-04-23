@@ -74,21 +74,21 @@ Partial Class PR_CronoClasesPracticas
         '
         'SuperTabControlPanelBuscador
         '
-        Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 28)
-        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(1179, 662)
+        Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 23)
+        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(884, 538)
         '
         'SuperTabControlPanelRegistro
         '
-        Me.SuperTabControlPanelRegistro.Location = New System.Drawing.Point(0, 28)
-        Me.SuperTabControlPanelRegistro.Size = New System.Drawing.Size(1179, 662)
+        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelInferior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelIzq, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelPrincipal, 0)
         '
         'PanelSuperior
         '
-        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.PanelSuperior.Size = New System.Drawing.Size(443, 89)
+        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelSuperior.Size = New System.Drawing.Size(332, 72)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelSuperior.Style.BackColor1.Color = System.Drawing.Color.Yellow
         Me.PanelSuperior.Style.BackColor2.Color = System.Drawing.Color.Khaki
@@ -99,7 +99,7 @@ Partial Class PR_CronoClasesPracticas
         '
         'PanelInferior
         '
-        Me.PanelInferior.Location = New System.Drawing.Point(0, 618)
+        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Gold
         Me.PanelInferior.Style.BackColor2.Color = System.Drawing.Color.Gold
@@ -139,23 +139,22 @@ Partial Class PR_CronoClasesPracticas
         '
         'PanelPrincipal
         '
-        Me.PanelPrincipal.Location = New System.Drawing.Point(443, 0)
-        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.PanelPrincipal.Size = New System.Drawing.Size(736, 618)
+        Me.PanelPrincipal.Location = New System.Drawing.Point(332, 0)
+        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelPrincipal.Size = New System.Drawing.Size(552, 500)
         '
         'MReportViewer
         '
-        Me.MReportViewer.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MReportViewer.Size = New System.Drawing.Size(736, 618)
-        Me.MReportViewer.ToolPanelWidth = 267
+        Me.MReportViewer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MReportViewer.Size = New System.Drawing.Size(552, 500)
         '
         'MGPFiltros
         '
         Me.MGPFiltros.Controls.Add(Me.Panel1)
         Me.MGPFiltros.Controls.Add(Me.GroupPanel1)
         Me.MGPFiltros.Controls.Add(Me.GroupPanel2)
-        Me.MGPFiltros.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MGPFiltros.Size = New System.Drawing.Size(443, 529)
+        Me.MGPFiltros.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MGPFiltros.Size = New System.Drawing.Size(332, 428)
         '
         '
         '
@@ -187,8 +186,8 @@ Partial Class PR_CronoClasesPracticas
         '
         'PanelIzq
         '
-        Me.PanelIzq.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.PanelIzq.Size = New System.Drawing.Size(443, 618)
+        Me.PanelIzq.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelIzq.Size = New System.Drawing.Size(332, 500)
         Me.PanelIzq.Controls.SetChildIndex(Me.PanelSuperior, 0)
         Me.PanelIzq.Controls.SetChildIndex(Me.MGPFiltros, 0)
         '
@@ -202,10 +201,9 @@ Partial Class PR_CronoClasesPracticas
         Me.GroupPanel1.Controls.Add(Me.LabelX1)
         Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupPanel1.Location = New System.Drawing.Point(0, 85)
-        Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanel1.Location = New System.Drawing.Point(0, 69)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(437, 118)
+        Me.GroupPanel1.Size = New System.Drawing.Size(326, 96)
         '
         '
         '
@@ -241,12 +239,11 @@ Partial Class PR_CronoClasesPracticas
         Me.tbInstr.DesignTimeLayout = tbInstr_DesignTimeLayout
         Me.tbInstr.Enabled = False
         Me.tbInstr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbInstr.Location = New System.Drawing.Point(8, 49)
-        Me.tbInstr.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbInstr.Location = New System.Drawing.Point(6, 40)
         Me.tbInstr.Name = "tbInstr"
         Me.tbInstr.SelectedIndex = -1
         Me.tbInstr.SelectedItem = Nothing
-        Me.tbInstr.Size = New System.Drawing.Size(407, 26)
+        Me.tbInstr.Size = New System.Drawing.Size(305, 22)
         Me.tbInstr.TabIndex = 45
         '
         'tbFiltrarInst
@@ -255,10 +252,9 @@ Partial Class PR_CronoClasesPracticas
         '
         '
         Me.tbFiltrarInst.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbFiltrarInst.Location = New System.Drawing.Point(101, 15)
-        Me.tbFiltrarInst.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbFiltrarInst.Location = New System.Drawing.Point(76, 12)
         Me.tbFiltrarInst.Name = "tbFiltrarInst"
-        Me.tbFiltrarInst.Size = New System.Drawing.Size(105, 27)
+        Me.tbFiltrarInst.Size = New System.Drawing.Size(79, 22)
         Me.tbFiltrarInst.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbFiltrarInst.TabIndex = 44
         '
@@ -270,10 +266,9 @@ Partial Class PR_CronoClasesPracticas
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX1.Location = New System.Drawing.Point(8, 14)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX1.Location = New System.Drawing.Point(6, 11)
         Me.LabelX1.Name = "LabelX1"
-        Me.LabelX1.Size = New System.Drawing.Size(85, 28)
+        Me.LabelX1.Size = New System.Drawing.Size(64, 23)
         Me.LabelX1.TabIndex = 41
         Me.LabelX1.Text = "FILTRAR:"
         '
@@ -283,10 +278,9 @@ Partial Class PR_CronoClasesPracticas
         Me.Panel1.Controls.Add(Me.LabelX12)
         Me.Panel1.Controls.Add(Me.tbFecha)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 203)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Location = New System.Drawing.Point(0, 165)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(437, 73)
+        Me.Panel1.Size = New System.Drawing.Size(326, 59)
         Me.Panel1.TabIndex = 46
         '
         'LabelX12
@@ -297,10 +291,9 @@ Partial Class PR_CronoClasesPracticas
         '
         Me.LabelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX12.Location = New System.Drawing.Point(11, 22)
-        Me.LabelX12.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX12.Location = New System.Drawing.Point(8, 18)
         Me.LabelX12.Name = "LabelX12"
-        Me.LabelX12.Size = New System.Drawing.Size(68, 28)
+        Me.LabelX12.Size = New System.Drawing.Size(51, 23)
         Me.LabelX12.TabIndex = 40
         Me.LabelX12.Text = "FECHA:"
         '
@@ -308,10 +301,9 @@ Partial Class PR_CronoClasesPracticas
         '
         Me.tbFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.tbFecha.Location = New System.Drawing.Point(87, 23)
-        Me.tbFecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbFecha.Location = New System.Drawing.Point(65, 19)
         Me.tbFecha.Name = "tbFecha"
-        Me.tbFecha.Size = New System.Drawing.Size(161, 26)
+        Me.tbFecha.Size = New System.Drawing.Size(122, 22)
         Me.tbFecha.TabIndex = 39
         '
         'GroupPanel2
@@ -323,9 +315,8 @@ Partial Class PR_CronoClasesPracticas
         Me.GroupPanel2.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupPanel2.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(437, 85)
+        Me.GroupPanel2.Size = New System.Drawing.Size(326, 69)
         '
         '
         '
@@ -353,28 +344,27 @@ Partial Class PR_CronoClasesPracticas
         '
         Me.GroupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel2.TabIndex = 47
-        Me.GroupPanel2.Text = "SUCURSAL"
+        Me.GroupPanel2.Text = "HORARIO-SUCURSAL"
         '
         'tbSuc
         '
         tbSuc_DesignTimeLayout.LayoutString = resources.GetString("tbSuc_DesignTimeLayout.LayoutString")
         Me.tbSuc.DesignTimeLayout = tbSuc_DesignTimeLayout
         Me.tbSuc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbSuc.Location = New System.Drawing.Point(8, 14)
-        Me.tbSuc.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbSuc.Location = New System.Drawing.Point(6, 11)
         Me.tbSuc.Name = "tbSuc"
         Me.tbSuc.SelectedIndex = -1
         Me.tbSuc.SelectedItem = Nothing
-        Me.tbSuc.Size = New System.Drawing.Size(288, 26)
+        Me.tbSuc.Size = New System.Drawing.Size(216, 22)
         Me.tbSuc.TabIndex = 111
         '
         'PR_CronoClasesPracticas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1179, 690)
+        Me.ClientSize = New System.Drawing.Size(884, 561)
         Me.Location = New System.Drawing.Point(0, 0)
-        Me.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "PR_CronoClasesPracticas"
         Me.Text = "PR_CronoClasesPracticas"
         Me.Controls.SetChildIndex(Me.SuperTabPrincipal, 0)
