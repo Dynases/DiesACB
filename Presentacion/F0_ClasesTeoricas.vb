@@ -193,12 +193,18 @@ Public Class F0_ClasesTeoricas
 
         Next
         If dt.Rows.Count = 0 Then
+            ToastNotification.Show(Me, "NO HAY DATOS PARA MOSTRAR, DEBE COLOCAR EL NRO. DE GRUPO CORRECTAMENTE!!!",
+                                       My.Resources.INFORMATION, 3000,
+                                       eToastGlowColor.Blue,
+                                       eToastPosition.BottomCenter)
             Return
         End If
 
         'ahora lo mando al visualizador
         P_Global.Visualizador = New Visualizador
         objrep.SetDataSource(dt)
+        objrep.SetParameterValue("CantAlumnos", dt.Rows.Count)
+        objrep.SetParameterValue("Grupo", tbNroGrupo.Text)
         P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
         P_Global.Visualizador.Show() 'Comentar
         P_Global.Visualizador.BringToFront() 'Comentar

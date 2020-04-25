@@ -120,6 +120,7 @@ Public Class PR_CronoClasesPracticas
                         If hora = dtHorasGrabadas.Rows(k).Item("ehhor") Then
                             dtInstructoresHoras.Rows(i).Item("nro") = j + 1
                             dtInstructoresHoras.Rows(i).Item("cbnom2") = dtHorasGrabadas.Rows(k).Item("cbnom2")
+                            dtInstructoresHoras.Rows(i).Item("Factura") = dtHorasGrabadas.Rows(k).Item("CodFactura")
                             'If (dtHorasGrabadas.Rows(k).Item("egest") = 2) Then
                             '    dtInstructoresHoras.Rows(i).Item("nroClase") = "R" + dtHorasGrabadas.Rows(k).Item("nroClase").ToString
                             'Else
@@ -179,6 +180,7 @@ Public Class PR_CronoClasesPracticas
                         If hora = dtHorasGrabadas.Rows(k).Item("ehhor") Then
                             dtInstructoresHoras.Rows(i).Item("nro") = j + 1
                             dtInstructoresHoras.Rows(i).Item("cbnom2") = dtHorasGrabadas.Rows(k).Item("cbnom2")
+                            dtInstructoresHoras.Rows(i).Item("Factura") = dtHorasGrabadas.Rows(k).Item("CodFactura")
                             If (dtHorasGrabadas.Rows(k).Item("etletra") = "D") Then
                                 dtInstructoresHoras.Rows(i).Item("nroClase") = dtHorasGrabadas.Rows(k).Item("etletra").ToString
                             Else
