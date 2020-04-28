@@ -434,12 +434,13 @@ Partial Class F1_Alumnos
         tbEstCivil_DesignTimeLayout.LayoutString = resources.GetString("tbEstCivil_DesignTimeLayout.LayoutString")
         Me.tbEstCivil.DesignTimeLayout = tbEstCivil_DesignTimeLayout
         Me.tbEstCivil.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbEstCivil.Location = New System.Drawing.Point(108, 193)
+        Me.tbEstCivil.Location = New System.Drawing.Point(369, 160)
         Me.tbEstCivil.Name = "tbEstCivil"
         Me.tbEstCivil.SelectedIndex = -1
         Me.tbEstCivil.SelectedItem = Nothing
         Me.tbEstCivil.Size = New System.Drawing.Size(129, 22)
-        Me.tbEstCivil.TabIndex = 5
+        Me.tbEstCivil.TabIndex = 548
+        Me.tbEstCivil.Visible = False
         '
         'LabelX16
         '
@@ -448,11 +449,12 @@ Partial Class F1_Alumnos
         '
         Me.LabelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX16.Location = New System.Drawing.Point(18, 189)
+        Me.LabelX16.Location = New System.Drawing.Point(279, 156)
         Me.LabelX16.Name = "LabelX16"
         Me.LabelX16.Size = New System.Drawing.Size(87, 23)
         Me.LabelX16.TabIndex = 83
         Me.LabelX16.Text = "EST. CIVIL:"
+        Me.LabelX16.Visible = False
         '
         'tbEstado
         '
@@ -573,7 +575,7 @@ Partial Class F1_Alumnos
         Me.tbTipo.SelectedIndex = -1
         Me.tbTipo.SelectedItem = Nothing
         Me.tbTipo.Size = New System.Drawing.Size(141, 22)
-        Me.tbTipo.TabIndex = 10
+        Me.tbTipo.TabIndex = 7
         '
         'LabelX9
         '
@@ -600,6 +602,7 @@ Partial Class F1_Alumnos
         Me.LabelX8.Size = New System.Drawing.Size(75, 23)
         Me.LabelX8.TabIndex = 69
         Me.LabelX8.Text = "E-MAIL:"
+        Me.LabelX8.Visible = False
         '
         'tbEmail
         '
@@ -613,7 +616,8 @@ Partial Class F1_Alumnos
         Me.tbEmail.Name = "tbEmail"
         Me.tbEmail.PreventEnterBeep = True
         Me.tbEmail.Size = New System.Drawing.Size(169, 22)
-        Me.tbEmail.TabIndex = 7
+        Me.tbEmail.TabIndex = 654
+        Me.tbEmail.Visible = False
         '
         'LabelX7
         '
@@ -622,7 +626,7 @@ Partial Class F1_Alumnos
         '
         Me.LabelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX7.Location = New System.Drawing.Point(282, 160)
+        Me.LabelX7.Location = New System.Drawing.Point(21, 160)
         Me.LabelX7.Name = "LabelX7"
         Me.LabelX7.Size = New System.Drawing.Size(75, 23)
         Me.LabelX7.TabIndex = 67
@@ -636,11 +640,11 @@ Partial Class F1_Alumnos
         Me.tbTelef2.Border.Class = "TextBoxBorder"
         Me.tbTelef2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbTelef2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTelef2.Location = New System.Drawing.Point(369, 163)
+        Me.tbTelef2.Location = New System.Drawing.Point(108, 163)
         Me.tbTelef2.Name = "tbTelef2"
         Me.tbTelef2.PreventEnterBeep = True
         Me.tbTelef2.Size = New System.Drawing.Size(100, 22)
-        Me.tbTelef2.TabIndex = 6
+        Me.tbTelef2.TabIndex = 4
         '
         'LabelX6
         '
@@ -649,7 +653,7 @@ Partial Class F1_Alumnos
         '
         Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX6.Location = New System.Drawing.Point(19, 160)
+        Me.LabelX6.Location = New System.Drawing.Point(19, 190)
         Me.LabelX6.Name = "LabelX6"
         Me.LabelX6.Size = New System.Drawing.Size(75, 23)
         Me.LabelX6.TabIndex = 65
@@ -663,11 +667,11 @@ Partial Class F1_Alumnos
         Me.tbTelef1.Border.Class = "TextBoxBorder"
         Me.tbTelef1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbTelef1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTelef1.Location = New System.Drawing.Point(108, 163)
+        Me.tbTelef1.Location = New System.Drawing.Point(108, 193)
         Me.tbTelef1.Name = "tbTelef1"
         Me.tbTelef1.PreventEnterBeep = True
         Me.tbTelef1.Size = New System.Drawing.Size(129, 22)
-        Me.tbTelef1.TabIndex = 4
+        Me.tbTelef1.TabIndex = 5
         '
         'LabelX5
         '
@@ -859,6 +863,7 @@ Partial Class F1_Alumnos
         Me.tbProf.SelectedItem = Nothing
         Me.tbProf.Size = New System.Drawing.Size(141, 22)
         Me.tbProf.TabIndex = 11
+        Me.tbProf.Visible = False
         '
         'LabelX13
         '
@@ -872,6 +877,7 @@ Partial Class F1_Alumnos
         Me.LabelX13.Size = New System.Drawing.Size(115, 23)
         Me.LabelX13.TabIndex = 88
         Me.LabelX13.Text = "PROFESION:"
+        Me.LabelX13.Visible = False
         '
         'OfdFoto
         '
@@ -1165,7 +1171,7 @@ Partial Class F1_Alumnos
         Me.tbSuc.SelectedIndex = -1
         Me.tbSuc.SelectedItem = Nothing
         Me.tbSuc.Size = New System.Drawing.Size(293, 22)
-        Me.tbSuc.TabIndex = 8
+        Me.tbSuc.TabIndex = 6
         '
         'LabelX23
         '
@@ -1186,7 +1192,7 @@ Partial Class F1_Alumnos
         Me.btEstadoCivil.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
         Me.btEstadoCivil.Image = Global.Presentacion.My.Resources.Resources.NUEVO
         Me.btEstadoCivil.ImageFixedSize = New System.Drawing.Size(28, 28)
-        Me.btEstadoCivil.Location = New System.Drawing.Point(243, 189)
+        Me.btEstadoCivil.Location = New System.Drawing.Point(504, 156)
         Me.btEstadoCivil.Name = "btEstadoCivil"
         Me.btEstadoCivil.Size = New System.Drawing.Size(34, 29)
         Me.btEstadoCivil.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -1242,7 +1248,7 @@ Partial Class F1_Alumnos
         Me.tbLugNac.SelectedIndex = -1
         Me.tbLugNac.SelectedItem = Nothing
         Me.tbLugNac.Size = New System.Drawing.Size(141, 22)
-        Me.tbLugNac.TabIndex = 12
+        Me.tbLugNac.TabIndex = 8
         '
         'PrintDialog1
         '

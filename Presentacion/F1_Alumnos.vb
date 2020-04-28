@@ -70,6 +70,7 @@ Public Class F1_Alumnos
             .DataSource = dt
             .Refresh()
         End With
+
     End Sub
 
     Private Sub _prCargarComboSocios()
@@ -467,14 +468,14 @@ Public Class F1_Alumnos
             MEP.SetError(tbCi, "")
         End If
 
-        If tbDireccion.Text = String.Empty Then
-            tbDireccion.BackColor = Color.Red
-            MEP.SetError(tbDireccion, "ingrese direccion del alumno!".ToUpper)
-            _ok = False
-        Else
-            tbDireccion.BackColor = Color.White
-            MEP.SetError(tbDireccion, "")
-        End If
+        'If tbDireccion.Text = String.Empty Then
+        '    tbDireccion.BackColor = Color.Red
+        '    MEP.SetError(tbDireccion, "ingrese direccion del alumno!".ToUpper)
+        '    _ok = False
+        'Else
+        '    tbDireccion.BackColor = Color.White
+        '    MEP.SetError(tbDireccion, "")
+        'End If
 
         'If tbNroFactura.Text = String.Empty Then
         '    tbNroFactura.BackColor = Color.Red
@@ -503,14 +504,14 @@ Public Class F1_Alumnos
             MEP.SetError(tbNombre, "")
         End If
 
-        If tbTelef1.Text = String.Empty Then
-            tbTelef1.BackColor = Color.Red
-            MEP.SetError(tbTelef1, "ingrese telefono del alumno!".ToUpper)
-            _ok = False
-        Else
-            tbTelef1.BackColor = Color.White
-            MEP.SetError(tbTelef1, "")
-        End If
+        'If tbTelef1.Text = String.Empty Then
+        '    tbTelef1.BackColor = Color.Red
+        '    MEP.SetError(tbTelef1, "ingrese telefono del alumno!".ToUpper)
+        '    _ok = False
+        'Else
+        '    tbTelef1.BackColor = Color.White
+        '    MEP.SetError(tbTelef1, "")
+        'End If
 
         If tbTelef2.Text = String.Empty Then
             tbTelef2.BackColor = Color.Red
@@ -548,23 +549,23 @@ Public Class F1_Alumnos
             MEP.SetError(tbTipo, "")
         End If
 
-        If tbProf.SelectedIndex < 0 Then
-            tbProf.BackColor = Color.Red
-            MEP.SetError(tbProf, "seleccione la profesion del alumno!".ToUpper)
-            _ok = False
-        Else
-            tbProf.BackColor = Color.White
-            MEP.SetError(tbProf, "")
-        End If
+        'If tbProf.SelectedIndex < 0 Then
+        '    tbProf.BackColor = Color.Red
+        '    MEP.SetError(tbProf, "seleccione la profesion del alumno!".ToUpper)
+        '    _ok = False
+        'Else
+        '    tbProf.BackColor = Color.White
+        '    MEP.SetError(tbProf, "")
+        'End If
 
-        If tbEstCivil.SelectedIndex < 0 Then
-            tbEstCivil.BackColor = Color.Red
-            MEP.SetError(tbEstCivil, "seleccione el estado civil del alumno!".ToUpper)
-            _ok = False
-        Else
-            tbEstCivil.BackColor = Color.White
-            MEP.SetError(tbEstCivil, "")
-        End If
+        'If tbEstCivil.SelectedIndex < 0 Then
+        '    tbEstCivil.BackColor = Color.Red
+        '    MEP.SetError(tbEstCivil, "seleccione el estado civil del alumno!".ToUpper)
+        '    _ok = False
+        'Else
+        '    tbEstCivil.BackColor = Color.White
+        '    MEP.SetError(tbEstCivil, "")
+        'End If
 
         If tbSuc.SelectedIndex < 0 Then
             tbSuc.BackColor = Color.Red
@@ -631,23 +632,23 @@ Public Class F1_Alumnos
         listEstCeldas.Add(New Modelos.Celda("cbci", True, "CI", 70))
         listEstCeldas.Add(New Modelos.Celda("cbnom", True, "NOMBRE", 200))
         listEstCeldas.Add(New Modelos.Celda("cbape", True, "APELLIDO", 200))
-        listEstCeldas.Add(New Modelos.Celda("cbdirec", True, "DIRECCION", 200))
-        listEstCeldas.Add(New Modelos.Celda("cbtelef1", True, "TELEFONO", 100))
+        listEstCeldas.Add(New Modelos.Celda("cbdirec", False, "DIRECCION", 200))
+        listEstCeldas.Add(New Modelos.Celda("cbtelef1", False, "TELEFONO", 100))
         listEstCeldas.Add(New Modelos.Celda("cbtelef2", True, "CELULAR", 100))
-        listEstCeldas.Add(New Modelos.Celda("cbemail", True, "E-MAIL", 100))
+        listEstCeldas.Add(New Modelos.Celda("cbemail", False, "E-MAIL", 100))
         listEstCeldas.Add(New Modelos.Celda("cbfot", False))
         listEstCeldas.Add(New Modelos.Celda("cbtipo", False))
         listEstCeldas.Add(New Modelos.Celda("tipodesc", True, "TIPO", 120))
         listEstCeldas.Add(New Modelos.Celda("cbprof", False))
-        listEstCeldas.Add(New Modelos.Celda("profdesc", True, "PROFESION", 150))
+        listEstCeldas.Add(New Modelos.Celda("profdesc", False, "PROFESION", 150))
         listEstCeldas.Add(New Modelos.Celda("cbfnac", True, "FEC. NACIMIENTO", 100))
         listEstCeldas.Add(New Modelos.Celda("cbfing", True, "FEC. INGRESO", 100))
         listEstCeldas.Add(New Modelos.Celda("cblnac", False))
-        listEstCeldas.Add(New Modelos.Celda("cblnac2", True, "NACIONALIDAD", 120))
+        listEstCeldas.Add(New Modelos.Celda("cblnac2", False, "NACIONALIDAD", 120))
         listEstCeldas.Add(New Modelos.Celda("cbest", False))
         listEstCeldas.Add(New Modelos.Celda("cbest2", True, "ESTADO", 80))
         listEstCeldas.Add(New Modelos.Celda("cbeciv", False))
-        listEstCeldas.Add(New Modelos.Celda("civildesc", True, "EST. CIVIL", 120))
+        listEstCeldas.Add(New Modelos.Celda("civildesc", False, "EST. CIVIL", 120))
         listEstCeldas.Add(New Modelos.Celda("cbobs", True, "OBSERVACION", 120))
         listEstCeldas.Add(New Modelos.Celda("cbnumiSoc", True, "COD SOCIO", 80))
         listEstCeldas.Add(New Modelos.Celda("sociodesc", True, "SOCIO", 120))
@@ -659,8 +660,10 @@ Public Class F1_Alumnos
         listEstCeldas.Add(New Modelos.Celda("cbtutnom", True, "PADRE NOM", 120))
         listEstCeldas.Add(New Modelos.Celda("cbsuc", False))
         listEstCeldas.Add(New Modelos.Celda("cadesc", True, "SUCURSAL", 120))
-        listEstCeldas.Add(New Modelos.Celda("cbnrogr", True, "NRO. GRUPO", 70))
-        listEstCeldas.Add(New Modelos.Celda("cbnfact", True, "NRO. FACTURA", 100))
+        'listEstCeldas.Add(New Modelos.Celda("cbnrogr", True, "NRO. GRUPO", 70))
+        'listEstCeldas.Add(New Modelos.Celda("cbnfact", True, "NRO. FACTURA", 100))
+        listEstCeldas.Add(New Modelos.Celda("cdngrupo", True, "NRO. GRUPO", 70))
+        listEstCeldas.Add(New Modelos.Celda("ccnfactura", True, "NRO. FACTURA", 100))
         listEstCeldas.Add(New Modelos.Celda("cbfact", False))
         listEstCeldas.Add(New Modelos.Celda("cbhact", False))
         listEstCeldas.Add(New Modelos.Celda("cbuact", False))
@@ -689,8 +692,10 @@ Public Class F1_Alumnos
             tbProf.Text = .GetValue("profdesc")
             tbObs.Text = .GetValue("cbobs").ToString
             tbSuc.Text = .GetValue("cadesc")
-            tbNroGrupo.Text = .GetValue("cbnrogr").ToString
-            tbNroFactura.Text = .GetValue("cbnfact").ToString
+            'tbNroGrupo.Text = .GetValue("cbnrogr").ToString
+            'tbNroFactura.Text = .GetValue("cbnfact").ToString
+            tbNroGrupo.Text = .GetValue("cdngrupo").ToString
+            tbNroFactura.Text = .GetValue("ccnfactura").ToString
 
             Dim nomImg = .GetValue("cbfot").ToString
             If nomImg = String.Empty Then
@@ -1035,5 +1040,37 @@ Public Class F1_Alumnos
         frm.Show()
     End Sub
 
+    Private Sub tbFNac_ValueChanged(sender As Object, e As EventArgs) Handles tbFNac.ValueChanged
+        If tbFNac.Focused Then
+            Dim Años As Integer
 
+            Años = DateDiff("yyyy", tbFNac.Value, Date.Now)
+
+            If Date.Now < DateSerial(Year(Now), Month(tbFNac.Value), DateAndTime.Day(tbFNac.Value)) Then
+                Años = Años - 1
+            End If
+            Dim mes As Integer = DateDiff("m", tbFNac.Value, Date.Now)
+            mes = mes - (Años * 12)
+            'Dim DMes As Double
+            'Dim Meses As Integer
+            'DMes = (DateDiff("m", tbFNac.Value, Date.Now))
+            'If (DatePart("d", tbFNac.Value) > DatePart("d", Date.Now)) Then
+            '    DMes = DMes - 1
+            'End If
+
+            'If DMes < 0 Then
+            '    DMes = DMes + 1
+            'End If
+            'Meses = CInt(DMes Mod 12)
+
+            If Años < 18 Then
+                tbMenor.Value = True
+                tbTutCi.Select()
+            Else
+                tbMenor.Value = False
+            End If
+        End If
+
+
+    End Sub
 End Class
