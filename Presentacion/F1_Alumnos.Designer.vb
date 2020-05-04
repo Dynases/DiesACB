@@ -102,6 +102,7 @@ Partial Class F1_Alumnos
         Me.LabelX25 = New DevComponents.DotNetBar.LabelX()
         Me.btMarcarTodos = New DevComponents.DotNetBar.ButtonX()
         Me.btInscripcion = New DevComponents.DotNetBar.ButtonX()
+        Me.btExportar = New DevComponents.DotNetBar.ButtonX()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -238,11 +239,13 @@ Partial Class F1_Alumnos
         'PanelToolBar2
         '
         Me.PanelToolBar2.Controls.Add(Me.btInscripcion)
+        Me.PanelToolBar2.Controls.Add(Me.btExportar)
         Me.PanelToolBar2.Controls.Add(Me.btMarcarTodos)
-        Me.PanelToolBar2.Location = New System.Drawing.Point(789, 0)
-        Me.PanelToolBar2.Size = New System.Drawing.Size(384, 82)
+        Me.PanelToolBar2.Location = New System.Drawing.Point(759, 0)
+        Me.PanelToolBar2.Size = New System.Drawing.Size(414, 82)
         Me.PanelToolBar2.Controls.SetChildIndex(Me.btnImprimir, 0)
         Me.PanelToolBar2.Controls.SetChildIndex(Me.btMarcarTodos, 0)
+        Me.PanelToolBar2.Controls.SetChildIndex(Me.btExportar, 0)
         Me.PanelToolBar2.Controls.SetChildIndex(Me.btInscripcion, 0)
         '
         'MPanelSup
@@ -389,7 +392,7 @@ Partial Class F1_Alumnos
         '
         'btnImprimir
         '
-        Me.btnImprimir.Location = New System.Drawing.Point(312, 0)
+        Me.btnImprimir.Location = New System.Drawing.Point(342, 0)
         Me.btnImprimir.Size = New System.Drawing.Size(72, 82)
         Me.btnImprimir.Visible = False
         '
@@ -1321,7 +1324,7 @@ Partial Class F1_Alumnos
         Me.btMarcarTodos.Image = Global.Presentacion.My.Resources.Resources.GENERAR_REPORTE
         Me.btMarcarTodos.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.btMarcarTodos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btMarcarTodos.Location = New System.Drawing.Point(162, 0)
+        Me.btMarcarTodos.Location = New System.Drawing.Point(192, 0)
         Me.btMarcarTodos.Name = "btMarcarTodos"
         Me.btMarcarTodos.Size = New System.Drawing.Size(150, 82)
         Me.btMarcarTodos.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -1338,13 +1341,30 @@ Partial Class F1_Alumnos
         Me.btInscripcion.Image = Global.Presentacion.My.Resources.Resources.INSCRIPCION
         Me.btInscripcion.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.btInscripcion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btInscripcion.Location = New System.Drawing.Point(72, 0)
+        Me.btInscripcion.Location = New System.Drawing.Point(12, 0)
         Me.btInscripcion.Name = "btInscripcion"
         Me.btInscripcion.Size = New System.Drawing.Size(90, 82)
         Me.btInscripcion.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btInscripcion.TabIndex = 13
         Me.btInscripcion.Text = "INSCRIBIR"
         Me.btInscripcion.TextColor = System.Drawing.Color.Black
+        '
+        'btExportar
+        '
+        Me.btExportar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btExportar.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
+        Me.btExportar.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btExportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btExportar.Image = Global.Presentacion.My.Resources.Resources.I500x600_excel1
+        Me.btExportar.ImageFixedSize = New System.Drawing.Size(48, 48)
+        Me.btExportar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btExportar.Location = New System.Drawing.Point(102, 0)
+        Me.btExportar.Name = "btExportar"
+        Me.btExportar.Size = New System.Drawing.Size(90, 82)
+        Me.btExportar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btExportar.TabIndex = 14
+        Me.btExportar.Text = "EXPORTAR"
+        Me.btExportar.TextColor = System.Drawing.Color.Black
         '
         'F1_Alumnos
         '
@@ -1462,4 +1482,5 @@ Partial Class F1_Alumnos
     Friend WithEvents cmNombre As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ToolStripMenuItemPegar As System.Windows.Forms.ToolStripMenuItem
     Protected WithEvents btInscripcion As DevComponents.DotNetBar.ButtonX
+    Protected WithEvents btExportar As DevComponents.DotNetBar.ButtonX
 End Class

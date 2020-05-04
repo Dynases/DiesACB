@@ -2821,20 +2821,22 @@ Public Class F0_ClasesPracticas3
     End Sub
 
     Private Sub tbSuc_ValueChanged(sender As Object, e As EventArgs) Handles tbSuc.ValueChanged
-        If tbSuc.SelectedIndex >= 0 Then
-            ''codigo para hacer el numero de clases por  sucursal--------------------------------
-            'Dim dtSuc As DataTable = L_prSucursalAyudaPorNumi(tbSuc.Value)
-            '_cantClasesPracticas = dtSuc.Rows(0).Item("canprac")
-            '_cantClasesReforzamiento = dtSuc.Rows(0).Item("canrefor")
-            ''-----------------------------------------------------------------------------------
+        If tbSuc.Focused Then
+            If tbSuc.SelectedIndex >= 0 Then
+                ''codigo para hacer el numero de clases por  sucursal--------------------------------
+                'Dim dtSuc As DataTable = L_prSucursalAyudaPorNumi(tbSuc.Value)
+                '_cantClasesPracticas = dtSuc.Rows(0).Item("canprac")
+                '_cantClasesReforzamiento = dtSuc.Rows(0).Item("canrefor")
+                ''-----------------------------------------------------------------------------------
 
-            '_prCargarComboInstructores()
-            'tbPersona.SelectedIndex = -1
-            'grAlumnos.DataSource = Nothing
-            'grHorario.DataSource = Nothing
+                '_prCargarComboInstructores()
+                'tbPersona.SelectedIndex = -1
+                'grAlumnos.DataSource = Nothing
+                'grHorario.DataSource = Nothing
 
-            _prCargarComboServiciosSegunSucursal(tbSuc.Value)
+                _prCargarComboServiciosSegunSucursal(tbSuc.Value)
 
+            End If
         End If
     End Sub
 
@@ -2850,6 +2852,7 @@ Public Class F0_ClasesPracticas3
     Private Sub grAlumnos_SelectionChanged(sender As Object, e As EventArgs) Handles grAlumnos.SelectionChanged
         If Not IsNothing(grHorario.DataSource) Then
             _prSeleccionarHoras()
+            tbServicio.Value = grAlumnos.GetValue("evservicio")
         End If
 
     End Sub

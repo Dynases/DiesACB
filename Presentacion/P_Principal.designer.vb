@@ -297,7 +297,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscAlumnos.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscAlumnos.TitleText = "VEHICULO"
+        Me.btEscAlumnos.TitleText = "ALUMNOS"
         '
         'btEscEquipos
         '
@@ -312,7 +312,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscEquipos.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscEquipos.TitleText = "VEHICULO"
+        Me.btEscEquipos.TitleText = "EQUIPOS"
         '
         'btEscClaPracticas
         '

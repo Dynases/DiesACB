@@ -276,9 +276,6 @@ Public Class F0_CertificacionAlumnos
 
     End Sub
 
-    Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
-
-    End Sub
 
     Private Sub tbTodos_ValueChanged(sender As Object, e As EventArgs)
 

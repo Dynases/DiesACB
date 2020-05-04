@@ -196,6 +196,8 @@ Public Class F0_AlumnoInscrip
         CType(JGDetalle.DataSource, DataTable).Rows(pos).Item("eddesc") = cbServicio.Text
         CType(JGDetalle.DataSource, DataTable).Rows(pos).Item("cdngrupo") = tbNGrupo.Text
 
+        tbNGrupo.Clear()
+
     End Sub
     Public Sub _fnObtenerFilaDetalle(ByRef pos As Integer, numi As Integer)
         For i As Integer = 0 To CType(JGDetalle.DataSource, DataTable).Rows.Count - 1 Step 1
@@ -227,12 +229,12 @@ Public Class F0_AlumnoInscrip
             tbNFactura.Focus()
             Return False
         End If
-        If (tbNGrupo.Text.Length = 0) Then
-            Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
-            ToastNotification.Show(Me, "Por Favor Inserte el Nro. de Grupo".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
-            tbNGrupo.Focus()
-            Return False
-        End If
+        'If (tbNGrupo.Text.Length = 0) Then
+        '    Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+        '    ToastNotification.Show(Me, "Por Favor Inserte el Nro. de Grupo".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+        '    tbNGrupo.Focus()
+        '    Return False
+        'End If
         If (cbHoraSuc.SelectedIndex < 0) Then
             Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
             ToastNotification.Show(Me, "Por Favor Seleccione una Hora-Sucursal".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
@@ -692,6 +694,9 @@ Public Class F0_AlumnoInscrip
         teorica = tbObservacion.Text
         If dt.Rows.Count = 0 Then
             dt = L_prAlumnoFichaInscripcion2(CodAlumno)
+            Dim img1 As Bitmap = New Bitmap(My.Resources.WARNING, 50, 50)
+            ToastNotification.Show(Me, "Este Alumno aún no tiene clases programadas para esta inscripción.".ToUpper, img1, 3000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+            Exit Sub
         End If
 
         Dim img As Bitmap
@@ -711,6 +716,8 @@ Public Class F0_AlumnoInscrip
         P_Global.Visualizador = New Visualizador
         objrep.SetDataSource(dt)
         objrep.SetParameterValue("teorica", teorica)
+        objrep.SetParameterValue("inscripcion", tbCodigo.Text)
+        objrep.SetParameterValue("usuario", L_Usuario)
         P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
         P_Global.Visualizador.Show() 'Comentar
         P_Global.Visualizador.BringToFront() 'Comentar

@@ -97,8 +97,8 @@ Partial Class ModeloF1
         Me.SuperTabPrincipal.ControlBox.MenuBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.Name = ""
         Me.SuperTabPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabPrincipal.ControlBox.MenuBox, Me.SuperTabPrincipal.ControlBox.CloseBox})
-        Me.SuperTabPrincipal.Controls.Add(Me.SuperTabControlPanelRegistro)
         Me.SuperTabPrincipal.Controls.Add(Me.SuperTabControlPanelBuscador)
+        Me.SuperTabPrincipal.Controls.Add(Me.SuperTabControlPanelRegistro)
         Me.SuperTabPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabPrincipal.Location = New System.Drawing.Point(0, 0)
         Me.SuperTabPrincipal.Name = "SuperTabPrincipal"
