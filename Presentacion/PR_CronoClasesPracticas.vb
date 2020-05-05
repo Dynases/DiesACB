@@ -226,6 +226,7 @@ Public Class PR_CronoClasesPracticas
             MReportViewer.ReportSource = objrep
 
             objrep.SetParameterValue("Fecha", tbFecha.Value.Date.ToString("dd-MM-yyyy"))
+            objrep.SetParameterValue("usuario", L_Usuario)
 
             MReportViewer.Show()
             MReportViewer.BringToFront()

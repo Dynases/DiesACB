@@ -606,7 +606,7 @@ Partial Class F0_ClasesPracticas3
         Me.msOpsHorario.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.msOpsHorario.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ADICIONARHORARIOToolStripMenuItem, Me.CLASESREFORZAMIENTOToolStripMenuItem, Me.ASIGNARPERMISOToolStripMenuItem, Me.ASIGNARSUSPENCIONToolStripMenuItem, Me.ASIGNARFALTAToolStripMenuItem, Me.ASIGARCLASEToolStripMenuItem, Me.ASIGNARCLASEREFORZAMIENTOToolStripMenuItem, Me.AGREGAROBSERVACIONToolStripMenuItem, Me.ASToolStripMenuItem, Me.VOLVERAPROGRAMARCLASEToolStripMenuItem, Me.ELIMINARLIBERACIONDEHORAToolStripMenuItem, Me.AGREGARHORADILIGENCIAToolStripMenuItem})
         Me.msOpsHorario.Name = "msOpcionesHorario"
-        Me.msOpsHorario.Size = New System.Drawing.Size(313, 458)
+        Me.msOpsHorario.Size = New System.Drawing.Size(313, 436)
         '
         'ADICIONARHORARIOToolStripMenuItem
         '

@@ -327,7 +327,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscClaPracticas.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscClaPracticas.TitleText = "VEHICULO"
+        Me.btEscClaPracticas.TitleText = "CLASES PRÁCTICAS"
         '
         'btEscInscripciones
         '
@@ -342,7 +342,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscInscripciones.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscInscripciones.TitleText = "VEHICULO"
+        Me.btEscInscripciones.TitleText = "INSCRIPCIONES"
         '
         'btEscPreExamen
         '
@@ -357,7 +357,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscPreExamen.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscPreExamen.TitleText = "VEHICULO"
+        Me.btEscPreExamen.TitleText = "PRE EXAMEN"
         '
         'btEscClasesTeoricas
         '
@@ -389,7 +389,7 @@ Partial Class P_Principal
         Me.btEscIntercambio.TileStyle.BackColor = System.Drawing.SystemColors.Highlight
         Me.btEscIntercambio.TileStyle.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btEscIntercambio.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscIntercambio.TitleText = "INTERCAMBIO"
+        Me.btEscIntercambio.TitleText = "INTERCAMBIO INSTRUCTOR"
         '
         'ItemContainer1
         '
@@ -423,7 +423,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscRepPreExamen.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscRepPreExamen.TitleText = "VEHICULO"
+        Me.btEscRepPreExamen.TitleText = "ALUMNOS PARA PRE EXAMEN"
         '
         'btEscRepEstadosAlumnos
         '
@@ -438,7 +438,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscRepEstadosAlumnos.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscRepEstadosAlumnos.TitleText = "VEHICULO"
+        Me.btEscRepEstadosAlumnos.TitleText = "ESTADO DE ALUMNOS"
         '
         'btEscRepAlumnosSinPreExamen
         '
@@ -453,7 +453,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscRepAlumnosSinPreExamen.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscRepAlumnosSinPreExamen.TitleText = "VEHICULO"
+        Me.btEscRepAlumnosSinPreExamen.TitleText = "ESTADO DE ALUMNOS SIN PRE EXAMEN"
         '
         'btEscRepCronoClasesPrac
         '
@@ -468,7 +468,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscRepCronoClasesPrac.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscRepCronoClasesPrac.TitleText = "VEHICULO"
+        Me.btEscRepCronoClasesPrac.TitleText = "SEGUIMIENTO DE CLASES PRÁCTICAS"
         '
         'btEscRepHorasTrabajadas
         '
@@ -483,7 +483,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscRepHorasTrabajadas.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscRepHorasTrabajadas.TitleText = "REPORTE HORAS TRABAJADAS"
+        Me.btEscRepHorasTrabajadas.TitleText = "REPORTE HORAS TRABAJADAS INSTRUCTOR"
         '
         'btEscRepEscCertificado
         '
@@ -498,7 +498,7 @@ Partial Class P_Principal
         '
         '
         Me.btEscRepEscCertificado.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btEscRepEscCertificado.TitleText = "VEHICULO"
+        Me.btEscRepEscCertificado.TitleText = "ESCUELA CERTIFICADO"
         '
         'PictureBox2
         '

@@ -3472,12 +3472,13 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
-    Public Shared Function L_prClasesGetInstructoresParaReporteHorasTrabajadas() As DataTable
+    Public Shared Function L_prClasesGetInstructoresParaReporteHorasTrabajadas(_horsuc As String) As DataTable
         Dim _Tabla As DataTable
 
         Dim _listParam As New List(Of Datos.DParametro)
 
         _listParam.Add(New Datos.DParametro("@tipo", 16))
+        _listParam.Add(New Datos.DParametro("@HorSuc", _horsuc))
         _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
@@ -3640,6 +3641,19 @@ Public Class AccesoLogica
         End If
 
         Return _resultado
+    End Function
+
+    Public Shared Function L_prObtenerUltimaObservacion() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 92))
+        _listParam.Add(New Datos.DParametro("@eguact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TCE006", _listParam)
+
+        Return _Tabla
     End Function
 
     Public Shared Function L_prHoraLibreTCE0062GrabarTodosInstructoresPorSucursal(_TCE0062 As DataTable, _numiSuc As String, _obs As String) As Boolean

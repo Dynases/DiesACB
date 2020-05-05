@@ -3267,7 +3267,12 @@ Public Class F0_ClasesPracticas3
             dtHorasDiligencia.Columns.Add("ehiobs", GetType(String))
             dtHorasDiligencia.Columns.Add("estado", GetType(Integer))
 
-            Dim obs As String = InputBox("ingrese alguna observacion".ToUpper, "observacion de diligencia".ToUpper, "").ToUpper
+            Dim ultimaObs As DataTable = L_prObtenerUltimaObservacion()
+            Dim ultimo = ultimaObs.Rows(0).Item("ehiobs")
+            Dim obs As String
+
+            obs = InputBox("ingrese alguna observacion".ToUpper, "observacion de diligencia".ToUpper, ultimo).ToUpper
+
             If obs <> String.Empty Then
                 _prInsertarTablaHoraDiligencia(dtHorasDiligencia, New Date(tbFechaSelect.Value.Year, tbFechaSelect.Value.Month, c).ToString("yyyy/MM/dd"), grHorario.CurrentRow.Cells("hora").Value, tbPersona.Value)
                 Dim respuesta As Boolean = L_prHoraDiligenciaTCE0063GrabarPorInstructor(dtHorasDiligencia, obs)

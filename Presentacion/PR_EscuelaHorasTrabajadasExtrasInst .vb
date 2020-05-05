@@ -18,10 +18,11 @@ Public Class PR_EscuelaHorasTrabajadasExtrasInst
         Dim dt As DataTable = L_prTCE000General()
         _horaEntrada = dt.Rows(0).Item("eheentrada")
         _horaSalida = dt.Rows(0).Item("ehesalida")
+        _prCargarComboHorarioSucursal()
 
     End Sub
     Private Sub _prCargarReporte()
-        Dim _dt As DataTable = L_prClasesGetInstructoresParaReporteHorasTrabajadas()
+        Dim _dt As DataTable = L_prClasesGetInstructoresParaReporteHorasTrabajadas(tbHorSuc.Value)
 
         If tbFiltrarInst.Value = True Then
             If tbNumiInst.Text = String.Empty Then
@@ -55,7 +56,8 @@ Public Class PR_EscuelaHorasTrabajadasExtrasInst
             If _horaEntrada = dtHoras.Rows(j).Item("cchora") Then
                 Exit For
             Else
-                dtHoras.Rows(j).Item("extra") = 1
+                'dtHoras.Rows(j).Item("extra") = 1
+                dtHoras.Rows(j).Item("extra") = 0
             End If
         Next
         For k = j To dtHoras.Rows.Count - 1
@@ -145,7 +147,7 @@ Public Class PR_EscuelaHorasTrabajadasExtrasInst
 
                     Dim ii As Integer = 0
                     Dim jj As Integer = 0
-                    Dim turnosBasicosParaTrabajar As Integer = 4
+                    Dim turnosBasicosParaTrabajar As Integer = 8
                     Dim cantTurnos As Integer = 0
                     For Each filaHora As DataRow In dtHoras.Rows
                         sumHorasParaTrabajar = sumHorasParaTrabajar + 1
@@ -262,7 +264,7 @@ Public Class PR_EscuelaHorasTrabajadasExtrasInst
             Dim frmAyuda As Modelos.ModeloAyuda
             Dim dt As DataTable
             'dt = L_prPersonaAyudaGeneral(gi_LibPERSTIPOInstructor)
-            dt = L_prPersonaAyudaGeneralPorSucursal(11, gi_LibPERSTIPOInstructor)
+            dt = L_prPersonaAyudaGeneralPorSucursal(tbHorSuc.Value, gi_LibPERSTIPOInstructor)
 
             Dim listEstCeldas As New List(Of Modelos.Celda)
             listEstCeldas.Add(New Modelos.Celda("panumi", True, "Codigo".ToUpper, 70))
@@ -288,9 +290,34 @@ Public Class PR_EscuelaHorasTrabajadasExtrasInst
         Me.Close()
     End Sub
 
+    Private Sub _prCargarComboHorarioSucursal()
+        Dim dt As New DataTable
+        dt = L_prHorarioSucursal()
 
+        With tbHorSuc
+            .DropDownList.Columns.Clear()
 
-    Private Sub GroupPanel1_Click(sender As Object, e As EventArgs) Handles GroupPanel1.Click
+            .DropDownList.Columns.Add("cbsuc").Width = 70
+            .DropDownList.Columns("cbsuc").Caption = "COD"
+
+            .DropDownList.Columns.Add("cadesc").Width = 300
+            .DropDownList.Columns("cadesc").Caption = "descripcion".ToUpper
+
+            .ValueMember = "cbsuc"
+            .DisplayMember = "cadesc"
+            .DataSource = dt
+            .Refresh()
+        End With
+
+        If dt.Rows.Count > 0 Then
+            'tbSuc.Value = gi_userSuc
+            tbHorSuc.SelectedIndex = 0
+            If gb_userTodasSuc = False Then
+                tbHorSuc.ReadOnly = True
+            End If
+
+        End If
 
     End Sub
+
 End Class

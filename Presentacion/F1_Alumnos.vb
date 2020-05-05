@@ -1120,10 +1120,8 @@ Public Class F1_Alumnos
     End Sub
     Public Function P_ExportarExcel(_ruta As String) As Boolean
         Dim _ubicacion As String
-        'Dim _directorio As New FolderBrowserDialog
 
-        If (1 = 1) Then 'If(_directorio.ShowDialog = Windows.Forms.DialogResult.OK) Then
-            '_ubicacion = _directorio.SelectedPath
+        If (1 = 1) Then
             _ubicacion = _ruta
             Try
                 Dim _stream As Stream
@@ -1176,9 +1174,6 @@ Public Class F1_Alumnos
                         Process.Start(_archivo)
                     End If
 
-                    'If (MessageBox.Show("Su archivo ha sido Guardado en la ruta: " + _archivo + vbLf + "DESEA ABRIR EL ARCHIVO?", "PREGUNTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes) Then
-                    '    Process.Start(_archivo)
-                    'End If
                     Return True
                 Catch ex As Exception
                     MsgBox(ex.Message)
