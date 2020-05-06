@@ -32,13 +32,13 @@ Partial Class PR_EscuelaHorasTrabajadasExtrasInst
         Me.tbInst = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.tbNumiInst = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
         Me.tbFiltrarInst = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.tbFechaAl = New System.Windows.Forms.DateTimePicker()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.tbHorSuc = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -300,6 +300,20 @@ Partial Class PR_EscuelaHorasTrabajadasExtrasInst
         Me.GroupPanel1.TabIndex = 44
         Me.GroupPanel1.Text = "INSTRUCTOR"
         '
+        'LabelX3
+        '
+        Me.LabelX3.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX3.Location = New System.Drawing.Point(272, 22)
+        Me.LabelX3.Name = "LabelX3"
+        Me.LabelX3.Size = New System.Drawing.Size(54, 18)
+        Me.LabelX3.TabIndex = 45
+        Me.LabelX3.Text = "Ctrl+Enter"
+        '
         'tbFiltrarInst
         '
         '
@@ -397,22 +411,8 @@ Partial Class PR_EscuelaHorasTrabajadasExtrasInst
         Me.tbHorSuc.Name = "tbHorSuc"
         Me.tbHorSuc.SelectedIndex = -1
         Me.tbHorSuc.SelectedItem = Nothing
-        Me.tbHorSuc.Size = New System.Drawing.Size(216, 22)
+        Me.tbHorSuc.Size = New System.Drawing.Size(276, 22)
         Me.tbHorSuc.TabIndex = 111
-        '
-        'LabelX3
-        '
-        Me.LabelX3.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX3.Location = New System.Drawing.Point(274, 22)
-        Me.LabelX3.Name = "LabelX3"
-        Me.LabelX3.Size = New System.Drawing.Size(54, 18)
-        Me.LabelX3.TabIndex = 45
-        Me.LabelX3.Text = "Ctrl+Enter"
         '
         'PR_EscuelaHorasTrabajadasExtrasInst
         '

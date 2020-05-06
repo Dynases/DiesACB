@@ -205,6 +205,7 @@ Public Class F0_ClasesTeoricas
         objrep.SetDataSource(dt)
         objrep.SetParameterValue("CantAlumnos", dt.Rows.Count)
         objrep.SetParameterValue("Grupo", tbNroGrupo.Text)
+        objrep.SetParameterValue("usuario", L_Usuario)
         P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
         P_Global.Visualizador.Show() 'Comentar
         P_Global.Visualizador.BringToFront() 'Comentar

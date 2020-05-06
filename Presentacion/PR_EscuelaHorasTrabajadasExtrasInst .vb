@@ -206,16 +206,44 @@ Public Class PR_EscuelaHorasTrabajadasExtrasInst
                 fechaInicio = DateAdd(DateInterval.Day, 1, fechaInicio)
             End While
 
-            'ahora lo convierto a hora y lo pongo en el dtFinal
-            Dim horasParaTrabajar As Double = sumHorasParaTrabajar
-            Dim horasTrabajadas As Double = sumHorasTrabajados
-            Dim horasLibres As Double = horasParaTrabajar - horasTrabajadas
-            Dim horasExtras As Double = sumHorasExtras
+            ''ahora lo convierto a hora y lo pongo en el dtFinal
+            'Dim horasParaTrabajar As Double = sumHorasParaTrabajar
+            'Dim horasTrabajadas As Double = sumHorasTrabajados
+            'Dim horasLibres As Double = horasParaTrabajar - horasTrabajadas
+            'Dim horasExtras As Double = sumHorasExtras
 
-            fila.Item("horasTot") = horasParaTrabajar
-            fila.Item("horasT") = horasTrabajadas
-            'fila.Item("horasL") = horasParaTrabajar - horasTrabajadas
-            fila.Item("horasL") = horasExtras
+            'fila.Item("horasTot") = horasParaTrabajar
+            'fila.Item("horasT") = horasTrabajadas
+            ''fila.Item("horasL") = horasParaTrabajar - horasTrabajadas
+            'fila.Item("horasL") = horasExtras
+
+
+
+            If dtHoras.Rows(0).Item("minutos") = 60 Then
+                'ahora lo convierto a hora y lo pongo en el dtFinal
+                Dim horasParaTrabajar As Double = sumHorasParaTrabajar
+                Dim horasTrabajadas As Double = sumHorasTrabajados
+                Dim horasLibres As Double = horasParaTrabajar - horasTrabajadas
+                Dim horasExtras As Double = sumHorasExtras
+
+                fila.Item("horasTot") = horasParaTrabajar
+                fila.Item("horasT") = horasTrabajadas
+                'fila.Item("horasL") = horasParaTrabajar - horasTrabajadas
+                fila.Item("horasL") = horasExtras
+            Else
+
+                'ahora lo convierto a hora y lo pongo en el dtFinal
+                Dim horasParaTrabajar As Double = sumHorasParaTrabajar / 2
+                Dim horasTrabajadas As Double = sumHorasTrabajados / 2
+                Dim horasLibres As Double = horasParaTrabajar - horasTrabajadas
+                Dim horasExtras As Double = sumHorasExtras / 2
+
+                fila.Item("horasTot") = horasParaTrabajar
+                fila.Item("horasT") = horasTrabajadas
+                'fila.Item("horasL") = horasParaTrabajar - horasTrabajadas
+                fila.Item("horasL") = horasExtras
+            End If
+
         Next
 
         If (_dt.Rows.Count > 0) Then
@@ -223,6 +251,7 @@ Public Class PR_EscuelaHorasTrabajadasExtrasInst
 
 
             objrep.SetDataSource(_dt)
+            objrep.SetParameterValue("usuario", L_Usuario)
             MReportViewer.ReportSource = objrep
 
 
@@ -320,4 +349,7 @@ Public Class PR_EscuelaHorasTrabajadasExtrasInst
 
     End Sub
 
+    Private Sub tbHorSuc_ValueChanged(sender As Object, e As EventArgs) Handles tbHorSuc.ValueChanged
+        tbInst.Clear()
+    End Sub
 End Class

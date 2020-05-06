@@ -95,7 +95,7 @@ Partial Class F0_PreExamen
         Me.SuperTabControlPanelBuscador.Controls.Add(Me.GroupPanel3)
         Me.SuperTabControlPanelBuscador.Controls.Add(Me.GroupPanel4)
         Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 23)
-        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(2)
         Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(884, 538)
         '
         'SupTabItemBusqueda
@@ -105,7 +105,7 @@ Partial Class F0_PreExamen
         '
         'SuperTabControlPanelRegistro
         '
-        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelSuperior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelInferior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelPrincipal, 0)
@@ -122,7 +122,7 @@ Partial Class F0_PreExamen
         '
         'PanelInferior
         '
-        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(2)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Gold
         Me.PanelInferior.Style.BackColor2.Color = System.Drawing.Color.Gold
@@ -158,7 +158,7 @@ Partial Class F0_PreExamen
         '
         Me.PanelToolBar1.Controls.Add(Me.btnNotas)
         Me.PanelToolBar1.Controls.Add(Me.btnAsignar)
-        Me.PanelToolBar1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelToolBar1.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelToolBar1.Size = New System.Drawing.Size(520, 72)
         Me.PanelToolBar1.Controls.SetChildIndex(Me.btnAsignar, 0)
         Me.PanelToolBar1.Controls.SetChildIndex(Me.btnNotas, 0)
@@ -171,35 +171,35 @@ Partial Class F0_PreExamen
         'btnSalir
         '
         Me.btnSalir.Location = New System.Drawing.Point(460, 0)
-        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
         '
         'btnGrabar
         '
         Me.btnGrabar.Location = New System.Drawing.Point(388, 0)
-        Me.btnGrabar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnGrabar.Margin = New System.Windows.Forms.Padding(4)
         '
         'btnEliminar
         '
         Me.btnEliminar.Location = New System.Drawing.Point(316, 0)
-        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnEliminar.Visible = False
         '
         'btnModificar
         '
         Me.btnModificar.Location = New System.Drawing.Point(244, 0)
-        Me.btnModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnModificar.Margin = New System.Windows.Forms.Padding(4)
         '
         'btnNuevo
         '
         Me.btnNuevo.Location = New System.Drawing.Point(172, 0)
-        Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.btnNuevo.Visible = False
         '
         'PanelPrincipal
         '
         Me.PanelPrincipal.Controls.Add(Me.GroupPanel2)
         Me.PanelPrincipal.Controls.Add(Me.GroupPanel1)
-        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(2)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.GroupPanel1, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.GroupPanel2, 0)
@@ -207,11 +207,11 @@ Partial Class F0_PreExamen
         'PanelUsuario
         '
         Me.PanelUsuario.Location = New System.Drawing.Point(632, 6)
-        Me.PanelUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'btnUltimo
         '
-        Me.btnUltimo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnUltimo.Margin = New System.Windows.Forms.Padding(2)
         '
         'LblPaginacion
         '
@@ -227,7 +227,7 @@ Partial Class F0_PreExamen
         '
         Me.MRlAccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.MRlAccion.Location = New System.Drawing.Point(550, 6)
-        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(4)
         '
         'GroupPanel1
         '
@@ -282,7 +282,7 @@ Partial Class F0_PreExamen
         Me.PanelFecha.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelFecha.Location = New System.Drawing.Point(266, 0)
         Me.PanelFecha.Name = "PanelFecha"
-        Me.PanelFecha.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PanelFecha.Padding = New System.Windows.Forms.Padding(2)
         Me.PanelFecha.Size = New System.Drawing.Size(308, 74)
         Me.PanelFecha.TabIndex = 78
         '
@@ -649,7 +649,7 @@ Partial Class F0_PreExamen
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(884, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F0_PreExamen"
         Me.Text = "F0_PreExamen"
         Me.Controls.SetChildIndex(Me.SuperTabPrincipal, 0)
