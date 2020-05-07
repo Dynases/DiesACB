@@ -402,10 +402,7 @@ Public Class P_Principal
 
     Private Sub btEscRepPreExamen_Click(sender As Object, e As EventArgs) Handles btEscRepPreExamen.Click
         Dim frm As New PR_PreExamen
-        'Dim frm As New F0_BonosDescuentos
-        'Dim frm As New F0_DescuentosFijos
-        'Dim frm As New F0_Antigue_Vacacion
-        'Dim frm As New F0_PedidoVacacion
+
         frm.Show()
     End Sub
 

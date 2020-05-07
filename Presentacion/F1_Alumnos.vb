@@ -646,7 +646,7 @@ Public Class F1_Alumnos
         listEstCeldas.Add(New Modelos.Celda("cbtelef1", False, "TELEFONO", 100))
         listEstCeldas.Add(New Modelos.Celda("cbtelef2", True, "CELULAR", 100))
         listEstCeldas.Add(New Modelos.Celda("cdhorsuc", False, "ID HORSUC", 80))
-        listEstCeldas.Add(New Modelos.Celda("horsuc", True, "HOR-SUC", 180))
+        listEstCeldas.Add(New Modelos.Celda("horsuc", True, "HOR-SUC", 210))
         listEstCeldas.Add(New Modelos.Celda("cdservicio", False, "ID SERVICIO", 80))
         listEstCeldas.Add(New Modelos.Celda("eddesc", True, "SERVICIO", 180))
         listEstCeldas.Add(New Modelos.Celda("cbemail", False, "E-MAIL", 100))

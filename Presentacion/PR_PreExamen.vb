@@ -46,6 +46,7 @@ Public Class PR_PreExamen
 
             objrep.SetParameterValue("ParamFecha", tbFecha.Value.Date.ToString("yyyy-MM-dd"))
             objrep.SetParameterValue("conNota", IIf(tbConNota.Value = True, 1, 0))
+            objrep.SetParameterValue("usuario", L_Usuario)
 
             MReportViewer.Show()
             MReportViewer.BringToFront()
@@ -92,6 +93,7 @@ Public Class PR_PreExamen
             MReportViewer.ReportSource = objrep
 
             objrep.SetParameterValue("ParamFecha", tbFecha.Value.Date.ToString("yyyy-MM-dd"))
+            objrep.SetParameterValue("usuario", L_Usuario)
 
             MReportViewer.Show()
             MReportViewer.BringToFront()

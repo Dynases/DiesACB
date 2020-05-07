@@ -2674,6 +2674,9 @@ Public Class F0_ClasesPracticas3
             listEstCeldas.Add(New Modelos.Celda("cbci", True, "CI".ToUpper, 70))
             listEstCeldas.Add(New Modelos.Celda("cbnom2", True, "Nombre completo".ToUpper, 300))
             listEstCeldas.Add(New Modelos.Celda("ccnumi", False, "Id Inscripcion".ToUpper, 70))
+            listEstCeldas.Add(New Modelos.Celda("evservicio", False, "Id Servicio".ToUpper, 70))
+
+
 
             frmAyuda = New Modelos.ModeloAyuda(600, 300, dt, "Seleccione el estudiante a quien se programara el horario".ToUpper, listEstCeldas)
             frmAyuda.ShowDialog()
@@ -2682,6 +2685,7 @@ Public Class F0_ClasesPracticas3
                 Dim numiAalumno As String = frmAyuda.filaSelect.Cells("cbnumi").Value
                 Dim numiReg As String = ""
                 Dim idInscrip = frmAyuda.filaSelect.Cells("ccnumi").Value
+                tbServicio.Value = frmAyuda.filaSelect.Cells("evservicio").Value
                 Dim respuesta As Boolean = L_prClasesPracDetalleGrabar2(numiReg, tbPersona.Value, numiAalumno, estadoTipoClase, _cantClasesPracticas, _cantClasesReforzamiento, _dtFechas, tbSuc.Value, tbHorarioSuc.Value, tbServicio.Value, idInscrip)
                 If respuesta = True Then
                     _dtFechas.Rows.Clear()
