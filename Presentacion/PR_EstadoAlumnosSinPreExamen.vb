@@ -45,6 +45,7 @@ Public Class PR_EstadoAlumnosSinPreExamen
 
 
             objrep.SetDataSource(_dt)
+            objrep.SetParameterValue("usuario", L_Usuario)
             MReportViewer.ReportSource = objrep
 
             MReportViewer.Show()

@@ -28,6 +28,7 @@ Public Class F0_CertificacionReforzamiento
 
 
     Public _numiAlumInscrito As Int16 = -1
+    Public _idInscripcionC As Integer
 
     Dim _listColores As List(Of Color)
 
@@ -960,7 +961,7 @@ Public Class F0_CertificacionReforzamiento
             Dim numiAalumno As String = _numiAlumInscrito
             Dim numiReg As String = ""
 
-            Dim respuesta As Boolean = L_prClasesPracCabeceraDetalleGrabarR(numiReg, tbPersona.Value, numiAalumno, 1, tbNroFactPer.Text, tbObsPer.Text, tbCantClasesPerfec.Value, _dtFechas)
+            Dim respuesta As Boolean = L_prClasesPracCabeceraDetalleGrabarR(numiReg, tbPersona.Value, numiAalumno, 1, tbNroFactPer.Text, tbObsPer.Text, tbCantClasesPerfec.Value, _dtFechas, _idInscripcionC)
             If respuesta Then
                 _prCargarGridAlumnos(tbPersona.Value)
                 _prCargarGridHorario(tbFechaSelect.Value, tbPersona.Value)
@@ -1536,6 +1537,7 @@ Public Class F0_CertificacionReforzamiento
             '        Close()
             '    End If
             'End If
+            _idInscripcionC = 0
 
         End If
 

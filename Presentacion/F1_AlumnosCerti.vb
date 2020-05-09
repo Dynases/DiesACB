@@ -454,6 +454,7 @@ Public Class F1_AlumnosCerti
                 frm.tbObsPer.Text = tbObsPer.Text
                 frm._numiAlumInscrito = tbNumi.Text
                 frm._cantClasesPracticas = tbCantClasesPerfec.Value
+                frm._idInscripcionC = tbNumiPregun.Text
                 frm.ShowDialog()
 
                 tbObs.Text = ""

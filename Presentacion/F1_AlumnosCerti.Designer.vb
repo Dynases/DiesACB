@@ -23,11 +23,11 @@ Partial Class F1_AlumnosCerti
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim tbCatLicencia_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim TbNac_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_AlumnosCerti))
         Dim tbSuc_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim tbPersona_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbempresa_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim TbNac_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.PanelAgrImagen = New System.Windows.Forms.Panel()
         Me.RadialMenuImgOpc = New DevComponents.DotNetBar.RadialMenu()
         Me.btnAgregar = New DevComponents.DotNetBar.RadialMenuItem()
@@ -55,6 +55,8 @@ Partial Class F1_AlumnosCerti
         Me.LabelX17 = New DevComponents.DotNetBar.LabelX()
         Me.tbEscNumiAlum = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TbNac = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.LabelX6 = New DevComponents.DotNetBar.LabelX()
         Me.tbSuc = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX23 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX20 = New DevComponents.DotNetBar.LabelX()
@@ -95,8 +97,6 @@ Partial Class F1_AlumnosCerti
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.btnInscribirPerfeccionamiento = New DevComponents.DotNetBar.ButtonX()
         Me.btnEliminarInscripcion = New DevComponents.DotNetBar.ButtonX()
-        Me.LabelX6 = New DevComponents.DotNetBar.LabelX()
-        Me.TbNac = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -118,6 +118,7 @@ Partial Class F1_AlumnosCerti
         CType(Me.pbImg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.TbNac, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbSuc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbPersona, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpInscripcion.SuspendLayout()
@@ -126,7 +127,6 @@ Partial Class F1_AlumnosCerti
         CType(Me.tbCantClasesPerfec, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpSugerencia.SuspendLayout()
         CType(Me.grSugerencia, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TbNac, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SuperTabPrincipal
@@ -147,8 +147,8 @@ Partial Class F1_AlumnosCerti
         Me.SuperTabPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabPrincipal.SelectedTabIndex = 1
         Me.SuperTabPrincipal.Size = New System.Drawing.Size(1017, 561)
-        Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
         Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelBuscador, 0)
+        Me.SuperTabPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanelRegistro, 0)
         '
         'SuperTabControlPanelBuscador
         '
@@ -682,6 +682,31 @@ Partial Class F1_AlumnosCerti
         Me.Panel2.Size = New System.Drawing.Size(859, 336)
         Me.Panel2.TabIndex = 85
         '
+        'TbNac
+        '
+        TbNac_DesignTimeLayout.LayoutString = resources.GetString("TbNac_DesignTimeLayout.LayoutString")
+        Me.TbNac.DesignTimeLayout = TbNac_DesignTimeLayout
+        Me.TbNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbNac.Location = New System.Drawing.Point(370, 11)
+        Me.TbNac.Name = "TbNac"
+        Me.TbNac.SelectedIndex = -1
+        Me.TbNac.SelectedItem = Nothing
+        Me.TbNac.Size = New System.Drawing.Size(153, 22)
+        Me.TbNac.TabIndex = 102
+        '
+        'LabelX6
+        '
+        '
+        '
+        '
+        Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX6.Location = New System.Drawing.Point(245, 44)
+        Me.LabelX6.Name = "LabelX6"
+        Me.LabelX6.Size = New System.Drawing.Size(75, 23)
+        Me.LabelX6.TabIndex = 101
+        Me.LabelX6.Text = "ESTADO:"
+        '
         'tbSuc
         '
         tbSuc_DesignTimeLayout.LayoutString = resources.GetString("tbSuc_DesignTimeLayout.LayoutString")
@@ -1196,9 +1221,8 @@ Partial Class F1_AlumnosCerti
         Me.tbNumiPregun.Location = New System.Drawing.Point(260, 243)
         Me.tbNumiPregun.Name = "tbNumiPregun"
         Me.tbNumiPregun.PreventEnterBeep = True
-        Me.tbNumiPregun.Size = New System.Drawing.Size(39, 22)
+        Me.tbNumiPregun.Size = New System.Drawing.Size(90, 22)
         Me.tbNumiPregun.TabIndex = 86
-        Me.tbNumiPregun.Visible = False
         '
         'LabelX10
         '
@@ -1336,31 +1360,6 @@ Partial Class F1_AlumnosCerti
         Me.btnEliminarInscripcion.Text = "ELIMINAR INSCRIPCION"
         Me.btnEliminarInscripcion.TextColor = System.Drawing.Color.Black
         '
-        'LabelX6
-        '
-        '
-        '
-        '
-        Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX6.Location = New System.Drawing.Point(245, 44)
-        Me.LabelX6.Name = "LabelX6"
-        Me.LabelX6.Size = New System.Drawing.Size(75, 23)
-        Me.LabelX6.TabIndex = 101
-        Me.LabelX6.Text = "ESTADO:"
-        '
-        'TbNac
-        '
-        TbNac_DesignTimeLayout.LayoutString = resources.GetString("TbNac_DesignTimeLayout.LayoutString")
-        Me.TbNac.DesignTimeLayout = TbNac_DesignTimeLayout
-        Me.TbNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbNac.Location = New System.Drawing.Point(370, 11)
-        Me.TbNac.Name = "TbNac"
-        Me.TbNac.SelectedIndex = -1
-        Me.TbNac.SelectedItem = Nothing
-        Me.TbNac.Size = New System.Drawing.Size(153, 22)
-        Me.TbNac.TabIndex = 102
-        '
         'F1_AlumnosCerti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1394,6 +1393,7 @@ Partial Class F1_AlumnosCerti
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.TbNac, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbSuc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbPersona, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gpInscripcion.ResumeLayout(False)
@@ -1403,7 +1403,6 @@ Partial Class F1_AlumnosCerti
         CType(Me.tbCantClasesPerfec, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gpSugerencia.ResumeLayout(False)
         CType(Me.grSugerencia, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TbNac, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
