@@ -647,6 +647,7 @@ Public Class F1_AlumnosCerti
         objrep.SetParameterValue("FechaPrac2", fechaPrac2)
         objrep.SetParameterValue("DiaTeo", diaExamenTeo)
         objrep.SetParameterValue("DiaPrac", diaExamenPrac)
+        objrep.SetParameterValue("usuario", L_Usuario)
         P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
         P_Global.Visualizador.Show() 'Comentar
         P_Global.Visualizador.BringToFront() 'Comentar

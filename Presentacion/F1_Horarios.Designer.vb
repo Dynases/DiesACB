@@ -351,7 +351,7 @@ Partial Class F1_Horarios
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.Size = New System.Drawing.Size(117, 23)
         Me.LabelX2.TabIndex = 107
-        Me.LabelX2.Text = "FECHA VIGENCIA:"
+        Me.LabelX2.Text = "FECHA INICIO:"
         '
         'LabelX1
         '

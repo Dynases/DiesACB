@@ -359,8 +359,16 @@ Public Class F0_CertificacionReforzamiento
             .Refresh()
         End With
 
+        'If dt.Rows.Count > 0 Then
+        '    tbSuc.Value = gi_userSuc
+        '    If gb_userTodasSuc = False Then
+        '        tbSuc.ReadOnly = True
+        '    End If
+
+        'End If
+
         If dt.Rows.Count > 0 Then
-            tbSuc.Value = gi_userSuc
+            tbSuc.Value = 1
             If gb_userTodasSuc = False Then
                 tbSuc.ReadOnly = True
             End If
@@ -371,7 +379,9 @@ Public Class F0_CertificacionReforzamiento
 
     Public Sub _prCargarComboInstructores()
         Dim dt As New DataTable
-        dt = L_prPersonaAyudaGeneralPorSucursal(tbSuc.Value, gi_LibPERSTIPOInstPerfeccionamiento) 'gi_userSuc
+        'dt = L_prPersonaAyudaGeneralPorSucursal(tbSuc.Value, gi_LibPERSTIPOInstPerfeccionamiento) 'gi_userSuc
+        dt = L_prPersonaAyudaGeneral(gi_LibPERSTIPOInstPerfeccionamiento)
+
 
         With tbPersona
             .DropDownList.Columns.Clear()

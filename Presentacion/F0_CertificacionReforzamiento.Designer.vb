@@ -130,7 +130,7 @@ Partial Class F0_CertificacionReforzamiento
         'SuperTabControlPanelBuscador
         '
         Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 23)
-        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SuperTabControlPanelBuscador.Margin = New System.Windows.Forms.Padding(2)
         Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(884, 538)
         '
         'SupTabItemBusqueda
@@ -139,7 +139,7 @@ Partial Class F0_CertificacionReforzamiento
         '
         'SuperTabControlPanelRegistro
         '
-        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2)
         Me.SuperTabControlPanelRegistro.Size = New System.Drawing.Size(1218, 536)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelSuperior, 0)
         Me.SuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelInferior, 0)
@@ -147,7 +147,7 @@ Partial Class F0_CertificacionReforzamiento
         '
         'PanelSuperior
         '
-        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelSuperior.Size = New System.Drawing.Size(1218, 82)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelSuperior.Style.BackColor1.Color = System.Drawing.Color.Yellow
@@ -159,7 +159,7 @@ Partial Class F0_CertificacionReforzamiento
         '
         'PanelInferior
         '
-        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(2)
         Me.PanelInferior.Size = New System.Drawing.Size(1218, 36)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Gold
@@ -194,20 +194,20 @@ Partial Class F0_CertificacionReforzamiento
         '
         'PanelToolBar1
         '
-        Me.PanelToolBar1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelToolBar1.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelToolBar1.Size = New System.Drawing.Size(464, 82)
         '
         'btnSalir
         '
         Me.btnSalir.Location = New System.Drawing.Point(350, 0)
-        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSalir.Size = New System.Drawing.Size(72, 82)
         '
         'btnGrabar
         '
         Me.btnGrabar.Image = Global.Presentacion.My.Resources.Resources.VER_DISPONIBILIDAD
         Me.btnGrabar.Location = New System.Drawing.Point(249, 0)
-        Me.btnGrabar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnGrabar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnGrabar.Size = New System.Drawing.Size(101, 82)
         Me.btnGrabar.Text = "VER DISPONIBILIDAD"
         Me.btnGrabar.Visible = False
@@ -216,7 +216,7 @@ Partial Class F0_CertificacionReforzamiento
         '
         Me.btnEliminar.Image = Global.Presentacion.My.Resources.Resources.success
         Me.btnEliminar.Location = New System.Drawing.Point(162, 0)
-        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnEliminar.Size = New System.Drawing.Size(87, 82)
         Me.btnEliminar.Text = "CONFIRMAR SELECCION"
         Me.btnEliminar.Visible = False
@@ -225,14 +225,14 @@ Partial Class F0_CertificacionReforzamiento
         '
         Me.btnModificar.Image = Global.Presentacion.My.Resources.Resources.LIMPIAR
         Me.btnModificar.Location = New System.Drawing.Point(78, 0)
-        Me.btnModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnModificar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnModificar.Size = New System.Drawing.Size(84, 82)
         Me.btnModificar.Text = "LIMPIAR"
         '
         'btnNuevo
         '
         Me.btnNuevo.Image = Global.Presentacion.My.Resources.Resources.OK
-        Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.btnNuevo.Size = New System.Drawing.Size(78, 82)
         Me.btnNuevo.Text = "CONFIRMAR"
         '
@@ -241,7 +241,7 @@ Partial Class F0_CertificacionReforzamiento
         Me.PanelToolBar2.Controls.Add(Me.LabelX1)
         Me.PanelToolBar2.Controls.Add(Me.tbTodosInst)
         Me.PanelToolBar2.Location = New System.Drawing.Point(972, 0)
-        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelToolBar2.Size = New System.Drawing.Size(246, 82)
         Me.PanelToolBar2.Controls.SetChildIndex(Me.btnImprimir, 0)
         Me.PanelToolBar2.Controls.SetChildIndex(Me.tbTodosInst, 0)
@@ -252,7 +252,7 @@ Partial Class F0_CertificacionReforzamiento
         Me.PanelPrincipal.Controls.Add(Me.Panel6)
         Me.PanelPrincipal.Controls.Add(Me.Panel1)
         Me.PanelPrincipal.Location = New System.Drawing.Point(0, 82)
-        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelPrincipal.Size = New System.Drawing.Size(1218, 418)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.Panel1, 0)
@@ -261,13 +261,13 @@ Partial Class F0_CertificacionReforzamiento
         'PanelUsuario
         '
         Me.PanelUsuario.Location = New System.Drawing.Point(628, 86)
-        Me.PanelUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'btnImprimir
         '
         Me.btnImprimir.Image = Global.Presentacion.My.Resources.Resources.permiso
         Me.btnImprimir.Location = New System.Drawing.Point(151, 0)
-        Me.btnImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnImprimir.Margin = New System.Windows.Forms.Padding(4)
         Me.btnImprimir.Size = New System.Drawing.Size(95, 82)
         Me.btnImprimir.Text = "LIBERAR HORA"
         '
@@ -277,7 +277,7 @@ Partial Class F0_CertificacionReforzamiento
         '
         'btnUltimo
         '
-        Me.btnUltimo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnUltimo.Margin = New System.Windows.Forms.Padding(2)
         '
         'MPanelUserAct
         '
@@ -290,7 +290,7 @@ Partial Class F0_CertificacionReforzamiento
         '
         Me.MRlAccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.MRlAccion.Location = New System.Drawing.Point(591, 6)
-        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(4)
         Me.MRlAccion.Size = New System.Drawing.Size(28, 60)
         '
         'Panel1
@@ -472,11 +472,11 @@ Partial Class F0_CertificacionReforzamiento
         '
         Me.LabelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX16.Location = New System.Drawing.Point(468, 15)
+        Me.LabelX16.Location = New System.Drawing.Point(446, 15)
         Me.LabelX16.Name = "LabelX16"
-        Me.LabelX16.Size = New System.Drawing.Size(79, 23)
+        Me.LabelX16.Size = New System.Drawing.Size(101, 23)
         Me.LabelX16.TabIndex = 111
-        Me.LabelX16.Text = "SUCURSAL:"
+        Me.LabelX16.Text = "HORARIO-SUC:"
         '
         'Panel5
         '
@@ -874,7 +874,7 @@ Partial Class F0_CertificacionReforzamiento
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1218, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F0_CertificacionReforzamiento"
         Me.Text = "F0_ClasesPracticas2"
         Me.Controls.SetChildIndex(Me.SuperTabPrincipal, 0)

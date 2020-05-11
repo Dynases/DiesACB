@@ -14,7 +14,8 @@ Public Class PR_CronoClasesPerfeccionamiento
     End Sub
     Public Sub _prCargarComboInstructores()
         Dim dt As New DataTable
-        dt = L_prPersonaAyudaGeneralPorSucursal(tbSuc.Value, gi_LibPERSTIPOInstPerfeccionamiento) 'gi_userSuc
+        'dt = L_prPersonaAyudaGeneralPorSucursal(tbSuc.Value, gi_LibPERSTIPOInstPerfeccionamiento) 'gi_userSuc
+        dt = L_prPersonaAyudaGeneral(gi_LibPERSTIPOInstPerfeccionamiento)
 
         With tbInstr
             .DropDownList.Columns.Clear()
@@ -50,14 +51,19 @@ Public Class PR_CronoClasesPerfeccionamiento
             .Refresh()
         End With
 
-        If dt.Rows.Count > 0 Then
-            tbSuc.Value = gi_userSuc
-            If gb_userTodasSuc = False Then
-                tbSuc.ReadOnly = True
-            End If
+        'If dt.Rows.Count > 0 Then
+        '    tbSuc.Value = gi_userSuc
+        '    If gb_userTodasSuc = False Then
+        '        tbSuc.ReadOnly = True
+        '    End If
+        'End If
 
-        End If
-
+        'If dt.Rows.Count > 0 Then
+        '    tbSuc.Value = 1
+        '    If gb_userTodasSuc = False Then
+        '        tbSuc.ReadOnly = True
+        '    End If
+        'End If
     End Sub
     Private Sub _prCargarReporte()
         If tbSuc.SelectedIndex < 0 Then

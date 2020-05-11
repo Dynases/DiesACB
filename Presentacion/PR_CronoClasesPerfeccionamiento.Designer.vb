@@ -328,7 +328,7 @@ Partial Class PR_CronoClasesPerfeccionamiento
         '
         Me.GroupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel2.TabIndex = 47
-        Me.GroupPanel2.Text = "SUCURSAL"
+        Me.GroupPanel2.Text = "HORARIO-SUC"
         '
         'tbSuc
         '

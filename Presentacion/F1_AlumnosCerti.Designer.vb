@@ -1223,6 +1223,7 @@ Partial Class F1_AlumnosCerti
         Me.tbNumiPregun.PreventEnterBeep = True
         Me.tbNumiPregun.Size = New System.Drawing.Size(90, 22)
         Me.tbNumiPregun.TabIndex = 86
+        Me.tbNumiPregun.Visible = False
         '
         'LabelX10
         '
