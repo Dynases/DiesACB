@@ -64,6 +64,7 @@ Public Class PR_DatosPerPostu
             objrep.SetParameterValue("FechaPrac2", fechaPrac2)
             objrep.SetParameterValue("DiaTeo", "lunes: 07:30am".ToUpper)
             objrep.SetParameterValue("DiaPrac", "lunes: 09:30am".ToUpper)
+            objrep.SetParameterValue("usuario", L_Usuario)
 
             MReportViewer.Show()
             MReportViewer.BringToFront()

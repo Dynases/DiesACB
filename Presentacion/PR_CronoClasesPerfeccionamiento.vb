@@ -64,6 +64,7 @@ Public Class PR_CronoClasesPerfeccionamiento
         '        tbSuc.ReadOnly = True
         '    End If
         'End If
+        tbSuc.ReadOnly = False
     End Sub
     Private Sub _prCargarReporte()
         If tbSuc.SelectedIndex < 0 Then
@@ -160,6 +161,7 @@ Public Class PR_CronoClasesPerfeccionamiento
             MReportViewer.ReportSource = objrep
 
             objrep.SetParameterValue("Fecha", tbFecha.Value.Date.ToString("dd-MM-yyyy"))
+            objrep.SetParameterValue("usuario", L_Usuario)
 
             MReportViewer.Show()
             MReportViewer.BringToFront()

@@ -203,8 +203,9 @@ Public Class Pr_ListAlumnAprovb
 
                 objrep.SetParameterValue("Codigo", "ACB.F - CER - 002")
                 objrep.SetParameterValue("Rev", "0")
-                objrep.SetParameterValue("Fecha", tbFecha.Value.ToString)
+                objrep.SetParameterValue("Fecha", tbFecha.Value.ToShortDateString())
                 objrep.SetParameterValue("estado", "APROBADOS")
+                objrep.SetParameterValue("usuario", L_Usuario)
 
                 MReportViewer.Show()
                 MReportViewer.BringToFront()
@@ -250,7 +251,8 @@ Public Class Pr_ListAlumnAprovb
 
                 objrep.SetParameterValue("Codigo", "ACB.F - CER - 002")
                 objrep.SetParameterValue("Rev", "0")
-                objrep.SetParameterValue("Fecha", tbFecha.Value.ToString)
+                objrep.SetParameterValue("Fecha", tbFecha.Value.ToShortDateString())
+                objrep.SetParameterValue("usuario", L_Usuario)
 
                 MReportViewer.Show()
                 MReportViewer.BringToFront()

@@ -27,6 +27,7 @@ Public Class PR_CertiAlumnosEscAprobados
             objrep.SetDataSource(_dt)
             objrep.SetParameterValue("fechaDel", tbFechaDel.Value.ToString("dd/MM/yyyy"))
             objrep.SetParameterValue("fechaAl", tbFechaAl.Value.ToString("dd/MM/yyyy"))
+            objrep.SetParameterValue("usuario", L_Usuario)
 
             MReportViewer.ReportSource = objrep
 
