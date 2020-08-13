@@ -418,6 +418,181 @@ Public Class F0_PagosSocio
         End If
     End Function
     Private Sub P_prImprimirFacturar(numi As String, impFactura As Boolean, grabarPDF As Boolean)
+        'Dim _Fecha, _FechaAl As Date
+        'Dim _Ds, _Ds2, _Ds3 As New DataSet
+        'Dim _Ds1 As DataTable
+        'Dim _Autorizacion, _Nit, _Fechainv, _Total, _Key, _Cod_Control, _Hora,
+        '    _Literal, _TotalDecimal, _TotalDecimal2 As String
+        'Dim I, _NumFac, _numidosif, _TotalCC As Integer
+        'Dim ice, _Desc, _TotalLi As Decimal
+        'Dim _VistaPrevia As Integer = 0
+        '_Desc = CDbl(0)
+        'If Not IsNothing(P_Global.Visualizador) Then
+        '    P_Global.Visualizador.Close()
+        'End If
+
+        '_Fecha = Dt2FechaPago.Value '.ToString("dd/MM/yyyy")
+        '_Hora = Now.Hour.ToString + ":" + Now.Minute.ToString
+        '_Ds1 = L_fnTieneDosificacionAutomatica(1, Dt2FechaPago.Value.ToString("dd/MM/yyyy"), 2)
+
+        '_Ds = L_Reporte_Factura(numi, numi)
+        '_Autorizacion = _Ds1.Rows(0).Item("sbautoriz").ToString
+        '_NumFac = CInt(_Ds1.Rows(0).Item("sbnfac")) + 1
+        '_Nit = _Ds.Tables(0).Rows(0).Item("fvanitcli").ToString
+        '_Fechainv = _Fecha.Year.ToString +
+        '           _CompletarMonth(_Fecha.Month).Trim +
+        '           _CompletarMonth(_Fecha.Day).Trim
+        '_Total = _Ds.Tables(0).Rows(0).Item("fvatotal").ToString
+        'ice = _Ds.Tables(0).Rows(0).Item("fvaimpsi")
+        '_numidosif = _Ds1.Rows(0).Item("sbnumi").ToString
+        '_Key = _Ds1.Rows(0).Item("sbkey")
+        '_FechaAl = _Ds1.Rows(0).Item("sbfal")
+
+        'Dim maxNFac As Integer = L_fnObtenerMaxIdTabla("TFV001", "fvanfac", "fvaautoriz = " + _Autorizacion)
+        '_NumFac = maxNFac + 1
+
+        '_TotalCC = Math.Round(CDbl(_Total), MidpointRounding.AwayFromZero)
+        '_Cod_Control = ControlCode.generateControlCode(_Autorizacion, _NumFac, _Nit, _Fechainv, CStr(_TotalCC), _Key)
+
+        ''Literal 
+        '_TotalLi = _Ds.Tables(0).Rows(0).Item("fvastot") - _Ds.Tables(0).Rows(0).Item("fvadesc")
+        '_TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
+        '_TotalDecimal2 = CDbl(_TotalDecimal) * 100
+
+        '_Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
+        '_Ds2 = L_Reporte_Factura_Cia("1")
+        'QrFactura.Text = _Ds2.Tables(0).Rows(0).Item("scnit").ToString + "|" + Str(_NumFac).Trim + "|" + _Autorizacion + "|" + _Fecha + "|" + _Total + "|" + _TotalLi.ToString + "|" + _Cod_Control + "|" + nit.ToString + "|" + ice.ToString + "|0|0|" + Str(_Desc).Trim
+
+        'L_fnActualizarNroFactura(numi, _NumFac)
+
+        'L_Modificar_Factura("fvanumi = " + CStr(numi),
+        '                    "",
+        '                    CStr(_NumFac),
+        '                    CStr(_Autorizacion),
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    _Cod_Control,
+        '                    _FechaAl.ToString("yyyy/MM/dd"),
+        '                    "",
+        '                    "",
+        '                    CStr(numi))
+
+        '_Ds = L_Reporte_Factura(numi, numi)
+        'Dim dt As DataTable = L_fnFacturaLavadero(numi)
+        'Dim dtAyuda As DataTable = L_fnFacturaAyudaPagoSocios(numi)
+
+        ''''''''''''''AQUI DE UN AñO ANTERIOR '''''''''''''''''''''''
+        'Dim result As DataRow() = dtAyuda.Select("seano=" + Str(Now.Date.Year - 1))
+        'Dim total As Decimal = 0
+        'For l As Integer = 0 To result.Length - 1 Step 1
+        '    total += result(l).Item("Total")
+
+        'Next
+
+        'If (result.Length > 0) Then
+
+        '    If (result.Length > 1) Then
+
+        '        dt.Rows.Add(result.Length, "PAGO CUOTA DE SOCIO DE " + result(0).Item("detalle") + " A " + result(result.Length - 1).Item("detalle") + " DEL " + Str(Now.Date.Year - 1), total / result.Length, total, 0, DBNull.Value)
+        '    Else
+        '        dt.Rows.Add(result.Length, "PAGO CUOTA DE SOCIO DE " + result(0).Item("detalle") + " DEL " + Str(Now.Date.Year - 1), total / result.Length, total, 0, DBNull.Value)
+        '    End If
+
+        'End If
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ''''''''''''''AQUI DEL AñO ACTUAL '''''''''''''''''''''''
+        'Dim resultActual As DataRow() = dtAyuda.Select("seano=" + Str(Now.Date.Year))
+        'Dim totalActual As Decimal = 0
+        'For l As Integer = 0 To resultActual.Length - 1 Step 1
+        '    totalActual += resultActual(l).Item("Total")
+
+        'Next
+
+        'If (resultActual.Length > 0) Then
+
+        '    If (resultActual.Length > 1) Then
+
+        '        dt.Rows.Add(resultActual.Length, "PAGO CUOTA DE SOCIO DE " + resultActual(0).Item("detalle") + " A " + resultActual(resultActual.Length - 1).Item("detalle").ToString + " DEL " + Str(Now.Date.Year), totalActual / resultActual.Length, totalActual, 0, DBNull.Value)
+        '    Else
+        '        dt.Rows.Add(resultActual.Length, "PAGO CUOTA DE SOCIO DE " + resultActual(0).Item("detalle") + " DEL " + Str(Now.Date.Year), totalActual / resultActual.Length, totalActual, 0, DBNull.Value)
+        '    End If
+
+        'End If
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+        'For j As Integer = 0 To dt.Rows.Count - 1 Step 1
+        '    dt.Rows(j).Item("img") = P_fnImageToByteArray(QrFactura.Image)
+        'Next
+        'For I = 0 To _Ds.Tables(0).Rows.Count - 1
+        '    _Ds.Tables(0).Rows(I).Item("fvaimgqr") = P_fnImageToByteArray(QrFactura.Image)
+        'Next
+
+
+        'If (True) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+        '    P_Global.Visualizador = New Visualizador 'Comentar
+        'End If
+        'Dim objrep As Object = Nothing
+
+        'objrep = New R_Mam_FacturaLavadero
+
+        'objrep.SetDataSource(dt)
+        'objrep.SetParameterValue("nroFactura", _CompletarNroFactura(_Ds.Tables(0).Rows(0).Item("fvanfac")))
+        'objrep.SetParameterValue("nroAutorizacion", _Ds.Tables(0).Rows(0).Item("fvaautoriz"))
+        'objrep.SetParameterValue("MensajeContribuyente", "''" + _Ds1.Rows(0).Item("sbnota").ToString + "''.")
+        'objrep.SetParameterValue("nit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
+        'objrep.SetParameterValue("lugarFecha", "Cochabamba, " + Str(Dt2FechaPago.Value.Day) + " De " + MonthName(Dt2FechaPago.Value.Month) + " De " + Str(Dt2FechaPago.Value.Year))
+        'objrep.SetParameterValue("nombreFactura", namefactura.ToString)
+        'objrep.SetParameterValue("nitCliente", nit.ToString)
+        'objrep.SetParameterValue("TotalBs", _Literal)
+        'objrep.SetParameterValue("CodeControl", _Ds.Tables(0).Rows(0).Item("fvaccont"))
+        'objrep.SetParameterValue("FechaLimiteEmision", _Ds.Tables(0).Rows(0).Item("fvaflim"))
+        'objrep.SetParameterValue("mensaje2", _Ds1.Rows(0).Item("sbnota2").ToString)
+        'objrep.SetParameterValue("Obs", TbiNroSocio.Value.ToString + " - " + Tb2NombreSocio.Text.Trim)
+
+
+        'P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+        'P_Global.Visualizador.Show() 'Comentar
+        '    P_Global.Visualizador.BringToFront() 'Comentar
+
+
+        ''Dim pd As New PrintDocument()
+        ''pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+        ''If (Not pd.PrinterSettings.IsValid) Then
+        ''    ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+        ''                           My.Resources.WARNING, 5 * 1000,
+        ''                           eToastGlowColor.Blue, eToastPosition.BottomRight)
+        ''Else
+        ''    objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString '"EPSON TM-T20II Receipt5 (1)"
+        ''    objrep.PrintToPrinter(1, False, 1, 1)
+
+        ''End If
+
+        'If (grabarPDF) Then
+        '    'Copia de Factura en PDF
+        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+        '    End If
+        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(_NumFac) + "_" + CStr(_Autorizacion) + ".pdf")
+
+        'End If
+
+        'L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
+
+
+
+
         Dim _Fecha, _FechaAl As Date
         Dim _Ds, _Ds2, _Ds3 As New DataSet
         Dim _Ds1 As DataTable
@@ -459,7 +634,6 @@ Public Class F0_PagosSocio
         _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
         _TotalDecimal2 = CDbl(_TotalDecimal) * 100
 
-        'Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_Total) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
         _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
         _Ds2 = L_Reporte_Factura_Cia("1")
         QrFactura.Text = _Ds2.Tables(0).Rows(0).Item("scnit").ToString + "|" + Str(_NumFac).Trim + "|" + _Autorizacion + "|" + _Fecha + "|" + _Total + "|" + _TotalLi.ToString + "|" + _Cod_Control + "|" + nit.ToString + "|" + ice.ToString + "|0|0|" + Str(_Desc).Trim
@@ -498,42 +672,42 @@ Public Class F0_PagosSocio
         Dim total As Decimal = 0
         For l As Integer = 0 To result.Length - 1 Step 1
             total += result(l).Item("Total")
+            dt.Rows.Add(result(l).Item("Cantidad"), "PAGO CUOTA DE SOCIO MES " + result(l).Item("detalle") + " - " + Str(Now.Date.Year - 1), result(l).Item("PrecioUnitario"), result(l).Item("Total"), 0, DBNull.Value)
 
         Next
 
-        If (result.Length > 0) Then
 
-            '1 as Cantidad, detalle
-            '			, PrecioUnitario, Total,vdnumi , img
-            If (result.Length > 1) Then
+        'If (result.Length > 0) Then
 
-                dt.Rows.Add(result.Length, "PAGO CUOTA DE SOCIO DE " + result(0).Item("detalle") + " A " + result(result.Length - 1).Item("detalle") + " DEL " + Str(Now.Date.Year - 1), total / result.Length, total, 0, DBNull.Value)
-            Else
-                dt.Rows.Add(result.Length, "PAGO CUOTA DE SOCIO DE " + result(0).Item("detalle") + " DEL " + Str(Now.Date.Year - 1), total / result.Length, total, 0, DBNull.Value)
-            End If
+        '    If (result.Length > 1) Then
 
-        End If
+        '        dt.Rows.Add(result.Length, "PAGO CUOTA DE SOCIO DE " + result(0).Item("detalle") + " A " + result(result.Length - 1).Item("detalle") + " DEL " + Str(Now.Date.Year - 1), total / result.Length, total, 0, DBNull.Value)
+        '    Else
+        '        dt.Rows.Add(result.Length, "PAGO CUOTA DE SOCIO DE " + result(0).Item("detalle") + " DEL " + Str(Now.Date.Year - 1), total / result.Length, total, 0, DBNull.Value)
+        '    End If
+
+        'End If
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''
         '''''''''''''AQUI DEL AñO ACTUAL '''''''''''''''''''''''
         Dim resultActual As DataRow() = dtAyuda.Select("seano=" + Str(Now.Date.Year))
         Dim totalActual As Decimal = 0
         For l As Integer = 0 To resultActual.Length - 1 Step 1
-            totalActual += resultActual(l).Item("Total")
+            'totalActual += resultActual(l).Item("Total")
+
+            dt.Rows.Add(resultActual(l).Item("Cantidad"), "PAGO CUOTA DE SOCIO MES " + resultActual(l).Item("detalle") + " - " + Str(Now.Date.Year), resultActual(l).Item("PrecioUnitario"), resultActual(l).Item("Total"), 0, DBNull.Value)
 
         Next
 
-        If (resultActual.Length > 0) Then
+        'If (resultActual.Length > 0) Then
 
-            '1 as Cantidad, detalle
-            '			, PrecioUnitario, Total,vdnumi , img
-            If (resultActual.Length > 1) Then
+        '    If (resultActual.Length > 1) Then
 
-                dt.Rows.Add(resultActual.Length, "PAGO CUOTA DE SOCIO DE " + resultActual(0).Item("detalle") + " A " + resultActual(resultActual.Length - 1).Item("detalle").ToString + " DEL " + Str(Now.Date.Year), totalActual / resultActual.Length, totalActual, 0, DBNull.Value)
-            Else
-                dt.Rows.Add(resultActual.Length, "PAGO CUOTA DE SOCIO DE " + resultActual(0).Item("detalle") + " DEL " + Str(Now.Date.Year), totalActual / resultActual.Length, totalActual, 0, DBNull.Value)
-            End If
+        '        dt.Rows.Add(resultActual.Length, "PAGO CUOTA DE SOCIO DE " + resultActual(0).Item("detalle") + " A " + resultActual(resultActual.Length - 1).Item("detalle").ToString + " DEL " + Str(Now.Date.Year), totalActual / resultActual.Length, totalActual, 0, DBNull.Value)
+        '    Else
+        '        dt.Rows.Add(resultActual.Length, "PAGO CUOTA DE SOCIO DE " + resultActual(0).Item("detalle") + " DEL " + Str(Now.Date.Year), totalActual / resultActual.Length, totalActual, 0, DBNull.Value)
+        '    End If
 
-        End If
+        'End If
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
@@ -550,15 +724,7 @@ Public Class F0_PagosSocio
         End If
         Dim objrep As Object = Nothing
 
-            objrep = New R_Mam_FacturaLavadero
-        '' If (Not _Ds.Tables(0).Rows.Count = gi_FacturaCantidadItems) Then
-        ''For index = _Ds.Tables(0).Rows.Count To gi_FacturaCantidadItems - 1
-        'Insertamos la primera fila con el saldo Inicial
-        ''''  Dim f As DataRow = _Ds.Tables(0).NewRow
-        ''f.ItemArray() = _Ds.Tables(0).Rows(0).ItemArray
-        ''f.Item("fvbcant") = -1
-        ''_Ds.Tables(0).Rows.Add(f)
-        ''     Next
+        objrep = New R_Mam_FacturaLavadero2
 
         objrep.SetDataSource(dt)
         objrep.SetParameterValue("nroFactura", _CompletarNroFactura(_Ds.Tables(0).Rows(0).Item("fvanfac")))
@@ -577,7 +743,7 @@ Public Class F0_PagosSocio
 
         P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
         P_Global.Visualizador.Show() 'Comentar
-            P_Global.Visualizador.BringToFront() 'Comentar
+        P_Global.Visualizador.BringToFront() 'Comentar
 
 
         'Dim pd As New PrintDocument()
@@ -593,14 +759,14 @@ Public Class F0_PagosSocio
         'End If
 
         If (grabarPDF) Then
-                'Copia de Factura en PDF
-                If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-                    Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
-                End If
-                objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(_NumFac) + "_" + CStr(_Autorizacion) + ".pdf")
-
+            'Copia de Factura en PDF
+            If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+                Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
             End If
-        '' End If
+            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(_NumFac) + "_" + CStr(_Autorizacion) + ".pdf")
+
+        End If
+
         L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
     End Sub
 

@@ -1011,6 +1011,12 @@
       <DependentUpon>R_ListarSocioPaganMortuoria.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\R_Mam_FacturaLavadero2.vb">
+      <DependentUpon>R_Mam_FacturaLavadero2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reportes\R_ReciboMortuoria.vb">
       <DependentUpon>R_ReciboMortuoria.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1723,6 +1729,10 @@
     <EmbeddedResource Include="Reportes\R_ListarSocioPaganMortuoria.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_ListarSocioPaganMortuoria.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_Mam_FacturaLavadero2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_Mam_FacturaLavadero2.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_ReciboMortuoria.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

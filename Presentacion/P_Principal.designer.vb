@@ -219,8 +219,8 @@ Partial Class P_Principal
         'SideNav1
         '
         Me.SideNav1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.SideNav1.Controls.Add(Me.SideNavPanel3)
         Me.SideNav1.Controls.Add(Me.SideNavPanel4)
+        Me.SideNav1.Controls.Add(Me.SideNavPanel3)
         Me.SideNav1.Controls.Add(Me.SideNavPanel2)
         Me.SideNav1.Controls.Add(Me.SideNav_Conf)
         Me.SideNav1.Controls.Add(Me.SideNav_Logistica)
@@ -245,6 +245,7 @@ Partial Class P_Principal
         Me.SideNavPanel3.Name = "SideNavPanel3"
         Me.SideNavPanel3.Size = New System.Drawing.Size(842, 524)
         Me.SideNavPanel3.TabIndex = 73
+        Me.SideNavPanel3.Visible = False
         '
         'MetroTilePanel5
         '
@@ -503,7 +504,6 @@ Partial Class P_Principal
         Me.SideNavPanel4.Name = "SideNavPanel4"
         Me.SideNavPanel4.Size = New System.Drawing.Size(842, 524)
         Me.SideNavPanel4.TabIndex = 86
-        Me.SideNavPanel4.Visible = False
         '
         'MetroTilePanel6
         '
@@ -2116,7 +2116,6 @@ Partial Class P_Principal
         '
         'FP_Certificacion
         '
-        Me.FP_Certificacion.Checked = True
         Me.FP_Certificacion.Name = "FP_Certificacion"
         Me.FP_Certificacion.Panel = Me.SideNavPanel3
         Me.FP_Certificacion.Symbol = ""
@@ -2134,6 +2133,7 @@ Partial Class P_Principal
         '
         'FP_Lavadero
         '
+        Me.FP_Lavadero.Checked = True
         Me.FP_Lavadero.Name = "FP_Lavadero"
         Me.FP_Lavadero.Panel = Me.SideNavPanel4
         Me.FP_Lavadero.Symbol = ""
